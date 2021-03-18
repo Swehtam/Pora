@@ -91,7 +91,7 @@ public class PlayerCharacter : MonoBehaviour {
         });
         if (target != null) {
             // Kick off the dialogue at this node.
-            FindObjectOfType<DialogueRunner> ().StartDialogue (target.talkToNode);
+            FindObjectOfType<DialogueRunner>().StartDialogue (target.talkToNode);
         }
     }
 }

@@ -1,0 +1,40 @@
+fileFormatVersion: 2
+guid: 87d795f477b2fe244ad90db7d4906304
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 94073015eacc34c1d8fc6786e43d60ca, type: 3}
+  baseLanguageID: pt-BR
+  stringIDs:
+  - line:794945
+  - line:2dc39b
+  - line:34de2f
+  - line:dcc2bc
+  - Mario-Mario-0
+  - line:a8e70c
+  - line:305cde
+  - Mario-Mario-1
+  - Mario-Mario-2
+  - Mario-Mario-3
+  - Mario-Mario-4
+  - Mario-Mario-5
+  - line:5d7a7c
+  - line:0a7e39
+  - line:0facf7
+  - line:8c3f98
+  - line:24c418
+  - line:df4eaf
+  - line:1fea6c
+  - line:5df323
+  - line:60c282
+  - line:d7df49
+  compilationStatus: 1
+  isSuccesfullyCompiled: 1
+  compilationErrorMessage: 
+  baseLanguage: {fileID: 7128917941130120860, guid: 87d795f477b2fe244ad90db7d4906304,
+    type: 3}
+  localizations: []

@@ -48,7 +48,6 @@ namespace Yarn.Unity {
     /// <seealso cref="DialogueRunner"/>
     public class DialogueUI : Yarn.Unity.DialogueUIBehaviour
     {
-
         /// <summary>
         /// The object that contains the dialogue and the options.
         /// </summary>

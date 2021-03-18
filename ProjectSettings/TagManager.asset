@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Bounds
+  - Joystick
+  - NPC
+  - Obstacle
+  - score
   layers:
   - Default
   - TransparentFX

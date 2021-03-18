@@ -35,7 +35,6 @@ using System;
 
 namespace Yarn.Unity
 {
-
     /// <summary>
     /// The [DialogueRunner]({{|ref
     /// "/docs/unity/components/dialogue-runner.md"|}}) component acts as
@@ -49,8 +48,6 @@ namespace Yarn.Unity
         /// scene start.
         /// </summary>
         public YarnProgram[] yarnScripts;
-
-         
 
         /// <summary>
         /// The language code used to select a string table.
@@ -156,7 +153,7 @@ namespace Yarn.Unity
         public void Add(YarnProgram scriptToLoad)
         {
             Dialogue.AddProgram(scriptToLoad.GetProgram());
-            AddStringTable(scriptToLoad);
+            AddStringTable(scriptToLoad);       
         }
 
         /// <summary>
@@ -518,6 +515,10 @@ namespace Yarn.Unity
          */
         Dialogue dialogue;
 
+        //Script atribuido a um objeto da cena _preload
+        //Esse Script serve para salvar todos os nós que foram visitados durante o decorrer do jogo, mesmo que mude de cena
+        private NodeVisitedTracker nodeTracker;
+
         /// Start the dialogue
         void Start()
         {
@@ -528,11 +529,13 @@ namespace Yarn.Unity
             variableStorage.ResetToDefaults();
 
             // Combine all scripts together and load them
-            if (yarnScripts != null && yarnScripts.Length > 0) {
+            if (yarnScripts != null && yarnScripts.Length > 0)
+            {
 
                 var compiledPrograms = new List<Program>();
 
-                foreach (var program in yarnScripts) {
+                foreach (var program in yarnScripts)
+                {
                     compiledPrograms.Add(program.GetProgram());
                 }
 
@@ -541,15 +544,28 @@ namespace Yarn.Unity
                 Dialogue.SetProgram(combinedProgram);
             }
 
-            if (startAutomatically) {
+            //Procurar o objeto com o script NodeVisitedTracker
+            nodeTracker = FindObjectOfType<NodeVisitedTracker>();
+            //Seta esse script no nodetracker, por isso utilizar o 'this'
+            nodeTracker.SetDialogueRunner(this);
+
+            if (startAutomatically)
+            {
                 StartDialogue();
             }
+        }
+
+        // Called by the Dialogue Runner to notify us that a node finished
+        // running. 
+        public void NodeComplete(string nodeName)
+        {
+            nodeTracker.NodeComplete(nodeName);
         }
 
         Dialogue CreateDialogueInstance()
         {
             // Create the main Dialogue runner, and pass our
-            // variableStorage to it
+            // variableStorage to itnode
             var dialogue = new Yarn.Dialogue(variableStorage) {
 
                 // Set up the logging system.
