@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Yarn.Unity;
 
 public class PlayerSwimController : MonoBehaviour
 {
@@ -11,46 +12,76 @@ public class PlayerSwimController : MonoBehaviour
     public readonly int maxSwimZones = 3;
     //Altura das Zonas
     public readonly float swimZoneHeight = 2f;
-    public event Action OnReset;
-    private int score = 0;
+
+    private bool isDiving = false;
+    private Animator anim;
+    private DialogueRunner dialogueRunner;
+
+    private void Start()
+    {
+        anim = gameObject.GetComponentInChildren<Animator>();
+        dialogueRunner = FindObjectOfType<DialogueRunner>();
+    }
+
+    private void Update()
+    {
+        if (DistanceController.isFirstHalfCompleted)
+        {
+            anim.SetBool("ChangeSide", true);
+        }
+    }
 
     public void MovePlayerUp()
     {
-        //Move o player uma zona para cima e salva sua posição
-        if (playerSwimZone < maxSwimZones)
+        if (!dialogueRunner.IsDialogueRunning)
         {
-            transform.position = new Vector2(transform.position.x, transform.position.y + swimZoneHeight);
-            playerSwimZone += 1;
+            //Move o player uma zona para cima e salva sua posição
+            if (playerSwimZone < maxSwimZones)
+            {
+                transform.position = new Vector2(transform.position.x, transform.position.y + swimZoneHeight);
+                playerSwimZone += 1;
+            }
         }
     }
 
     public void MovePlayerDown()
     {
-        //Move o player uma zona para baixo e salva sua posição
-        if (playerSwimZone > 1)
+        if (!dialogueRunner.IsDialogueRunning)
         {
-            transform.position = new Vector2(transform.position.x, transform.position.y - swimZoneHeight);
-            playerSwimZone -= 1;
+            //Move o player uma zona para baixo e salva sua posição
+            if (playerSwimZone > 1)
+            {
+                transform.position = new Vector2(transform.position.x, transform.position.y - swimZoneHeight);
+                playerSwimZone -= 1;
+            }
         }
     }
 
-    private void Reset()
-    {
-        score = 0;
-        OnReset?.Invoke();
-    }
-
+    //O player morre se bater em uma pedra, mergulhando ou não
+    //O player morre se bater em um tronco de árvore sem mergulhar
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            var obstacle = collision.GetComponent<Obstacle>();
+            if(obstacle.id == 0 || (obstacle.id == 1 && !isDiving))
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
 
-        if (collision.gameObject.CompareTag("score"))
-        {
-            score++;
-            ScoreCollector.Instance.AddScore(score);
-        }
-        else if (collision.gameObject.CompareTag("Obstacle"))
-        {
-            Destroy(gameObject);
-        }
+    //Faz com q Porã mergulhe
+    public void PlayerDive()
+    {
+        anim.SetBool("IsDiving", true);
+        isDiving = true;
+    }
+
+    //Faz com q Porã suba
+    public void PlayerEmerge()
+    {
+        anim.SetBool("IsDiving", false);
+        isDiving = false;
     }
 }

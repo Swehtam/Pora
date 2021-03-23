@@ -47,6 +47,6 @@ public class PauseMenuSwinDodge : MonoBehaviour
     public void RestartGame()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("NadarDesvioMiniGame");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

@@ -545,9 +545,9 @@ namespace Yarn.Unity
             }
 
             //Procurar o objeto com o script NodeVisitedTracker
-            nodeTracker = FindObjectOfType<NodeVisitedTracker>();
+            //nodeTracker = FindObjectOfType<NodeVisitedTracker>();
             //Seta esse script no nodetracker, por isso utilizar o 'this'
-            nodeTracker.SetDialogueRunner(this);
+            //nodeTracker.SetDialogueRunner(this);
 
             if (startAutomatically)
             {
@@ -559,7 +559,7 @@ namespace Yarn.Unity
         // running. 
         public void NodeComplete(string nodeName)
         {
-            nodeTracker.NodeComplete(nodeName);
+            //nodeTracker.NodeComplete(nodeName);
         }
 
         Dialogue CreateDialogueInstance()
