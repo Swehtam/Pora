@@ -8,7 +8,6 @@ public class SpeedController : MonoBehaviour
     //Static para compartilhar a mesma velocidade com todos os objetos do Mini Game
     public static float speed = 0f;
     
-
     private DialogueRunner dialogueRunner;
     private void Start()
     {
@@ -19,7 +18,7 @@ public class SpeedController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (!dialogueRunner.IsDialogueRunning)
+        if (!dialogueRunner.IsDialogueRunning && !SwimDodgeTutorialPanel.IsTutorialRunning)
         {
             if (!DistanceController.isFirstHalfCompleted)
             {
@@ -50,5 +49,10 @@ public class SpeedController : MonoBehaviour
         {
             speed = -3f;
         }
+    }
+
+    public void ResetGame()
+    {
+        speed = 0f;   
     }
 }

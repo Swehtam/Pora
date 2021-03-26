@@ -19,9 +19,19 @@ public class Obstacle : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Obstacle") && (id == 0 && collision.GetComponent<Obstacle>().id == 1))
+        if (collision.gameObject.CompareTag("Obstacle"))
         {
-            Destroy(gameObject);
+            var obstacle = collision.GetComponent<Obstacle>();
+            //Se uma pedra e um tronco estiverem no mesmo ponto, então destroi a pedra (id: 0)
+            if (id == 0 && obstacle.id == 1)
+            {
+                Destroy(gameObject);
+            }
+            //Se uma planta e um (tronco ou pedra) estiverem no mesmo ponto, então destroi a planta (id: 2 e 3)
+            else if ((id == 2 || id == 3) && (obstacle.id == 0 || obstacle.id == 1))
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

@@ -18,7 +18,9 @@ public class MinigameDialogue : MonoBehaviour
             dialogueRunner = FindObjectOfType<DialogueRunner>();
             dialogueRunner.Add(scriptToLoad);
         }
-        StartFirstDialogue();
+
+        if(!SwimDodgeTutorialPanel.IsFirstTutorial)
+            StartFirstDialogue();
     }
 
     public void StartFirstDialogue()

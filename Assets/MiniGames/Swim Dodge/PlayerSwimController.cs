@@ -59,6 +59,8 @@ public class PlayerSwimController : MonoBehaviour
 
     //O player morre se bater em uma pedra, mergulhando ou não
     //O player morre se bater em um tronco de árvore sem mergulhar
+    //O player é empurrado para baixo se bater em uma planta que jogue-o para baixo
+    //O player é empurrado para cima se bater em uma planta que jogue-o para cima
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Obstacle"))
@@ -67,6 +69,18 @@ public class PlayerSwimController : MonoBehaviour
             if(obstacle.id == 0 || (obstacle.id == 1 && !isDiving))
             {
                 Destroy(gameObject);
+            }
+            //Planta que empurra para baixo
+            else if (obstacle.id == 2)
+            {
+                transform.position = new Vector2(transform.position.x, transform.position.y - swimZoneHeight);
+                playerSwimZone -= 1;
+            }
+            //Planta que empurra para cima
+            else if (obstacle.id == 3)
+            {
+                transform.position = new Vector2(transform.position.x, transform.position.y + swimZoneHeight);
+                playerSwimZone += 1;
             }
         }
     }

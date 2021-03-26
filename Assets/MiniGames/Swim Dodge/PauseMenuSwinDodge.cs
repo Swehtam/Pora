@@ -7,6 +7,8 @@ public class PauseMenuSwinDodge : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
+    public DistanceController distanceController;
+    public SpeedController speedController;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +49,8 @@ public class PauseMenuSwinDodge : MonoBehaviour
     public void RestartGame()
     {
         Time.timeScale = 1f;
+        distanceController.ResetGame();
+        speedController.ResetGame();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
