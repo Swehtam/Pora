@@ -8,12 +8,13 @@ public class CameraController : MonoBehaviour
     private GameObject player;
     private CinemachineVirtualCamera vcam;
 
-    // Start is called before the first frame update
-    void Awake()
+    //Tem que buscar o player no Start, pois ele ainda n foi criado no Awake
+    //Instancia do Player está sendo criado no Awake do GameController
+    void Start()
     {
         vcam = GetComponent<CinemachineVirtualCamera>();
-        if (player is null) player = InstancesManager.singleton.getPlayerInstance();
+        if (player is null) player = InstancesManager.singleton.GetPlayerInstance();
 
-        vcam.Follow = player.transform;
+        vcam.m_Follow = player.transform;
     }
 }

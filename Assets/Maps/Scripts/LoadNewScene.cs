@@ -14,7 +14,7 @@ public class LoadNewScene : MonoBehaviour
     void Start()
     {
         //Usa o singleton para pegar a instância do player
-        player = InstancesManager.singleton.getPlayerInstance().GetComponent<PlayerController>();
+        player = InstancesManager.singleton.GetPlayerInstance().GetComponent<PlayerController>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

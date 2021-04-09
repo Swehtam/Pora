@@ -9,7 +9,7 @@ public class FixedJoystick : Joystick
     protected override void Start()
     {
         base.Start();
-        if (player is null) player = InstancesManager.singleton.getPlayerInstance();
+        if (player is null) player = InstancesManager.singleton.GetPlayerInstance();
         player.GetComponent<PlayerController>().SetJoystick(this.gameObject.GetComponent<FixedJoystick>());
     }
 }

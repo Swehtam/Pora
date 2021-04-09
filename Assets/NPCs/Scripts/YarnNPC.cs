@@ -19,7 +19,7 @@ public class YarnNPC : MonoBehaviour
     {
         if (scriptToLoad != null)
         {
-            DialogueRunner dialogueRunner = InstancesManager.singleton.getDialogueRunnerInstance();
+            DialogueRunner dialogueRunner = InstancesManager.singleton.GetDialogueRunnerInstance();
             dialogueRunner.Add(scriptToLoad);
         }
 

@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class SwimDodgeTutorialPanel : MonoBehaviour
 {
-
     [SerializeField] private List<GameObject> tutorialImages;
     [SerializeField] private GameObject tutorialPanel;
     [SerializeField] private GameObject leftButton;
     [SerializeField] private GameObject rightButton;
     [SerializeField] private GameObject playButton;
+    [SerializeField] private MinigameClassesInterface minigameClassesInterface;
     private int lastImageOpen = 0;
-
-    public MinigameDialogue minigameDialogue;
+    
     public static bool IsFirstTutorial = true;
     public static bool IsTutorialRunning = false;
 
@@ -51,7 +50,7 @@ public class SwimDodgeTutorialPanel : MonoBehaviour
         {
             //Sinaliza que o tutorial acabou
             IsFirstTutorial = false;
-            minigameDialogue.StartFirstDialogue();
+            minigameClassesInterface.minigameDialogue.StartFirstDialogue();
         }
 
         IsTutorialRunning = false;

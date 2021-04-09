@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private bool playerMoving;
     private Vector2 lastMove;
     private Joystick joystick;
+    private bool IsPlayingMinigame = false;
 
     //Componentes de Porã
     private Rigidbody2D myRB;
@@ -38,11 +39,11 @@ public class PlayerController : MonoBehaviour
 
         if(dialogueRunner == null)
         {
-            dialogueRunner = InstancesManager.singleton.getDialogueRunnerInstance();
+            dialogueRunner = InstancesManager.singleton.GetDialogueRunnerInstance();
         }
 
         //Para toda a movimentação se o Player
-        if (dialogueRunner.IsDialogueRunning == true)
+        if (dialogueRunner.IsDialogueRunning == true || IsPlayingMinigame)
         {
             //Reseta a animação para não bugar
             anim.SetFloat("MoveX", moveInput.x);
@@ -104,5 +105,17 @@ public class PlayerController : MonoBehaviour
         playerMoving = false;
         //Para o movimento do personagem quando aparecer o novo dialogo
         moveInput = new Vector2(0f, 0f);
+    }
+
+    //Metodo a ser chamado toda vez q iniciar um minigame
+    public void PlayingMinigame()
+    {
+        IsPlayingMinigame = true;
+    }
+
+    //Metodo a ser chamado toda vez que acabar um minigame
+    public void StoppedPlayingMinigame()
+    {
+        IsPlayingMinigame = false;
     }
 }

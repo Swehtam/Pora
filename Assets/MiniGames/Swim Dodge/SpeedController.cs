@@ -7,18 +7,20 @@ public class SpeedController : MonoBehaviour
 {
     //Static para compartilhar a mesma velocidade com todos os objetos do Mini Game
     public static float speed = 0f;
-    
-    private DialogueRunner dialogueRunner;
+    [SerializeField] private MinigameClassesInterface minigameClassesInterface;
+
+    private bool playerLost = false; //Variavel para controlar a velocidade caso o player perca o minigame
+    private float t;
+    private float speedAux; //Varivel auxiliar para interpolar a velocidade do jogo
     private void Start()
     {
-        dialogueRunner = FindObjectOfType<DialogueRunner>();
-        dialogueRunner.onDialogueComplete.AddListener(StartSwimming);
+        minigameClassesInterface.dialogueRunner.onDialogueComplete.AddListener(StartSwimming);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (!dialogueRunner.IsDialogueRunning && !SwimDodgeTutorialPanel.IsTutorialRunning)
+        if (!minigameClassesInterface.dialogueRunner.IsDialogueRunning && !SwimDodgeTutorialPanel.IsTutorialRunning && !playerLost)
         {
             if (!DistanceController.isFirstHalfCompleted)
             {
@@ -37,6 +39,13 @@ public class SpeedController : MonoBehaviour
                 }
             }
         }
+
+        if (playerLost && speed != 0f)
+        {
+            //1 segundo para parar a velocidade
+            t += Time.deltaTime / 1f;
+            speed = Mathf.Lerp(speedAux, 0f, t);
+        }
     }
 
     private void StartSwimming()
@@ -54,5 +63,11 @@ public class SpeedController : MonoBehaviour
     public void ResetGame()
     {
         speed = 0f;   
+    }
+
+    public void PlayerLost()
+    {
+        speedAux = speed;
+        playerLost = true;
     }
 }

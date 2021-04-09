@@ -4,21 +4,22 @@ using UnityEngine;
 
 public class ButtonsPositionController : MonoBehaviour
 {
-    public GameObject pauseButton;
-    public GameObject diveButton;
+    public RectTransform pauseRect;
+    public RectTransform diveRect;
+    public RectTransform fpsRect;
    
     public void ChangeButtonsSide()
     {
-        RectTransform pauseRect = pauseButton.GetComponent<RectTransform>();
+        //Botão de pausa
         //Mudar o Right e deixar o Top como está
         pauseRect.offsetMax = new Vector2(-686f, pauseRect.offsetMax.y);
         //Mudar o Left e deixar o Bottom como está
         pauseRect.offsetMin = new Vector2(93f, pauseRect.offsetMin.y);
 
-        RectTransform diveRect = diveButton.GetComponent<RectTransform>();
-        //Mudar o Right e deixar o Top como está
-        diveRect.offsetMax = new Vector2(-623.5f, diveRect.offsetMax.y);
-        //Mudar o Left e deixar o Bottom como está
-        diveRect.offsetMin = new Vector2(30.5f, diveRect.offsetMin.y);
+        //Botão de mergulho
+        diveRect.anchoredPosition = new Vector2(diveRect.anchoredPosition.x * -1, diveRect.anchoredPosition.y);
+
+        //FPS
+        fpsRect.anchoredPosition = new Vector2(fpsRect.anchoredPosition.x * -1, fpsRect.anchoredPosition.y);
     }
 }

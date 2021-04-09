@@ -7,7 +7,7 @@ public class CameraMiniGameController : MonoBehaviour
     private float t;
     private Vector3 startPosition;
     private Vector3 target;
-    private readonly float timeToReachTarget = 5f;
+    private readonly float timeToReachTarget = 2f;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +19,7 @@ public class CameraMiniGameController : MonoBehaviour
     {
         if (transform.position != target && DistanceController.isFirstHalfCompleted)
         {
-            t += Time.deltaTime / (timeToReachTarget/2.2f);
+            t += Time.deltaTime / timeToReachTarget;
             transform.position = Vector3.Lerp(startPosition, target, t);
         }
     }

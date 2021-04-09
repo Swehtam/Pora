@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.4" tiledversion="1.4.3" name="custom_tiles" tilewidth="16" tileheight="16" tilecount="128" columns="16">
- <image source="custom_tiles.png" trans="000000" width="256" height="128"/>
+<tileset version="1.4" tiledversion="1.4.3" name="custom_tiles" tilewidth="16" tileheight="16" tilecount="160" columns="16">
+ <image source="custom_tiles.png" trans="000000" width="256" height="160"/>
  <tile id="16">
   <objectgroup draworder="index" id="2">
    <object id="1" x="4" y="0">

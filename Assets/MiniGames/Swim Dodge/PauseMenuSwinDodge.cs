@@ -7,23 +7,16 @@ public class PauseMenuSwinDodge : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
-    public DistanceController distanceController;
-    public SpeedController speedController;
+    [SerializeField] private MinigameClassesInterface minigameClassesInterface;
+
+    private PlayerController player;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (GameIsPaused)
-            {
-                ResumeGame();
-            }
-            else
-            {
-                PauseGame();
-            }
-        }
+        //Usa o singleton para pegar a instância do player
+        player = InstancesManager.singleton.GetPlayerInstance().GetComponent<PlayerController>();
+        player.PlayingMinigame();
     }
 
     public void PauseGame()
@@ -42,15 +35,24 @@ public class PauseMenuSwinDodge : MonoBehaviour
 
     public void QuitGame()
     {
-        Debug.Log("Fechando Jogo...");
-        Application.Quit();
+        Time.timeScale = 1f;
+        minigameClassesInterface.distanceController.ResetGame();
+        minigameClassesInterface.speedController.ResetGame();
+        player.loadPointName = "Saida Nadar Desvio";
+        player.StoppedPlayingMinigame();
+        SceneManager.LoadScene("VilaLobo");
     }
 
     public void RestartGame()
     {
         Time.timeScale = 1f;
-        distanceController.ResetGame();
-        speedController.ResetGame();
+        minigameClassesInterface.distanceController.ResetGame();
+        minigameClassesInterface.speedController.ResetGame();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void ShowTutorial()
+    {
+        minigameClassesInterface.swimDodgeTutorialPanel.StartTutorial();
     }
 }

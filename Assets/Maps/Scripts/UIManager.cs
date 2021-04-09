@@ -17,8 +17,8 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        dialogueRunner = InstancesManager.singleton.getDialogueRunnerInstance();
-        var player = InstancesManager.singleton.getPlayerInstance();
+        dialogueRunner = InstancesManager.singleton.GetDialogueRunnerInstance();
+        var player = InstancesManager.singleton.GetPlayerInstance();
         playerController = player.GetComponent<PlayerController>();
         playerInteraction = player.GetComponentInChildren<PlayerInteractionController>();
 

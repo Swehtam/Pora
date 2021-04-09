@@ -10,7 +10,7 @@ public class PlayerLoadPoint : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = InstancesManager.singleton.getPlayerInstance().GetComponent<PlayerController>();
+        player = InstancesManager.singleton.GetPlayerInstance().GetComponent<PlayerController>();
 
         if(player.loadPointName == pointName)
         {
