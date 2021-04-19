@@ -15,6 +15,7 @@ public class InstancesManager : MonoBehaviour
     private GameObject player;
     private DialogueRunner dialogueRunner;
     private PlayerSettings playerSettings;
+    private LevelLoader levelLoader;
 
     void Awake()
     {
@@ -60,5 +61,15 @@ public class InstancesManager : MonoBehaviour
             playerSettings = FindObjectOfType<PlayerSettings>();
 
         return playerSettings;
+    }
+
+    //Método responsável por retornar o PlayerSettings do _preload para quem solicitar
+    //Caso o PlayerSettings não exista no singleton, procure pelo mesmo, salve e retorne (isso ocorre uma vez por game)
+    public LevelLoader GetLevelLoaderInstance()
+    {
+        if (levelLoader == null)
+            levelLoader = FindObjectOfType<LevelLoader>();
+
+        return levelLoader;
     }
 }

@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PauseMenuSwinDodge : MonoBehaviour
 {
@@ -40,7 +39,7 @@ public class PauseMenuSwinDodge : MonoBehaviour
         minigameClassesInterface.speedController.ResetGame();
         player.loadPointName = "Saida Nadar Desvio";
         player.StoppedPlayingMinigame();
-        SceneManager.LoadScene("VilaLobo");
+        InstancesManager.singleton.GetLevelLoaderInstance().LoadNextLevel("VilaLobo");
     }
 
     public void RestartGame()
@@ -48,7 +47,7 @@ public class PauseMenuSwinDodge : MonoBehaviour
         Time.timeScale = 1f;
         minigameClassesInterface.distanceController.ResetGame();
         minigameClassesInterface.speedController.ResetGame();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        InstancesManager.singleton.GetLevelLoaderInstance().LoadNextLevel("NadarDesvioMiniGame");
     }
 
     public void ShowTutorial()

@@ -5,9 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class LoadMenu : MonoBehaviour
 {
+    private LevelLoader levelLoader;
     void Start()
     {
         //Mudar para carregar a tela de menu, quando tiver uma
-        SceneManager.LoadScene("MainMenu");
+        levelLoader = InstancesManager.singleton.GetLevelLoaderInstance();
+        levelLoader.LoadNextLevel("MainMenu");
     }
 }

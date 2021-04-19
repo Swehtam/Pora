@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class LoadNewScene : MonoBehaviour
 {
@@ -22,7 +21,7 @@ public class LoadNewScene : MonoBehaviour
         if(collision.transform.root.gameObject.name == "Porã" && !collision.isTrigger)
         {
             player.loadPointName = exitPoint;
-            SceneManager.LoadScene(scene);
+            InstancesManager.singleton.GetLevelLoaderInstance().LoadNextLevel(scene);
         }
     }
 }
