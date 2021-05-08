@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.6.0" orientation="orthogonal" renderorder="right-down" width="4" height="1" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="1">
+ <tileset firstgid="1" source="Modern_Interiors/custom_tiles_interior.tsx"/>
+ <tileset firstgid="257" source="Modern_Interiors/5_Classroom_and_library_16x16.tsx"/>
+ <layer id="1" name="Camada de Tiles 1" width="4" height="1">
+  <data encoding="csv">
+11,12,12,13
+</data>
+ </layer>
+ <layer id="2" name="Camada de Tiles 2" width="4" height="1">
+  <data encoding="csv">
+59,60,426,0
+</data>
+ </layer>
+ <layer id="3" name="Camada de Tiles 3" width="4" height="1" offsetx="-8" offsety="0">
+  <data encoding="csv">
+0,0,0,272
+</data>
+ </layer>
+</map>

@@ -20,9 +20,12 @@ public class PauseMenuSwinDodge : MonoBehaviour
 
     public void PauseGame()
     {
-        pauseMenuUI.SetActive(true);
-        Time.timeScale = 0f;
-        GameIsPaused = true;
+        if (!minigameClassesInterface.dialogueRunner.IsDialogueRunning)
+        {
+            pauseMenuUI.SetActive(true);
+            Time.timeScale = 0f;
+            GameIsPaused = true;
+        }
     }
 
     public void ResumeGame()

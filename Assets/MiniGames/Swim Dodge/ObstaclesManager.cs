@@ -8,7 +8,7 @@ public class ObstaclesManager : MonoBehaviour
     //Variaveis para os obstaculos que são pedra
     [SerializeField] private GameObject rocks;
     [SerializeField] private List<Sprite> rocksSprites;
-    private List<GameObject> disabledRocks = new List<GameObject>();
+    [SerializeField] private List<GameObject> disabledRocks = new List<GameObject>();
     private readonly float minRocksSpawnIntervalInSeconds = 1.5f; //Tempo minimo para spawnar um obstaculo
     private float maxRocksSpawnIntervalInSeconds = 3f; //Tempo máximo para spawnar um obstaculo
     private int lastRockPosition = 0;
@@ -16,7 +16,7 @@ public class ObstaclesManager : MonoBehaviour
 
     //Variaveis para os obstaculos que são troncos de arvore
     [SerializeField] private GameObject treeTrunks;
-    private List<GameObject> disabledTreeTrunks = new List<GameObject>();
+    [SerializeField] private List<GameObject> disabledTreeTrunks = new List<GameObject>();
     private readonly float minTrunkSpawnIntervalInSeconds = 10f; //Tempo minimo para spawnar um obstaculo
     private float maxTrunkSpawnIntervalInSeconds = 15f; //Tempo máximo para spawnar um obstaculo
     private bool isTrunkCouroutineRunning; //Variavel para saber se a Couroutine está sendo executada ou não
@@ -25,8 +25,8 @@ public class ObstaclesManager : MonoBehaviour
     [SerializeField] private List<GameObject> plantsList;
     [SerializeField] private List<Sprite> plantsUpSprites;
     [SerializeField] private List<Sprite> plantsDownSprites;
-    private List<GameObject> disabledPlantsUp = new List<GameObject>();
-    private List<GameObject> disabledPlantsDown = new List<GameObject>();
+    [SerializeField] private List<GameObject> disabledPlantsUp = new List<GameObject>();
+    [SerializeField] private List<GameObject> disabledPlantsDown = new List<GameObject>();
     private readonly float minPlantsSpawnIntervalInSeconds = 4f; //Tempo minimo para spawnar um obstaculo
     private float maxPlantsSpawnIntervalInSeconds = 6f; //Tempo máximo para spawnar um obstaculo
     private bool isPlantsCouroutineRunning; //Variavel para saber se a Couroutine está sendo executada ou não
@@ -40,13 +40,35 @@ public class ObstaclesManager : MonoBehaviour
         minigameClassesInterface.dialogueRunner.onDialogueComplete.AddListener(StartSpawn);
         isRockCouroutineRunning = false;
         isTrunkCouroutineRunning = false;
+        isPlantsCouroutineRunning = false;
+
+        //Adiciona no Spawned Obejects os objects que já estão presentes na cena
+        foreach (GameObject rock in disabledRocks)
+        {
+            spawnedObjects.Add(rock.GetInstanceID(), rock);
+        }
+
+        foreach (GameObject treeTrunk in disabledTreeTrunks)
+        {
+            spawnedObjects.Add(treeTrunk.GetInstanceID(), treeTrunk);
+        }
+
+        foreach (GameObject plant in disabledPlantsUp)
+        {
+            spawnedObjects.Add(plant.GetInstanceID(), plant);
+        }
+
+        foreach (GameObject plant in disabledPlantsDown)
+        {
+            spawnedObjects.Add(plant.GetInstanceID(), plant);
+        }
     }
 
     private void Update()
     {
         if (DistanceController.isFirstHalfCompleted)
         {
-            transform.position = new Vector3(-23f, transform.position.y, transform.position.z);
+            transform.position = new Vector3(-24.5f, transform.position.y, transform.position.z);
         }
     }
 
@@ -79,9 +101,9 @@ public class ObstaclesManager : MonoBehaviour
         if(disabledRocks.Count > 0)
         {
             var spawned = GetRandomDisabledRock();
-            spawned.SetActive(true);
             spawned.transform.position = new Vector2(transform.position.x, randomSwimZone * minigameClassesInterface.player.swimZoneHeight);
             spawned.GetComponent<SpriteRenderer>().sprite = GetRandomRockSpriteFromList();
+            spawned.SetActive(true);
         }
         //Se não crie nova pedra
         else
@@ -133,9 +155,9 @@ public class ObstaclesManager : MonoBehaviour
             if (disabledPlantsDown.Count > 0)
             {
                 var spawned = GetRandomDisabledPlantsDown();
-                spawned.SetActive(true);
                 spawned.transform.position = new Vector2(transform.position.x, randomSwimZone * minigameClassesInterface.player.swimZoneHeight);
                 spawned.GetComponent<SpriteRenderer>().sprite = GetRandomPlantDownSpriteFromList();
+                spawned.SetActive(true);
             }
             //Se não crie uma nova
             else
@@ -155,9 +177,9 @@ public class ObstaclesManager : MonoBehaviour
             if (disabledPlantsUp.Count > 0)
             {
                 var spawned = GetRandomDisabledPlantsUp();
-                spawned.SetActive(true);
                 spawned.transform.position = new Vector2(transform.position.x, randomSwimZone * minigameClassesInterface.player.swimZoneHeight);
                 spawned.GetComponent<SpriteRenderer>().sprite = GetRandomPlantUpSpriteFromList();
+                spawned.SetActive(true);
             }
             else
             {
@@ -181,9 +203,9 @@ public class ObstaclesManager : MonoBehaviour
                 if (disabledPlantsDown.Count > 0)
                 {
                     var spawned = GetRandomDisabledPlantsDown();
-                    spawned.SetActive(true);
                     spawned.transform.position = new Vector2(transform.position.x, randomSwimZone * minigameClassesInterface.player.swimZoneHeight);
                     spawned.GetComponent<SpriteRenderer>().sprite = GetRandomPlantDownSpriteFromList();
+                    spawned.SetActive(true);
                 }
                 //Se não crie uma nova
                 else
@@ -200,9 +222,9 @@ public class ObstaclesManager : MonoBehaviour
                 if (disabledPlantsUp.Count > 0)
                 {
                     var spawned = GetRandomDisabledPlantsUp();
-                    spawned.SetActive(true);
                     spawned.transform.position = new Vector2(transform.position.x, randomSwimZone * minigameClassesInterface.player.swimZoneHeight);
                     spawned.GetComponent<SpriteRenderer>().sprite = GetRandomPlantUpSpriteFromList();
+                    spawned.SetActive(true);
                 }
                 else
                 {
@@ -236,8 +258,8 @@ public class ObstaclesManager : MonoBehaviour
         if (disabledTreeTrunks.Count > 0)
         {
             var spawned = GetRandomDisabledTreeTrunk();
-            spawned.SetActive(true);
             spawned.transform.position = new Vector2(transform.position.x, -6f);
+            spawned.SetActive(true);
         }
         //Se não crie um novo tronco
         else

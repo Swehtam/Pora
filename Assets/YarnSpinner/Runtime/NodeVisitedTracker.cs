@@ -29,7 +29,6 @@ public class NodeVisitedTracker : MonoBehaviour
         _visitedNodes.Add(nodeName);
     }
 
-
     // Called by the Dialogue Runner to notify us that a new node 
     // started running. 
     public void NodeStart(string nodeName)

@@ -12,15 +12,19 @@ using Yarn.Unity;
 public class InstancesManager : MonoBehaviour
 {
     public static InstancesManager singleton;
+    [SerializeField] private DialogueRunner dialogueRunner;
+    [SerializeField] private PlayerSettings playerSettings;
+    [SerializeField] private LevelLoader levelLoader;
+    [SerializeField] private InMemoryVariableStorage inMemoryVariableStorage;
+    [SerializeField] private NodeVisitedTracker nodeVisitedTracker;
+    [SerializeField] private YarnPlacesManager yarnPlacesManager;
     private GameObject player;
-    private DialogueRunner dialogueRunner;
-    private PlayerSettings playerSettings;
-    private LevelLoader levelLoader;
+    private UIManager uIManager;
 
     void Awake()
     {
         if (singleton != null)
-            GameObject.Destroy(singleton);
+            Destroy(singleton);
         else
             singleton = this;
 
@@ -43,7 +47,7 @@ public class InstancesManager : MonoBehaviour
         return player;
     }
 
-    //Método responsável por retornar o DialogueRunner da scene para quem solicitar
+    //Método responsável por retornar o DialogueRunner do _preload para quem solicitar
     //Caso o DialogueRunner não exista no singleton, procure pelo mesmo, salve e retorne (isso ocorre uma vez por cena)
     public DialogueRunner GetDialogueRunnerInstance()
     {
@@ -63,13 +67,53 @@ public class InstancesManager : MonoBehaviour
         return playerSettings;
     }
 
-    //Método responsável por retornar o PlayerSettings do _preload para quem solicitar
-    //Caso o PlayerSettings não exista no singleton, procure pelo mesmo, salve e retorne (isso ocorre uma vez por game)
+    //Método responsável por retornar o LevelLoader do _preload para quem solicitar
+    //Caso o LevelLoader não exista no singleton, procure pelo mesmo, salve e retorne (isso ocorre uma vez por game)
     public LevelLoader GetLevelLoaderInstance()
     {
         if (levelLoader == null)
             levelLoader = FindObjectOfType<LevelLoader>();
 
         return levelLoader;
+    }
+
+    //Método responsável por retornar o UIManager de cada cena para quem solicitar
+    //Caso o UIManager não exista no singleton, procure pelo mesmo, salve e retorne (isso ocorre uma vez por cena)
+    public UIManager GetUIManager()
+    {
+        if (uIManager == null)
+            uIManager = FindObjectOfType<UIManager>();
+
+        return uIManager;
+    }
+
+    //Método responsável por retornar o InMemoryVariableStorage do _preload para quem solicitar
+    //Caso o InMemoryVariableStorage não exista no singleton, procure pelo mesmo, salve e retorne (isso ocorre uma vez por game)
+    public InMemoryVariableStorage GetInMemoryVariableStorage()
+    {
+        if (inMemoryVariableStorage == null)
+            inMemoryVariableStorage = FindObjectOfType<InMemoryVariableStorage>();
+
+        return inMemoryVariableStorage;
+    }
+
+    //Método responsável por retornar o NodeVisitedTracker do _preload para quem solicitar
+    //Caso o NodeVisitedTracker não exista no singleton, procure pelo mesmo, salve e retorne (isso ocorre uma vez por game)
+    public NodeVisitedTracker GetNodeVisitedTracker()
+    {
+        if (nodeVisitedTracker == null)
+            nodeVisitedTracker = FindObjectOfType<NodeVisitedTracker>();
+
+        return nodeVisitedTracker;
+    }
+
+    //Método responsável por retornar o YarnPlacesManager do _preload para quem solicitar
+    //Caso o YarnPlacesManager não exista no singleton, procure pelo mesmo, salve e retorne (isso ocorre uma vez por game)
+    public YarnPlacesManager GetYarnPlacesManager()
+    {
+        if (yarnPlacesManager == null)
+            yarnPlacesManager = FindObjectOfType<YarnPlacesManager>();
+
+        return yarnPlacesManager;
     }
 }

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    // Start is called before the first frame update
     private void Awake()
     {
         GameObject player = InstancesManager.singleton.GetPlayerInstance();

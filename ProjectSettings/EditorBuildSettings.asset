@@ -23,4 +23,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NadarDesvioMiniGame.unity
     guid: 332b100c8e5c16248b524591ba76637c
+  - enabled: 1
+    path: Assets/Scenes/MoaraCasaPrimeiroAndar.unity
+    guid: 21875114278326d4fa8f0fcf238b3f2e
+  - enabled: 1
+    path: Assets/Scenes/MoaraCasaSegundoAndar.unity
+    guid: 039fcfb81e4afd34cb55374b5ac83537
+  - enabled: 1
+    path: Assets/Scenes/EscolaPrimeiroAndar.unity
+    guid: 3140ea079b6656e43ae2e6fc50187eae
+  - enabled: 1
+    path: Assets/Scenes/EscolaSegundoAndar.unity
+    guid: 09cf45eabaf985940a6d5274deae923f
+  - enabled: 1
+    path: Assets/Scenes/EscolaBiblioteca.unity
+    guid: 2b8af34d5c5effe43a99dbaca3701727
+  - enabled: 1
+    path: Assets/Scenes/EscolaSalaAula.unity
+    guid: b6f889320a8b94649864dc1431d12cec
   m_configObjects: {}

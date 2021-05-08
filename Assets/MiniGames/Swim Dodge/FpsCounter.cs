@@ -17,7 +17,7 @@ public class FpsCounter : MonoBehaviour
             {
                 fps = 60;
             }
-            _fpsText.text = "FPS: " + fps;
+            _fpsText.text = "FPS: " + fps + " - " + Screen.currentResolution.refreshRate;
             _timer = Time.unscaledTime + _hudRefreshRate;
         }
     }

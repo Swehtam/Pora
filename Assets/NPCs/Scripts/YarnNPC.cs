@@ -6,14 +6,14 @@ using Yarn.Unity;
 
 public class YarnNPC : MonoBehaviour
 {
-    [Range(0f, 1f)]
-    public float effect_amount;
     public string characterName = "";
 
     public string talkToNode = "";
 
     [Header("Optional")]
     public YarnProgram scriptToLoad;
+
+    private UIManager uIManager;
 
     void Start()
     {
@@ -23,10 +23,20 @@ public class YarnNPC : MonoBehaviour
             dialogueRunner.Add(scriptToLoad);
         }
 
+        uIManager = InstancesManager.singleton.GetUIManager();
     }
 
-    private void Update()
+    //Quando o NPC encontrar o Player mostrar o botão para falar
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        gameObject.GetComponent<Renderer>().material.SetFloat("_EffectAmount", effect_amount);
+        if (other.gameObject.CompareTag("Player"))
+            uIManager.ShowTalkButton(this);
+    }
+
+    //Usado para saber se o player saio de perto do NPC
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+            uIManager.HideTalkButton();
     }
 }

@@ -11,9 +11,10 @@ public class BackgroundScroller : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        var collider = GetComponent<BoxCollider2D>();
-        width = collider.size.x;
-        collider.enabled = false;
+        //var collider = GetComponent<BoxCollider2D>();
+        //width = collider.size.x;
+        width = 22f;
+        //collider.enabled = false;
     }
 
     // Update is called once per frame
@@ -29,7 +30,7 @@ public class BackgroundScroller : MonoBehaviour
             if (transform.position.x < -2.5f * width)
             {
                 //Coloquei esse -0.01f para poder sobrepor um pouco e não ficar aparecendo um espaço muito pequenos entre os mapas
-                Vector2 resetPosition = new Vector2((width * 3f) - 0.2f, 0);
+                Vector2 resetPosition = new Vector2((width * 3f) - 0.02f, 0);
                 transform.position = (Vector2)transform.position + resetPosition;
             }
         }
@@ -40,7 +41,7 @@ public class BackgroundScroller : MonoBehaviour
             if (transform.position.x > (1.5f * width) - 13f)
             {
                 //Coloquei esse +0.01f para poder sobrepor um pouco e não ficar aparecendo um espaço muito pequenos entre os mapas
-                Vector2 resetPosition = new Vector2((width * -3f) + 0.2f, 0);
+                Vector2 resetPosition = new Vector2((width * -3f) + 0.02f, 0);
                 transform.position = (Vector2)transform.position + resetPosition;
             }
         }

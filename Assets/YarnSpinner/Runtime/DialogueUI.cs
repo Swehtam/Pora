@@ -427,6 +427,13 @@ namespace Yarn.Unity {
             
         }
 
+        [YarnCommand("deactivateContainer")]
+        public void DeactivateContainer()
+        {
+            if (dialogueContainer != null)
+                dialogueContainer.SetActive(false);
+        }
+
         /// <summary>
         /// Signals that the user has finished with a line, or wishes to
         /// skip to the end of the current line.

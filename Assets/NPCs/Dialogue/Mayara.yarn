@@ -1,0 +1,22 @@
+title: Mayara
+tags: 
+colorID: 0
+position: 372,115
+---
+<<if visited("Mayara.Introducao") is false>>
+    [[Mayara.Introducao]]
+<<endif>>
+===
+title: Mayara.Introducao
+tags: 
+colorID: 0
+position: 658,-153
+---
+Porã: Bom dia dona Mayara.
+Mayara: Minha nossa! Que susto, Porã! De onde é que você saiu criança?
+Porã: Desculpe, dona Mayara, mas é que eu estava procurando Moara, a senhora sabe onde elu está? 
+Mayara: Hihihi. Ainda não me acostumei com a forma que vocês falam hoje em dia, mas tudo bem, parece algo importante para vocês.
+Mayara: Você já olhou lá em cima? Talvez encontre Moara ouvindo música com aqueles fones, como elu sempre faz. Espero que isso não afete seus ouvidos.
+Porã: Tá certo, vou olhar. Obrigado, senhora.
+Mayara: Ora, não precisa me chamar de senhora hehehe.
+===

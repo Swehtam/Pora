@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: d503c0c5a00ea7b46891280701409922
+guid: e88c7fd542de269488b8a5a6ef7c065c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6732421997159880340
-    second: Pora_Idle_Frente_0
+      213: 5893278275926910460
+    second: Pora_Idle_Frente-sheet_0
   - first:
-      213: -9184957642574807144
-    second: Pora_Idle_Frente_1
+      213: -3867721386624149610
+    second: Pora_Idle_Frente-sheet_1
   - first:
-      213: -8321318837742220234
-    second: Pora_Idle_Frente_2
+      213: -397186735631481515
+    second: Pora_Idle_Frente-sheet_2
   - first:
-      213: 6226801992473960525
-    second: Pora_Idle_Frente_3
+      213: -1912969870409764646
+    second: Pora_Idle_Frente-sheet_3
   - first:
-      213: -5467509145947599581
-    second: Pora_Idle_Frente_4
+      213: -5697979074535955142
+    second: Pora_Idle_Frente-sheet_4
   - first:
-      213: 5329376047049950042
-    second: Pora_Idle_Frente_5
+      213: -408992342559653688
+    second: Pora_Idle_Frente-sheet_5
   - first:
-      213: -1644348380637743825
-    second: Pora_Idle_Frente_6
+      213: 3292258385477288065
+    second: Pora_Idle_Frente-sheet_6
   - first:
-      213: -1384701284854294020
-    second: Pora_Idle_Frente_7
+      213: -5121985383082749778
+    second: Pora_Idle_Frente-sheet_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -127,7 +127,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Pora_Idle_Frente_0
+      name: Pora_Idle_Frente-sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -141,14 +141,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c69624d0dd1a192a0800000000000000
-      internalID: -6732421997159880340
+      spriteID: cf566273e5129c150800000000000000
+      internalID: 5893278275926910460
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pora_Idle_Frente_1
+      name: Pora_Idle_Frente-sheet_1
       rect:
         serializedVersion: 2
         x: 64
@@ -162,14 +162,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89fb15520b9788080800000000000000
-      internalID: -9184957642574807144
+      spriteID: 697161414e7135ac0800000000000000
+      internalID: -3867721386624149610
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pora_Idle_Frente_2
+      name: Pora_Idle_Frente-sheet_2
       rect:
         serializedVersion: 2
         x: 0
@@ -183,14 +183,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63ccb95fa9cb48c80800000000000000
-      internalID: -8321318837742220234
+      spriteID: 5554031b4c8ec7af0800000000000000
+      internalID: -397186735631481515
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pora_Idle_Frente_3
+      name: Pora_Idle_Frente-sheet_3
       rect:
         serializedVersion: 2
         x: 64
@@ -204,14 +204,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d40ea10db6b0a6650800000000000000
-      internalID: 6226801992473960525
+      spriteID: ad07338c904c375e0800000000000000
+      internalID: -1912969870409764646
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pora_Idle_Frente_4
+      name: Pora_Idle_Frente-sheet_4
       rect:
         serializedVersion: 2
         x: 0
@@ -225,14 +225,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32d089d56618f14b0800000000000000
-      internalID: -5467509145947599581
+      spriteID: a35ecac8836bce0b0800000000000000
+      internalID: -5697979074535955142
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pora_Idle_Frente_5
+      name: Pora_Idle_Frente-sheet_5
       rect:
         serializedVersion: 2
         x: 64
@@ -246,14 +246,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5343ee474fb5f940800000000000000
-      internalID: 5329376047049950042
+      spriteID: 8c080e1a1a7f25af0800000000000000
+      internalID: -408992342559653688
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pora_Idle_Frente_6
+      name: Pora_Idle_Frente-sheet_6
       rect:
         serializedVersion: 2
         x: 0
@@ -267,14 +267,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2539152cd91e29e0800000000000000
-      internalID: -1644348380637743825
+      spriteID: 180cc27fe8370bd20800000000000000
+      internalID: 3292258385477288065
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pora_Idle_Frente_7
+      name: Pora_Idle_Frente-sheet_7
       rect:
         serializedVersion: 2
         x: 64
@@ -288,8 +288,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf99b34948d88cce0800000000000000
-      internalID: -1384701284854294020
+      spriteID: ea01c987e6d0be8b0800000000000000
+      internalID: -5121985383082749778
       vertices: []
       indices: 
       edges: []

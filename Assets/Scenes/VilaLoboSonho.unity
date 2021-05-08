@@ -255,6 +255,7 @@ GameObject:
   - component: {fileID: 391593057}
   - component: {fileID: 391593059}
   - component: {fileID: 391593060}
+  - component: {fileID: 391593061}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -342,6 +343,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67f7d1dfc3807d94a992020829e9bb42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &391593061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391593056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a8a05de0ac134f4f9d01bef6b9da077, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &401394163
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,6 +368,7 @@ GameObject:
   - component: {fileID: 401394164}
   - component: {fileID: 401394167}
   - component: {fileID: 401394168}
+  - component: {fileID: 401394169}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -493,6 +507,26 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &401394169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401394163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c88f5cead0c0b2a4eb05b5900433f8d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AssetsPPU: 16
+  m_RefResolutionX: 320
+  m_RefResolutionY: 180
+  m_UpscaleRT: 0
+  m_PixelSnapping: 0
+  m_CropFrameX: 1
+  m_CropFrameY: 1
+  m_StretchFill: 0
 --- !u!1 &559909085
 GameObject:
   m_ObjectHideFlags: 0

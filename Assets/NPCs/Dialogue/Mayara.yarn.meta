@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: ccbee9926809bfd40b9a40e07f06ccb5
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 94073015eacc34c1d8fc6786e43d60ca, type: 3}
+  baseLanguageID: pt-BR
+  stringIDs:
+  - Mayara-Mayara.Introducao-0
+  - Mayara-Mayara.Introducao-1
+  - Mayara-Mayara.Introducao-2
+  - Mayara-Mayara.Introducao-3
+  - Mayara-Mayara.Introducao-4
+  - Mayara-Mayara.Introducao-5
+  - Mayara-Mayara.Introducao-6
+  compilationStatus: 1
+  isSuccesfullyCompiled: 1
+  compilationErrorMessage: 
+  baseLanguage: {fileID: 7128917941130120860, guid: ccbee9926809bfd40b9a40e07f06ccb5,
+    type: 3}
+  localizations: []
