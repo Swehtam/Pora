@@ -3,20 +3,42 @@ tags:
 colorID: 0
 position: 372,115
 ---
-<<if visited("Mayara.Introducao") is false>>
+<<if $day eq 0>>
     [[Mayara.Introducao]]
 <<endif>>
+
+[[Mayara.Adeus]]
 ===
+
 title: Mayara.Introducao
 tags: 
 colorID: 0
 position: 658,-153
 ---
-Porã: Bom dia dona Mayara.
-Mayara: Minha nossa! Que susto, Porã! De onde é que você saiu criança?
-Porã: Desculpe, dona Mayara, mas é que eu estava procurando Moara, a senhora sabe onde elu está? 
-Mayara: Hihihi. Ainda não me acostumei com a forma que vocês falam hoje em dia, mas tudo bem, parece algo importante para vocês.
-Mayara: Você já olhou lá em cima? Talvez encontre Moara ouvindo música com aqueles fones, como elu sempre faz. Espero que isso não afete seus ouvidos.
-Porã: Tá certo, vou olhar. Obrigado, senhora.
-Mayara: Ora, não precisa me chamar de senhora hehehe.
+<<if visited("Mayara.Introducao") is false>>
+    Porã: Bom dia dona Mayara.
+    Mayara: Minha nossa! Que susto, Porã! De onde é que você saiu criança?
+    Porã: Desculpe, dona Mayara, mas é que eu estava procurando Moara, a senhora sabe onde elu está? 
+    Mayara: Hihihi. Ainda não me acostumei com a forma que vocês falam hoje em dia, mas tudo bem, parece algo importante para vocês.
+    Mayara: Você já olhou lá em cima? Talvez encontre Moara ouvindo música com aqueles fones, como <i>elu</i> sempre faz. Espero que isso não afete seus ouvidos.
+    Porã: Tá certo, vou olhar. Obrigado, senhora.
+    Mayara: Ora, não precisa me chamar de senhora hehehe.
+    <<set $introductionTalkedToMayara to true>>
+
+<<elseif visited("Introducao.QuartoMoara") is true>>
+    Porã: Não tem ninguém lá em cima.
+    Mayara: Hmm, que estranho, não me lembro de ter visto elu saindo. 
+    Mayara: Mas talvez elu esteja na *<i>pracinha</i>*, se não me falha a memória ouvi Moara dizer que tinha que fazer algo por lá.
+    Porã: Certo, irei checar por lá. Muito obrigado!
+<<endif>>
+
+[[Mayara.Adeus]]
+===
+
+title: Mayara.Adeus
+tags: 
+colorID: 0
+position: 888,-153
+---
+Mayara: Até depois.
 ===

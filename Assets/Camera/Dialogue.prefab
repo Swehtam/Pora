@@ -199,7 +199,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 4096
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1341,7 +1341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueContainer: {fileID: 5826980346633699818}
-  textSpeed: 0.03
+  textSpeed: 0.02
   optionButtons:
   - {fileID: 1696671339917097212}
   - {fileID: 1618689990408081637}
@@ -1378,7 +1378,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 5826980346633699818}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine

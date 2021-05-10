@@ -5,7 +5,7 @@ position: 421,163
 ---
 <<setdistance CMvcam 3.0>>
 <<deactivateContainer DialogueRunner>>
-<<wait 5>>
+<<wait 2>>
 Porã: Não acredito que o domingo está acabando.
 Porã: Hoje o dia foi muito cansativo, só queria ter mais tempo para relaxar até amanhã.
 Porã: E para piorá Moara está demorando, mas já, já deve estar chegando.
@@ -27,8 +27,9 @@ Porã: ...
 Porã: Moara me paga, onde será que esse Tuiuiu se meteu?
 Porã: Acho que vou ter que ir atrás delu.
 Porã: Moara deve estar em casa, vou até lá.
-
+<<placeDone Introducao>>
 ===
+
 title: Introducao.CasaMayara
 tags: 
 colorID: 0
@@ -37,4 +38,16 @@ position: 668,150
 Porã: *<i>A porta estava aberta, então acho que não tem problema entrar.</i>*
 Porã: *<i>Dona Mayara parece está bem animada com o trabalho, mas vindo da mãe de Moara não é de se estranhar.</i>*
 Porã: *<i>Ela deve saber aonde Moara está.</i>*
+<<placeDone Introducao>>
+===
+
+title: Introducao.QuartoMoara
+tags: 
+colorID: 0
+position: 700,150
+---
+Porã: *<i>knock knock</i>*... Ninguém responde.
+Porã: *<i>Tenta abrir a porta</i>*... E a porta está trancada.
+Porã: Acho que Moara não está aqui, não escuto nenhum barulho. Vou procurar em outro lugar.
+<<placeDone Introducao>>
 ===

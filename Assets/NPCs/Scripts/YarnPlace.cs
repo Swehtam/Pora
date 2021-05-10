@@ -69,7 +69,8 @@ public class YarnPlace : MonoBehaviour
         if (isTesting
             || (arrayDialogueVariables.Length > 0 && !CheckAllYarnPlaceVariables())
             || DayManager.GetDay() < dayCondition
-            || (int)dayShiftCondition != DayManager.GetIntDayShift())
+            || ((dayShiftCondition != DayShift.Nenhum) && ((int)dayShiftCondition != DayManager.GetIntDayShift()))
+            || InstancesManager.singleton.GetYarnPlacesManager().ContainsYarnPlace(placeName))
         {
             gameObject.SetActive(false);
             return;
@@ -94,6 +95,7 @@ public class YarnPlace : MonoBehaviour
 
     private bool CheckAllYarnPlaceVariables()
     {
+        Debug.Log("entrou");
         //Começa como verdadeira, pois não encontrou nenhum problema
         bool hasConditionsCompleted = true;
         //Pega a classe que vê as variaveis na memoria
@@ -111,9 +113,6 @@ public class YarnPlace : MonoBehaviour
                 {
                     case Yarn.Value.Type.Bool:
                         stringValue = memoryValue.AsBool.ToString();
-                        break;
-                    case Yarn.Value.Type.Null:
-                        stringValue = "null";
                         break;
                     case Yarn.Value.Type.Number:
                         stringValue = memoryValue.AsNumber.ToString();
@@ -138,10 +137,8 @@ public class YarnPlace : MonoBehaviour
                 break;
             }
         }
-
         return hasConditionsCompleted;
     }
-
 
     [YarnCommand("placeDone")]
     public void SetYarnPlaceAsDone()

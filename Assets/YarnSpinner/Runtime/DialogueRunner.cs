@@ -152,8 +152,16 @@ namespace Yarn.Unity
         /// load.</param>
         public void Add(YarnProgram scriptToLoad)
         {
-            Dialogue.AddProgram(scriptToLoad.GetProgram());
-            AddStringTable(scriptToLoad);       
+            try
+            {
+                Dialogue.AddProgram(scriptToLoad.GetProgram());
+                AddStringTable(scriptToLoad);
+            }
+            catch (InvalidOperationException e)
+            {
+                //Esse mesmo script ja foi carregado
+            }
+                  
         }
 
         /// <summary>

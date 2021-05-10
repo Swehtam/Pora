@@ -901,6 +901,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8231054822953737613, guid: 3dbe59b4261a85a4cac85842076edfb2,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3dbe59b4261a85a4cac85842076edfb2, type: 3}
 --- !u!114 &1501137360 stripped
@@ -1030,6 +1035,7 @@ MonoBehaviour:
   levelLoader: {fileID: 562823824}
   inMemoryVariableStorage: {fileID: 1501137360}
   nodeVisitedTracker: {fileID: 1900991527}
+  yarnPlacesManager: {fileID: 1900991531}
 --- !u!114 &1900991530
 MonoBehaviour:
   m_ObjectHideFlags: 0

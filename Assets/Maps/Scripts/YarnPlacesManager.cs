@@ -19,6 +19,7 @@ public class YarnPlacesManager : MonoBehaviour
         _yarnPlaceDone.Add(yarnPlaceName);
     }
 
+    //Metodo para saber se o lugar com dialogo ja foi acionado
     public bool ContainsYarnPlace(string yarnPlaceName)
     {
         return _yarnPlaceDone.Contains(yarnPlaceName);

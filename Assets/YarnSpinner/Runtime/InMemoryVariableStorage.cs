@@ -182,12 +182,11 @@ namespace Yarn.Unity {
         /// representing `null`.</returns>
         public override Value GetValue (string variableName)
         {
-            // If we don't have a variable with this name, return the null
-            // value
+            // If we don't have a variable with this name, return the null value
             if (variables.ContainsKey(variableName) == false)
                 return Yarn.Value.NULL;
             
-            return variables [variableName];
+            return variables[variableName];
         }
 
         /// <summary>
