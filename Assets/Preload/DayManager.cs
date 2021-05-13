@@ -14,6 +14,7 @@ public class DayManager : MonoBehaviour
     private void Start()
     {
         LoadDay();
+        InstancesManager.singleton.GetInMemoryVariableStorage().SetValue("$day", gameDay);
     }
 
     //Metodo para pegar o dia do jogo

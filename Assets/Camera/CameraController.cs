@@ -3,9 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using Yarn.Unity;
+using System;
 
 public class CameraController : MonoBehaviour
 {
+    [Serializable]
+    public struct CharactersTransform
+    {
+        /// <summary>
+        /// O nome do personagem do jogo.
+        /// </summary>
+        public string name;
+
+        /// <summary>
+        /// A sprite do portratir do personagem a mostrar no dialogo.
+        /// </summary>
+        public Transform transform;
+    }
+    public CharactersTransform[] charactersTransform;
+    /// <summary>
+    /// Dicionario com os Transform dos personagens, com acesso através do nome O(1).
+    /// </summary>
+    private Dictionary<string, Transform> charactersPositionDict = new Dictionary<string, Transform>();
+
     private GameObject player;
     private CinemachineVirtualCamera vcam;
     private CinemachinePixelPerfect cmPixelPerfect;
@@ -24,6 +44,12 @@ public class CameraController : MonoBehaviour
         if (player is null) player = InstancesManager.singleton.GetPlayerInstance();
 
         vcam.m_Follow = player.transform;
+
+        //Transforma o array em dict
+        foreach (CharactersTransform por in charactersTransform)
+        {
+            charactersPositionDict.Add(por.name, por.transform);
+        }
     }
 
     private void Update()
@@ -117,5 +143,22 @@ public class CameraController : MonoBehaviour
 
             Debug.LogErrorFormat($"<<initialZoom>> failed to parse duration {timeString}");
         }
+    }
+
+    [YarnCommand("setTarget")]
+    public void SetTarget(string targetName)
+    {
+        if (charactersPositionDict.ContainsKey(targetName) == false)
+        {
+            Debug.LogError("O alvo '" + targetName + "' não existe.");
+            return;
+        }
+        vcam.m_Follow = charactersPositionDict[targetName];
+    }
+
+    [YarnCommand("resetTarget")]
+    public void ResetTarget()
+    {
+        vcam.m_Follow = player.transform;
     }
 }

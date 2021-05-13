@@ -3,8 +3,8 @@ tags:
 colorID: 0
 position: 421,163
 ---
-<<setdistance CMvcam 3.0>>
-<<deactivateContainer DialogueRunner>>
+<<setdistance PlayerCamera 3.0>>
+<<deactivateContainer _dialogue/DialogueRunner>>
 <<wait 2>>
 Porã: Não acredito que o domingo está acabando.
 Porã: Hoje o dia foi muito cansativo, só queria ter mais tempo para relaxar até amanhã.
@@ -14,16 +14,16 @@ Porã: A qualquer momento…
 <<wait 1>>
 Porã: Só mais 3 segundos…
 Porã: 3...
-<<zoomCamera CMvcam 4.5 1.0>>
+<<zoomCamera PlayerCamera 4.5 1.0>>
 <<wait 1>>
 Porã: 2...
-<<zoomCamera CMvcam 6.0 1.0>>
+<<zoomCamera PlayerCamera 6.0 1.0>>
 <<wait 1>>
 Porã: 1...
-<<resetZoom CMvcam 1.0>>
+<<resetZoom PlayerCamera 1.0>>
 <<wait 1>>
 Porã: ...
-<<resetCamera CMvcam>>
+<<resetCamera PlayerCamera>>
 Porã: Moara me paga, onde será que esse Tuiuiu se meteu?
 Porã: Acho que vou ter que ir atrás delu.
 Porã: Moara deve estar em casa, vou até lá.
@@ -49,5 +49,43 @@ position: 700,150
 Porã: *<i>knock knock</i>*... Ninguém responde.
 Porã: *<i>Tenta abrir a porta</i>*... E a porta está trancada.
 Porã: Acho que Moara não está aqui, não escuto nenhum barulho. Vou procurar em outro lugar.
+<<set $introductionSquare to true>>
 <<placeDone Introducao>>
+===
+
+title: Introducao.Pracinha
+tags: 
+colorID: 0
+position: 700,150
+---
+????:CriançaTriste: ME DEIXEM EM PAZ!!
+Porã: *<i>O que foi isso?? Moara??</i>*
+Porã: *<i>Acho que grito veio dali.</i>*
+<<changeCamera CMStateDrivenCamera CemiterioCamera>>
+<<wait 3>>
+????:Bullying1: Não depois do que você fez.
+????:Bullying2: É isso mesmo, hahaha não vamos permitir isso.
+<<changeCamera CMStateDrivenCamera PlayerCamera>>
+<<wait 3>>
+Porã: *<i>Eu tenho que ver o que está acontecendo ali.</i>*
+<<set $introductionGraveyard to true>>
+<<placeDone Introducao-Pracinha>>
+===
+
+title: Introducao.Cemiterio
+tags: 
+colorID: 0
+position: 700,150
+---
+<<if $introductionGraveyard is true>>
+	????:CriançaTriste: Não é como se vocês tivessem alguma relação com isso... eu não fiz nada para vocês.
+	<<changeCamera CMStateDrivenCamera CemiterioCamera>>
+	<<wait 3>>
+	????:Bullying1: Não importa! Você sabe muito bem que isso não é certo, você finge ser outra pessoa...
+	????:Bullying2: Você acha que a gente deve aceitar isso? Você quer ser igual a Porã?
+	<<changeCamera CMStateDrivenCamera PlayerCamera>>
+	<<wait 3>>
+	Porã: Eles tão falando de mim… De novo não...
+	<<placeDone Introducao-Cemiterio>>
+<<endif>>
 ===

@@ -29,8 +29,17 @@ public class UIManager : MonoBehaviour
     {
         dayDisplay.text = "Dia: " + DayManager.GetDay() + ", " + DayManager.GetStringDayShift();
 
-        moveButton.SetActive(!dialogueRunner.IsDialogueRunning); //Mostrar o botão de andar se n tiver dialogo, caso contrario não mostrar
-        if (dialogueRunner.IsDialogueRunning) talkButton.SetActive(false); //Se tiver dialogo não mostrar o botão de interagir
+        //Se o dialogo estiver rodando, reseta o joystick para o player n sair andando sozinho quando acabar o dialogo
+        if (dialogueRunner.IsDialogueRunning) 
+        {
+            moveButton.GetComponent<Joystick>().ResetJoystick();
+            moveButton.SetActive(false);
+            talkButton.SetActive(false);
+        }
+        else
+        {
+            moveButton.SetActive(true);
+        }
     }
 
     public void ShowTalkButton(YarnNPC npcYarnScript)

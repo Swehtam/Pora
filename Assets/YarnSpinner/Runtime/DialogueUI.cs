@@ -29,6 +29,8 @@ using System.Collections;
 using UnityEngine.UI;
 using System.Text;
 using System.Collections.Generic;
+using System;
+using TMPro;
 
 namespace Yarn.Unity {
     
@@ -78,6 +80,36 @@ namespace Yarn.Unity {
         /// for you.
         /// </remarks>
         public List<Button> optionButtons;
+
+        /// <summary>
+        /// O componente Image do objeto que vai mostrar os portraits no jogo.
+        /// </summary>
+        public Image portraitImage;
+        /// <summary>
+        /// Onde vai escrever o nome dos personagens do dialogo
+        /// </summary>
+        public TMP_Text portraitText;
+        [Serializable]
+        public struct Portraits
+        {
+            /// <summary>
+            /// O nome do personagem do jogo.
+            /// </summary>
+            public string name;
+
+            /// <summary>
+            /// A sprite do portrait do personagem a mostrar no dialogo.
+            /// </summary>
+            public Sprite sprite;
+        }
+        /// <summary>
+        /// Array com os structs salvos no inspector.
+        /// </summary>
+        public Portraits[] charactersPortraits;
+        /// <summary>
+        /// Dicionario com os sprites dos portraits, com acesso através do nome O(1).
+        /// </summary>
+        private Dictionary<string, Sprite> portraitsDict = new Dictionary<string, Sprite>();
 
         // When true, the user has indicated that they want to proceed to
         // the next line.
@@ -258,6 +290,12 @@ namespace Yarn.Unity {
             foreach (var button in optionButtons) {
                 button.gameObject.SetActive (false);
             }
+
+            //Transforma o array em dict
+            foreach(Portraits por in charactersPortraits)
+            {
+                portraitsDict.Add(por.name, por.sprite);
+            }
         }
 
         /// Runs a line.
@@ -287,6 +325,26 @@ namespace Yarn.Unity {
             if (textSpeed > 0.0f) {
                 // Display the line one character at a time
                 var stringBuilder = new StringBuilder ();
+
+                //Divide o texto para setar o portrait e nome do personagem
+                string[] subs = text.Split(':');
+                //Verifica se a linha tem ':' ou não
+                if(subs.Length == 3)
+                {
+                    //O primeiro nome é o nome que aparece no portrait e o segundo é oq aparece na imagem e o terceiro a sua fala
+                    SetPortrait(subs[1], subs[0]);
+                    text = subs[2];
+                }
+                else if(subs.Length == 2)
+                {
+                    //A primeira parte do texto, antes do ':' tem o nome do personagem pra setar no dialogo e seu portrait
+                    SetPortrait(subs[0]);
+                    text = subs[1];
+                }
+                else
+                {
+                    text = subs[0];
+                }
 
                 foreach (char c in text) {
                     stringBuilder.Append (c);
@@ -432,6 +490,28 @@ namespace Yarn.Unity {
         {
             if (dialogueContainer != null)
                 dialogueContainer.SetActive(false);
+        }
+
+        public void SetPortrait(string portraitName)
+        {
+            if (portraitsDict.ContainsKey(portraitName) == false)
+            {
+                Debug.LogError("O sprite '" + portraitImage + "' não existe.");
+                return;
+            }
+            portraitImage.sprite = portraitsDict[portraitName];
+            portraitText.text = portraitName;
+        }
+
+        public void SetPortrait(string portraitName, string name)
+        {
+            if (portraitsDict.ContainsKey(portraitName) == false)
+            {
+                Debug.LogError("O sprite '" + portraitImage + "' não existe.");
+                return;
+            }
+            portraitImage.sprite = portraitsDict[portraitName];
+            portraitText.text = name;
         }
 
         /// <summary>

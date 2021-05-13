@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.4" tiledversion="1.4.3" name="outside" tilewidth="16" tileheight="16" tilecount="1248" columns="52">
+<tileset version="1.5" tiledversion="1.6.0" name="outside" tilewidth="16" tileheight="16" tilecount="1248" columns="52">
  <image source="outside.png" trans="000000" width="832" height="384"/>
 </tileset>

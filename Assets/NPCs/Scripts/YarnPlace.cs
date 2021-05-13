@@ -95,7 +95,6 @@ public class YarnPlace : MonoBehaviour
 
     private bool CheckAllYarnPlaceVariables()
     {
-        Debug.Log("entrou");
         //Começa como verdadeira, pois não encontrou nenhum problema
         bool hasConditionsCompleted = true;
         //Pega a classe que vê as variaveis na memoria

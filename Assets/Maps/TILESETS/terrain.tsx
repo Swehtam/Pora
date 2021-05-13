@@ -1,57 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.4" tiledversion="1.4.3" name="terrain" tilewidth="16" tileheight="16" tilecount="1482" columns="39">
+<tileset version="1.5" tiledversion="1.6.0" name="terrain" tilewidth="16" tileheight="16" tilecount="1482" columns="39">
  <image source="terrain.png" width="624" height="608"/>
- <terraintypes>
-  <terrain name="Mountain-Green" tile="547"/>
-  <terrain name="Mountain-Dirt" tile="550"/>
-  <terrain name="Dirt-Grass" tile="106"/>
- </terraintypes>
- <tile id="41" terrain="0,0,0,0"/>
- <tile id="42" terrain="0,0,0,0"/>
- <tile id="43" terrain="0,0,0,0"/>
- <tile id="44" terrain="0,0,0,0"/>
- <tile id="45" terrain="0,0,0,0"/>
- <tile id="100" terrain="2,2,2,2"/>
- <tile id="101" terrain=",2,2,2"/>
- <tile id="102" terrain="2,,2,2"/>
- <tile id="103" terrain=",,2,2"/>
- <tile id="104" terrain="2,2,,2"/>
- <tile id="105" terrain=",2,,2"/>
- <tile id="106" terrain="2,,,2"/>
- <tile id="107" terrain=",,,2"/>
- <tile id="108" terrain="2,2,2,"/>
- <tile id="109" terrain=",2,2,"/>
- <tile id="110" terrain="2,,2,"/>
- <tile id="111" terrain=",,2,"/>
- <tile id="112" terrain="2,2,,"/>
- <tile id="113" terrain=",2,,"/>
- <tile id="114" terrain="2,,,"/>
- <tile id="235" terrain="1,1,1,1"/>
- <tile id="236" terrain="1,1,1,1"/>
- <tile id="237" terrain="1,1,1,1"/>
- <tile id="238" terrain="1,1,1,1"/>
- <tile id="547" terrain=",,,0"/>
- <tile id="548" terrain=",,0,0"/>
- <tile id="549" terrain=",,0,"/>
- <tile id="550" terrain=",,,1"/>
- <tile id="551" terrain=",,1,1"/>
- <tile id="552" terrain=",,1,"/>
- <tile id="586" terrain="0,,0,"/>
- <tile id="587" terrain=",0,0,0"/>
- <tile id="588" terrain="0,,0,0"/>
- <tile id="589" terrain="1,,1,"/>
- <tile id="590" terrain=",1,1,1"/>
- <tile id="591" terrain="1,,1,1"/>
- <tile id="625" terrain=",0,,0"/>
- <tile id="626" terrain="0,0,,0"/>
- <tile id="627" terrain="0,0,0,"/>
- <tile id="628" terrain=",1,,1"/>
- <tile id="629" terrain="1,1,,1"/>
- <tile id="630" terrain="1,1,1,"/>
- <tile id="664" terrain=",0,,"/>
- <tile id="665" terrain="0,0,,"/>
- <tile id="666" terrain="0,,,"/>
- <tile id="667" terrain=",1,,"/>
- <tile id="668" terrain="1,1,,"/>
- <tile id="669" terrain="1,,,"/>
+ <wangsets>
+  <wangset name="Terrenos" type="corner" tile="-1">
+   <wangcolor name="Mountain-Green" color="#ff0000" tile="547" probability="1"/>
+   <wangcolor name="Mountain-Dirt" color="#00ff00" tile="550" probability="1"/>
+   <wangcolor name="Dirt-Grass" color="#0000ff" tile="106" probability="1"/>
+   <wangcolor name="Street-Grass" color="#ff7700" tile="-1" probability="1"/>
+   <wangtile tileid="41" wangid="0,1,0,1,0,1,0,1"/>
+   <wangtile tileid="42" wangid="0,1,0,1,0,1,0,1"/>
+   <wangtile tileid="43" wangid="0,1,0,1,0,1,0,1"/>
+   <wangtile tileid="44" wangid="0,1,0,1,0,1,0,1"/>
+   <wangtile tileid="45" wangid="0,1,0,1,0,1,0,1"/>
+   <wangtile tileid="100" wangid="0,3,0,3,0,3,0,3"/>
+   <wangtile tileid="101" wangid="0,3,0,3,0,3,0,0"/>
+   <wangtile tileid="102" wangid="0,0,0,3,0,3,0,3"/>
+   <wangtile tileid="103" wangid="0,0,0,3,0,3,0,0"/>
+   <wangtile tileid="104" wangid="0,3,0,3,0,0,0,3"/>
+   <wangtile tileid="105" wangid="0,3,0,3,0,0,0,0"/>
+   <wangtile tileid="106" wangid="0,0,0,3,0,0,0,3"/>
+   <wangtile tileid="107" wangid="0,0,0,3,0,0,0,0"/>
+   <wangtile tileid="108" wangid="0,3,0,0,0,3,0,3"/>
+   <wangtile tileid="109" wangid="0,3,0,0,0,3,0,0"/>
+   <wangtile tileid="110" wangid="0,0,0,0,0,3,0,3"/>
+   <wangtile tileid="111" wangid="0,0,0,0,0,3,0,0"/>
+   <wangtile tileid="112" wangid="0,3,0,0,0,0,0,3"/>
+   <wangtile tileid="113" wangid="0,3,0,0,0,0,0,0"/>
+   <wangtile tileid="114" wangid="0,0,0,0,0,0,0,3"/>
+   <wangtile tileid="235" wangid="0,2,0,2,0,2,0,2"/>
+   <wangtile tileid="236" wangid="0,2,0,2,0,2,0,2"/>
+   <wangtile tileid="237" wangid="0,2,0,2,0,2,0,2"/>
+   <wangtile tileid="238" wangid="0,2,0,2,0,2,0,2"/>
+   <wangtile tileid="256" wangid="0,4,0,4,0,4,0,4"/>
+   <wangtile tileid="257" wangid="0,4,0,4,0,4,0,0"/>
+   <wangtile tileid="258" wangid="0,0,0,4,0,4,0,4"/>
+   <wangtile tileid="259" wangid="0,0,0,4,0,4,0,0"/>
+   <wangtile tileid="260" wangid="0,4,0,4,0,0,0,4"/>
+   <wangtile tileid="261" wangid="0,4,0,4,0,0,0,0"/>
+   <wangtile tileid="262" wangid="0,0,0,4,0,0,0,4"/>
+   <wangtile tileid="263" wangid="0,0,0,4,0,0,0,0"/>
+   <wangtile tileid="264" wangid="0,4,0,0,0,4,0,4"/>
+   <wangtile tileid="265" wangid="0,4,0,0,0,4,0,0"/>
+   <wangtile tileid="266" wangid="0,0,0,0,0,4,0,4"/>
+   <wangtile tileid="267" wangid="0,0,0,0,0,4,0,0"/>
+   <wangtile tileid="268" wangid="0,4,0,0,0,0,0,4"/>
+   <wangtile tileid="269" wangid="0,4,0,0,0,0,0,0"/>
+   <wangtile tileid="270" wangid="0,0,0,0,0,0,0,4"/>
+   <wangtile tileid="547" wangid="0,0,0,1,0,0,0,0"/>
+   <wangtile tileid="548" wangid="0,0,0,1,0,1,0,0"/>
+   <wangtile tileid="549" wangid="0,0,0,0,0,1,0,0"/>
+   <wangtile tileid="550" wangid="0,0,0,2,0,0,0,0"/>
+   <wangtile tileid="551" wangid="0,0,0,2,0,2,0,0"/>
+   <wangtile tileid="552" wangid="0,0,0,0,0,2,0,0"/>
+   <wangtile tileid="586" wangid="0,0,0,0,0,1,0,1"/>
+   <wangtile tileid="587" wangid="0,1,0,1,0,1,0,0"/>
+   <wangtile tileid="588" wangid="0,0,0,1,0,1,0,1"/>
+   <wangtile tileid="589" wangid="0,0,0,0,0,2,0,2"/>
+   <wangtile tileid="590" wangid="0,2,0,2,0,2,0,0"/>
+   <wangtile tileid="591" wangid="0,0,0,2,0,2,0,2"/>
+   <wangtile tileid="625" wangid="0,1,0,1,0,0,0,0"/>
+   <wangtile tileid="626" wangid="0,1,0,1,0,0,0,1"/>
+   <wangtile tileid="627" wangid="0,1,0,0,0,1,0,1"/>
+   <wangtile tileid="628" wangid="0,2,0,2,0,0,0,0"/>
+   <wangtile tileid="629" wangid="0,2,0,2,0,0,0,2"/>
+   <wangtile tileid="630" wangid="0,2,0,0,0,2,0,2"/>
+   <wangtile tileid="664" wangid="0,1,0,0,0,0,0,0"/>
+   <wangtile tileid="665" wangid="0,1,0,0,0,0,0,1"/>
+   <wangtile tileid="666" wangid="0,0,0,0,0,0,0,1"/>
+   <wangtile tileid="667" wangid="0,2,0,0,0,0,0,0"/>
+   <wangtile tileid="668" wangid="0,2,0,0,0,0,0,2"/>
+   <wangtile tileid="669" wangid="0,0,0,0,0,0,0,2"/>
+  </wangset>
+ </wangsets>
 </tileset>
