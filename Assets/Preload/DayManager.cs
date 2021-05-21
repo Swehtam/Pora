@@ -5,11 +5,11 @@ using UnityEngine;
 public class DayManager : MonoBehaviour
 {
     //Variavel para o dia do jogo que o jogador parou.
-    //Começa em 1 pois é o primeiro dia.
+    //Começa em 0 pois é a introdução.
     private static int gameDay = 0;
     //Variavel para saber em que turno do dia o jogo está.
     //Se for 0 é manhã, se for 1 é tarde e se for 2 é noite.
-    private static int gameDayShift = 1;
+    private static int gameDayShift = 0;
 
     private void Start()
     {

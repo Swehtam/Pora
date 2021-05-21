@@ -1,0 +1,15 @@
+title: MiniGame.SwimDodge
+tags: 
+colorID: 0
+position: 370,132
+---
+<i>O rio logo abaixo é chamado de Rio Pororoca.</i>
+<i>Aqui é onde você pode treinar suas habilidades de natação.</i>
+<i>Horários - Qualquer dia de manhã ou tarde.</i>
+<i>Observação - Nunca entre no Rio Pororoca de noite ele é muito violento nesse horário.</i>
+<i>Deseja alterar o modo desse treinamento?</i>
+-> Sim.
+    <<deactivateContainer _dialogue/DialogueRunner>>
+    <<showSwimDodgePanel Canvas>>
+-> Não.
+===

@@ -3,7 +3,7 @@ tags:
 colorID: 0
 position: 645,260
 ---
-Porã: Hoje eu vou nadar 100 metros.
+Porã: Hoje eu vou nadar {$max_distance} metros.
 ===
 
 title: SwimDodgeMinigame.SecondSide
@@ -12,4 +12,28 @@ colorID: 0
 position: 920,264
 ---
 Porã: Acho que até aqui está bom, hora de voltar.
+===
+
+title: SwimDodgeMinigame.FinishingMinigame
+tags: 
+colorID: 0
+position: 920,264
+---
+<<if $max_distance eq 100>>
+	Porã: Finalmente cheguei na Vila, hoje eu nadei um muito.
+<<elseif $max_distance eq 50>>
+	Porã: Hoje foi muito bom, até que não demorei muito.
+<<else>>
+	Porã: Hoje foi rapidinho, foi o suficiente pra esticar os músculos.
+<<endif>>
+<<changeScene _loadLevel VilaLobo 0 SaidaNadarDesvio>>
+===
+
+title: SwimDodgeMinigame.NotAbleToEnter
+tags: 
+colorID: 0
+position: 920,264
+---
+<i>CUIDADO!!!</i>
+<i>Não pode entrar no Rio Pororoca de noite, ele está muito violento nesse horário.</i>
 ===

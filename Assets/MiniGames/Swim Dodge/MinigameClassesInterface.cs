@@ -5,7 +5,6 @@ using Yarn.Unity;
 
 public class MinigameClassesInterface : MonoBehaviour
 {
-    public DialogueRunner dialogueRunner;
     public SpeedController speedController;
     public ObstaclesManager obstaclesManager;
     public SwimDodgeTutorialPanel swimDodgeTutorialPanel;

@@ -1,11 +1,43 @@
-title: Introducao
+title: Introducao.Casa
+tags: 
+colorID: 0
+position: 421,163
+---
+<<deactivateContainer _dialogue/DialogueRunner>>
+<<wait 5>>
+Porã: *<i> uaaaaah!</i>* Queria dormir mais 5 minutos.
+<<wait 1>>
+Porã: Mas hoje é o grande dia.
+Porã: Espero que dê tudo certo no meu plano.
+Porã: Okay vou levantar!
+<<placeDone Introducao-Casa>>
+===
+
+title: Introducao.Levantar
+tags: 
+colorID: 0
+position: 421,163
+---
+Porã: Hmmmmm? Eu esqueci...
+Porã: Droga! Qual era meu plano mesmo?
+Porã: De tarde me encontrar com Moara no cume da vila.
+Porã: Ai de lá a gente ia pra onde mesmo??
+Porã: Pensa Porã pensa...
+<<wait 2>>
+Porã: *<i>Porã pensa tanto que é até possível ouvir o ranger das engrenagens de sua cabeça</i>*
+Porã: AAH! NÃO CONSIGO LEMBRAR!
+Porã: Ta tudo bem Moara vai me lembrar, é só eu ir pro cume.
+Porã: Ainda tenho tempo, então acho que vou nadar um pouco agora de manhã, aproveitar que é domingo.
+Porã: Vou até o rio que fica embaixo de casa pra nadar um pouco.
+<<placeDone Introducao-Levantar>>
+===
+
+title: Introducao.Cume
 tags: 
 colorID: 0
 position: 421,163
 ---
 <<setdistance PlayerCamera 3.0>>
-<<deactivateContainer _dialogue/DialogueRunner>>
-<<wait 2>>
 Porã: Não acredito que o domingo está acabando.
 Porã: Hoje o dia foi muito cansativo, só queria ter mais tempo para relaxar até amanhã.
 Porã: E para piorá Moara está demorando, mas já, já deve estar chegando.
@@ -25,7 +57,7 @@ Porã: 1...
 Porã: ...
 <<resetCamera PlayerCamera>>
 Porã: Moara me paga, onde será que esse Tuiuiu se meteu?
-Porã: Acho que vou ter que ir atrás delu.
+Porã: Não acredito que vou ter que ir atrás daquele passarinho.
 Porã: Moara deve estar em casa, vou até lá.
 <<placeDone Introducao>>
 ===
@@ -62,11 +94,11 @@ position: 700,150
 Porã: *<i>O que foi isso?? Moara??</i>*
 Porã: *<i>Acho que grito veio dali.</i>*
 <<changeCamera CMStateDrivenCamera CemiterioCamera>>
-<<wait 3>>
+<<wait 2>>
 ????:Bullying1: Não depois do que você fez.
 ????:Bullying2: É isso mesmo, hahaha não vamos permitir isso.
 <<changeCamera CMStateDrivenCamera PlayerCamera>>
-<<wait 3>>
+<<wait 2>>
 Porã: *<i>Eu tenho que ver o que está acontecendo ali.</i>*
 <<set $introductionGraveyard to true>>
 <<placeDone Introducao-Pracinha>>
@@ -78,14 +110,47 @@ colorID: 0
 position: 700,150
 ---
 <<if $introductionGraveyard is true>>
-	????:CriançaTriste: Não é como se vocês tivessem alguma relação com isso... eu não fiz nada para vocês.
 	<<changeCamera CMStateDrivenCamera CemiterioCamera>>
-	<<wait 3>>
+	<<wait 2>>
+	????:CriançaTriste: Não é como se vocês tivessem alguma relação com isso... eu não fiz nada para vocês.
 	????:Bullying1: Não importa! Você sabe muito bem que isso não é certo, você finge ser outra pessoa...
 	????:Bullying2: Você acha que a gente deve aceitar isso? Você quer ser igual a Porã?
+	????:Bullying1: Porã é todo estranho, por isso ninguém quer ser amigo dele.
+	????:Bullying2: Sim! Onde já se viu um Lobo-Guará que gosta de nadar?
 	<<changeCamera CMStateDrivenCamera PlayerCamera>>
-	<<wait 3>>
-	Porã: Eles tão falando de mim… De novo não...
+	<<wait 2>>
+	Porã: Eles tão falando de mim...
+	Porã: Por quê todo mundo se incomoda com que eu faço?
+	Porã: Igual a aquele dia na escola quando eu era criança.
+	Porã: Eu só queria que essas coisas parassem de acontecer comigo...
 	<<placeDone Introducao-Cemiterio>>
+	<<changeScene _loadLevel FlashBackEscola1 0 SaidaFlashBackEscola1>>
 <<endif>>
+===
+
+title: Introducao.Flashback
+tags: 
+colorID: 0
+position: 700,150
+---
+<<deactivateContainer _dialogue/DialogueRunner>>
+<<wait 2>>
+Porã: ME DEIXEM EM PAZ!!
+????:AcirCriança: Só quando você parar de agir assim.
+????:Bullying3: Você não tem vergonha?
+Porã: Mas eu não fiz nada!
+????:AcirCriança: Você sabe o que você fez! E sabe muito bem que isso não é coisa que um Lobo-Guará faria.
+????:Bullying3: Você deve zelar a reputação da sua família e da vila, então haja como um Lobo-Guará.
+????:AcirCriança: Eu tenho pena dos seus pais por terem você como filho.
+Porã: Não meta meus pais nisso!!
+????:AcirCriança: Olha só resolveu mostrar as presas, mas isso não adianta.
+????:AcirCriança: Será que seus pais terão a mesma reação que você quando contarmos sobre seu filhote?
+Porã: Por favor Acir pode mexer comigo, mas deixe meus pais de lado.
+Acir:AcirCriança: Oooh hahaha, foi você que pediu. Vamos pegar ele!!
+Porã: ALGUEM ME AJUDA!!
+Acir:AcirCriança: Ninguém vai te ajudar. Todo mundo sabe que isso não é certo.
+????:Bullying3: Você é tão fraco como um roedor.
+Porã: *Porã começa a chorar no cantinho.*
+<<placeDone Introducao-Cemiterio>>
+<<changeScene _loadLevel Casa 2 AcordarCama>>
 ===

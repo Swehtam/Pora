@@ -172,6 +172,14 @@ namespace Yarn.Unity {
             variables[variableName] = new Yarn.Value(value);
         }
 
+        [YarnCommand("print")]
+        public void PrintAll()
+        {
+            foreach(KeyValuePair<string, Yarn.Value> va in variables){
+                Debug.Log(va.Key + ": " + variables[va.Key].AsString);
+            }
+        }
+
         /// <summary>
         /// Retrieves a <see cref="Value"/> by name.
         /// </summary>

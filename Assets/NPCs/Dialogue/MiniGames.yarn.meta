@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: b373e1f2d36e7234a85f0a36b9f174f7
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 94073015eacc34c1d8fc6786e43d60ca, type: 3}
+  baseLanguageID: pt-BR
+  stringIDs:
+  - MiniGames-MiniGame.SwimDodge-0
+  - MiniGames-MiniGame.SwimDodge-1
+  - MiniGames-MiniGame.SwimDodge-2
+  - MiniGames-MiniGame.SwimDodge-3
+  compilationStatus: 1
+  isSuccesfullyCompiled: 1
+  compilationErrorMessage: 
+  baseLanguage: {fileID: 7128917941130120860, guid: b373e1f2d36e7234a85f0a36b9f174f7,
+    type: 3}
+  localizations: []

@@ -10,6 +10,6 @@ public class LoadMenu : MonoBehaviour
     {
         //Mudar para carregar a tela de menu, quando tiver uma
         levelLoader = InstancesManager.singleton.GetLevelLoaderInstance();
-        levelLoader.LoadNextLevel("MainMenu");
+        levelLoader.LoadNextLevel("MainMenu", 0);
     }
 }

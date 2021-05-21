@@ -23,7 +23,7 @@ public class DistanceController : MonoBehaviour
         display.text = Mathf.FloorToInt(distanceSwimmed).ToString() + "m";
 
         //Controla qual a meta que Porã deve chegar
-        if(distanceSwimmed >= 25f && !isFirstHalfCompleted)
+        if(distanceSwimmed >= MinigamesManager.GetSwimDodgeMaxDistance() && !isFirstHalfCompleted)
         {
             isFirstHalfCompleted = true;
             SpeedController.speed = 0f;
@@ -31,6 +31,11 @@ public class DistanceController : MonoBehaviour
             minigameClassesInterface.obstaclesManager.ResetRocksSpawn();
             minigameClassesInterface.obstaclesManager.DisableAllSpawnedObjects();
             minigameClassesInterface.buttonsPositionController.ChangeButtonsSide();
+        }
+
+        if(distanceSwimmed <= 0 && isFirstHalfCompleted)
+        {
+            minigameClassesInterface.minigameDialogue.StartSecondDialogue();
         }
     }
 

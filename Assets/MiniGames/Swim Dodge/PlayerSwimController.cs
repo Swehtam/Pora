@@ -22,9 +22,11 @@ public class PlayerSwimController : MonoBehaviour
     private Vector3 targetAux;
     private float t;
     private Animator anim;
+    private DialogueRunner dialogueRunner;
     
     private void Start()
     {
+        dialogueRunner = InstancesManager.singleton.GetDialogueRunnerInstance();
         anim = gameObject.GetComponentInChildren<Animator>();
     }
 
@@ -52,7 +54,7 @@ public class PlayerSwimController : MonoBehaviour
 
     public void MovePlayerUp()
     {
-        if (!minigameClassesInterface.dialogueRunner.IsDialogueRunning && !SwimDodgeTutorialPanel.IsTutorialRunning && !playerLost && !movingPlayer)
+        if (!dialogueRunner.IsDialogueRunning && !SwimDodgeTutorialPanel.IsTutorialRunning && !playerLost && !movingPlayer)
         {
             //Move o player uma zona para cima e salva sua posição
             if (playerSwimZone < maxSwimZones)
@@ -67,7 +69,7 @@ public class PlayerSwimController : MonoBehaviour
 
     public void MovePlayerDown()
     {
-        if (!minigameClassesInterface.dialogueRunner.IsDialogueRunning && !SwimDodgeTutorialPanel.IsTutorialRunning && !playerLost && !movingPlayer)
+        if (!dialogueRunner.IsDialogueRunning && !SwimDodgeTutorialPanel.IsTutorialRunning && !playerLost && !movingPlayer)
         {
             //Move o player uma zona para baixo e salva sua posição
             if (playerSwimZone > 1)

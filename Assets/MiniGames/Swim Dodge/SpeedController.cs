@@ -12,15 +12,17 @@ public class SpeedController : MonoBehaviour
     private bool playerLost = false; //Variavel para controlar a velocidade caso o player perca o minigame
     private float t;
     private float speedAux; //Varivel auxiliar para interpolar a velocidade do jogo
+    private DialogueRunner dialogueRunner;
     private void Start()
     {
-        minigameClassesInterface.dialogueRunner.onDialogueComplete.AddListener(StartSwimming);
+        dialogueRunner = InstancesManager.singleton.GetDialogueRunnerInstance();
+        dialogueRunner.onDialogueComplete.AddListener(StartSwimming);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (!minigameClassesInterface.dialogueRunner.IsDialogueRunning && !SwimDodgeTutorialPanel.IsTutorialRunning && !playerLost)
+        if (!dialogueRunner.IsDialogueRunning && !SwimDodgeTutorialPanel.IsTutorialRunning && !playerLost)
         {
             if (!DistanceController.isFirstHalfCompleted)
             {

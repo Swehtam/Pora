@@ -9,12 +9,14 @@ using UnityEngine;
 public class PlayerSettings : MonoBehaviour
 {
     public string playerStartPoint;
+    public string playerStartMap;
     public void Awake()
     {
         var target = Screen.currentResolution.refreshRate;
         Application.targetFrameRate = target;
         QualitySettings.vSyncCount = 0;
         //Fazer um sistema para saber qual foi o ultimo exitPoint em q o player foi carregado
-        playerStartPoint = "Ponto de inicio";
+        playerStartPoint = "Cama";
+        playerStartMap = "Casa";
     }
 }

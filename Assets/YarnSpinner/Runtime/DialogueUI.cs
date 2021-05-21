@@ -111,6 +111,8 @@ namespace Yarn.Unity {
         /// </summary>
         private Dictionary<string, Sprite> portraitsDict = new Dictionary<string, Sprite>();
 
+        public RectTransform continueButton;
+
         // When true, the user has indicated that they want to proceed to
         // the next line.
         private bool userRequestedNextLine = false;
@@ -121,7 +123,29 @@ namespace Yarn.Unity {
 
         // When true, the DialogueRunner is waiting for the user to press
         // one of the option buttons.
-        private bool waitingForOptionSelection = false;     
+        private bool waitingForOptionSelection = false;
+
+        /// <summary>
+        /// Um <see cref="UnityEngine.Events.UnityEvent"/> que é chamado
+        /// quando inicia um dialogo com objetos.
+        /// </summary>
+        /// <remarks>
+        /// Use esse evento para alterar os objetos no dialogue container
+        /// para se adequar ao estilo de dialogo com um objeto.
+        /// </remarks>
+        public UnityEngine.Events.UnityEvent onDialogueToObject;
+
+        /// <summary>
+        /// Um <see cref="UnityEngine.Events.UnityEvent"/> que é chamado
+        /// quando inicia um dialogo com pessoas da vila.
+        /// </summary>
+        /// <remarks>
+        /// Use esse evento para alterar os objetos no dialogue container
+        /// para se adequar ao estilo de dialogo com uma pessoa.
+        /// </remarks>
+        public UnityEngine.Events.UnityEvent onDialogueToPeople;
+
+        private bool hasTalkedToPeople = true;
 
         /// <summary>
         /// A <see cref="UnityEngine.Events.UnityEvent"/> that is called
@@ -291,11 +315,16 @@ namespace Yarn.Unity {
                 button.gameObject.SetActive (false);
             }
 
-            //Transforma o array em dict
-            foreach(Portraits por in charactersPortraits)
+            //Caso tenha retrato adicionado no dialogo
+            if(charactersPortraits.Length > 0)
             {
-                portraitsDict.Add(por.name, por.sprite);
+                //Transforma o array em dict
+                foreach (Portraits por in charactersPortraits)
+                {
+                    portraitsDict.Add(por.name, por.sprite);
+                }
             }
+            
         }
 
         /// Runs a line.
@@ -326,26 +355,48 @@ namespace Yarn.Unity {
                 // Display the line one character at a time
                 var stringBuilder = new StringBuilder ();
 
-                //Divide o texto para setar o portrait e nome do personagem
-                string[] subs = text.Split(':');
-                //Verifica se a linha tem ':' ou não
-                if(subs.Length == 3)
+                //Checa se o dialogo tem campo para colocar portrait
+                if (portraitImage != null)
                 {
-                    //O primeiro nome é o nome que aparece no portrait e o segundo é oq aparece na imagem e o terceiro a sua fala
-                    SetPortrait(subs[1], subs[0]);
-                    text = subs[2];
+                    //Divide o texto para setar o portrait e nome do personagem
+                    string[] subs = text.Split(':');
+                    //Verifica se a linha tem ':' ou não
+                    if (subs.Length == 3)
+                    {
+                        //Se a ultima interação foi com um objeto
+                        //então setar dialogo para pessoas
+                        if (!hasTalkedToPeople)
+                        {
+                            DialogueToPeople();
+                        }
+                        //O primeiro nome é o nome que aparece no portrait e o segundo é oq aparece na imagem e o terceiro a sua fala
+                        SetPortrait(subs[1], subs[0]);
+                        text = subs[2];
+                    }
+                    else if (subs.Length == 2)
+                    {
+                        //Se a ultima interação foi com um objeto
+                        //então setar dialogo para pessoas
+                        if (!hasTalkedToPeople)
+                        {
+                            DialogueToPeople();
+                        }
+                        //A primeira parte do texto, antes do ':' tem o nome do personagem pra setar no dialogo e seu portrait
+                        SetPortrait(subs[0]);
+                        text = subs[1];
+                    }
+                    else
+                    {
+                        //Se não tiver nenhum personagem pra falar,
+                        //é pq Porã está falando interagindo com algum objeto
+                        if (hasTalkedToPeople)
+                        {
+                            DialogueToObject();
+                        }
+                        text = subs[0];
+                    }
                 }
-                else if(subs.Length == 2)
-                {
-                    //A primeira parte do texto, antes do ':' tem o nome do personagem pra setar no dialogo e seu portrait
-                    SetPortrait(subs[0]);
-                    text = subs[1];
-                }
-                else
-                {
-                    text = subs[0];
-                }
-
+                
                 foreach (char c in text) {
                     stringBuilder.Append (c);
                     onLineUpdate?.Invoke(stringBuilder.ToString ());
@@ -490,6 +541,31 @@ namespace Yarn.Unity {
         {
             if (dialogueContainer != null)
                 dialogueContainer.SetActive(false);
+        }
+        /// <summary>
+        /// Metodo para alterar a caixa de dialogo, caso Porã
+        /// interaja com algum objeto no mapa
+        /// </summary>
+        public void DialogueToObject()
+        {
+            hasTalkedToPeople = false;
+            onDialogueToObject?.Invoke();
+            continueButton.sizeDelta = new Vector2(792f, 172f);
+            //O y é -100f pq ta bugado, não sei o motivo
+            continueButton.localPosition = new Vector3(0f, -100f, 0f);
+        }
+
+        /// <summary>
+        /// Metodo para alterar a caixa de dialogo, caso Porã
+        /// converse com algum NPC
+        /// </summary>
+        public void DialogueToPeople()
+        {
+            hasTalkedToPeople = true;
+            onDialogueToPeople?.Invoke();
+            continueButton.sizeDelta = new Vector2(611.5f, 172f);
+            //O y é -100f pq ta bugado, não sei o motivo
+            continueButton.localPosition = new Vector3(-90f, -100f, 0f);
         }
 
         public void SetPortrait(string portraitName)

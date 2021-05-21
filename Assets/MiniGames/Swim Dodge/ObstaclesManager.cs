@@ -34,10 +34,13 @@ public class ObstaclesManager : MonoBehaviour
     [SerializeField] private MinigameClassesInterface minigameClassesInterface;
     public Dictionary<int, GameObject> spawnedObjects = new Dictionary<int, GameObject>();
 
+    private DialogueRunner dialogueRunner;
+
     private void Awake()
     {
+        dialogueRunner = InstancesManager.singleton.GetDialogueRunnerInstance();
         //Vai chamar o metodo para começar a spawnar obstaculos
-        minigameClassesInterface.dialogueRunner.onDialogueComplete.AddListener(StartSpawn);
+        dialogueRunner.onDialogueComplete.AddListener(StartSpawn);
         isRockCouroutineRunning = false;
         isTrunkCouroutineRunning = false;
         isPlantsCouroutineRunning = false;
@@ -78,7 +81,7 @@ public class ObstaclesManager : MonoBehaviour
         //Coloca isso para esperar o tempo de transição da camera quando mudar de lado
         //Ou se essa Couroutine ja estver sendo executada, então não execute outra
         //Isso serve para contornar spawnar 2 rocks ao mesmo tempo
-        if (minigameClassesInterface.dialogueRunner.IsDialogueRunning || isRockCouroutineRunning)
+        if (dialogueRunner.IsDialogueRunning || isRockCouroutineRunning)
         {
             yield break;
         }
@@ -130,7 +133,7 @@ public class ObstaclesManager : MonoBehaviour
         //Coloca isso para esperar o tempo de transição da camera quando mudar de lado
         //Ou se essa Couroutine ja estver sendo executada, então não execute outra
         //Isso serve para contornar spawnar 2 plantas ao mesmo tempo
-        if (minigameClassesInterface.dialogueRunner.IsDialogueRunning || isPlantsCouroutineRunning)
+        if (dialogueRunner.IsDialogueRunning || isPlantsCouroutineRunning)
         {
             yield break;
         }
@@ -249,7 +252,7 @@ public class ObstaclesManager : MonoBehaviour
     {
         //Se essa Couroutine ja estver sendo executada, então não execute outra
         //Isso serve para contornar spawnar 2 trunks ao mesmo tempo
-        if (isTrunkCouroutineRunning || minigameClassesInterface.dialogueRunner.IsDialogueRunning)
+        if (isTrunkCouroutineRunning || dialogueRunner.IsDialogueRunning)
             yield break;
         //Sinalizar que essa Courotine ja esta ocorrendo
         isTrunkCouroutineRunning = true;

@@ -10,10 +10,12 @@ public class UIManager : MonoBehaviour
 {
     public GameObject talkButton;
     [SerializeField] private GameObject moveButton;
+    [SerializeField] private GameObject swimDodgePanel;
 
     private YarnNPC npc;
     private DialogueRunner dialogueRunner;
     private PlayerController playerController;
+    
 
     //Campo de texto para mostrar o dia e o turno
     [SerializeField] private TMP_Text dayDisplay;
@@ -48,9 +50,20 @@ public class UIManager : MonoBehaviour
         npc = npcYarnScript;
     }
 
+    [YarnCommand("showSwimDodgePanel")]
+    public void ShowSwimDodgePanel()
+    {
+        swimDodgePanel.SetActive(true);
+    }
+
     public void HideTalkButton()
     {
         talkButton.SetActive(false);
+    }
+
+    public void HideSwimDodgePanel()
+    {
+        swimDodgePanel.SetActive(false);
     }
 
     public void DialogueButton()

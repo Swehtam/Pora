@@ -9,13 +9,15 @@ public class MinigameDialogue : MonoBehaviour
     public YarnProgram scriptToLoad;
 
     [SerializeField] private MinigameClassesInterface minigameClassesInterface;
+    private DialogueRunner dialogueRunner;
     // Start is called before the first frame update
     void Start()
     {
-        //dialogueRunner = InstancesManager.singleton.getDialogueRunnerInstance();
-        if(scriptToLoad != null)
+        dialogueRunner = InstancesManager.singleton.GetDialogueRunnerInstance();
+
+        if (scriptToLoad != null)
         {
-            minigameClassesInterface.dialogueRunner.Add(scriptToLoad);
+            dialogueRunner.Add(scriptToLoad);
         }
 
         if(!SwimDodgeTutorialPanel.IsFirstTutorial)
@@ -24,11 +26,16 @@ public class MinigameDialogue : MonoBehaviour
 
     public void StartFirstDialogue()
     {
-        minigameClassesInterface.dialogueRunner.StartDialogue("SwimDodgeMinigame.FirstSide");
+        dialogueRunner.StartDialogue("SwimDodgeMinigame.FirstSide");
     }
 
     public void StartSecondDialogue()
     {
-        minigameClassesInterface.dialogueRunner.StartDialogue("SwimDodgeMinigame.SecondSide");
+        dialogueRunner.StartDialogue("SwimDodgeMinigame.SecondSide");
+    }
+
+    public void StartFinishingDialogue()
+    {
+        dialogueRunner.StartDialogue("SwimDodgeMinigame.FinishingMinigame");
     }
 }

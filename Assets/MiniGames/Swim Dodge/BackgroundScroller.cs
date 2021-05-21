@@ -29,8 +29,8 @@ public class BackgroundScroller : MonoBehaviour
             //
             if (transform.position.x < -2.5f * width)
             {
-                //Coloquei esse -0.01f para poder sobrepor um pouco e não ficar aparecendo um espaço muito pequenos entre os mapas
-                Vector2 resetPosition = new Vector2((width * 3f) - 0.02f, 0);
+                //Coloquei -0.3f pelos calculos que eu fiz, se isso continuar aqui é pq deu certo kkk
+                Vector2 resetPosition = new Vector2((width * 3f) - 0.3f, 0);
                 transform.position = (Vector2)transform.position + resetPosition;
             }
         }
@@ -40,8 +40,8 @@ public class BackgroundScroller : MonoBehaviour
             //Subtrai de 13 pois é o quanto a camera andou para a esquerda
             if (transform.position.x > (1.5f * width) - 13f)
             {
-                //Coloquei esse +0.01f para poder sobrepor um pouco e não ficar aparecendo um espaço muito pequenos entre os mapas
-                Vector2 resetPosition = new Vector2((width * -3f) + 0.02f, 0);
+                //Coloquei -0.3f pelos calculos que eu fiz, se isso continuar aqui é pq deu certo kkk
+                Vector2 resetPosition = new Vector2((width * -3f) + 0.3f, 0);
                 transform.position = (Vector2)transform.position + resetPosition;
             }
         }

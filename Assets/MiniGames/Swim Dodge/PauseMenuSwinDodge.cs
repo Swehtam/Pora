@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Yarn.Unity;
 
 public class PauseMenuSwinDodge : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class PauseMenuSwinDodge : MonoBehaviour
     [SerializeField] private MinigameClassesInterface minigameClassesInterface;
 
     private PlayerController player;
+    private DialogueRunner dialogueRunner;
 
     // Start is called before the first frame update
     void Start()
@@ -16,11 +18,13 @@ public class PauseMenuSwinDodge : MonoBehaviour
         //Usa o singleton para pegar a instância do player
         player = InstancesManager.singleton.GetPlayerInstance().GetComponent<PlayerController>();
         player.PlayingMinigame();
+
+        dialogueRunner = InstancesManager.singleton.GetDialogueRunnerInstance();
     }
 
     public void PauseGame()
     {
-        if (!minigameClassesInterface.dialogueRunner.IsDialogueRunning)
+        if (!dialogueRunner.IsDialogueRunning)
         {
             pauseMenuUI.SetActive(true);
             Time.timeScale = 0f;
@@ -40,9 +44,9 @@ public class PauseMenuSwinDodge : MonoBehaviour
         Time.timeScale = 1f;
         minigameClassesInterface.distanceController.ResetGame();
         minigameClassesInterface.speedController.ResetGame();
-        player.loadPointName = "Saida Nadar Desvio";
+        player.loadPointName = "SaidaNadarDesvio";
         player.StoppedPlayingMinigame();
-        InstancesManager.singleton.GetLevelLoaderInstance().LoadNextLevel("VilaLobo");
+        InstancesManager.singleton.GetLevelLoaderInstance().LoadNextLevel("VilaLobo", 0);
     }
 
     public void RestartGame()
@@ -50,7 +54,7 @@ public class PauseMenuSwinDodge : MonoBehaviour
         Time.timeScale = 1f;
         minigameClassesInterface.distanceController.ResetGame();
         minigameClassesInterface.speedController.ResetGame();
-        InstancesManager.singleton.GetLevelLoaderInstance().LoadNextLevel("NadarDesvioMiniGame");
+        InstancesManager.singleton.GetLevelLoaderInstance().LoadNextLevel("NadarDesvioMiniGame", 1);
     }
 
     public void ShowTutorial()
