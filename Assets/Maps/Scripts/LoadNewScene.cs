@@ -10,8 +10,6 @@ public class LoadNewScene : MonoBehaviour
     public string exitPoint;
 
     [SerializeField] private bool isLoadingMiniGame = false;
-    private PlayerController player;
-    private DialogueRunner dialogueRunner;
 
     public enum DayShift
     {
@@ -47,10 +45,17 @@ public class LoadNewScene : MonoBehaviour
     [SerializeField] private YarnProgram scriptToLoad;
     [SerializeField] private string notAbleToEnterNode = "";
 
+    private PlayerController player;
+    private DialogueRunner dialogueRunner;
+    private DayManager dayManager;
+
     void Start()
     {
         //Usa o singleton para pegar a instância do player
         player = InstancesManager.singleton.GetPlayerInstance().GetComponent<PlayerController>();
+
+        //Usa o singleton para pegar a instância do day manager
+        dayManager = InstancesManager.singleton.GetDayManager();
         if (scriptToLoad != null)
         {
             dialogueRunner = InstancesManager.singleton.GetDialogueRunnerInstance();
@@ -63,9 +68,9 @@ public class LoadNewScene : MonoBehaviour
         if(collision.transform.root.gameObject.name == "Porã")
         {
             if (dayShiftCondition == DayShift.Nenhum
-               || (DayManager.GetIntDayShift() == 0 && (dayShiftCondition == DayShift.Manha || dayShiftCondition == DayShift.Manha_Tarde || dayShiftCondition == DayShift.Manha_Noite))
-               || (DayManager.GetIntDayShift() == 1 && (dayShiftCondition == DayShift.Tarde || dayShiftCondition == DayShift.Manha_Tarde || dayShiftCondition == DayShift.Tarde_Noite))
-               || (DayManager.GetIntDayShift() == 2 && (dayShiftCondition == DayShift.Noite || dayShiftCondition == DayShift.Manha_Noite || dayShiftCondition == DayShift.Tarde_Noite)))
+               || (dayManager.GetIntDayShift() == 0 && (dayShiftCondition == DayShift.Manha || dayShiftCondition == DayShift.Manha_Tarde || dayShiftCondition == DayShift.Manha_Noite))
+               || (dayManager.GetIntDayShift() == 1 && (dayShiftCondition == DayShift.Tarde || dayShiftCondition == DayShift.Manha_Tarde || dayShiftCondition == DayShift.Tarde_Noite))
+               || (dayManager.GetIntDayShift() == 2 && (dayShiftCondition == DayShift.Noite || dayShiftCondition == DayShift.Manha_Noite || dayShiftCondition == DayShift.Tarde_Noite)))
             {
                 player.loadPointName = exitPoint;
                 InstancesManager.singleton.GetLevelLoaderInstance().LoadNextLevel(scene, isLoadingMiniGame ? 1 : 0);

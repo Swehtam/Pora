@@ -8,6 +8,7 @@ public class DistanceController : MonoBehaviour
     [SerializeField] private TMP_Text display;
     [SerializeField] private MinigameClassesInterface minigameClassesInterface;
     private float distanceSwimmed = 0f;
+    private bool finished = false;
 
     //Booleano para saber se o player está indo ou voltando
     public static bool isFirstHalfCompleted = false;
@@ -33,10 +34,17 @@ public class DistanceController : MonoBehaviour
             minigameClassesInterface.buttonsPositionController.ChangeButtonsSide();
         }
 
-        if(distanceSwimmed <= 0 && isFirstHalfCompleted)
+        if(distanceSwimmed <= 0 && isFirstHalfCompleted && !finished)
         {
-            minigameClassesInterface.minigameDialogue.StartSecondDialogue();
+            finished = true;
+            SpeedController.speed = 0f;
+            //Acionar todos os eventos que dependem do player terminar o minigame de Nado a Desvio
+            QuestEvents.SwimDodgeCompleted(MinigamesManager.GetSwimDodgeDifficulty(), MinigamesManager.GetSwimDodgeMaxDistance());
+            minigameClassesInterface.minigameDialogue.StartFinishingDialogue();
+            minigameClassesInterface.obstaclesManager.DisableAllSpawnedObjects();
         }
+
+        if (finished) SpeedController.speed = 0f;
     }
 
     public void ResetGame()

@@ -114,8 +114,34 @@ public class PlayerController : MonoBehaviour
     }
 
     //Metodo a ser chamado toda vez que acabar um minigame
+    [YarnCommand("stopMinigame")]
     public void StoppedPlayingMinigame()
     {
         IsPlayingMinigame = false;
+    }
+
+    [YarnCommand("lookToSide")]
+    public void LookToSide(string side)
+    {
+        anim.SetFloat("LastMoveX", 0f);
+        anim.SetFloat("LastMoveY", 0f);
+        switch (side)
+        {
+            case "up":
+                anim.SetFloat("LastMoveY", 1f);
+                break;
+            case "down":
+                anim.SetFloat("LastMoveY", -1f);
+                break;
+            case "right":
+                anim.SetFloat("LastMoveX", 1f);
+                break;
+            case "left":
+                anim.SetFloat("LastMoveX", -1f);
+                break;
+            default:
+                Debug.LogErrorFormat($"<<lookToSide>> failed to parse duration {side}");
+                break;
+        }
     }
 }

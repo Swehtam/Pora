@@ -68,8 +68,8 @@ public class YarnPlace : MonoBehaviour
         //E o dia da condição pra ativar o dialogo for igual ou maior
         if (isTesting
             || (arrayDialogueVariables.Length > 0 && !CheckAllYarnPlaceVariables())
-            || DayManager.GetDay() < dayCondition
-            || ((dayShiftCondition != DayShift.Nenhum) && ((int)dayShiftCondition != DayManager.GetIntDayShift()))
+            || InstancesManager.singleton.GetDayManager().GetDay() < dayCondition
+            || ((dayShiftCondition != DayShift.Nenhum) && ((int)dayShiftCondition != InstancesManager.singleton.GetDayManager().GetIntDayShift()))
             || InstancesManager.singleton.GetYarnPlacesManager().ContainsYarnPlace(placeName))
         {
             gameObject.SetActive(false);
@@ -89,6 +89,9 @@ public class YarnPlace : MonoBehaviour
         //Se o player entrar na area pra começar o dialogo
         if (other.gameObject.CompareTag("Player"))
         {
+            //Acionar todos os eventos que dependem do player chegar em determinado lugar
+            QuestEvents.PlaceArrive(placeName);
+            //Iniciar dialogo
             dialogueRunner.StartDialogue(talkToNode);
         }
     }

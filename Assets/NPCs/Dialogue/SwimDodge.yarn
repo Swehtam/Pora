@@ -26,6 +26,12 @@ position: 920,264
 <<else>>
 	Porã: Hoje foi rapidinho, foi o suficiente pra esticar os músculos.
 <<endif>>
+
+<<if visited("SwimDodgeMinigame.FinishingMinigame") is false>>
+	<<set $swimDodgeFirstTimeDone to true>>
+<<endif>>
+<<stopMinigame Porã>>
+<<updateDayShift _app>>
 <<changeScene _loadLevel VilaLobo 0 SaidaNadarDesvio>>
 ===
 

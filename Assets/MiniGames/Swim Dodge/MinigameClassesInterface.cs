@@ -12,4 +12,5 @@ public class MinigameClassesInterface : MonoBehaviour
     public ButtonsPositionController buttonsPositionController;
     public DistanceController distanceController;
     public PlayerSwimController player;
+    public PauseMenuSwinDodge pauseMenuSwinDodge;
 }

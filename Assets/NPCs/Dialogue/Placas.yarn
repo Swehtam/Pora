@@ -1,0 +1,55 @@
+title: Placas.SwimDodge
+tags: 
+colorID: 0
+position: 370,132
+---
+<i> O rio logo abaixo é chamado de Rio Pororoca.</i>
+<i> Aqui é onde você pode treinar suas habilidades de natação.</i>
+<i> Horários - Qualquer dia de manhã ou tarde.</i>
+<i> Observação - Nunca entre no Rio Pororoca de noite ele é muito violento nesse horário.</i>
+<i> Deseja alterar o modo desse treinamento?</i>
+-> Sim.
+    <<deactivateContainer _dialogue/DialogueRunner>>
+    <<showSwimDodgePanel Canvas>>
+-> Não.
+===
+
+title: Placas.CasaPora
+tags: 
+colorID: 0
+position: 370,132
+---
+<i> Casa da família Piatã e Potira Lobo-Guará.</i>
+<i> Piatã vende frutas e vegetais para todos da vila.</i>
+<i> Potira vende todos os tipos de flores para as pessoas da vila.</i>
+<i> Sejam bem vindos.</i>
+===
+
+title: Placas.CasaMoara
+tags: 
+colorID: 0
+position: 370,132
+---
+<i> Casa da família Mayara e Ubirajara Tuiuiú.</i>
+<i> Mayara é geografa, responsável por fazer o mapeamento da vila.</i>
+<i> Ubirajara vende peixes para todos da vila.</i>
+<i> Sejam bem vindos.</i>
+===
+
+title: Placas.Cume
+tags: 
+colorID: 0
+position: 370,132
+---
+<i> Cume da Vila Cantinho do Rio.</i>
+<i> Lugar onde vivem <s>as Árvores Gêmeas</s> a Árvore Solitária.</i>
+===
+
+title: Placas.Escola
+tags: 
+colorID: 0
+position: 370,132
+---
+<i> Escola Rio Divisor.</i>
+<i> Horários - Qualquer dia de manhã.</i>
+===

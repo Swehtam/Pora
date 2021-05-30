@@ -123,6 +123,72 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &65500506
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 65500507}
+  - component: {fileID: 65500508}
+  m_Layer: 0
+  m_Name: Quest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &65500507
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65500506}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1048835247}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &65500508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65500506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0b559f6db8b6e04da45c7c2db71206d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 4
+  title: "Algo Est\xE1 Faltando"
+  description: 
+  isCompleted: 0
+  isActive: 0
+  arrayGoalsVariables:
+  - goalType: 2
+    description: "D\xEA uma volta na pracinha, Moara deve estar l\xE1."
+    currentAmount: 0
+    requiredAmount: 1
+    maxDistance: 0
+    difficulty: 0
+    placeName: Introucao.Pracinha
+    npcName: 
+  - goalType: 2
+    description: "O que foi isso? V\xE1 de onde veio o grito, pode ser Moara!!"
+    currentAmount: 0
+    requiredAmount: 1
+    maxDistance: 0
+    difficulty: 0
+    placeName: Introucao.Cemiterio
+    npcName: 
+  completedQuestsID: 
 --- !u!1 &121410063
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,6 +327,9 @@ MonoBehaviour:
   scene: VilaLobo
   exitPoint: Saida Casa Moara
   isLoadingMiniGame: 0
+  dayShiftCondition: -1
+  scriptToLoad: {fileID: 0}
+  notAbleToEnterNode: 
 --- !u!4 &421402707
 Transform:
   m_ObjectHideFlags: 0
@@ -558,7 +627,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.17, y: -15.52, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 65500507}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -618,7 +688,7 @@ GameObject:
   - component: {fileID: 1056743957}
   - component: {fileID: 1056743958}
   m_Layer: 0
-  m_Name: Introducao
+  m_Name: Introducao-CasaMayara
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2608,6 +2678,9 @@ MonoBehaviour:
   scene: MoaraCasaSegundoAndar
   exitPoint: Entrada Casa Moara Segundo
   isLoadingMiniGame: 0
+  dayShiftCondition: -1
+  scriptToLoad: {fileID: 0}
+  notAbleToEnterNode: 
 --- !u!4 &1660107443
 Transform:
   m_ObjectHideFlags: 0

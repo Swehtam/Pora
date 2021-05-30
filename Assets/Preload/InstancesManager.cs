@@ -18,6 +18,7 @@ public class InstancesManager : MonoBehaviour
     [SerializeField] private InMemoryVariableStorage inMemoryVariableStorage;
     [SerializeField] private NodeVisitedTracker nodeVisitedTracker;
     [SerializeField] private YarnPlacesManager yarnPlacesManager;
+    [SerializeField] private DayManager dayManager;
     private GameObject player;
     private UIManager uIManager;
 
@@ -115,5 +116,15 @@ public class InstancesManager : MonoBehaviour
             yarnPlacesManager = FindObjectOfType<YarnPlacesManager>();
 
         return yarnPlacesManager;
+    }
+
+    //Método responsável por retornar o DayManager do _preload para quem solicitar
+    //Caso o DayManager não exista no singleton, procure pelo mesmo, salve e retorne (isso ocorre uma vez por game)
+    public DayManager GetDayManager()
+    {
+        if (dayManager == null)
+            dayManager = FindObjectOfType<DayManager>();
+
+        return dayManager;
     }
 }

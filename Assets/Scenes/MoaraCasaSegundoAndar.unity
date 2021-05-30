@@ -244,7 +244,7 @@ GameObject:
   - component: {fileID: 105620332}
   - component: {fileID: 105620333}
   m_Layer: 0
-  m_Name: Introducao
+  m_Name: Introducao-QuartoMoara
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -589,6 +589,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+    - target: {fileID: -6948899586691276889, guid: fe200e14b0439d74eb79d73562f0c718,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -5815676344281695017, guid: fe200e14b0439d74eb79d73562f0c718,
         type: 3}
       propertyPath: m_SortingLayer
@@ -1838,6 +1843,9 @@ MonoBehaviour:
   scene: MoaraCasaPrimeiroAndar
   exitPoint: Saida Casa Moara Segundo
   isLoadingMiniGame: 0
+  dayShiftCondition: -1
+  scriptToLoad: {fileID: 0}
+  notAbleToEnterNode: 
 --- !u!4 &1219049106
 Transform:
   m_ObjectHideFlags: 0

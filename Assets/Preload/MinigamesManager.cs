@@ -24,6 +24,11 @@ public class MinigamesManager : MonoBehaviour
         return distanceMax;
     }
 
+    public static int GetSwimDodgeDifficulty()
+    {
+        return swimDodgeDifficulty;
+    }
+
     public static void ChangeSwimDodgeMaxDistance(int value)
     {
         distanceMax = value;

@@ -6,6 +6,12 @@ using TMPro;
 public class SleepEffectController : TransitionEffectController
 {
     public TMP_Text transitionText;
+    private DayManager dayManager;
+
+    private void Start()
+    {
+        dayManager = InstancesManager.singleton.GetDayManager();
+    }
 
     /// <summary>
     /// Metodo que deve ser chamado para transicionar para um scena do passado, ou colocar um texto mais especifico
@@ -21,11 +27,11 @@ public class SleepEffectController : TransitionEffectController
     /// </summary>
     public void AutoSetText()
     {
-        if (DayManager.GetDay() == 0)
+        if (dayManager.GetDay() == 0)
         {
             transitionText.text = "O GRANDE DIA";
             return;
         }
-        transitionText.text = "Dia " + DayManager.GetDay();
+        transitionText.text = "Dia " + dayManager.GetDay();
     }
 }

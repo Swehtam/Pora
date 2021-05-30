@@ -14,7 +14,7 @@ public class PlayerSleep : MonoBehaviour
     private void Start()
     {
         //Se o turno do dia nao for de noite então desativa esse componente
-        if(DayManager.GetIntDayShift() == 2)
+        if(InstancesManager.singleton.GetDayManager().GetIntDayShift() == 2)
         {
             boxCollider2D.enabled = true;
         }

@@ -44,6 +44,8 @@ public class CameraController : MonoBehaviour
         if (player is null) player = InstancesManager.singleton.GetPlayerInstance();
 
         vcam.m_Follow = player.transform;
+        //Salva a distância em que a camera se encontra na cena
+        initialDistance = Camera.main.orthographicSize;
 
         //Transforma o array em dict
         foreach (CharactersTransform por in charactersTransform)
@@ -77,10 +79,9 @@ public class CameraController : MonoBehaviour
 
             Debug.LogErrorFormat($"<<setdistance>> failed to parse distance {distanceString}");
         }
-        //Pega a distância em final que a camera se encontra e salva
-        initialDistance = Camera.main.orthographicSize;
-        //Pega o componente PixelPerfect na camera virtual
-        cmPixelPerfect = GetComponent<CinemachinePixelPerfect>();
+        //Pega o componente PixelPerfect na camera virtual se n tiver
+        if(cmPixelPerfect == null)
+            cmPixelPerfect = GetComponent<CinemachinePixelPerfect>();
         //Desativa para poder ter um transição boa do zoom
         cmPixelPerfect.enabled = false;
 
@@ -100,7 +101,11 @@ public class CameraController : MonoBehaviour
     [YarnCommand("zoomCamera")]
     public void ZoomCamera(string[] parameters)
     {
-        startZoom = true;
+        if (cmPixelPerfect == null)
+            cmPixelPerfect = GetComponent<CinemachinePixelPerfect>();
+
+        //Desativa para poder ter um transição boa do zoom
+        cmPixelPerfect.enabled = false;
         t = 0;
         startDistance = vcam.m_Lens.OrthographicSize;
         //Pega a distancia que ta no comando e coloca na variavel 'targetDistance'
@@ -114,7 +119,7 @@ public class CameraController : MonoBehaviour
             Debug.LogErrorFormat($"<<zoomCamera>> failed to parse duration {distanceString}");
         }
 
-        //Pega a distancia que ta no comando e coloca na variavel 'targetDistance'
+        //Pega o tempo que ta no comando e coloca na variavel 'timeToReachTarget'
         string timeString = parameters[1];
         if (float.TryParse(timeString,
                                    System.Globalization.NumberStyles.AllowDecimalPoint,
@@ -124,12 +129,12 @@ public class CameraController : MonoBehaviour
 
             Debug.LogErrorFormat($"<<zoomCamera>> failed to parse duration {timeString}");
         }
+        startZoom = true;
     }
 
     [YarnCommand("resetZoom")]
     public void ResetZoom(string timeString)
     {
-        startZoom = true;
         t = 0;
         startDistance = vcam.m_Lens.OrthographicSize;
         targetDistance = initialDistance;
@@ -143,6 +148,7 @@ public class CameraController : MonoBehaviour
 
             Debug.LogErrorFormat($"<<initialZoom>> failed to parse duration {timeString}");
         }
+        startZoom = true;
     }
 
     [YarnCommand("setTarget")]

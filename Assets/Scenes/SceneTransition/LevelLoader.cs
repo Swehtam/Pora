@@ -10,6 +10,7 @@ public class LevelLoader : MonoBehaviour
     [SerializeField] private Animator gameTransition;
     [SerializeField] private Animator miniGameTransition;
     [SerializeField] private Animator sleepTransition;
+    [SerializeField] private Animator flashbackTransition;
     [SerializeField] private Animator panelTransition;
     [SerializeField] private float transitionTime = 1f;
     [SerializeField] private float fadeTransitionTime = 2f;
@@ -57,9 +58,15 @@ public class LevelLoader : MonoBehaviour
                 sleepEffectController.AutoSetText();
                 yield return new WaitForSeconds(sleepTransitionTime);
                 break;
+            case 3:
+                flashbackTransition.SetTrigger("Start");
+                yield return new WaitForSeconds(sleepTransitionTime);
+                break;
             default:
                 throw new System.NotImplementedException();
         }
+
+        LoadSceneEvents.SceneLoading();
 
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
 
@@ -90,6 +97,10 @@ public class LevelLoader : MonoBehaviour
                 break;
             case 2:
                 sleepTransition.SetTrigger("End");
+                yield return new WaitForSeconds(sleepTransitionTime);
+                break;
+            case 3:
+                flashbackTransition.SetTrigger("End");
                 yield return new WaitForSeconds(sleepTransitionTime);
                 break;
             default:

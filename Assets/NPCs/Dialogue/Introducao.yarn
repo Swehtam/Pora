@@ -10,6 +10,7 @@ Porã: *<i> uaaaaah!</i>* Queria dormir mais 5 minutos.
 Porã: Mas hoje é o grande dia.
 Porã: Espero que dê tudo certo no meu plano.
 Porã: Okay vou levantar!
+<<startQuest Introducao-Casa/Quest 0>>
 <<placeDone Introducao-Casa>>
 ===
 
@@ -21,7 +22,7 @@ position: 421,163
 Porã: Hmmmmm? Eu esqueci...
 Porã: Droga! Qual era meu plano mesmo?
 Porã: De tarde me encontrar com Moara no cume da vila.
-Porã: Ai de lá a gente ia pra onde mesmo??
+Porã: Aí de lá a gente ia pra onde mesmo??
 Porã: Pensa Porã pensa...
 <<wait 2>>
 Porã: *<i>Porã pensa tanto que é até possível ouvir o ranger das engrenagens de sua cabeça</i>*
@@ -29,7 +30,21 @@ Porã: AAH! NÃO CONSIGO LEMBRAR!
 Porã: Ta tudo bem Moara vai me lembrar, é só eu ir pro cume.
 Porã: Ainda tenho tempo, então acho que vou nadar um pouco agora de manhã, aproveitar que é domingo.
 Porã: Vou até o rio que fica embaixo de casa pra nadar um pouco.
+<<startQuest Introducao-Levantar/Quest 1>>
 <<placeDone Introducao-Levantar>>
+===
+
+title: Introducao.Tarde
+tags: 
+colorID: 0
+position: 421,163
+---
+Porã: Nossa já está entardecendo, eu passei tanto tempo nadando que eu nem notei o tempo passar.
+Porã: Tenho que me encontrar com Moara.
+Porã: Nós marcamos de nos encontrar la em cima da vila no cume, ao lado da Árvore Solitária.
+Porã: Okay! Vou até lá.
+<<startQuest Introducao-Tarde/Quest 2>>
+<<placeDone Introducao-Tarde>>
 ===
 
 title: Introducao.Cume
@@ -37,14 +52,27 @@ tags:
 colorID: 0
 position: 421,163
 ---
-<<setdistance PlayerCamera 3.0>>
-Porã: Não acredito que o domingo está acabando.
-Porã: Hoje o dia foi muito cansativo, só queria ter mais tempo para relaxar até amanhã.
-Porã: E para piorá Moara está demorando, mas já, já deve estar chegando.
+<<lookToSide Porã down>>
+Porã: Cheguei. A Árvore Solitária...
+Porã: Sinto muito arvorezinha, ter que viver sozinha há muito tempo, antes mesmo de eu nascer.
+Porã: Gostaria de saber o que aconteceu com a sua irmãzinha...
+Porã: Mas não se preocupe, você não está só. Não enquanto eu estiver aqui...
+Porã: Porque você sempre me traz uma sensação de paz e relaxamento.
+Porã: Agora só esperar Moara chegar para colocar nosso plano em ação hehehe.
+<<zoomCamera PlayerCamera 3.0 1.0>>
+<<wait 3>>
+Porã: Hoje o dia foi muito cansativo, é bom ter esse momento para descansar um pouco.
+Porã: Só espero que Moara chegue logo, porque hoje é o grande dia.
+Porã: Tenho que controlar minha ansiedade, vou esperar mais um pouco...
+<<wait 3>>
+Porã: Moara tá demorando...
+Porã: Nunca chega na hora marcada...
+Porã: Calma Porã, a qualquer momento Moara vai chegar.
 <<wait 1>>
 Porã: A qualquer momento…
 <<wait 1>>
-Porã: Só mais 3 segundos…
+Porã: Vou esperar só mais 3 segundos…
+<<wait 1>>
 Porã: 3...
 <<zoomCamera PlayerCamera 4.5 1.0>>
 <<wait 1>>
@@ -58,8 +86,9 @@ Porã: ...
 <<resetCamera PlayerCamera>>
 Porã: Moara me paga, onde será que esse Tuiuiu se meteu?
 Porã: Não acredito que vou ter que ir atrás daquele passarinho.
-Porã: Moara deve estar em casa, vou até lá.
-<<placeDone Introducao>>
+Porã: Deve estar em casa, vou até lá. A casa de Moara tem o telhado vermelho, então vai ser fácil chegar lá.
+<<startQuest Introducao-Cume/Quest 3>>
+<<placeDone Introducao-Cume>>
 ===
 
 title: Introducao.CasaMayara
@@ -68,9 +97,9 @@ colorID: 0
 position: 668,150
 ---
 Porã: *<i>A porta estava aberta, então acho que não tem problema entrar.</i>*
-Porã: *<i>Dona Mayara parece está bem animada com o trabalho, mas vindo da mãe de Moara não é de se estranhar.</i>*
+Porã: *<i>Dona Mayara parece estar bem animada com o trabalho, mas vindo da mãe de Moara não é de se estranhar.</i>*
 Porã: *<i>Ela deve saber aonde Moara está.</i>*
-<<placeDone Introducao>>
+<<placeDone Introducao-CasaMayara>>
 ===
 
 title: Introducao.QuartoMoara
@@ -82,7 +111,7 @@ Porã: *<i>knock knock</i>*... Ninguém responde.
 Porã: *<i>Tenta abrir a porta</i>*... E a porta está trancada.
 Porã: Acho que Moara não está aqui, não escuto nenhum barulho. Vou procurar em outro lugar.
 <<set $introductionSquare to true>>
-<<placeDone Introducao>>
+<<placeDone Introducao-QuartoMoara>>
 ===
 
 title: Introducao.Pracinha
@@ -90,8 +119,9 @@ tags:
 colorID: 0
 position: 700,150
 ---
+Porã: Moara não está aqui...
 ????:CriançaTriste: ME DEIXEM EM PAZ!!
-Porã: *<i>O que foi isso?? Moara??</i>*
+Porã: *<i>O que foi isso?? Foi Moara??</i>*
 Porã: *<i>Acho que grito veio dali.</i>*
 <<changeCamera CMStateDrivenCamera CemiterioCamera>>
 <<wait 2>>
@@ -110,22 +140,48 @@ colorID: 0
 position: 700,150
 ---
 <<if $introductionGraveyard is true>>
+	<<deactivateContainer _dialogue/DialogueRunner>>
 	<<changeCamera CMStateDrivenCamera CemiterioCamera>>
 	<<wait 2>>
 	????:CriançaTriste: Não é como se vocês tivessem alguma relação com isso... eu não fiz nada para vocês.
-	????:Bullying1: Não importa! Você sabe muito bem que isso não é certo, você finge ser outra pessoa...
-	????:Bullying2: Você acha que a gente deve aceitar isso? Você quer ser igual a Porã?
-	????:Bullying1: Porã é todo estranho, por isso ninguém quer ser amigo dele.
+	????:Bullying1: Não importa! Você sabe muito bem que isso não é <b>certo</b>, você finge ser outra pessoa...
+	????:Bullying2: Você acha que a gente deve aceitar isso? Você quer ser igual a <b>Porã</b>?
+	????:Bullying1: Porã é todo estranho, por isso ninguém quer sua amizade.
 	????:Bullying2: Sim! Onde já se viu um Lobo-Guará que gosta de nadar?
 	<<changeCamera CMStateDrivenCamera PlayerCamera>>
 	<<wait 2>>
 	Porã: Eles tão falando de mim...
-	Porã: Por quê todo mundo se incomoda com que eu faço?
+	Porã: Por quê todo mundo se incomoda com o que eu faço?
+	Porã: Desde criança todo mundo pega no meu pé pelas coisas que eu faço ou deixo de fazer...
 	Porã: Igual a aquele dia na escola quando eu era criança.
 	Porã: Eu só queria que essas coisas parassem de acontecer comigo...
 	<<placeDone Introducao-Cemiterio>>
-	<<changeScene _loadLevel FlashBackEscola1 0 SaidaFlashBackEscola1>>
+	<<changeScene _loadLevel FlashBackEscola1 3 SaidaFlashBackEscola1>>
 <<endif>>
+===
+
+title: Introducao.CriancaTriste
+tags: 
+colorID: 0
+position: 700,150
+---
+	????:CriançaTriste: Meio estranho me chamarem pra conversar aqui.
+===
+
+title: Introducao.Bullying1
+tags: 
+colorID: 0
+position: 700,150
+---
+	????:Bullying1: O que foi? Só vamos <b>bater</b> um papo com nosso amiguinho aqui.
+===
+
+title: Introducao.Bullying2
+tags: 
+colorID: 0
+position: 700,150
+---
+	????:Bullying2: Tá olhando o que Porã? Ninguem te chamou aqui não.
 ===
 
 title: Introducao.Flashback
@@ -152,5 +208,6 @@ Acir:AcirCriança: Ninguém vai te ajudar. Todo mundo sabe que isso não é cert
 ????:Bullying3: Você é tão fraco como um roedor.
 Porã: *Porã começa a chorar no cantinho.*
 <<placeDone Introducao-Cemiterio>>
-<<changeScene _loadLevel Casa 2 AcordarCama>>
+<<updateDay _app>>
+<<changeScene _loadLevel Casa 2 Cama>>
 ===
