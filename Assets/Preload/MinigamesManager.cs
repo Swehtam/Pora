@@ -13,10 +13,8 @@ public class MinigamesManager : MonoBehaviour
     {
         LoadMinigamesVariables();
 
-        //Seta o max distance para o que foi escolhido (se foi)
-        object value = distanceMax;
-        var v = new Yarn.Value(value);
-        InstancesManager.singleton.GetInMemoryVariableStorage().SetValue("$max_distance", v);
+        ChangeSwimDodgeMaxDistance(distanceMax);
+        ChangeSwimDodgeMaxDistance(distanceMax);
     }
 
     public static int GetSwimDodgeMaxDistance()

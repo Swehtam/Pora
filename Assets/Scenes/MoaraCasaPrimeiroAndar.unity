@@ -1355,6 +1355,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6122716324409365527, guid: cc54a856f3b0e0b43a08ec90690706e4,
         type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -6122716324409365527, guid: cc54a856f3b0e0b43a08ec90690706e4,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6122716324409365527, guid: cc54a856f3b0e0b43a08ec90690706e4,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1114854821
+      objectReference: {fileID: 0}
+    - target: {fileID: -6122716324409365527, guid: cc54a856f3b0e0b43a08ec90690706e4,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
@@ -1431,7 +1446,7 @@ PrefabInstance:
     - target: {fileID: -3290814926901263101, guid: cc54a856f3b0e0b43a08ec90690706e4,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -3290814926901263101, guid: cc54a856f3b0e0b43a08ec90690706e4,
         type: 3}
@@ -1457,6 +1472,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_DetectChunkCullingBounds
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2974242053614538796, guid: cc54a856f3b0e0b43a08ec90690706e4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -2974242053614538796, guid: cc54a856f3b0e0b43a08ec90690706e4,
         type: 3}
@@ -1538,6 +1558,11 @@ PrefabInstance:
       propertyPath: m_ChunkCullingBounds.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: -1520367111106302867, guid: cc54a856f3b0e0b43a08ec90690706e4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     - target: {fileID: -1520367111106302867, guid: cc54a856f3b0e0b43a08ec90690706e4,
         type: 3}
       propertyPath: m_DetectChunkCullingBounds
@@ -1790,6 +1815,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3466211536096794772, guid: cc54a856f3b0e0b43a08ec90690706e4,
         type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3466211536096794772, guid: cc54a856f3b0e0b43a08ec90690706e4,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -1912,6 +1942,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8269156643240949830, guid: cc54a856f3b0e0b43a08ec90690706e4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8269156643240949830, guid: cc54a856f3b0e0b43a08ec90690706e4,
         type: 3}

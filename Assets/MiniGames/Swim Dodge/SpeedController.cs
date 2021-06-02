@@ -15,6 +15,7 @@ public class SpeedController : MonoBehaviour
     private DialogueRunner dialogueRunner;
     private void Start()
     {
+        speed = 0f;
         dialogueRunner = InstancesManager.singleton.GetDialogueRunnerInstance();
         dialogueRunner.onDialogueComplete.AddListener(StartSwimming);
     }

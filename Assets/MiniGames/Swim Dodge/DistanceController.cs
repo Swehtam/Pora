@@ -13,6 +13,11 @@ public class DistanceController : MonoBehaviour
     //Booleano para saber se o player está indo ou voltando
     public static bool isFirstHalfCompleted = false;
 
+    private void Start()
+    {
+        isFirstHalfCompleted = false;
+    }
+
     private void FixedUpdate()
     {
         //Distância é igual a velocidade * tempo decorrido
