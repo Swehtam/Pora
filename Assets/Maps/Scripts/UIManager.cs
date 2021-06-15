@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using Yarn.Unity;
 using UnityEngine.SceneManagement;
 using TMPro;
@@ -134,6 +133,7 @@ public class UIManager : MonoBehaviour
     {
         QuestEvents.OnNewQuest -= GotNewQuest;
         QuestEvents.OnNewQuestGoal -= UpdateQuestGoal;
+        LoadSceneEvents.OnSceneLoad -= SceneLoading;
     }
 
     //Mudar esse metodo de lugar

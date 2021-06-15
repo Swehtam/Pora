@@ -7,7 +7,6 @@ public class SpeedController : MonoBehaviour
 {
     //Static para compartilhar a mesma velocidade com todos os objetos do Mini Game
     public static float speed = 0f;
-    [SerializeField] private MinigameClassesInterface minigameClassesInterface;
 
     private bool playerLost = false; //Variavel para controlar a velocidade caso o player perca o minigame
     private float t;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class FlashBackEffectController : TransitionEffectController
+public class FlashBackEffectController : MonoBehaviour
 {
     public TMP_Text transitionText;
     private DayManager dayManager;

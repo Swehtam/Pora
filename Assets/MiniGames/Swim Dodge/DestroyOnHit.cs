@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DestroyOnHit : MonoBehaviour
 {
-    [SerializeField] private MinigameClassesInterface minigameClassesInterface;
+    [SerializeField] private SwimDodgeClassesInterface swimDodgeClassesInterface;
     private void Update()
     {
         if (DistanceController.isFirstHalfCompleted)
@@ -17,6 +17,6 @@ public class DestroyOnHit : MonoBehaviour
     //Teoricamente não vai destruir o background, pois no start o seu collider é desativado
     private void OnTriggerEnter2D(Collider2D other)
     {
-        minigameClassesInterface.obstaclesManager.DisableObstacle(other.gameObject, other.gameObject.GetComponent<Obstacle>().id);
+        swimDodgeClassesInterface.obstaclesManager.DisableObstacle(other.gameObject, other.gameObject.GetComponent<Obstacle>().id);
     }
 }

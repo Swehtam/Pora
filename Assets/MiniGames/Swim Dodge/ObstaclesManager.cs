@@ -31,7 +31,7 @@ public class ObstaclesManager : MonoBehaviour
     private float maxPlantsSpawnIntervalInSeconds = 6f; //Tempo máximo para spawnar um obstaculo
     private bool isPlantsCouroutineRunning; //Variavel para saber se a Couroutine está sendo executada ou não
 
-    [SerializeField] private MinigameClassesInterface minigameClassesInterface;
+    [SerializeField] private SwimDodgeClassesInterface swimDodgeClassesInterface;
     public Dictionary<int, GameObject> spawnedObjects = new Dictionary<int, GameObject>();
 
     private DialogueRunner dialogueRunner;
@@ -95,7 +95,7 @@ public class ObstaclesManager : MonoBehaviour
         int randomSwimZone;
         do
         {
-            randomSwimZone = Random.Range(-1, -(minigameClassesInterface.player.maxSwimZones + 1)) - 1;
+            randomSwimZone = Random.Range(-1, -(swimDodgeClassesInterface.player.maxSwimZones + 1)) - 1;
         } while (lastRockPosition == randomSwimZone);
         //Atualiza qual foi a ultima posição colocada;
         lastRockPosition = randomSwimZone;
@@ -104,7 +104,7 @@ public class ObstaclesManager : MonoBehaviour
         if(disabledRocks.Count > 0)
         {
             var spawned = GetRandomDisabledRock();
-            spawned.transform.position = new Vector2(transform.position.x, randomSwimZone * minigameClassesInterface.player.swimZoneHeight);
+            spawned.transform.position = new Vector2(transform.position.x, randomSwimZone * swimDodgeClassesInterface.player.swimZoneHeight);
             spawned.GetComponent<SpriteRenderer>().sprite = GetRandomRockSpriteFromList();
             spawned.SetActive(true);
         }
@@ -112,7 +112,7 @@ public class ObstaclesManager : MonoBehaviour
         else
         {
             //Multipla a zona em q vai ser criado o obstaculo com o tamanho das zonas para que o obstaculo se posicione bem no meio do obstaculo
-            var spawned = Instantiate(rocks, new Vector2(transform.position.x, randomSwimZone * minigameClassesInterface.player.swimZoneHeight), transform.rotation);
+            var spawned = Instantiate(rocks, new Vector2(transform.position.x, randomSwimZone * swimDodgeClassesInterface.player.swimZoneHeight), transform.rotation);
             spawned.GetComponent<SpriteRenderer>().sprite = GetRandomRockSpriteFromList();
             spawnedObjects.Add(spawned.GetInstanceID(), spawned);
         }
@@ -147,7 +147,7 @@ public class ObstaclesManager : MonoBehaviour
         int randomSwimZone;
         do
         {
-            randomSwimZone = Random.Range(-1, -(minigameClassesInterface.player.maxSwimZones + 1)) - 1;
+            randomSwimZone = Random.Range(-1, -(swimDodgeClassesInterface.player.maxSwimZones + 1)) - 1;
         } while (lastRockPosition == randomSwimZone);
 
         //Se a zona de spawn for na 2, então a planta será spawnada na primeira zona
@@ -158,7 +158,7 @@ public class ObstaclesManager : MonoBehaviour
             if (disabledPlantsDown.Count > 0)
             {
                 var spawned = GetRandomDisabledPlantsDown();
-                spawned.transform.position = new Vector2(transform.position.x, randomSwimZone * minigameClassesInterface.player.swimZoneHeight);
+                spawned.transform.position = new Vector2(transform.position.x, randomSwimZone * swimDodgeClassesInterface.player.swimZoneHeight);
                 spawned.GetComponent<SpriteRenderer>().sprite = GetRandomPlantDownSpriteFromList();
                 spawned.SetActive(true);
             }
@@ -166,7 +166,7 @@ public class ObstaclesManager : MonoBehaviour
             else
             {
                 //Planta para empurrar para baixo é a primeira nessa lista
-                var spawned = Instantiate(plantsList[0], new Vector2(transform.position.x, randomSwimZone * minigameClassesInterface.player.swimZoneHeight), transform.rotation);
+                var spawned = Instantiate(plantsList[0], new Vector2(transform.position.x, randomSwimZone * swimDodgeClassesInterface.player.swimZoneHeight), transform.rotation);
                 spawned.GetComponent<SpriteRenderer>().sprite = GetRandomPlantDownSpriteFromList();
                 spawnedObjects.Add(spawned.GetInstanceID(), spawned);
             }
@@ -180,14 +180,14 @@ public class ObstaclesManager : MonoBehaviour
             if (disabledPlantsUp.Count > 0)
             {
                 var spawned = GetRandomDisabledPlantsUp();
-                spawned.transform.position = new Vector2(transform.position.x, randomSwimZone * minigameClassesInterface.player.swimZoneHeight);
+                spawned.transform.position = new Vector2(transform.position.x, randomSwimZone * swimDodgeClassesInterface.player.swimZoneHeight);
                 spawned.GetComponent<SpriteRenderer>().sprite = GetRandomPlantUpSpriteFromList();
                 spawned.SetActive(true);
             }
             else
             {
                 //Planta para empurrar para cima é a segunda nessa lista
-                var spawned = Instantiate(plantsList[1], new Vector2(transform.position.x, randomSwimZone * minigameClassesInterface.player.swimZoneHeight), transform.rotation);
+                var spawned = Instantiate(plantsList[1], new Vector2(transform.position.x, randomSwimZone * swimDodgeClassesInterface.player.swimZoneHeight), transform.rotation);
                 spawned.GetComponent<SpriteRenderer>().sprite = GetRandomPlantUpSpriteFromList();
                 spawnedObjects.Add(spawned.GetInstanceID(), spawned);
             }
@@ -206,7 +206,7 @@ public class ObstaclesManager : MonoBehaviour
                 if (disabledPlantsDown.Count > 0)
                 {
                     var spawned = GetRandomDisabledPlantsDown();
-                    spawned.transform.position = new Vector2(transform.position.x, randomSwimZone * minigameClassesInterface.player.swimZoneHeight);
+                    spawned.transform.position = new Vector2(transform.position.x, randomSwimZone * swimDodgeClassesInterface.player.swimZoneHeight);
                     spawned.GetComponent<SpriteRenderer>().sprite = GetRandomPlantDownSpriteFromList();
                     spawned.SetActive(true);
                 }
@@ -214,7 +214,7 @@ public class ObstaclesManager : MonoBehaviour
                 else
                 {
                     //Planta para empurrar para baixo é a primeira nessa lista
-                    var spawned = Instantiate(plantsList[0], new Vector2(transform.position.x, randomSwimZone * minigameClassesInterface.player.swimZoneHeight), transform.rotation);
+                    var spawned = Instantiate(plantsList[0], new Vector2(transform.position.x, randomSwimZone * swimDodgeClassesInterface.player.swimZoneHeight), transform.rotation);
                     spawned.GetComponent<SpriteRenderer>().sprite = GetRandomPlantDownSpriteFromList();
                     spawnedObjects.Add(spawned.GetInstanceID(), spawned);
                 }
@@ -225,14 +225,14 @@ public class ObstaclesManager : MonoBehaviour
                 if (disabledPlantsUp.Count > 0)
                 {
                     var spawned = GetRandomDisabledPlantsUp();
-                    spawned.transform.position = new Vector2(transform.position.x, randomSwimZone * minigameClassesInterface.player.swimZoneHeight);
+                    spawned.transform.position = new Vector2(transform.position.x, randomSwimZone * swimDodgeClassesInterface.player.swimZoneHeight);
                     spawned.GetComponent<SpriteRenderer>().sprite = GetRandomPlantUpSpriteFromList();
                     spawned.SetActive(true);
                 }
                 else
                 {
                     //Planta para empurrar para cima é a segunda nessa lista
-                    var spawned = Instantiate(plantsList[1], new Vector2(transform.position.x, randomSwimZone * minigameClassesInterface.player.swimZoneHeight), transform.rotation);
+                    var spawned = Instantiate(plantsList[1], new Vector2(transform.position.x, randomSwimZone * swimDodgeClassesInterface.player.swimZoneHeight), transform.rotation);
                     spawned.GetComponent<SpriteRenderer>().sprite = GetRandomPlantUpSpriteFromList();
                     spawnedObjects.Add(spawned.GetInstanceID(), spawned);
                 }

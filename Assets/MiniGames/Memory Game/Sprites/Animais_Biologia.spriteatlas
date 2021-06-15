@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Animais_Biologia
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: Android
+      m_MaxTextureSize: 512
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 4
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: fcabf8bcae04c3f44a9703a934646a5d, type: 3}
+    - {fileID: 2800000, guid: 3825c60d9f9c5174c8ad97db92c36d70, type: 3}
+    - {fileID: 2800000, guid: d6eec543e2188eb478ce77e146d02148, type: 3}
+    - {fileID: 2800000, guid: 8356167995a4cdd488470916cc6a08bb, type: 3}
+    - {fileID: 2800000, guid: 8a6629bcff614eb419b8f32f6438b293, type: 3}
+    - {fileID: 2800000, guid: dfce8827e76ae7e4eaa8cfa8e7363afa, type: 3}
+    - {fileID: 2800000, guid: 3588780e0d00c534fa46f1435eebefee, type: 3}
+    - {fileID: 2800000, guid: 2f18f708942ad264b8dfe90a4d26d495, type: 3}
+    - {fileID: 2800000, guid: d7dafb66843f3ee4eae88835d9203985, type: 3}
+    - {fileID: 2800000, guid: 698dfb21645d87544a4dccc1fc85f210, type: 3}
+    - {fileID: 2800000, guid: 065282a56bb00ed4d8076a840d207fb4, type: 3}
+    - {fileID: 2800000, guid: 5d69171f4c782334ebf8a471777d43d6, type: 3}
+    - {fileID: 2800000, guid: efe54e6165035aa42b1500f81eb44945, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 698dfb21645d87544a4dccc1fc85f210, type: 3}
+  - {fileID: 21300000, guid: efe54e6165035aa42b1500f81eb44945, type: 3}
+  - {fileID: 21300000, guid: d6eec543e2188eb478ce77e146d02148, type: 3}
+  - {fileID: 21300000, guid: 065282a56bb00ed4d8076a840d207fb4, type: 3}
+  - {fileID: 21300000, guid: d7dafb66843f3ee4eae88835d9203985, type: 3}
+  - {fileID: 21300000, guid: dfce8827e76ae7e4eaa8cfa8e7363afa, type: 3}
+  - {fileID: 21300000, guid: 2f18f708942ad264b8dfe90a4d26d495, type: 3}
+  - {fileID: 21300000, guid: 8356167995a4cdd488470916cc6a08bb, type: 3}
+  - {fileID: 21300000, guid: fcabf8bcae04c3f44a9703a934646a5d, type: 3}
+  - {fileID: 21300000, guid: 8a6629bcff614eb419b8f32f6438b293, type: 3}
+  - {fileID: 21300000, guid: 3825c60d9f9c5174c8ad97db92c36d70, type: 3}
+  - {fileID: 21300000, guid: 3588780e0d00c534fa46f1435eebefee, type: 3}
+  - {fileID: 21300000, guid: 5d69171f4c782334ebf8a471777d43d6, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - tamandua
+  - token
+  - capivara
+  - tucano
+  - sucuri_amarela
+  - lobo_guara
+  - piranha
+  - cervo-do-pantanal
+  - arara_azul
+  - jacare
+  - ariranha
+  - onca_pintada
+  - tuiuiu
+  m_RenderDataMap: {}
+  m_Tag: Animais_Biologia
+  m_IsVariant: 0

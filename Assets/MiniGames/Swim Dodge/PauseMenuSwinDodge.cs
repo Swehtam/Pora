@@ -7,7 +7,7 @@ public class PauseMenuSwinDodge : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
-    [SerializeField] private MinigameClassesInterface minigameClassesInterface;
+    [SerializeField] private SwimDodgeClassesInterface swimDodgeClassesInterface;
 
     private PlayerController player;
     private DialogueRunner dialogueRunner;
@@ -42,8 +42,8 @@ public class PauseMenuSwinDodge : MonoBehaviour
     public void QuitGame()
     {
         Time.timeScale = 1f;
-        minigameClassesInterface.distanceController.ResetGame();
-        minigameClassesInterface.speedController.ResetGame();
+        swimDodgeClassesInterface.distanceController.ResetGame();
+        swimDodgeClassesInterface.speedController.ResetGame();
         player.loadPointName = "SaidaNadarDesvio";
         player.StoppedPlayingMinigame();
         InstancesManager.singleton.GetLevelLoaderInstance().LoadNextLevel("VilaLobo", 0);
@@ -52,13 +52,13 @@ public class PauseMenuSwinDodge : MonoBehaviour
     public void RestartGame()
     {
         Time.timeScale = 1f;
-        minigameClassesInterface.distanceController.ResetGame();
-        minigameClassesInterface.speedController.ResetGame();
+        swimDodgeClassesInterface.distanceController.ResetGame();
+        swimDodgeClassesInterface.speedController.ResetGame();
         InstancesManager.singleton.GetLevelLoaderInstance().LoadNextLevel("NadarDesvioMiniGame", 1);
     }
 
     public void ShowTutorial()
     {
-        minigameClassesInterface.swimDodgeTutorialPanel.StartTutorial();
+        swimDodgeClassesInterface.swimDodgeTutorialPanel.StartTutorial();
     }
 }

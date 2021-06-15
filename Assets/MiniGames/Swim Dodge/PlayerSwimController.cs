@@ -11,7 +11,7 @@ public class PlayerSwimController : MonoBehaviour
     //Altura das Zonas
     public readonly float swimZoneHeight = 2f;
     public GameObject loseMenu;
-    [SerializeField] private MinigameClassesInterface minigameClassesInterface;
+    [SerializeField] private SwimDodgeClassesInterface swimDodgeClassesInterface;
 
     //A zone inicial do Player quando começar o mini game
     private int playerSwimZone = 2;
@@ -95,8 +95,8 @@ public class PlayerSwimController : MonoBehaviour
             {
                 Destroy(gameObject); //Destroi o player
                 playerLost = true; //Sinaliza q o player perder
-                minigameClassesInterface.speedController.PlayerLost(); //Avisa ao Speed Controller que o player perdeu
-                minigameClassesInterface.obstaclesManager.PlayerLost(); //Avisa ao Obstacle Manager que o player perdeu
+                swimDodgeClassesInterface.speedController.PlayerLost(); //Avisa ao Speed Controller que o player perdeu
+                swimDodgeClassesInterface.obstaclesManager.PlayerLost(); //Avisa ao Obstacle Manager que o player perdeu
                 loseMenu.SetActive(true); //Ativa a interface de derrota do player
             }
             //Planta que empurra para baixo

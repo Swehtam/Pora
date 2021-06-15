@@ -14,7 +14,6 @@ public class MinigamesManager : MonoBehaviour
         LoadMinigamesVariables();
 
         ChangeSwimDodgeMaxDistance(distanceMax);
-        ChangeSwimDodgeMaxDistance(distanceMax);
     }
 
     public static int GetSwimDodgeMaxDistance()
@@ -31,6 +30,11 @@ public class MinigamesManager : MonoBehaviour
     {
         distanceMax = value;
         InstancesManager.singleton.GetInMemoryVariableStorage().SetValue("$max_distance", value);
+    }
+
+    public static void UpdateSwimDodgeMaxDistance()
+    {
+        InstancesManager.singleton.GetInMemoryVariableStorage().SetValue("$max_distance", distanceMax);
     }
 
     public static void ChangeSwimDodgeDifficulty(int value)

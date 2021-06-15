@@ -6,7 +6,7 @@ using TMPro;
 public class DistanceController : MonoBehaviour
 {
     [SerializeField] private TMP_Text display;
-    [SerializeField] private MinigameClassesInterface minigameClassesInterface;
+    [SerializeField] private SwimDodgeClassesInterface swimDodgeClassesInterface;
     private float distanceSwimmed = 0f;
     private bool finished = false;
 
@@ -33,10 +33,10 @@ public class DistanceController : MonoBehaviour
         {
             isFirstHalfCompleted = true;
             SpeedController.speed = 0f;
-            minigameClassesInterface.minigameDialogue.StartSecondDialogue();
-            minigameClassesInterface.obstaclesManager.ResetRocksSpawn();
-            minigameClassesInterface.obstaclesManager.DisableAllSpawnedObjects();
-            minigameClassesInterface.buttonsPositionController.ChangeButtonsSide();
+            swimDodgeClassesInterface.minigameDialogue.StartSecondDialogue();
+            swimDodgeClassesInterface.obstaclesManager.ResetRocksSpawn();
+            swimDodgeClassesInterface.obstaclesManager.DisableAllSpawnedObjects();
+            swimDodgeClassesInterface.buttonsPositionController.ChangeButtonsSide();
         }
 
         if(distanceSwimmed <= 0 && isFirstHalfCompleted && !finished)
@@ -45,8 +45,8 @@ public class DistanceController : MonoBehaviour
             SpeedController.speed = 0f;
             //Acionar todos os eventos que dependem do player terminar o minigame de Nado a Desvio
             QuestEvents.SwimDodgeCompleted(MinigamesManager.GetSwimDodgeDifficulty(), MinigamesManager.GetSwimDodgeMaxDistance());
-            minigameClassesInterface.minigameDialogue.StartFinishingDialogue();
-            minigameClassesInterface.obstaclesManager.DisableAllSpawnedObjects();
+            swimDodgeClassesInterface.minigameDialogue.StartFinishingDialogue();
+            swimDodgeClassesInterface.obstaclesManager.DisableAllSpawnedObjects();
         }
 
         if (finished) SpeedController.speed = 0f;

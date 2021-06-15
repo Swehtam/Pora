@@ -18,5 +18,7 @@ public class PlayerSettings : MonoBehaviour
         //Fazer um sistema para saber qual foi o ultimo exitPoint em q o player foi carregado
         playerStartPoint = "Cama";
         playerStartMap = "Casa";
+        //playerStartPoint = "Entrada Sala de Aula";
+        //playerStartMap = "EscolaSalaAula";
     }
 }

@@ -1,15 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using UnityEngine.Events;
 
 public class SwimDodgeTutorialPanel : MonoBehaviour
 {
+    public UnityEvent onFirstTimeTutorialDone;
+
     [SerializeField] private List<GameObject> tutorialImages;
     [SerializeField] private GameObject tutorialPanel;
     [SerializeField] private GameObject leftButton;
     [SerializeField] private GameObject rightButton;
     [SerializeField] private GameObject playButton;
-    [SerializeField] private MinigameClassesInterface minigameClassesInterface;
+
+    [SerializeField] private SwimDodgeClassesInterface swimDodgeClassesInterface;
     private int lastImageOpen = 0;
     
     public static bool IsFirstTutorial = true;
@@ -50,7 +55,8 @@ public class SwimDodgeTutorialPanel : MonoBehaviour
         {
             //Sinaliza que o tutorial acabou
             IsFirstTutorial = false;
-            minigameClassesInterface.minigameDialogue.StartFirstDialogue();
+            onFirstTimeTutorialDone?.Invoke();
+            swimDodgeClassesInterface?.minigameDialogue.StartFirstDialogue();
         }
 
         IsTutorialRunning = false;
@@ -58,13 +64,8 @@ public class SwimDodgeTutorialPanel : MonoBehaviour
 
     public void GoToNextImage()
     {
-        //Se a ultima image foi a primeira, então mostrar o botão para voltar
-        if (lastImageOpen == 0)
-        {
-            leftButton.SetActive(true);
-        }
         //Se a ultima image aberta foi a penultima, entao some com o botão de próximo
-        else if (lastImageOpen == tutorialImages.Count - 2)
+        if (lastImageOpen == (tutorialImages.Count - 2))
         {
             rightButton.SetActive(false);
 
@@ -75,6 +76,8 @@ public class SwimDodgeTutorialPanel : MonoBehaviour
             }
         }
 
+        //Sempre que selecionar esse metodo ativa o botão da esquerda
+        leftButton.SetActive(true);
         //Some com a ultima imagem aberta
         tutorialImages[lastImageOpen].SetActive(false);
         //Depois mostra a próxima imagem
@@ -84,23 +87,15 @@ public class SwimDodgeTutorialPanel : MonoBehaviour
 
     public void GoToPreviousImage()
     {
-        //Se a ultima imagem aberta foi a ultima da lista, então mostra o botão de próximo
-        if (lastImageOpen == tutorialImages.Count - 1)
-        {
-            rightButton.SetActive(true);
-
-            //Se for o primeiro tutorial então aparece com o botão de jogar
-            if (IsFirstTutorial)
-            {
-                playButton.SetActive(false);
-            }
-        }
         //Se a ultima image aberta foi a segunda, entao some com o botão de anterior
-        else if (lastImageOpen == 1)
+        if (lastImageOpen == 1)
         {
             leftButton.SetActive(false);
         }
 
+        //Sempre que selecionar esse metodo ativa o botão da direita e desativa o botão de jogar
+        rightButton.SetActive(true);
+        playButton.SetActive(false);
         //Some com a ultima imagem aberta
         tutorialImages[lastImageOpen].SetActive(false);
         //Depois mostra a próxima imagem

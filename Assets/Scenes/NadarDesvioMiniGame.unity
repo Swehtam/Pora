@@ -9120,7 +9120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loseMenu: {fileID: 1751462083}
-  minigameClassesInterface: {fileID: 953144537}
+  swimDodgeClassesInterface: {fileID: 953144537}
 --- !u!95 &40493104
 Animator:
   serializedVersion: 3
@@ -9792,7 +9792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 1968403481}
-  minigameClassesInterface: {fileID: 953144537}
+  swimDodgeClassesInterface: {fileID: 953144537}
 --- !u!114 &192940227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9832,7 +9832,7 @@ MonoBehaviour:
   leftButton: {fileID: 1127486335}
   rightButton: {fileID: 2110112755}
   playButton: {fileID: 1790322386}
-  minigameClassesInterface: {fileID: 953144537}
+  swimDodgeClassesInterface: {fileID: 953144537}
 --- !u!1 &229565866
 GameObject:
   m_ObjectHideFlags: 0
@@ -39236,7 +39236,7 @@ MonoBehaviour:
   - {fileID: 7931613746896464816}
   - {fileID: 7289943857502902187}
   - {fileID: 6005378379566555160}
-  minigameClassesInterface: {fileID: 953144537}
+  swimDodgeClassesInterface: {fileID: 953144537}
 --- !u!4 &953144532
 Transform:
   m_ObjectHideFlags: 0
@@ -39264,7 +39264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   display: {fileID: 960833043}
-  minigameClassesInterface: {fileID: 953144537}
+  swimDodgeClassesInterface: {fileID: 953144537}
 --- !u!114 &953144534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39277,7 +39277,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8436f5286840a0b409aaa7a716841987, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minigameClassesInterface: {fileID: 953144537}
 --- !u!114 &953144535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39292,7 +39291,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptToLoad: {fileID: 2480198943629176163, guid: 3c80b234f78aca343898d427b5457f83,
     type: 3}
-  minigameClassesInterface: {fileID: 953144537}
 --- !u!114 &953144536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39326,7 +39324,7 @@ MonoBehaviour:
   buttonsPositionController: {fileID: 192940227}
   distanceController: {fileID: 953144533}
   player: {fileID: 40493103}
-  pauseMenuSwinDodge: {fileID: 0}
+  pauseMenuSwinDodge: {fileID: 192940226}
 --- !u!1 &960833041
 GameObject:
   m_ObjectHideFlags: 0
@@ -41911,7 +41909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e58fbaa3f355d34dad761d4361dddfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minigameClassesInterface: {fileID: 953144537}
+  swimDodgeClassesInterface: {fileID: 953144537}
 --- !u!1 &1683806953
 GameObject:
   m_ObjectHideFlags: 0

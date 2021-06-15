@@ -19,6 +19,7 @@ public class LevelLoader : MonoBehaviour
 
     private static int transitionValue = 0;
     private PlayerController player;
+    private bool isLevelLoading = false;
 
     private void OnLevelWasLoaded()
     {
@@ -41,6 +42,13 @@ public class LevelLoader : MonoBehaviour
 
     IEnumerator LoadLevel(string sceneName)
     {
+        if (isLevelLoading)
+        {
+            yield break;
+        }
+
+        isLevelLoading = true;
+
         panelTransition.SetTrigger("Start");
         switch (transitionValue)
         {
@@ -66,6 +74,7 @@ public class LevelLoader : MonoBehaviour
                 throw new System.NotImplementedException();
         }
 
+        //Evento para sinalizar que começou a carregar para uma nova cena
         LoadSceneEvents.SceneLoading();
 
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
@@ -83,6 +92,7 @@ public class LevelLoader : MonoBehaviour
 
     IEnumerator StartLevel()
     {
+        isLevelLoading = false;
         panelTransition.SetTrigger("End");
         switch (transitionValue)
         {

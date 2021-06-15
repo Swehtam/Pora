@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class SleepEffectController : TransitionEffectController
+public class SleepEffectController : MonoBehaviour
 {
     public TMP_Text transitionText;
     private DayManager dayManager;
