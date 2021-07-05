@@ -4,14 +4,23 @@ using UnityEngine;
 
 public class QuestsManager : MonoBehaviour
 {
+    //Variavel usada para realizar animação quandp recebe missão nova
+    public bool newQuest = false;
+    //GameObject do "_quests" para adicionar componente de ActiveQuest assim que tiver missão nova
+    public GameObject _quests;
+    //Lista de missões já completadas para teste
+    public bool isTesting = false;
+    public List<int> testingQuestsID = new List<int>();    
+
     //private static Dictionary<int, Quest> activeQuests = new Dictionary<int, Quest>();
-    private static Quest activeQuest = null;
-    private static Dictionary<int, Quest> completedQuests = new Dictionary<int, Quest>();
-    public static bool newQuest = false;
+    private ActiveQuest activeQuest;
+    private readonly Dictionary<int, bool> completedQuests = new Dictionary<int, bool>();
+    private QuestEvents questEvents;
 
     // Start is called before the first frame update
     void Start()
     {
+        questEvents = InstancesManager.singleton.GetQuestEvents();
         LoadQuests();
     }
 
@@ -19,7 +28,7 @@ public class QuestsManager : MonoBehaviour
     /// Metodo estatico para completar uma quest presente nas quests ativas
     /// </summary>
     /// <param name="id"></param>
-    public static void AddCompleteQuest(int id)
+    public void AddCompleteQuest(int id)
     {
         //Checa se o dicionário de quests ativas tem a quest com o id do parametro
         /*if (activeQuests.ContainsKey(id)){
@@ -36,9 +45,10 @@ public class QuestsManager : MonoBehaviour
         {
             Debug.LogErrorFormat($"failed to find active quest id: {id}.");
         }*/
+        
         if(activeQuest.id == id)
         {
-            completedQuests.Add(id, activeQuest);
+            completedQuests.Add(id, true);
             activeQuest = null;
         }
         else
@@ -52,7 +62,7 @@ public class QuestsManager : MonoBehaviour
     /// </summary>
     /// <param name="id"></param>
     /// <param name="quest"></param>
-    public static void AddQuest(int id, Quest quest)
+    public void AddQuest(Quest quest)
     {
         /*if (activeQuests.ContainsKey(id))
         {
@@ -63,12 +73,14 @@ public class QuestsManager : MonoBehaviour
             //Adiciona a quest nesse dicionario de quests ativas
             activeQuests.Add(id, quest);
         }*/
-        activeQuest = quest;
-        QuestEvents.GotNewQuest(quest);
+        activeQuest = _quests.AddComponent(typeof(ActiveQuest)) as ActiveQuest;
+        activeQuest.StarQuest(quest);
+        questEvents.GotNewQuest();
     }
 
-    public static Quest GetActiveQuest()
+    public ActiveQuest GetActiveQuest()
     {
+        //Isso aqui funciona para saber se a missão foi completada ou não
         return activeQuest;
     }
 
@@ -77,7 +89,7 @@ public class QuestsManager : MonoBehaviour
     /// </summary>
     /// <param name="questsID"></param>
     /// <returns></returns>
-    public static bool CheckIfQuestsWereCompleted(List<int> questsID)
+    public bool CheckIfQuestsWereCompleted(List<int> questsID)
     {
         //Se todas foram true significa que essas quests já foram completadas
         return questsID.TrueForAll(g => completedQuests.ContainsKey(g));
@@ -88,9 +100,23 @@ public class QuestsManager : MonoBehaviour
     /// </summary>
     /// <param name="questID"></param>
     /// <returns></returns>
-    public static bool CheckIfQuestWasCompleted(int questID)
+    public bool CheckIfQuestWasCompleted(int questID)
     {
         return completedQuests.ContainsKey(questID);
+    }
+
+    public bool CheckIfQuestIsActive(int questID)
+    {
+        //Atualmente só pode ter 1 quest por vez, mas quando puder ter mais modificar essa parte
+        if(activeQuest != null)
+        {
+            if (activeQuest.id == questID)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /// <summary>
@@ -98,6 +124,12 @@ public class QuestsManager : MonoBehaviour
     /// </summary>
     private void LoadQuests()
     {
-
+        if (isTesting)
+        {
+            foreach(int questID in testingQuestsID)
+            {
+                completedQuests.Add(questID, true);
+            }
+        }
     }
 }

@@ -1,0 +1,17 @@
+title: Cama.PrimeiroDia
+tags: 
+colorID: 0
+position: 421,163
+---
+<<deactivateContainer _dialogue/DialogueRunner>>
+<<wait 3>>
+Potira: PORÃÃÃ!! VAI PERDER O HORÁRIO!
+Porã: ...
+Porã: *Que horas são?*
+<<wait 1>>
+Potira: PORÃÃÃ!!
+Porã: *Minha mãe tá me chamando.*
+Porã: JÁ VOU!
+<<startQuest Cama-PrimeiroDia/Quest 5>>
+<<placeDone Cama-PrimeiroDia>>
+===

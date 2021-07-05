@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class NodeVisitedTracker : MonoBehaviour
 {
+    public bool isTesting = false;
+    public List<string> testingNodesNames = new List<string>();
     // The dialogue runner that we want to attach the 'visited' function to
     private Yarn.Unity.DialogueRunner dialogueRunner;
 
     private HashSet<string> _visitedNodes = new HashSet<string>();
+
+    private void Start()
+    {
+        LoadNodesVisited();
+    }
+
     public void SetDialogueRunner(Yarn.Unity.DialogueRunner dialogueRun)
     {
         dialogueRunner = dialogueRun;
@@ -38,5 +46,16 @@ public class NodeVisitedTracker : MonoBehaviour
         var tags = new List<string>(dialogueRunner.GetTagsForNode(nodeName));
 
         Debug.Log($"Starting the execution of node {nodeName} with {tags.Count} tags.");
+    }
+
+    private void LoadNodesVisited()
+    {
+        if (isTesting)
+        {
+            foreach(string nodeName in testingNodesNames)
+            {
+                NodeComplete(nodeName);
+            }
+        }
     }
 }

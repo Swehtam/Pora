@@ -1,0 +1,112 @@
+title: Potira
+tags: 
+colorID: 0
+position: 421,163
+---
+<<if not visited("Potira.PrimeiroDia")>>
+	[[Potira.PrimeiroDia]]
+<<endif>>
+[[Potira.Adeus]]
+===
+
+title: Potira.PrimeiroDia
+tags: 
+colorID: 0
+position: 500,163
+---
+Potira: Bom dia! Vamos acordar!? Você não pode perder seu primeiro dia de aula?
+Porã: Bom dia, mãe. Ainda estou com muito sono, queria dormir mais um pouco... 
+Porã: *Uaaaah!*
+Potira: Não fique assim Porã, hoje é seu primeiro dia de aula no 7º ano. 
+Potira: Não vai querer perder o primeiro dia de aula né?
+-> *Uaaaah!* Eu não poderia só faltar o primeiro dia de aula não?
+	Potira: Mas por que queres falta logo hoje?
+	Porã: Todo mundo fica me olhando, como se eu fosse <b>diferente</b>, não gosto disso.
+	Potira: Oh meu filhote, você não é diferente. Você é tão Lobo-guará quanto qualquer outro.
+	Potira: Você vai ficar bem hoje.
+	Porã: Tá bom mãe, eu vou hoje.
+-> Não, eu sei que você não gostaria disso, mãe.
+	Potira: Ainda bem que você sabe hahaha.
+
+Potira: Estou muito orgulhosa de você, meu xodó. Você tá crescendo muito rápido.
+Potira: Alguma expectativa para esse ano?
+-> *Suspira* Só espero que não seja igual ao ano passado.
+	Porã: Parecia que o 6º não ia terminar.
+	Potira: Você está crescendo rápido. Esse ano irá passar em um piscar de olhos.
+	Potira: Quando eu tinha a sua idade eu desejava que essa época nunca acabasse.
+	Potira: Era muito bom andar pela vila, brincando sem nenhuma preocupação.
+	Porã: Se eu tivesse alguém com quem brincar...
+-> Hmmm... *pensativo* não tenho nada em mente agora.
+	Potira: Anime-se Porã, você tem que ser mais otimista, tente pensar em algo.
+	Porã: *Porã pensa mais um pouco* Acho que fazer amizades seria bom…
+	Potira: Olha só, foi difícil pensar? É um bom começo.
+-> Não sei, mas estou com uma sensação boa.
+	Potira: Você vai aprender coisas novas e descobrir novos mundos. Talvez até crie laços e faça novas amizades.
+	Porã: Estou um pouco assustado e ansioso, mas com um bom pressentimento.
+	Potira: É normal se sentir assim, mas vai dar tudo certo. Você não está sozinho.
+	Porã: Eu não estaria sozinho se tivesse um amigo...
+	
+Potira: Não fique triste assim, filhote.
+Potira: Soube que hoje uma família se mudou para vila. E que eles também tem um filhote da sua idade.
+Potira: Talvez vocês se conheçam hoje na escola. Vocês podem ser amigos.
+Porã: Você já os conheceu?
+Potira: Ainda não. Mas agora de manhã vou dar uma passadinha na casa deles.
+Porã: Você realmente acha que eu vou conseguir um amigo?
+Potira: Claro, que sim! Você é o filhote mais fofo da vila.
+Porã: *Porã fica um pouco feliz.*
+Porã: Então, o que eu devo fazer? Eu deve ser eu mesmo?
+Potira: *Potira fica curisosa.*
+Potira: Como assim? Mas é claro que você deve ser você mesmo!
+Porã: *Porã fica com um sorriso no rosto.*
+Porã: Sério!?
+Potira: *Potira fica preocupada e começa a falar baixinho*
+Potira: Mas Porã, você me promete que vai se <b>comportar</b> né?
+Porã: *Porã fica triste.*
+Porã: ...
+Porã: Me comportar?
+Potira: *Potira fica com um sorriso nervoso.*
+Potira: Sim, igual ao meu <b>lobinho</b> que você é.
+Potira: Você não deveria expor <b>isso</b> para os outros.
+Porã: ...
+Potira: Não fique triste, meu amor. Você sabe que é para o seu bem né?
+Potira: Não queremos seu pai descobrindo isso.
+Porã: Já entendi, mãe...
+Potira: Agora vá para sua aula. Eu te amo e boa aula!
+Porã: Obrigado mãe, também te amo...
+
+[[Potira.PrimeiroDia2]]
+===
+
+title: Potira.PrimeiroDia2
+tags: 
+colorID: 0
+position: 500,163
+---
+<<deactivateContainer _dialogue/DialogueRunner>>
+<<showNPC SceneManager Piatã 0>>
+<<wait 0.1>>
+<<moveTo NPCs/Piatã 1 1.5>>
+<<wait 1.5>>
+<<moveTo NPCs/Piatã 2 1>>
+<<wait 1>>
+<<moveTo NPCs/Piatã 3 1.5>>
+<<wait 1.5>>
+Piatã: Bom dia Porã, bom primeiro dia de aula.
+Porã: Bom dia pai, obrigado!
+Piatã: Estarei te esperando na nossa plantação de tarde. Até mais tarde.
+Porã: ...
+Porã: Então, tá. Tchau...
+Piatã: Tchau.
+<<set $piataKitchen to true>>
+<<set $firstClass to true>>
+<<set $isClassTime to true>>
+<<startQuest NPCs/Potira/Quest-PrimeiroDia 6>>
+===
+
+title: Potira.Adeus
+tags: 
+colorID: 0
+position: 421,163
+---
+Potira: Tchau, meu xodó.
+===

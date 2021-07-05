@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class YarnPlacesManager : MonoBehaviour
 {
+    public bool isTesting = false;
+    public List<string> placesVisited = new List<string>();
     private HashSet<string> _yarnPlaceDone = new HashSet<string>();
 
     private void Start()
@@ -28,6 +30,12 @@ public class YarnPlacesManager : MonoBehaviour
     //Pegar no arquivo salvo os lugares que já ocorreu dialogo
     private void UpdatePlaceDialogueDone()
     {
-
+        if (isTesting)
+        {
+            foreach (string placeName in placesVisited)
+            {
+                YarnPlaceComplete(placeName);
+            }
+        }
     }
 }

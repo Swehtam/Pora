@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Yarn.Unity;
+using System;
 
 public class LoadNewScene : MonoBehaviour
 {
     public string scene;
 
     public string exitPoint;
-
-    [SerializeField] private bool isLoadingMiniGame = false;
-
+   
     public enum DayShift
     {
         Nenhum = -1,
@@ -39,23 +38,46 @@ public class LoadNewScene : MonoBehaviour
         /// </summary>
         Tarde_Noite = 5
     }
+
+    [Serializable]
+    public struct CantEnterVariables
+    {
+        /// <summary>
+        /// O nome da variavel para não poder mudar de cena.
+        /// </summary>
+        /// <remarks>
+        /// Lembrar de incluir o prefixo `$` nas variaveis.
+        /// </remarks>
+        public string name;
+    }
+
+    [SerializeField] private bool isLoadingMiniGame = false;
+    
     [Header("Opcional")]
     [Tooltip("Opcional - Turno do dia para poder entrar no minigame.")]
     [SerializeField] private DayShift dayShiftCondition = DayShift.Nenhum;
     [SerializeField] private YarnProgram scriptToLoad;
     [SerializeField] private string notAbleToEnterNode = "";
+    [Tooltip("Variaveis para não poder mudar de cena")]
+    public CantEnterVariables[] arrayCantEnterVariables;
 
     private PlayerController player;
     private DialogueRunner dialogueRunner;
-    private DayManager dayManager;
+    private bool isAbleToEnter = false;
 
     void Start()
     {
         //Usa o singleton para pegar a instância do player
         player = InstancesManager.singleton.GetPlayerInstance().GetComponent<PlayerController>();
+        
+        //Se não tiver variaveis que impeçam o player de entrar na cena
+        //Ou as variaveis não forem verdadeiras,
+        //E se o turno do dia estiver correto, então pode entrar
+        if (CheckCantEnterVariables() && CheckDayShift())
+        {
+            isAbleToEnter = true;
+        }
 
-        //Usa o singleton para pegar a instância do day manager
-        dayManager = InstancesManager.singleton.GetDayManager();
         if (scriptToLoad != null)
         {
             dialogueRunner = InstancesManager.singleton.GetDialogueRunnerInstance();
@@ -67,19 +89,74 @@ public class LoadNewScene : MonoBehaviour
     {
         if(collision.transform.root.gameObject.name == "Porã")
         {
-            if (dayShiftCondition == DayShift.Nenhum
-               || (dayManager.GetIntDayShift() == 0 && (dayShiftCondition == DayShift.Manha || dayShiftCondition == DayShift.Manha_Tarde || dayShiftCondition == DayShift.Manha_Noite))
-               || (dayManager.GetIntDayShift() == 1 && (dayShiftCondition == DayShift.Tarde || dayShiftCondition == DayShift.Manha_Tarde || dayShiftCondition == DayShift.Tarde_Noite))
-               || (dayManager.GetIntDayShift() == 2 && (dayShiftCondition == DayShift.Noite || dayShiftCondition == DayShift.Manha_Noite || dayShiftCondition == DayShift.Tarde_Noite)))
+            if (isAbleToEnter)
             {
                 player.loadPointName = exitPoint;
                 InstancesManager.singleton.GetLevelLoaderInstance().LoadNextLevel(scene, isLoadingMiniGame ? 1 : 0);
+                return;
             }
             else
             {
                 NotAbleToEnter();
+                return;
             }
         }
+    }
+
+    /// <summary>
+    /// Checa se o turno do dia é o correto para poder entrar na cena.
+    /// </summary>
+    /// <returns>
+    /// True: Se estiver correto;
+    /// False: caso não esteja.
+    /// </returns>
+    private bool CheckDayShift()
+    {
+        bool canEnter = false;
+
+        //Usa o singleton para pegar a instância do day manager
+        DayManager dayManager = InstancesManager.singleton.GetDayManager();
+        int dayShift = dayManager.GetIntDayShift();
+
+        if (dayShiftCondition == DayShift.Nenhum
+           || (dayShift == 0 && (dayShiftCondition == DayShift.Manha || dayShiftCondition == DayShift.Manha_Tarde || dayShiftCondition == DayShift.Manha_Noite))
+           || (dayShift == 1 && (dayShiftCondition == DayShift.Tarde || dayShiftCondition == DayShift.Manha_Tarde || dayShiftCondition == DayShift.Tarde_Noite))
+           || (dayShift == 2 && (dayShiftCondition == DayShift.Noite || dayShiftCondition == DayShift.Manha_Noite || dayShiftCondition == DayShift.Tarde_Noite)))
+        {
+            canEnter = true;
+        }
+
+        return canEnter;
+    }
+
+    private bool CheckCantEnterVariables()
+    {
+        bool canEnter = true;
+
+        //Se não tiver variaveis então pode entrar
+        if (arrayCantEnterVariables.Length < 1)
+            return canEnter;
+
+        InMemoryVariableStorage inMemoryVariableStorage = InstancesManager.singleton.GetInMemoryVariableStorage();
+
+        foreach (CantEnterVariables cev in arrayCantEnterVariables)
+        {
+            //Pega a variavel se existir,
+            //Se nao existir vai vir null, ou seja tipo diferente, então nao precisa comparar os valores
+            Yarn.Value memoryValue = inMemoryVariableStorage.GetValue(cev.name);
+            if (memoryValue.type == Yarn.Value.Type.Bool)
+            {
+                string stringValue = memoryValue.AsBool.ToString();
+                if (stringValue.Equals("True"))
+                {
+                    //Ativa o NPC, pois tem a chance dele n estar ativo nessa cena e depois o posiciona
+                    canEnter = false;
+                    break;
+                }
+            }
+        }
+
+        return canEnter;
     }
 
     private void NotAbleToEnter()

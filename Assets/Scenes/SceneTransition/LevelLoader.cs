@@ -12,9 +12,12 @@ public class LevelLoader : MonoBehaviour
     [SerializeField] private Animator sleepTransition;
     [SerializeField] private Animator flashbackTransition;
     [SerializeField] private Animator panelTransition;
+    [SerializeField] private Animator narrativeTransition;
+    [SerializeField] private Animator simpleFade;
     [SerializeField] private float transitionTime = 1f;
     [SerializeField] private float fadeTransitionTime = 2f;
     [SerializeField] private float sleepTransitionTime = 5f;
+    [SerializeField] private float narrativeTransitionTime = 23f;
     [SerializeField] private SleepEffectController sleepEffectController;
 
     private static int transitionValue = 0;
@@ -70,6 +73,10 @@ public class LevelLoader : MonoBehaviour
                 flashbackTransition.SetTrigger("Start");
                 yield return new WaitForSeconds(sleepTransitionTime);
                 break;
+            case 4:
+                narrativeTransition.SetTrigger("Start");
+                yield return new WaitForSeconds(narrativeTransitionTime);
+                break;
             default:
                 throw new System.NotImplementedException();
         }
@@ -92,34 +99,57 @@ public class LevelLoader : MonoBehaviour
 
     IEnumerator StartLevel()
     {
-        isLevelLoading = false;
-        panelTransition.SetTrigger("End");
         switch (transitionValue)
         {
             //gameTransition
             case 0:
+                //Espera 1 segundo pra conseguir posicionar as coisas a tempo
+                yield return new WaitForSeconds(1f);
                 gameTransition.SetTrigger("End");
-                yield return new WaitForSeconds(transitionTime);
+                yield return new WaitForSeconds(transitionTime-1f);
                 break;
             case 1:
                 miniGameTransition.SetTrigger("End");
-                yield return new WaitForSeconds(fadeTransitionTime);
+                yield return new WaitForSeconds(fadeTransitionTime-1f);
                 break;
             case 2:
                 sleepTransition.SetTrigger("End");
-                yield return new WaitForSeconds(sleepTransitionTime);
+                yield return new WaitForSeconds(sleepTransitionTime-1f);
                 break;
             case 3:
                 flashbackTransition.SetTrigger("End");
-                yield return new WaitForSeconds(sleepTransitionTime);
+                yield return new WaitForSeconds(sleepTransitionTime-1f);
+                break;
+            case 4:
+                narrativeTransition.SetTrigger("End");
+                //Aqui o tempo de transição é normal
+                yield return new WaitForSeconds(fadeTransitionTime-1f);
                 break;
             default:
                 throw new System.NotImplementedException();
         }
+        panelTransition.SetTrigger("End");
         //Reseta para 0 para usar a transição padrão
-        transitionValue = 0;        
+        transitionValue = 0;
+        isLevelLoading = false;
     }
 
+    IEnumerator BlackScreen()
+    {
+        if (isLevelLoading)
+        {
+            yield break;
+        }
+
+        isLevelLoading = true;
+
+        panelTransition.SetTrigger("Start");
+        simpleFade.SetTrigger("Start");
+        yield return new WaitForSeconds(2f);
+        panelTransition.SetTrigger("End");
+        simpleFade.SetTrigger("End");
+        isLevelLoading = false;
+    }
     [YarnCommand("changeScene")]
     public void ChangeScene(string sceneName, string transitionType, string playerLoadPoint)
     {
@@ -137,5 +167,11 @@ public class LevelLoader : MonoBehaviour
         //Muda a posição onde o player vai spawnar e carrega nova cena
         player.loadPointName = playerLoadPoint;
         LoadNextLevel(sceneName, type);
+    }
+
+    [YarnCommand("blackScreen")]
+    public void StartBlackScreen()
+    {
+        StartCoroutine(BlackScreen());
     }
 }

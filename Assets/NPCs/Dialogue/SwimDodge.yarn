@@ -40,6 +40,20 @@ tags:
 colorID: 0
 position: 920,264
 ---
-<i>CUIDADO!!!</i>
-<i>Não pode entrar no Rio Pororoca de noite, ele está muito violento nesse horário.</i>
+<<if $firstDay is true>>
+	[[SwimDodgeMinigame.FirsDay]]
+<<endif>>
+
+ <i>CUIDADO!!!</i>
+ <i>Não pode entrar no Rio Pororoca de noite, ele está muito violento nesse horário.</i>
+===
+
+title: SwimDodgeMinigame.FirsDay
+tags: 
+colorID: 0
+position: 920,264
+---
+ <i>Não perca seu primeiro dia de aula indo nadar!!</i>
+ <i>Você só pode ir pra aula no horário da manhã.</i>
+ <i>Então lembre-se disso nas próximos dias!</i>
 ===

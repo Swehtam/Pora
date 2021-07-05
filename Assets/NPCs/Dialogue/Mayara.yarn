@@ -15,26 +15,30 @@ tags:
 colorID: 0
 position: 658,-153
 ---
-<<if visited("Mayara.Introducao") is false>>
-    Porã: Bom dia dona Mayara.
-    Mayara: Minha nossa! Que susto, Porã! De onde é que você saiu criança?
-    Porã: Desculpe, dona Mayara, mas é que eu estava procurando Moara, a senhora tem alguma ideia de onde possa estar? 
-    Mayara: Hmmmm. Faz um tempinho que não vejo Moara, acho que desde o café da manhã.
-    Mayara: Você já olhou lá em cima? Talvez encontre Moara ouvindo música com aqueles fones, como sempre faz. Espero que isso não afete seus ouvidos.
-    Porã: Tá certo, vou olhar. Obrigado, senhora.
-    Mayara: Ora, não precisa me chamar de senhora hehehe.
-    <<set $introductionTalkedToMayara to true>>
+<<if visited ("Introducao.Cume") is true>>
+    <<if visited("Mayara.Introducao") is false>>
+        Porã: Bom dia dona Mayara.
+        Mayara: Minha nossa! Que susto, Porã! De onde é que você saiu criança?
+        Porã: Desculpe, dona Mayara, mas é que eu estava procurando Moara, a senhora tem alguma ideia de onde possa estar? 
+        Mayara: Hmmmm. Faz um tempinho que não vejo Moara, acho que desde o café da manhã.
+        Mayara: Você já olhou lá em cima? Talvez encontre Moara ouvindo música com aqueles fones, como sempre faz. Espero que isso não afete seus ouvidos.
+        Porã: Tá certo, vou olhar. Obrigado, senhora.
+        Mayara: Ora, não precisa me chamar de senhora hehehe.
+        <<set $introductionTalkedToMayara to true>>
 
-<<elseif visited("Introducao.QuartoMoara") is true>>
-    Porã: Não tem ninguém lá em cima.
-    Mayara: Hmmm, que estranho, não me lembro de ter visto Moara saindo. 
-    Mayara: Você já olhou na *<i>pracinha</i>*? Se não me falha a memória ouvi Moara dizer que tinha que fazer algo por lá.
-    Porã: Ainda não fui lá, mas irei agora. Obrigado senho... Dona Mayara haha.
-    Mayara: Por nada hehe.
-    <<startQuest Mayara/Quest 4>>
+    <<elseif visited("Introducao.QuartoMoara") is true>>
+        Porã: Não tem ninguém lá em cima.
+        Mayara: Hmmm, que estranho, não me lembro de ter visto Moara saindo. 
+        Mayara: Você já olhou na *<i>pracinha</i>*? Se não me falha a memória ouvi Moara dizer que tinha que fazer algo por lá.
+        Porã: Ainda não fui lá, mas irei agora. Obrigado senho... Dona Mayara haha.
+        Mayara: Por nada hehe.
+        <<startQuest Mayara/Quest 4>>
+    <<endif>>
+
+    [[Mayara.Adeus]]
+<<else>>
+    Mayara: *Mayara está muito focada, nem parece perceber você perto dela.*
 <<endif>>
-
-[[Mayara.Adeus]]
 ===
 
 title: Mayara.Adeus

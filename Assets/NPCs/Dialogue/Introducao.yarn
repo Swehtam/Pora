@@ -52,12 +52,13 @@ tags:
 colorID: 0
 position: 421,163
 ---
-<<lookToSide Porã down>>
+<<lookToSide Porã up>>
 Porã: Cheguei. A Árvore Solitária...
 Porã: Sinto muito arvorezinha, ter que viver sozinha há muito tempo, antes mesmo de eu nascer.
 Porã: Gostaria de saber o que aconteceu com a sua irmãzinha...
 Porã: Mas não se preocupe, você não está só. Não enquanto eu estiver aqui...
 Porã: Porque você sempre me traz uma sensação de paz e relaxamento.
+<<lookToSide Porã down>>
 Porã: Agora só esperar Moara chegar para colocar nosso plano em ação hehehe.
 <<zoomCamera PlayerCamera 3.0 1.0>>
 <<wait 3>>
@@ -155,6 +156,8 @@ position: 700,150
 	Porã: Desde criança todo mundo pega no meu pé pelas coisas que eu faço ou deixo de fazer...
 	Porã: Igual a aquele dia na escola quando eu era criança.
 	Porã: Eu só queria que essas coisas parassem de acontecer comigo...
+	<<set $introductionGraveyard to false>>
+	<<set $introductionSquare to false>>
 	<<placeDone Introducao-Cemiterio>>
 	<<changeScene _loadLevel FlashBackEscola1 3 SaidaFlashBackEscola1>>
 <<endif>>
@@ -191,23 +194,23 @@ position: 700,150
 ---
 <<deactivateContainer _dialogue/DialogueRunner>>
 <<wait 2>>
-Porã: ME DEIXEM EM PAZ!!
+Porã:PorãCriança: ME DEIXEM EM PAZ!!
 ????:AcirCriança: Só quando você parar de agir assim.
 ????:Bullying3: Você não tem vergonha?
-Porã: Mas eu não fiz nada!
+Porã:PorãCriança: Mas eu não fiz nada!
 ????:AcirCriança: Você sabe o que você fez! E sabe muito bem que isso não é coisa que um Lobo-Guará faria.
 ????:Bullying3: Você deve zelar a reputação da sua família e da vila, então haja como um Lobo-Guará.
 ????:AcirCriança: Eu tenho pena dos seus pais por terem você como filho.
-Porã: Não meta meus pais nisso!!
+Porã:PorãCriança: Não meta meus pais nisso!!
 ????:AcirCriança: Olha só resolveu mostrar as presas, mas isso não adianta.
 ????:AcirCriança: Será que seus pais terão a mesma reação que você quando contarmos sobre seu filhote?
-Porã: Por favor Acir pode mexer comigo, mas deixe meus pais de lado.
+Porã:PorãCriança: Por favor Acir pode mexer comigo, mas deixe meus pais de lado.
 Acir:AcirCriança: Oooh hahaha, foi você que pediu. Vamos pegar ele!!
-Porã: ALGUEM ME AJUDA!!
+Porã:PorãCriança: ALGUEM ME AJUDA!!
 Acir:AcirCriança: Ninguém vai te ajudar. Todo mundo sabe que isso não é certo.
 ????:Bullying3: Você é tão fraco como um roedor.
-Porã: *Porã começa a chorar no cantinho.*
-<<placeDone Introducao-Cemiterio>>
+Porã:PorãCriança: *Porã começa a chorar no cantinho.*
+<<set $firstDay to true>>
 <<updateDay _app>>
-<<changeScene _loadLevel Casa 2 Cama>>
+<<changeScene _loadLevel Casa 4 Cama>>
 ===

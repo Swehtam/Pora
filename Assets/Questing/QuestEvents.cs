@@ -5,46 +5,42 @@ using UnityEngine;
 public class QuestEvents : MonoBehaviour
 {
     public delegate void NPCEventHandler(string npcName);
-    public static event NPCEventHandler OnNPCTalk;
+    public event NPCEventHandler OnNPCTalk;
 
     public delegate void PlaceEventHandler(string placeName);
-    public static event PlaceEventHandler OnPlaceArrive;
+    public event PlaceEventHandler OnPlaceArrive;
 
     public delegate void SwimDodgeEventHandler(int difficulty, int maxDistance);
-    public static event SwimDodgeEventHandler OnSwimDodgeCompleted;
+    public event SwimDodgeEventHandler OnSwimDodgeCompleted;
 
-    public delegate void NewQuestEventHandler(Quest quest);
-    public static event NewQuestEventHandler OnNewQuest;
+    public delegate void NewQuestEventHandler();
+    public event NewQuestEventHandler OnNewQuest;
 
     public delegate void NewQuestGoalEventHandler(QuestGoal questGoal);
-    public static event NewQuestGoalEventHandler OnNewQuestGoal;
-    public static void NPCTalk(string npcName)
+    public event NewQuestGoalEventHandler OnNewQuestGoal;
+    
+    public void NPCTalk(string npcName)
     {
-        if (OnNPCTalk != null)
-            OnNPCTalk(npcName);
+        OnNPCTalk?.Invoke(npcName);
     }
 
-    public static void PlaceArrive(string placeName)
+    public void PlaceArrive(string placeName)
     {
-        if (OnPlaceArrive != null)
-            OnPlaceArrive(placeName);
+        OnPlaceArrive?.Invoke(placeName);
     }
 
-    public static void SwimDodgeCompleted(int difficulty, int maxDistance)
+    public void SwimDodgeCompleted(int difficulty, int maxDistance)
     {
-        if (OnSwimDodgeCompleted != null)
-            OnSwimDodgeCompleted(difficulty, maxDistance);
+        OnSwimDodgeCompleted?.Invoke(difficulty, maxDistance);
     }
 
-    public static void GotNewQuest(Quest quest)
+    public void GotNewQuest()
     {
-        if (OnNewQuest != null)
-            OnNewQuest(quest);
+        OnNewQuest?.Invoke();
     }
 
-    public static void UpdateQuestGoal(QuestGoal questGoal)
+    public void UpdateQuestGoal(QuestGoal questGoal)
     {
-        if (OnNewQuestGoal != null)
-            OnNewQuestGoal(questGoal);
+        OnNewQuestGoal?.Invoke(questGoal);
     }
 }

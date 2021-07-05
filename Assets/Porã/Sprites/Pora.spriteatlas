@@ -25,7 +25,7 @@ SpriteAtlas:
       m_BuildTarget: Android
       m_MaxTextureSize: 512
       m_ResizeAlgorithm: 0
-      m_TextureFormat: 48
+      m_TextureFormat: 4
       m_TextureCompression: 1
       m_CompressionQuality: 50
       m_CrunchedCompression: 0
@@ -60,6 +60,7 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 9d560842581857c428c9d19afc0e3a33, type: 3}
     - {fileID: 2800000, guid: 4721b71edd96344479962b7c17a708a4, type: 3}
     - {fileID: 2800000, guid: 9f217736c6ec4504db84ccfd209816fa, type: 3}
+    - {fileID: 2800000, guid: c081bc51996dca241a57ab447b3f37bb, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -69,6 +70,7 @@ SpriteAtlas:
   - {fileID: -4789897965546268077, guid: 00fd95107dd0a124295eca236e608947, type: 3}
   - {fileID: -5853604002871922459, guid: 00fd95107dd0a124295eca236e608947, type: 3}
   - {fileID: -2821976037220454991, guid: 00fd95107dd0a124295eca236e608947, type: 3}
+  - {fileID: 21300000, guid: c081bc51996dca241a57ab447b3f37bb, type: 3}
   - {fileID: 4630130574712895713, guid: afc663b1feb890645bf11e39514e1cd7, type: 3}
   - {fileID: -3913720532167303790, guid: afc663b1feb890645bf11e39514e1cd7, type: 3}
   - {fileID: -2157999860475273721, guid: afc663b1feb890645bf11e39514e1cd7, type: 3}
@@ -150,6 +152,7 @@ SpriteAtlas:
   - "Por\xE3_Mergulhar_Direita_3"
   - "Por\xE3_Mergulhar_Direita_0"
   - "Por\xE3_Mergulhar_Direita_1"
+  - Exclamation
   - "Por\xE3_Nadar_Direita_3"
   - "Por\xE3_Nadar_Direita_2"
   - "Por\xE3_Nadar_Direita_1"

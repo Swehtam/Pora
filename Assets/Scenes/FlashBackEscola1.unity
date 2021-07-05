@@ -289,6 +289,7 @@ GameObject:
   m_Component:
   - component: {fileID: 304469763}
   - component: {fileID: 304469762}
+  - component: {fileID: 304469764}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -325,7 +326,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 2.0555556, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -349,6 +350,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &304469764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304469761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a8a05de0ac134f4f9d01bef6b9da077, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &441669300
 GameObject:
   m_ObjectHideFlags: 0
@@ -757,6 +770,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7857585835502435857, guid: 9e33539e221c258478632ac46126d5c9,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9022296975360602186, guid: 9e33539e221c258478632ac46126d5c9,
         type: 3}
       propertyPath: m_Name
@@ -1046,6 +1064,7 @@ GameObject:
   - component: {fileID: 1097684611}
   - component: {fileID: 1097684612}
   - component: {fileID: 1097684613}
+  - component: {fileID: 1097684614}
   m_Layer: 0
   m_Name: "Por\xE3-Crian\xE7a"
   m_TagString: Untagged
@@ -1061,8 +1080,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1097684610}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.45, y: 1.35, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalPosition: {x: -3.81, y: 1.48, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 16634657}
   m_RootOrder: 0
@@ -1108,7 +1127,7 @@ SpriteRenderer:
   m_SortingLayerID: 1441844135
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 5893278275926910460, guid: e88c7fd542de269488b8a5a6ef7c065c,
+  m_Sprite: {fileID: 8001481886937161919, guid: fb57e760903f2f94784fbb1750787b2f,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1135,8 +1154,25 @@ MonoBehaviour:
   characterName: "Por\xE3-Crian\xE7a"
   talkToNode: "Por\xE3-Crian\xE7a"
   scriptToLoad: {fileID: 0}
-  arrayEventsVariables: []
-  onSceneDefault: 1
+--- !u!95 &1097684614
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097684610}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 20414a84705ad0c4696f2d9861722ac9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1147582128
 GameObject:
   m_ObjectHideFlags: 0
@@ -1376,8 +1412,6 @@ MonoBehaviour:
   characterName: "Amigo-Acir-Crian\xE7a"
   talkToNode: "Amigo-Acir-Crian\xE7a"
   scriptToLoad: {fileID: 0}
-  arrayEventsVariables: []
-  onSceneDefault: 1
 --- !u!212 &1571651477
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1540,7 +1574,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1615980663}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.8, y: 0.05, z: 0}
+  m_LocalPosition: {x: -4.1, y: 0.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 16634657}
@@ -1561,8 +1595,6 @@ MonoBehaviour:
   characterName: "Acir-Crian\xE7a"
   talkToNode: "Acir-Crian\xE7a"
   scriptToLoad: {fileID: 0}
-  arrayEventsVariables: []
-  onSceneDefault: 1
 --- !u!212 &1615980666
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1604,7 +1636,7 @@ SpriteRenderer:
   m_SortingLayerID: 1441844135
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8cab9df24d0813d43b4758f588766087, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c0ae020371707ca44aa04026fc434056, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1628,6 +1660,7 @@ GameObject:
   - component: {fileID: 1724317403}
   - component: {fileID: 1724317407}
   - component: {fileID: 1724317406}
+  - component: {fileID: 1724317408}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1766,6 +1799,26 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &1724317408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724317402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c88f5cead0c0b2a4eb05b5900433f8d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AssetsPPU: 16
+  m_RefResolutionX: 320
+  m_RefResolutionY: 180
+  m_UpscaleRT: 0
+  m_PixelSnapping: 0
+  m_CropFrameX: 1
+  m_CropFrameY: 1
+  m_StretchFill: 1
 --- !u!1 &1878535660
 GameObject:
   m_ObjectHideFlags: 0

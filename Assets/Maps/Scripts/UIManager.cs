@@ -24,22 +24,35 @@ public class UIManager : MonoBehaviour
     private PlayerController playerController;
     private DayManager dayManager;
     private Animator questButtonAnimator;
+    private QuestEvents questEvents;
+    private QuestsManager questsManager;
 
     void Start()
     {
+        //Dialogo
         dialogueRunner = InstancesManager.singleton.GetDialogueRunnerInstance();
 
+        //Dia
         dayManager = InstancesManager.singleton.GetDayManager();
 
+        //Player
         var player = InstancesManager.singleton.GetPlayerInstance();
         playerController = player.GetComponent<PlayerController>();
 
+        //Quest Button
         questButtonAnimator = questButton.GetComponent<Animator>();
-        QuestEvents.OnNewQuest += GotNewQuest;
-        QuestEvents.OnNewQuestGoal += UpdateQuestGoal;
+
+        //Quest Event
+        questEvents = InstancesManager.singleton.GetQuestEvents();
+        questEvents.OnNewQuest += GotNewQuest;
+        questEvents.OnNewQuestGoal += UpdateQuestGoal;
+
+        //Load Scene Event
         LoadSceneEvents.OnSceneLoad += SceneLoading;
 
-        if (QuestsManager.newQuest)
+        //Quest Manager
+        questsManager = InstancesManager.singleton.GetQuestsManager();
+        if (questsManager.newQuest)
         {
             questButtonAnimator.SetBool("New_Quest", true);
         }
@@ -97,11 +110,20 @@ public class UIManager : MonoBehaviour
     public void OpenQuestPanel()
     {
         questButtonAnimator.SetBool("New_Quest", false);
-        QuestsManager.newQuest = false;
+        questsManager.newQuest = false;
 
         questPanel.SetActive(true);
-        questTitle.text = QuestsManager.GetActiveQuest().title;
-        questDescription.text = QuestsManager.GetActiveQuest().description;
+        ActiveQuest q = questsManager.GetActiveQuest();
+        if(q != null)
+        {
+            questTitle.text = q.title;
+            questDescription.text = q.description;
+        }
+        else
+        {
+            questTitle.text = "Sem Missões";
+            questDescription.text = "";
+        }
     }
 
     public void CloseQuestPanel()
@@ -109,30 +131,30 @@ public class UIManager : MonoBehaviour
         questPanel.SetActive(false);
     }
 
-    public void GotNewQuest(Quest quest)
+    public void GotNewQuest()
     {
         questButtonAnimator.SetBool("New_Quest", true);
-        QuestsManager.newQuest = true;
+        questsManager.newQuest = true;
     }
 
     public void UpdateQuestGoal(QuestGoal questGoal)
     {
         questButtonAnimator.SetBool("New_Quest", true);
-        QuestsManager.newQuest = true;
+        questsManager.newQuest = true;
     }
 
     public void DialogueButton()
     {
         //Acionar todos os eventos que dependem do player de falar com o NPC
-        QuestEvents.NPCTalk(npc.characterName);
+        questEvents.NPCTalk(npc.characterName);
         //Começar o dialogo
         dialogueRunner.StartDialogue(npc.talkToNode);
     }
 
     public void SceneLoading()
     {
-        QuestEvents.OnNewQuest -= GotNewQuest;
-        QuestEvents.OnNewQuestGoal -= UpdateQuestGoal;
+        questEvents.OnNewQuest -= GotNewQuest;
+        questEvents.OnNewQuestGoal -= UpdateQuestGoal;
         LoadSceneEvents.OnSceneLoad -= SceneLoading;
     }
 

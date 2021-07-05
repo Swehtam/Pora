@@ -7,8 +7,9 @@ public class TokensScript : MonoBehaviour
 {
     public int faceIndex;
     public string animalName;
+    public string animalDescription;
     public MemoryGameController memoryGameController;
-    public SpriteRenderer backSpriteRenderer;
+    public SpriteRenderer animalSpriteRenderer;
 
     [SerializeField] private bool matched = false;
     [SerializeField] private bool revealed = false;
@@ -65,7 +66,7 @@ public class TokensScript : MonoBehaviour
         animator.SetTrigger("Hide");
         yield return new WaitForSecondsRealtime(1.5f);
         faceIndex = 0;
-        backSpriteRenderer.sprite = null;
+        animalSpriteRenderer.sprite = null;
         matched = false;
         revealed = false;
     }

@@ -1,0 +1,63 @@
+title: Jurema
+tags: 
+colorID: 0
+position: 421,163
+---
+<<if $classDone is true>>
+	[[Jurema.PrimeiroDia]]
+<<endif>>
+
+[[Jurema.Adeus]]
+===
+
+title: Jurema.PrimeiroDia
+tags: 
+colorID: 0
+position: 421,163
+---
+<<if not visited("Jurema.PrimeiroDia")>>
+	Porã: *Porã entrega a atividade para a professora Jurema*
+	Jurema: *Jurema avalia sua atividade*
+	Jurema: Hmmm...
+	<<wait 1>>
+
+	<<if $biologyDayResults < 5>>
+		Jurema: Então..., Porã.
+		Jurema: Você tem que se esforçar ou nunca irá se <b>encaixar</b>, igual aos outros.
+		Porã: *Porã fica triste.*
+	<<elseif ($biologyDayResults >= 5) and ($biologyDayResults < 7.5)>>
+		Jurema: Muito bem, Porã! Dá pra ver que você está se esforçando.
+		Porã: Sério!? Obrigado… Eu acho…
+		Jurema: Da para notar que você está tentando se <b>encaixar</b>. E isso é ótimo!
+		Porã: *Porã fica triste.*
+		Porã: *O que ela quis dizer com isso?*
+	<<elseif $biologyDayResults >= 7.5>>
+		Jurema: Nossa Porã, você foi bem na aula de hoje, digno de um Lobo-Guará.
+		Porã: Obrigado?...
+		Porã: *Porã fica triste.*
+		Porã: *Por que todo mundo espera que eu aja como um Lobo-Guará?*
+		Jurema: *Jurema esboça um sorriso.*
+		Jurema: Eu sinto que logo logo você vai se </b>encaixar</b>, igual aos outros.
+		Porã: *Hã?*
+	<<endif>>
+
+	Porã: Como assim, me encaixar?
+	Jurema: Aaah você sabe...
+	Jurema: Igual aos outros filhotes, eles agem como deveriam.
+	Porã: *Então eu não deveria agir como eu gosto?*
+	Porã: Tá certo...
+	Jurema: Hehe, Tchau Porã, nos vemos na aula de amanhã!
+	Porã: Até…
+
+<<else>>
+	[[Jurema.Adeus]]
+<<endif>>
+===
+
+title: Jurema.Adeus
+tags: 
+colorID: 0
+position: 421,163
+---
+Jurema: Tchau Porã, nos vemos na aula de amanhã!
+===

@@ -19,6 +19,9 @@ public class InstancesManager : MonoBehaviour
     [SerializeField] private NodeVisitedTracker nodeVisitedTracker;
     [SerializeField] private YarnPlacesManager yarnPlacesManager;
     [SerializeField] private DayManager dayManager;
+    [SerializeField] private QuestsManager questsManager;
+    [SerializeField] private QuestEvents questEvents;
+    [SerializeField] private NPCManager npcManager;
     private GameObject player;
     private UIManager uIManager;
 
@@ -126,5 +129,35 @@ public class InstancesManager : MonoBehaviour
             dayManager = FindObjectOfType<DayManager>();
 
         return dayManager;
+    }
+
+    //Método responsável por retornar o QuestsManager do _preload para quem solicitar
+    //Caso o QuestsManager não exista no singleton, procure pelo mesmo, salve e retorne (isso ocorre uma vez por game)
+    public QuestsManager GetQuestsManager()
+    {
+        if (questsManager == null)
+            questsManager = FindObjectOfType<QuestsManager>();
+
+        return questsManager;
+    }
+
+    //Método responsável por retornar o QuestEvents do _preload para quem solicitar
+    //Caso o QuestEvents não exista no singleton, procure pelo mesmo, salve e retorne (isso ocorre uma vez por game)
+    public QuestEvents GetQuestEvents()
+    {
+        if (questEvents == null)
+            questEvents = FindObjectOfType<QuestEvents>();
+
+        return questEvents;
+    }
+
+    //Método responsável por retornar o NPCManager do cena atual para quem solicitar
+    //Caso o NPCManager não exista no singleton, procure pelo mesmo, salve e retorne (isso ocorre uma vez por cena)
+    public NPCManager GetNPCManager()
+    {
+        if (npcManager == null)
+            npcManager = FindObjectOfType<NPCManager>();
+
+        return npcManager;
     }
 }

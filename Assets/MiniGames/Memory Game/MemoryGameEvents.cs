@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class MemoryGameEvents : MonoBehaviour
 {
-    public delegate void MatchEventHandler(string animalName);
+    public delegate void MatchEventHandler(string animalName, string animalDescription, Sprite animalImage);
     public static event MatchEventHandler OnTokenMatch;
 
-    public static void TokenMatch(string animalName)
+    public static void TokenMatch(string animalName, string animalDescription, Sprite animalImage)
     {
-        OnTokenMatch?.Invoke(animalName);
+        OnTokenMatch?.Invoke(animalName, animalDescription, animalImage);
     }
 }

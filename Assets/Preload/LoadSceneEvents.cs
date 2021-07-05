@@ -9,7 +9,6 @@ public class LoadSceneEvents : MonoBehaviour
 
     public static void SceneLoading()
     {
-        if (OnSceneLoad != null)
-            OnSceneLoad();
+        OnSceneLoad?.Invoke();
     }
 }

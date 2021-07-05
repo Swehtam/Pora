@@ -9,6 +9,12 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     public string loadPointName;
 
+    [Tooltip("Animator para Porã")]
+    public Animator anim;
+    [Tooltip("Sprite Render para ajustar a ordem na cena")]
+    public SpriteRenderer playerSpriteRenderer;
+    
+
     //Variaveis para o movimento de Porã
     private Vector3 moveInput;
     private bool playerMoving;
@@ -18,15 +24,19 @@ public class PlayerController : MonoBehaviour
 
     //Componentes de Porã
     private Rigidbody2D myRB;
-    private Animator anim;
+    private new Collider2D collider;
 
+    //Dialogo
     private DialogueRunner dialogueRunner;
 
     // Start is called before the first frame update
     void Start()
     {
         myRB = GetComponent<Rigidbody2D>();
-        anim = gameObject.GetComponentInChildren<Animator>();
+        collider = GetComponent<Collider2D>();
+
+        if (dialogueRunner == null)
+            dialogueRunner = InstancesManager.singleton.GetDialogueRunnerInstance();
     }
 
     // Update is called once per frame
@@ -36,11 +46,6 @@ public class PlayerController : MonoBehaviour
 
         //Inicializa moveInput em 0, para caso naõ tenha Input horizantal ou vertical
         moveInput = new Vector2(0f, 0f);
-
-        if(dialogueRunner == null)
-        {
-            dialogueRunner = InstancesManager.singleton.GetDialogueRunnerInstance();
-        }
 
         //Para toda a movimentação se o Player
         if (dialogueRunner.IsDialogueRunning == true || IsPlayingMinigame)
@@ -99,49 +104,49 @@ public class PlayerController : MonoBehaviour
         joystick = joy;
     }
 
-    public void StopPlayerMovement()
-    {
-        //Para a animação
-        playerMoving = false;
-        //Para o movimento do personagem quando aparecer o novo dialogo
-        moveInput = new Vector2(0f, 0f);
-    }
-
     //Metodo a ser chamado toda vez q iniciar um minigame
     public void PlayingMinigame()
     {
         IsPlayingMinigame = true;
     }
 
+    public void TeleportTo(Transform placeTransform)
+    {
+        gameObject.transform.position = placeTransform.position;
+    }
+
+    public void SitPlayer()
+    {
+        //Deixa o collider como trigger para não bater quando for sentar
+        collider.isTrigger = true;
+        playerSpriteRenderer.sortingOrder = 1;
+        //Look Up
+        lastMove = new Vector2(0f, 1f);
+        anim.SetFloat("LastMoveX", lastMove.x);
+        anim.SetFloat("LastMoveY", lastMove.y);
+        anim.SetBool("isSitting", true);
+    }
+
+    public void NotSiting()
+    {
+        //Caso não esteja acontecendo dialogo ou minigame
+        //Fazer com q o player não esteja sentado e a ordem do layer volte pra 0
+        //Voltar ao normal o collider
+        collider.isTrigger = false;
+        playerSpriteRenderer.sortingOrder = 0;
+        anim.SetBool("isSitting", false);
+    }
+
     //Metodo a ser chamado toda vez que acabar um minigame
-    [YarnCommand("stopMinigame")]
-    public void StoppedPlayingMinigame()
+    public void StopPlayingMinigame()
     {
         IsPlayingMinigame = false;
     }
 
-    [YarnCommand("lookToSide")]
-    public void LookToSide(string side)
+    public void ChangeLastMove(float lastMoveX, float lastMoveY)
     {
-        anim.SetFloat("LastMoveX", 0f);
-        anim.SetFloat("LastMoveY", 0f);
-        switch (side)
-        {
-            case "up":
-                anim.SetFloat("LastMoveY", 1f);
-                break;
-            case "down":
-                anim.SetFloat("LastMoveY", -1f);
-                break;
-            case "right":
-                anim.SetFloat("LastMoveX", 1f);
-                break;
-            case "left":
-                anim.SetFloat("LastMoveX", -1f);
-                break;
-            default:
-                Debug.LogErrorFormat($"<<lookToSide>> failed to parse duration {side}");
-                break;
-        }
+        lastMove = new Vector2(lastMoveX, lastMoveY);
+        anim.SetFloat("LastMoveX", lastMoveX);
+        anim.SetFloat("LastMoveY", lastMoveY);
     }
 }

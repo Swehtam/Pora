@@ -201,6 +201,7 @@ MonoBehaviour:
   dayShiftCondition: -1
   scriptToLoad: {fileID: 0}
   notAbleToEnterNode: 
+  arrayCantEnterVariables: []
 --- !u!66 &48274907
 CompositeCollider2D:
   m_ObjectHideFlags: 0
@@ -393,6 +394,7 @@ MonoBehaviour:
   dayShiftCondition: -1
   scriptToLoad: {fileID: 0}
   notAbleToEnterNode: 
+  arrayCantEnterVariables: []
 --- !u!1 &573144400
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,7 +659,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.5375376, y: 1}
+    m_SensorSize: {x: 1.7777779, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -679,7 +681,7 @@ Transform:
   m_Children:
   - {fileID: 1340355856}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &678280134
 MonoBehaviour:
@@ -1244,7 +1246,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1989054362}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.4699864, y: -27, z: -5}
+  m_LocalPosition: {x: 7.47, y: -27.22, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1376,7 +1378,7 @@ PrefabInstance:
     - target: {fileID: 2517528059863567747, guid: 2877ea32b83e21346b8c070274ee8f49,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2517528059863567747, guid: 2877ea32b83e21346b8c070274ee8f49,
         type: 3}
@@ -2078,3 +2080,4 @@ MonoBehaviour:
   dayShiftCondition: -1
   scriptToLoad: {fileID: 0}
   notAbleToEnterNode: 
+  arrayCantEnterVariables: []

@@ -1,0 +1,27 @@
+title: Piatã
+tags: 
+colorID: 0
+position: 421,163
+---
+<<if $isClassTime is true>>
+	[[Piatã.HoraAula]]
+<<endif>>
+
+[[Piatã.Adeus]]
+===
+
+title: Piatã.HoraAula
+tags: 
+colorID: 0
+position: 421,163
+---
+Piatã: Boa aula, Porã.
+===
+
+title: Piatã.Adeus
+tags: 
+colorID: 0
+position: 421,163
+---
+Piatã: Até depois, Porã.
+===

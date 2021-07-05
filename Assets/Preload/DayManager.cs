@@ -5,6 +5,9 @@ using Yarn.Unity;
 
 public class DayManager : MonoBehaviour
 {
+    public bool isTesting = false;
+    public int testDay;
+    public int testDayShift;
     //Variavel para o dia do jogo que o jogador parou.
     //Começa em 0 pois é a introdução.
     private int gameDay = 0;
@@ -65,5 +68,10 @@ public class DayManager : MonoBehaviour
     public void LoadDay()
     {
         //Chamar de algum arquivo ou algo do tipo o dia em que o player salvo a ultima vez e atualizar na variavel de dia
+        if (isTesting)
+        {
+            gameDay = testDay;
+            gameDayShift = testDayShift;
+        }
     }
 }

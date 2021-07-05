@@ -181,7 +181,8 @@ MonoBehaviour:
     placeName: Introucao.Pracinha
     npcName: 
   - goalType: 2
-    description: "O que foi isso? V\xE1 de onde veio o grito, pode ser Moara!!"
+    description: "O que foi isso? V\xE1 at\xE9 o local que veio o grito, pode ser
+      Moara!!"
     currentAmount: 0
     requiredAmount: 1
     maxDistance: 0
@@ -330,6 +331,7 @@ MonoBehaviour:
   dayShiftCondition: -1
   scriptToLoad: {fileID: 0}
   notAbleToEnterNode: 
+  arrayCantEnterVariables: []
 --- !u!4 &421402707
 Transform:
   m_ObjectHideFlags: 0
@@ -507,10 +509,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1048835247}
   - component: {fileID: 1048835246}
+  - component: {fileID: 1048835249}
+  - component: {fileID: 1048835250}
   - component: {fileID: 1048835245}
   - component: {fileID: 1048835244}
   - component: {fileID: 1048835248}
-  - component: {fileID: 1048835249}
   m_Layer: 0
   m_Name: Mayara
   m_TagString: Untagged
@@ -674,8 +677,23 @@ MonoBehaviour:
   talkToNode: Mayara
   scriptToLoad: {fileID: 2480198943629176163, guid: ccbee9926809bfd40b9a40e07f06ccb5,
     type: 3}
-  arrayEventsVariables: []
+--- !u!114 &1048835250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048835243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19503e982fc61e74cb8b5b5ecc9c284f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   onSceneDefault: 1
+  yarnNPC: {fileID: 0}
+  arrayEventsVariables: []
+  arrayDontSpawnVariables: []
+  arrayNPCPositions: []
 --- !u!1 &1056743955
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,6 +783,7 @@ GameObject:
   - component: {fileID: 1108075042}
   - component: {fileID: 1108075041}
   - component: {fileID: 1108075040}
+  - component: {fileID: 1108075043}
   - component: {fileID: 1108075044}
   m_Layer: 0
   m_Name: CM vcam1
@@ -817,7 +836,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 2.0555556, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -841,6 +860,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1108075043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108075039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a8a05de0ac134f4f9d01bef6b9da077, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1108075044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1093,6 +1124,7 @@ GameObject:
   - component: {fileID: 1522036849}
   - component: {fileID: 1522036853}
   - component: {fileID: 1522036852}
+  - component: {fileID: 1522036854}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1231,6 +1263,26 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &1522036854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522036848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c88f5cead0c0b2a4eb05b5900433f8d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AssetsPPU: 16
+  m_RefResolutionX: 320
+  m_RefResolutionY: 180
+  m_UpscaleRT: 0
+  m_PixelSnapping: 0
+  m_CropFrameX: 1
+  m_CropFrameY: 1
+  m_StretchFill: 1
 --- !u!1001 &1586841494
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2716,6 +2768,7 @@ MonoBehaviour:
   dayShiftCondition: -1
   scriptToLoad: {fileID: 0}
   notAbleToEnterNode: 
+  arrayCantEnterVariables: []
 --- !u!4 &1660107443
 Transform:
   m_ObjectHideFlags: 0

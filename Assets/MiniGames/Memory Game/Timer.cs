@@ -38,4 +38,9 @@ public class Timer : MonoBehaviour
     {
         timerIsRunning = false;
     }
+
+    public void ResumeTimer()
+    {
+        timerIsRunning = true;
+    }
 }

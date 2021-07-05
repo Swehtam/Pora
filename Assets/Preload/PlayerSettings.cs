@@ -16,9 +16,9 @@ public class PlayerSettings : MonoBehaviour
         Application.targetFrameRate = target;
         QualitySettings.vSyncCount = 0;
         //Fazer um sistema para saber qual foi o ultimo exitPoint em q o player foi carregado
-        playerStartPoint = "Cama";
-        playerStartMap = "Casa";
-        //playerStartPoint = "Entrada Sala de Aula";
-        //playerStartMap = "EscolaSalaAula";
+        //playerStartPoint = "Cama";
+        //playerStartMap = "Casa";
+        playerStartPoint = "Saida Aula";
+        playerStartMap = "EscolaSalaAula";
     }
 }

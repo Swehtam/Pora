@@ -20,6 +20,10 @@ public class MemoryGameController : MonoBehaviour
         /// String com o nome do Animal
         /// </summary>
         public string animal_name;
+        /// <summary>
+        /// String com a descrição do animal para o painel de descrição
+        /// </summary>
+        public string animal_description;
     }
     public BiologyImages[] arrayBiologyImages;
     public List<GameObject> tokensEasy = new List<GameObject>();
@@ -32,10 +36,10 @@ public class MemoryGameController : MonoBehaviour
     private TokensScript[] visibleTokens = { null, null};
     private int matchesDone = 0;
     private readonly int neededMatches = 12;
-    private int phaseLevel = 1;
+    private int phaseLevel = 1;   
 
     //Dicionário pra salvar o indice e a sprite das imagens para ter acesso mais rapido
-    private Dictionary<int, (Sprite, string)> biologyImages = new Dictionary<int, (Sprite, string)>();
+    private Dictionary<int, (Sprite, string, string)> biologyImages = new Dictionary<int, (Sprite, string, string)>();
     private Dictionary<int, bool> chosenImages = new Dictionary<int, bool>();
 
     void Start()
@@ -87,9 +91,9 @@ public class MemoryGameController : MonoBehaviour
         bool success = false;
         if (visibleTokens[0].faceIndex == visibleTokens[1].faceIndex)
         {
-            //Chama o evento de que ocorreu um match e passa o nome do animal como parametro
-            MemoryGameEvents.TokenMatch(visibleTokens[0].animalName);
-
+            //Chama o evento de que ocorreu um match e passa o nome do animal, descrição e imagem como parametro
+            MemoryGameEvents.TokenMatch(visibleTokens[0].animalName, visibleTokens[0].animalDescription, visibleTokens[0].animalSpriteRenderer.sprite);
+            
             //Reseta as variaveis que seguram os tokens
             visibleTokens[0] = null;
             visibleTokens[1] = null;
@@ -140,7 +144,7 @@ public class MemoryGameController : MonoBehaviour
     {
         foreach (BiologyImages bio in arrayBiologyImages)
         {
-            biologyImages.Add(bio.index, (bio.image, bio.animal_name));
+            biologyImages.Add(bio.index, (bio.image, bio.animal_name, bio.animal_description));
         }
     }
 
@@ -186,8 +190,9 @@ public class MemoryGameController : MonoBehaviour
 
             //Seta no script do token seu indice, sua sprite e o controlador do jogo
             tokensEasy[i].GetComponent<TokensScript>().faceIndex = faceIndexes[shuffleNum];
-            tokensEasy[i].GetComponent<TokensScript>().backSpriteRenderer.sprite = biologyImages[faceIndexes[shuffleNum]].Item1;
+            tokensEasy[i].GetComponent<TokensScript>().animalSpriteRenderer.sprite = biologyImages[faceIndexes[shuffleNum]].Item1;
             tokensEasy[i].GetComponent<TokensScript>().animalName = biologyImages[faceIndexes[shuffleNum]].Item2;
+            tokensEasy[i].GetComponent<TokensScript>().animalDescription = biologyImages[faceIndexes[shuffleNum]].Item3;
             tokensEasy[i].GetComponent<TokensScript>().memoryGameController = this;
 
             //Remove indice da imagem do token que acabou de ser instanciado da lista de possiveis imagens

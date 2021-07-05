@@ -1,0 +1,30 @@
+fileFormatVersion: 2
+guid: 1596b37a3c4fd374eaae044e201967f8
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 94073015eacc34c1d8fc6786e43d60ca, type: 3}
+  baseLanguageID: pt-BR
+  stringIDs:
+  - Introducao-Introducao-0
+  - Introducao-Introducao-1
+  - Introducao-Introducao-2
+  - Introducao-Introducao-3
+  - Introducao-Introducao-4
+  - Introducao-Introducao-5
+  - Introducao-Introducao-6
+  - Introducao-Introducao-7
+  - Introducao-Introducao-8
+  - Introducao-Introducao-9
+  - Introducao-Introducao-10
+  - Introducao-Introducao-11
+  compilationStatus: 1
+  isSuccesfullyCompiled: 1
+  compilationErrorMessage: 
+  baseLanguage: {fileID: 7128917941130120860, guid: c6e5c95420c6f3d45a832c1e4fa96382,
+    type: 3}
+  localizations: []

@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class PlayerLoadPoint : MonoBehaviour
 {
-    private PlayerController player;
-
     public string pointName;
+    public bool isTesting;
+
     // Start is called before the first frame update
     void Start()
     {
-        player = InstancesManager.singleton.GetPlayerInstance().GetComponent<PlayerController>();
+        if (isTesting)
+            return;
+
+        PlayerController player = InstancesManager.singleton.GetPlayerInstance().GetComponent<PlayerController>();
 
         if(player.loadPointName == pointName)
         {

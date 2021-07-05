@@ -1,0 +1,51 @@
+title: Aula.PrimeiroDia
+tags: 
+colorID: 0
+position: 421,163
+---
+<<changeCamera CMStateDrivenCamera ClassCamera>>
+<<sit Porã>>
+<<teleportPlayer SceneManager 0>>
+<<deactivateContainer _dialogue/DialogueRunner>>
+<<wait 3>>
+Jurema: Bom dia classe, conheçam Moara, que vai se juntar a nova turma do 7º ano!
+Jurema: Você gostaria de dizer algumas palavras?
+Moara: Bom dia! Eu sou Moara, eu e minha família viemos da Vila Portal do Sol, e nosso objetivo é conquistar a vila de vocês hihihi…..
+Moara: Brincadeirinha, espero fazer novos amigos aqui.
+Jurema: ... *tosse* hehe, temos 3 carteiras vazias, você pode escolher onde sentar agora…
+Moara: Okay!
+Moara: *Moara olha pra sala toda* 
+<<deactivateContainer _dialogue/DialogueRunner>>
+<<wait 1>>
+Moara: Hmmmm...
+<<deactivateContainer _dialogue/DialogueRunner>>
+<<wait 1.5>>
+Moara: Vou sentar lá no fundo, ao lado do lobinho.
+<<changeCamera CMStateDrivenCamera PlayerCamera>>
+<<popSymbol Porã exclamation>>
+<<wait 3>>
+Porã: *Meu deus...*
+<<blackScreen _loadLevel>>
+<<wait 1>>
+<<showNPC SceneManager Moara 0>>
+<<wait 2.5>>
+<<lookToSide Porã right>>
+<<wait 1.5>>
+*Porã e Moara se olham*
+Moara: Hihi *Ele parece ser legal*
+Porã: *Será Moara quem minha mãe falou?*
+Porã: *Ela parece...* 
+Porã: *Animada...*
+<<wait 1.5>>
+<<lookToSide Porã up>>
+*Eles olham pra frente e a professora fala*
+<<changeCamera CMStateDrivenCamera ClassCamera>>
+Jurema: Pronto! Agora que Moara se acomodou, sejam todos bem vindos ao 7º ano e podemos dar início às nossas aulas!
+Jurema: Hoje vamos falar um pouco sobre o nosso bioma, na aula de biologia, preparem seus cadernos e lápis, e vamos à atividade!
+<<set $piataKitchen to false>>
+<<set $firstClass to false>>
+<<set $isClassTime to false>>
+<<set $schoolClosetEvent to true>>
+<<changeScene _loadLevel AulaBiologiaMiniGame 1 EntradaAulaBiologia>>
+<<placeDone Aula-PrimeiroDia>>
+===

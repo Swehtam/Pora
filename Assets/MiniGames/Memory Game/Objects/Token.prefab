@@ -260,7 +260,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   faceIndex: 0
   animalName: 
+  animalDescription: 
   memoryGameController: {fileID: 0}
-  backSpriteRenderer: {fileID: 4375400121430383904}
+  animalSpriteRenderer: {fileID: 4375400121430383904}
   matched: 0
   revealed: 0

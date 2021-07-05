@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class QuestGoal
 {
-    public Quest Quest { get; set; }
+    public ActiveQuest Quest { get; set; }
     public string Description { get; set; }
     public bool Completed { get; set; }
     public int CurrentAmount { get; set; }
@@ -34,7 +34,10 @@ public class SwimDodgeMinigameGoal : QuestGoal
 {
     public int Difficulty { get; set; }
     public int MaxDistance { get; set; }
-    public SwimDodgeMinigameGoal(Quest quest, int difficulty, int maxDistance, string description, bool completed, int currentAmount, int requiredAmount)
+
+    private QuestEvents questEvents;
+
+    public SwimDodgeMinigameGoal(ActiveQuest quest, int difficulty, int maxDistance, string description, bool completed, int currentAmount, int requiredAmount)
     {
         this.Quest = quest;
         this.Difficulty = difficulty;
@@ -48,7 +51,8 @@ public class SwimDodgeMinigameGoal : QuestGoal
     public override void Init()
     {
         base.Init();
-        QuestEvents.OnSwimDodgeCompleted += SwimDodgeCompleted;
+        questEvents = InstancesManager.singleton.GetQuestEvents();
+        questEvents.OnSwimDodgeCompleted += SwimDodgeCompleted;
     }
 
     void SwimDodgeCompleted(int difficulty, int maxDistance)
@@ -61,7 +65,7 @@ public class SwimDodgeMinigameGoal : QuestGoal
 
         if (Completed)
         {
-            QuestEvents.OnSwimDodgeCompleted -= SwimDodgeCompleted;
+            questEvents.OnSwimDodgeCompleted -= SwimDodgeCompleted;
         }
     }
 }
@@ -69,7 +73,10 @@ public class SwimDodgeMinigameGoal : QuestGoal
 public class TalkToGoal : QuestGoal
 {
     public string NPCName { get; set; }
-    public TalkToGoal(Quest quest, string npcName, string description, bool completed, int currentAmount, int requiredAmount)
+
+    private QuestEvents questEvents;
+
+    public TalkToGoal(ActiveQuest quest, string npcName, string description, bool completed, int currentAmount, int requiredAmount)
     {
         this.Quest = quest;
         this.NPCName = npcName;
@@ -82,7 +89,8 @@ public class TalkToGoal : QuestGoal
     public override void Init()
     {
         base.Init();
-        QuestEvents.OnNPCTalk += NPCTalk;
+        questEvents = InstancesManager.singleton.GetQuestEvents();
+        questEvents.OnNPCTalk += NPCTalk;
     }
 
     void NPCTalk(string npcName)
@@ -95,7 +103,7 @@ public class TalkToGoal : QuestGoal
 
         if (Completed)
         {
-            QuestEvents.OnNPCTalk -= NPCTalk;
+            questEvents.OnNPCTalk -= NPCTalk;
         }
     }
 }
@@ -103,7 +111,10 @@ public class TalkToGoal : QuestGoal
 public class GoToGoal : QuestGoal
 {
     public string PlaceName { get; set; }
-    public GoToGoal(Quest quest, string placeName, string description, bool completed, int currentAmount, int requiredAmount)
+
+    private QuestEvents questEvents;
+
+    public GoToGoal(ActiveQuest quest, string placeName, string description, bool completed, int currentAmount, int requiredAmount)
     {
         this.Quest = quest;
         this.PlaceName = placeName;
@@ -116,7 +127,8 @@ public class GoToGoal : QuestGoal
     public override void Init()
     {
         base.Init();
-        QuestEvents.OnPlaceArrive += PlaceArrive;
+        questEvents = InstancesManager.singleton.GetQuestEvents();
+        questEvents.OnPlaceArrive += PlaceArrive;
     }
 
     void PlaceArrive(string placeName)
@@ -129,7 +141,7 @@ public class GoToGoal : QuestGoal
 
         if (Completed)
         {
-            QuestEvents.OnPlaceArrive -= PlaceArrive;
+            questEvents.OnPlaceArrive -= PlaceArrive;
         }
     }
 }

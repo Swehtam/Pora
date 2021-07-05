@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using Yarn.Unity;
-using System;
 
 /// attached to the non-player characters, and stores the name of the Yarn
 /// node that should be run when you talk to them.
@@ -11,45 +10,72 @@ public class YarnNPC : MonoBehaviour
 
     public string talkToNode = "";
 
-    [Header("Optional")]
     public YarnProgram scriptToLoad;
-    [Serializable]
-    public struct EventsVariables
-    {
-        /// <summary>
-        /// O nome do evento para posicionar o NPC.
-        /// </summary>
-        /// <remarks>
-        /// Lembrar de inckuir o prefixo `$` nas variaveis.
-        /// </remarks>
-        public string name;
 
-        /// <summary>
-        /// A posição que o NPC vai ficar caso o evento esteja ocorrendo.
-        /// </summary>
-        public Transform transform;
-    }
-    public EventsVariables[] arrayEventsVariables;
-    public bool onSceneDefault = true;
-
+    private bool isMoving = false;
+    private float t;
+    private Vector3 startPosition;
+    private Vector3 target;
+    private Vector2 direction;
+    private float timeToReachTarget = 3f;
     private UIManager uIManager;
+    private Animator animator;
 
     void Start()
     {
-        //Caso o default seja pra ser ativo, então ativar, caso não desativa
-        gameObject.SetActive(onSceneDefault);
-
-        //Após isso, caso tenha algum evento que o NPC participe colocar na posição correta
-        if(arrayEventsVariables.Length > 0)
-            CheckEventsVariables();
-
         if (scriptToLoad != null)
         {
             DialogueRunner dialogueRunner = InstancesManager.singleton.GetDialogueRunnerInstance();
             dialogueRunner.Add(scriptToLoad);
         }
 
-        uIManager = InstancesManager.singleton.GetUIManager();
+        if(uIManager == null)
+            uIManager = InstancesManager.singleton.GetUIManager();
+
+        if (animator == null)
+            animator = GetComponent<Animator>();
+    }
+
+    void Update()
+    {
+        if(animator != null)
+        {
+            animator.SetBool("IsMoving", isMoving);
+            animator.SetFloat("MoveX", direction.x);
+            animator.SetFloat("MoveY", direction.y);
+        }
+
+        //Faz o NPC andar, se ele não tiver chegado no seu objetivo
+        if (isMoving)
+        {
+            if(transform.position != target)
+            {
+                t += Time.deltaTime / timeToReachTarget;
+                transform.position = Vector3.Lerp(startPosition, target, t);
+            }
+            else
+            {
+                startPosition = Vector3.zero;
+                target = Vector3.zero;
+                isMoving = false;
+            }
+        }
+    }
+
+    /// <summary>
+    /// Metodo para fazer o NPC andar até a posição target
+    /// </summary>
+    /// <param name="targetToMove"></param>
+    public void MoveTo(Vector3 targetToMove, float timeToMove)
+    {
+        //Atualiza as variaveis para fazer o NPC andar
+        startPosition = transform.position;
+        target = targetToMove;
+        direction = new Vector2(target.x - startPosition.x, target.y - startPosition.y);
+        direction.Normalize();
+        timeToReachTarget = timeToMove;
+        t = 0;
+        isMoving = true;
     }
 
     //Quando o NPC encontrar o Player mostrar o botão para falar
@@ -66,27 +92,28 @@ public class YarnNPC : MonoBehaviour
             uIManager.HideTalkButton();
     }
 
-    private void CheckEventsVariables()
+    [YarnCommand("lookToSide")]
+    public void LookToSide(string side)
     {
-        //Pega a classe que vê as variaveis na memoria
-        var inMemoryVariableStorage = InstancesManager.singleton.GetInMemoryVariableStorage();
-
-        foreach (EventsVariables ev in arrayEventsVariables)
+        animator.SetFloat("LastMoveX", 0f);
+        animator.SetFloat("LastMoveY", 0f);
+        switch (side)
         {
-            //Pega a variavel se existir,
-            //Se nao existir vai vir null, ou seja tipo diferente, então nao precisa comparar os valores
-            Yarn.Value memoryValue = inMemoryVariableStorage.GetValue(ev.name);
-            if (memoryValue.type == Yarn.Value.Type.Bool)
-            {
-                string stringValue = memoryValue.AsBool.ToString();
-                if (stringValue.Equals("True"))
-                {
-                    //Ativa o NPC, pois tem a chance dele n estar ativo nessa cena e depois o posiciona
-                    gameObject.SetActive(true);
-                    transform.position = ev.transform.position;
-                    break;
-                }
-            }
+            case "up":
+                animator.SetFloat("LastMoveY", 1f);
+                break;
+            case "down":
+                animator.SetFloat("LastMoveY", -1f);
+                break;
+            case "right":
+                animator.SetFloat("LastMoveX", 1f);
+                break;
+            case "left":
+                animator.SetFloat("LastMoveX", -1f);
+                break;
+            default:
+                Debug.LogErrorFormat($"<<lookToSide>> failed to parse duration {side}");
+                break;
         }
     }
 }

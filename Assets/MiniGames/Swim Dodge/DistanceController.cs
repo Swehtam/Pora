@@ -44,7 +44,8 @@ public class DistanceController : MonoBehaviour
             finished = true;
             SpeedController.speed = 0f;
             //Acionar todos os eventos que dependem do player terminar o minigame de Nado a Desvio
-            QuestEvents.SwimDodgeCompleted(MinigamesManager.GetSwimDodgeDifficulty(), MinigamesManager.GetSwimDodgeMaxDistance());
+            QuestEvents questEvents = InstancesManager.singleton.GetQuestEvents();
+            questEvents.SwimDodgeCompleted(MinigamesManager.GetSwimDodgeDifficulty(), MinigamesManager.GetSwimDodgeMaxDistance());
             swimDodgeClassesInterface.minigameDialogue.StartFinishingDialogue();
             swimDodgeClassesInterface.obstaclesManager.DisableAllSpawnedObjects();
         }

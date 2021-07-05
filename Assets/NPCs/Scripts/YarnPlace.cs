@@ -60,21 +60,26 @@ public class YarnPlace : MonoBehaviour
     }
     public Variables[] arrayDialogueVariables;
     private DialogueRunner dialogueRunner = null;
+    private QuestEvents questEvents;
 
     void Start()
     {
-        //Checa se as condições necessárias das variaveis para o YarnPlace estão concluidas
-        //Caso esteja testando e n precise de dialogo
-        //E o dia da condição pra ativar o dialogo for igual ou maior
+        var dayManager = InstancesManager.singleton.GetDayManager();
+        //Desativa esse objeto se:
+        //Tiver variaveis e alguma delas não estiver correta
+        //Ou caso esteja testando
+        //Ou não chegou no dia minimo e está no horário do dia errado
         if (isTesting
-            || (arrayDialogueVariables.Length > 0 && !CheckAllYarnPlaceVariables())
-            || InstancesManager.singleton.GetDayManager().GetDay() < dayCondition
-            || ((dayShiftCondition != DayShift.Nenhum) && ((int)dayShiftCondition != InstancesManager.singleton.GetDayManager().GetIntDayShift()))
+            || (arrayDialogueVariables.Length > 0 && CheckAllYarnPlaceVariables() == false)
+            || (dayManager.GetDay() < dayCondition) 
+            || ((dayShiftCondition != DayShift.Nenhum) && ((int)dayShiftCondition != dayManager.GetIntDayShift()))
             || InstancesManager.singleton.GetYarnPlacesManager().ContainsYarnPlace(placeName))
         {
             gameObject.SetActive(false);
             return;
         }
+
+        questEvents = InstancesManager.singleton.GetQuestEvents();
 
         if (scriptToLoad != null)
         {
@@ -90,12 +95,19 @@ public class YarnPlace : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             //Acionar todos os eventos que dependem do player chegar em determinado lugar
-            QuestEvents.PlaceArrive(placeName);
+            questEvents.PlaceArrive(placeName);
             //Iniciar dialogo
             dialogueRunner.StartDialogue(talkToNode);
         }
     }
 
+    /// <summary>
+    /// Checa todas as variaveis listadas presentes no objeto
+    /// </summary>
+    /// <returns>
+    /// Se todas as variaveis estiverem corretas então retorna TRUE
+    /// Se não retorna FALSE
+    /// </returns>
     private bool CheckAllYarnPlaceVariables()
     {
         //Começa como verdadeira, pois não encontrou nenhum problema

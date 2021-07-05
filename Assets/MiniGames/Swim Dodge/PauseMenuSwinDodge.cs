@@ -45,7 +45,7 @@ public class PauseMenuSwinDodge : MonoBehaviour
         swimDodgeClassesInterface.distanceController.ResetGame();
         swimDodgeClassesInterface.speedController.ResetGame();
         player.loadPointName = "SaidaNadarDesvio";
-        player.StoppedPlayingMinigame();
+        player.StopPlayingMinigame();
         InstancesManager.singleton.GetLevelLoaderInstance().LoadNextLevel("VilaLobo", 0);
     }
 
