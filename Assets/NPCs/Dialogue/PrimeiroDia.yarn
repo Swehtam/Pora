@@ -1,0 +1,62 @@
+title: PrimeiroDia.EventoArmario
+tags: 
+colorID: 0
+position: 421,163
+---
+<<lookToSide Porã up>>
+<<deactivateContainer _dialogue/DialogueRunner>>
+<<zoomCamera PlayerCamera 3.5 0>>
+<<teleportPlayer SceneManager 0>>
+<<wait 2>>
+<<movePlayerTo Porã 1 3.0>>
+<<wait 3.5>>
+Acir: HAHAHAHAHAHA!!
+<<popSymbol Porã exclamation>>
+<<wait 2>>
+Acir: Eae <b>Roedor</b>, como foram as férias? HAHAHA!
+<<wait 1>>
+<<lookToSide Porã right>>
+<<wait 0.5>>
+Porã: ...
+<<wait 0.5>>
+<<lookToSide Porã down>>
+<<wait 1>>
+<<movePlayerTo Porã 0 3.0>>
+<<wait 3.5>>
+<<lookToSide Porã left>>
+<<wait 0.5>>
+Porã: *Ótimo, mais alguém para me achar estranho...*
+Moara: …
+<<lookToSide Porã down>>
+<<zoomCamera PlayerCamera 6 1>>
+<<wait 1>>
+<<set $schoolClosetEvent to false>>
+<<placeDone PrimeiroDia-EventoArmario>>
+===
+
+title: PrimeiroDia.FrenteEscola
+tags: 
+colorID: 0
+position: 421,163
+---
+<<deactivateContainer _dialogue/DialogueRunner>>
+<<wait 2>>
+Porã: *Oof!*
+Porã: *Legal voltar pra escola e nada ter mudado.*
+Porã: *...*
+Porã: *Só quero voltar pra casa e ficar no meu quarto*
+<<startQuest Entradas-Saidas-Dialogo/PrimeiroDia-FrenteEscola/Quest 7>>
+<<placeDone PrimeiroDia-FrenteEscola>>
+===
+
+title: PrimeiroDia.ChegouCasa
+tags: 
+colorID: 0
+position: 421,163
+---
+<<deactivateContainer _dialogue/DialogueRunner>>
+<<wait 1>>
+Potira: Oi meu amor, já chegou da escola?
+Potira: Venha até aqui conversar um pouco comigo.
+<<placeDone PrimeiroDia-ChegouCasa>>
+===

@@ -471,7 +471,7 @@ GameObject:
   - component: {fileID: 116750618}
   - component: {fileID: 116750619}
   m_Layer: 0
-  m_Name: ClosetEvent-Place
+  m_Name: PrimeiroDia-EventoArmario
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -504,14 +504,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTesting: 0
-  placeName: ClosetEvent.Place
-  talkToNode: EventoArmario
+  placeName: PrimeiroDia.EventoArmario
+  talkToNode: PrimeiroDia.EventoArmario
   scriptToLoad: {fileID: 2480198943629176163, guid: 3b5bc222fc4fa5740a24d93534ce8a9a,
     type: 3}
   dayCondition: 1
   dayShiftCondition: 1
   arrayDialogueVariables:
-  - name: $schoolClosetEvent
+  - name: $classDone
     value: True
     type: 2
 --- !u!61 &116750619

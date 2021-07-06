@@ -70,11 +70,15 @@ public class Quest : MonoBehaviour
             isAvaliable = false;
             return;
         }
+
+        print("Quest avaliavel: " + id);
     }
 
     [YarnCommand("startQuest")]
     public void StartQuest(string questIdString)
     {
+        print("achou");
+
         if (int.TryParse(questIdString, out var questId) == false)
         {
             Debug.LogErrorFormat($"<<startQuest>> failed to parse quest id {questIdString}");

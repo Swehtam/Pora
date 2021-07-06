@@ -156,7 +156,7 @@ Transform:
   - {fileID: 1173478761}
   - {fileID: 179119934}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &160154970
 GameObject:
@@ -775,7 +775,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1472646417}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &308525133
 MonoBehaviour:
@@ -952,7 +952,7 @@ PrefabInstance:
     - target: {fileID: 9022296975360602198, guid: 9e33539e221c258478632ac46126d5c9,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9022296975360602198, guid: 9e33539e221c258478632ac46126d5c9,
         type: 3}
@@ -1224,7 +1224,7 @@ MonoBehaviour:
   onSceneDefault: 1
   yarnNPC: {fileID: 339934183}
   arrayEventsVariables:
-  - name: $firstDay
+  - name: $firstDayMorning
     transform: {fileID: 1663183541}
   arrayDontSpawnVariables: []
   arrayNPCPositions: []
@@ -1258,7 +1258,7 @@ Transform:
   - {fileID: 1663183541}
   - {fileID: 1035631986}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &389046829
 GameObject:
@@ -1582,7 +1582,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1472646417}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &657670226
 GameObject:
@@ -2189,7 +2189,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1472646417}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1238934695
 MonoBehaviour:
@@ -2252,6 +2252,87 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1341813884
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1341813885}
+  - component: {fileID: 1341813887}
+  - component: {fileID: 1341813886}
+  m_Layer: 0
+  m_Name: PrimeiroDia-ChegouCasa
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1341813885
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341813884}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 13.261968, y: -7.1439276, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1472646417}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1341813886
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341813884}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &1341813887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341813884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 278ffbc9dd6b4c641839a53500de2e0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTesting: 0
+  placeName: PrimeiroDia.ChegouCasa
+  talkToNode: PrimeiroDia.ChegouCasa
+  scriptToLoad: {fileID: 2480198943629176163, guid: 3b5bc222fc4fa5740a24d93534ce8a9a,
+    type: 3}
+  dayCondition: 1
+  dayShiftCondition: 1
+  arrayDialogueVariables:
+  - name: $classDone
+    value: True
+    type: 2
 --- !u!1 &1391723428
 GameObject:
   m_ObjectHideFlags: 0
@@ -2282,7 +2363,7 @@ Transform:
   - {fileID: 339934182}
   - {fileID: 282713925}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1437943211
 GameObject:
@@ -2373,11 +2454,12 @@ Transform:
   - {fileID: 657670227}
   - {fileID: 1700178425}
   - {fileID: 389046830}
+  - {fileID: 1341813885}
   - {fileID: 629402626}
   - {fileID: 1238934694}
   - {fileID: 308525132}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1617499865
 GameObject:
@@ -3048,7 +3130,7 @@ PrefabInstance:
     - target: {fileID: 1643365083145583436, guid: c5d825fe4d3c2d84e8314142bce017a4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1643365083145583436, guid: c5d825fe4d3c2d84e8314142bce017a4,
         type: 3}

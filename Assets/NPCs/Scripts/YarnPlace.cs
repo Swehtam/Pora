@@ -70,10 +70,10 @@ public class YarnPlace : MonoBehaviour
         //Ou caso esteja testando
         //Ou não chegou no dia minimo e está no horário do dia errado
         if (isTesting
+            || InstancesManager.singleton.GetYarnPlacesManager().ContainsYarnPlace(placeName)
             || (arrayDialogueVariables.Length > 0 && CheckAllYarnPlaceVariables() == false)
             || (dayManager.GetDay() < dayCondition) 
-            || ((dayShiftCondition != DayShift.Nenhum) && ((int)dayShiftCondition != dayManager.GetIntDayShift()))
-            || InstancesManager.singleton.GetYarnPlacesManager().ContainsYarnPlace(placeName))
+            || ((dayShiftCondition != DayShift.Nenhum) && ((int)dayShiftCondition != dayManager.GetIntDayShift())))
         {
             gameObject.SetActive(false);
             return;

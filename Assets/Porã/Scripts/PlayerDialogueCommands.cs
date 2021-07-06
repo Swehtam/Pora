@@ -112,7 +112,6 @@ public class PlayerDialogueCommands : MonoBehaviour
     [YarnCommand("lookToSide")]
     public void LookToSide(string side)
     {
-        print("achou");
         float lastMoveX = 0f;
         float lastMoveY = 0f;
 
@@ -128,7 +127,6 @@ public class PlayerDialogueCommands : MonoBehaviour
                 lastMoveX = 1f;
                 break;
             case "left":
-                print("ue");
                 lastMoveX = -1f;
                 break;
             default:
@@ -138,7 +136,7 @@ public class PlayerDialogueCommands : MonoBehaviour
 
         anim.SetFloat("LastMoveX", lastMoveX);
         anim.SetFloat("LastMoveY", lastMoveY);
-        //playerController.ChangeLastMove(lastMoveX, lastMoveY);
+        playerController.ChangeLastMove(lastMoveX, lastMoveY);
     }
 
     [YarnCommand("popSymbol")]

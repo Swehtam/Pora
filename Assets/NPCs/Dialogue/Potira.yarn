@@ -6,7 +6,19 @@ position: 421,163
 <<if not visited("Potira.PrimeiroDia")>>
 	[[Potira.PrimeiroDia]]
 <<endif>>
+
+<<if ($firstDay is true) and ($classDone is true)>>
+	[[Potira.PrimeiroDiaDepoisAula]]
+<<endif>>
 [[Potira.Adeus]]
+===
+
+title: Potira.Adeus
+tags: 
+colorID: 0
+position: 421,163
+---
+Potira: Tchau, meu xodó.
 ===
 
 title: Potira.PrimeiroDia
@@ -103,10 +115,70 @@ Piatã: Tchau.
 <<startQuest NPCs/Potira/Quest-PrimeiroDia 6>>
 ===
 
-title: Potira.Adeus
+title: Potira.PrimeiroDiaDepoisAula
 tags: 
 colorID: 0
-position: 421,163
+position: 500,163
 ---
-Potira: Tchau, meu xodó.
+<<if not visited("Potira.PrimeiroDiaDepoisAula")>>
+	Potira: Vai, me conta. Como foi o primeiro dia de aula?
+	-> Tudo bem… como sempre...
+		Porã: Não aconteceu nada demais.
+		Potira: Sabia que meu <b>lobinho</b> se daria bem no seu primeiro dia de aula.
+		Porã: *Porã começa a ficar chateado*
+		Potira: Aconteceu mais alguma coisa hoje?
+		Porã: Não...
+		<<set $lies to ($lies + 1)>>
+		
+	-> Eu sabia que ia ser igual ao ano passado.
+		Potira: Como assim, Porã?
+		Porã: Nada mudou, tudo continua igual.
+		Potira: As coisas já estão mudando! Olha o <b>lobinho</b> que você está se tornando.
+		Porã: *Porã começa a ficar chateado*
+		-> *Contar sobre a atividade de biologia de hoje?*
+			Porã: Hoje teve aula de biologia.
+			Porã: Aprendemos um pouco mais sobre a fauna de onde moramos.
+			Potira: Que legal filhote! E você se deu bem na aula de hoje?
+			-> Sim, tirei nota boa.
+				Potira: *Potira esboça um sorriso*
+				Potira: Muito bem! Estou orgulhosa de você!
+				<<if $biologyDayResults < 7.0>>
+					Porã: *Porã fica nervoso*
+					<<set $lies to ($lies + 1)>>
+				<<else>>
+					Porã: *Porã da um sorriso singelo*
+				<<endif>>
+			-> Não, eu tirei {$biologyDayResults}, desculpa... <<if $biologyDayResults < 7.0>>
+				Potira: Own meu amor! Ta tudo bem, você precisa de ajuda do seu pai?
+				Porã: Não...
+				Porã: *Porã fica receoso*
+				Porã: Eu consigo me virar sozinho. Ta tudo bem.
+				Potira: *Potira esboça um sorriso*
+				Potira: Eu confio em você.
+		-> *Não contar sobre a ativiade*
+
+	Porã: Mãe...  posso te perguntar uma coisa?
+	Potira: Claro! O que você quiser!
+	-> Por quê todo mundo insite em me dizer que eu devo ser um <i><b>lobinho</i></b>?
+		Potira: Ué Porã, porque você ainda é uma criança hahaha!
+		Porã: Não foi isso que eu quis dizer.
+		Porã: Eu estou perguntando por quê eu devo ser um Lobo-guará?
+		Potira: Mas não é obvio? Você nasceu um Lobo-guará igual a eu e seu pai.
+		Potira: É o normal que as pessoas esperem isso de você.
+		Porã: Mas e se eu...
+		Porã: *Porã fala o resto tão baixo que a mãe não escuta*
+		Potira: Ham?
+		Porã: Nada não...
+	-> Nada não, esquece...
+
+	Potira: E como vai Acir? Vocês estão bem?
+	Porã: Acir? Por que pergunta?
+	Potira: Porque vocês são amigos, ele vinha aqui em casa todo dia quando criança pra brincar com você.
+	Porã: Mãe, isso faz muito tempo... Acir não vem aqui tem anos.
+	Potira: Ah mas isso não significa que vocês deixaram de ser amigos.
+	Potira: Acir é um ótimo exemplo de Onça-pintada, vai te fazer muito bem vocês andarem juntos. Igual quando vocês eram crianças.
+	Porã: Quando éramos crianças, tudo era mais suave.. Acir mudou, está distante…
+	Potira: … *Potira não tem o que comentar.*
+
+<<endif>>
 ===
