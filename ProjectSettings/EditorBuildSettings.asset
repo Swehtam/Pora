@@ -47,4 +47,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AulaBiologiaMiniGame.unity
     guid: 1bfa916d2e2f90547bf41c2162b5bbc9
+  - enabled: 1
+    path: Assets/Scenes/PiataMinigame.unity
+    guid: 1fe6cf80a74d35d4eba551fa39bc531a
   m_configObjects: {}

@@ -9,6 +9,7 @@ TagManager:
   - NPC
   - Obstacle
   - score
+  - RhythmButton
   layers:
   - Default
   - TransparentFX

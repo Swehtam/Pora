@@ -2463,32 +2463,32 @@ PrefabInstance:
     - target: {fileID: 7293721902438542745, guid: 3dbe59b4261a85a4cac85842076edfb2,
         type: 3}
       propertyPath: defaultVariables.Array.data[2].value
-      value: False
+      value: True
       objectReference: {fileID: 0}
     - target: {fileID: 7293721902438542745, guid: 3dbe59b4261a85a4cac85842076edfb2,
         type: 3}
       propertyPath: defaultVariables.Array.data[3].value
-      value: False
+      value: True
       objectReference: {fileID: 0}
     - target: {fileID: 7293721902438542745, guid: 3dbe59b4261a85a4cac85842076edfb2,
         type: 3}
       propertyPath: defaultVariables.Array.data[4].value
-      value: True
+      value: False
       objectReference: {fileID: 0}
     - target: {fileID: 7293721902438542745, guid: 3dbe59b4261a85a4cac85842076edfb2,
         type: 3}
       propertyPath: defaultVariables.Array.data[5].value
-      value: 3,5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7293721902438542745, guid: 3dbe59b4261a85a4cac85842076edfb2,
         type: 3}
       propertyPath: defaultVariables.Array.data[6].value
-      value: True
+      value: False
       objectReference: {fileID: 0}
     - target: {fileID: 7293721902438542745, guid: 3dbe59b4261a85a4cac85842076edfb2,
         type: 3}
       propertyPath: defaultVariables.Array.data[7].value
-      value: False
+      value: True
       objectReference: {fileID: 0}
     - target: {fileID: 8129312654650004427, guid: 3dbe59b4261a85a4cac85842076edfb2,
         type: 3}
@@ -2558,6 +2558,11 @@ PrefabInstance:
     - target: {fileID: 8231054822953737613, guid: 3dbe59b4261a85a4cac85842076edfb2,
         type: 3}
       propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8231054822953737613, guid: 3dbe59b4261a85a4cac85842076edfb2,
+        type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3917,7 +3922,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isTesting: 1
   testDay: 1
-  testDayShift: 1
+  testDayShift: 0
 --- !u!114 &1900991531
 MonoBehaviour:
   m_ObjectHideFlags: 0
