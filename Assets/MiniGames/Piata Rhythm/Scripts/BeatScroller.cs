@@ -17,6 +17,7 @@ public class BeatScroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position -= new Vector3(0f, beatTempo * Time.deltaTime, 0f);
+        if(minigameStarted)
+            transform.position -= new Vector3(0f, beatTempo * Time.deltaTime, 0f);
     }
 }
