@@ -11,11 +11,6 @@
    <object id="1" x="0" y="2" width="8" height="12"/>
   </objectgroup>
  </tile>
- <tile id="1708">
-  <objectgroup draworder="index" id="2">
-   <object id="1" x="0" y="0" width="16" height="16"/>
-  </objectgroup>
- </tile>
  <tile id="1777">
   <objectgroup draworder="index" id="2">
    <object id="1" x="0" y="0" width="16" height="16"/>
