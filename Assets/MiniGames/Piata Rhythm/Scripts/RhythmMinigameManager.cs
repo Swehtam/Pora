@@ -28,13 +28,12 @@ public class RhythmMinigameManager : MonoBehaviour
             }
     }
 
-    public void NoteHited()
+    public void NoteHited(string noteName)
     {
-        print("acertou note");
+        RhythmEvents.NoteHit(noteName);
     }
 
     public void NoteMissed()
     {
-        print("perdeu note");
     }
 }

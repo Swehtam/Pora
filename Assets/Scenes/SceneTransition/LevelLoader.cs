@@ -84,6 +84,7 @@ public class LevelLoader : MonoBehaviour
         //Evento para sinalizar que começou a carregar para uma nova cena
         LoadSceneEvents.SceneLoading();
 
+        //Faz com que a cena comece a carregar de forma Async
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
 
         while (!operation.isDone)
@@ -128,6 +129,7 @@ public class LevelLoader : MonoBehaviour
             default:
                 throw new System.NotImplementedException();
         }
+
         panelTransition.SetTrigger("End");
         //Reseta para 0 para usar a transição padrão
         transitionValue = 0;

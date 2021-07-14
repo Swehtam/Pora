@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class NoteObject : MonoBehaviour
 {
-    public void NoteHited()
+    public void NoteHited(string noteName)
     {
-        RhythmMinigameManager.singleton.NoteHited();
+        RhythmMinigameManager.singleton.NoteHited(noteName);
         gameObject.SetActive(false);
-        
     }
 
     private void OnTriggerEnter2D(Collider2D other)

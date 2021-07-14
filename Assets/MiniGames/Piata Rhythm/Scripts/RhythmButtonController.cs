@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 
 public class RhythmButtonController : MonoBehaviour
 {
+    public string noteName;
+
     public Color defaultColor;
     public Color pressedColor;
 
@@ -27,7 +29,7 @@ public class RhythmButtonController : MonoBehaviour
 
         if (noteObject != null)
         {
-            noteObject.NoteHited();
+            noteObject.NoteHited(noteName);
             noteObject = null;
         }
     }
