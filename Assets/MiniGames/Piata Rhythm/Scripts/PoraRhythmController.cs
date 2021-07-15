@@ -10,8 +10,6 @@ public class PoraRhythmController : MonoBehaviour
     public Sprite seedsSprite;
     public Sprite waterSprite;
 
-    public CropController cropController;
-
     private int currentPosition = 0;
 
     private Animator animator;
@@ -83,7 +81,6 @@ public class PoraRhythmController : MonoBehaviour
 
         //Colocar a sprite do objeto que vai ficar nas mãos de Porã
         animator.SetTrigger("ArmsUp");
-        cropController.UpdateCropSpriteRenderer(noteName);
         yield return new WaitForSecondsRealtime(1f);
 
         UpdatePoraPosition();

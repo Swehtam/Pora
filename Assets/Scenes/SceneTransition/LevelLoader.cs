@@ -23,10 +23,16 @@ public class LevelLoader : MonoBehaviour
     private static int transitionValue = 0;
     private PlayerController player;
     private bool isLevelLoading = false;
+    private bool isFirstLoad = true;
 
-    private void OnLevelWasLoaded()
+    void OnEnable()
     {
-        StartNextLevel();
+        SceneManager.sceneLoaded += StartNextLevel;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= StartNextLevel;
     }
 
     /// <summary>
@@ -93,8 +99,13 @@ public class LevelLoader : MonoBehaviour
         }
     }
 
-    public void StartNextLevel()
+    public void StartNextLevel(Scene scene, LoadSceneMode mode)
     {
+        if (isFirstLoad)
+        {
+            isFirstLoad = false;
+            return;
+        }
         StartCoroutine(StartLevel());
     }
 
