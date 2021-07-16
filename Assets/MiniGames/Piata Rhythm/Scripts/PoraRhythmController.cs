@@ -14,12 +14,17 @@ public class PoraRhythmController : MonoBehaviour
 
     private Animator animator;
     private Coroutine armsUpCoroutine;
-    // Start is called before the first frame update
+    
     void Start()
     {
         animator = GetComponent<Animator>();
         RhythmEvents.OnNoteHit += NoteHit;
         farmItemSpriteRenderer.sprite = null;
+    }
+
+    void OnDisable()
+    {
+        RhythmEvents.OnNoteHit -= NoteHit;
     }
 
     private void NoteHit(string noteName)
@@ -60,12 +65,6 @@ public class PoraRhythmController : MonoBehaviour
 
         transform.position = poraPositions[currentPosition].position;
         armsUpCoroutine = null;
-    }
-
-    void OnDisable()
-    {
-        Debug.Log("Desabilitou Pora no Rhythm minigame.");
-        RhythmEvents.OnNoteHit -= NoteHit;
     }
 
     private IEnumerator StartNoteHit(string noteName)

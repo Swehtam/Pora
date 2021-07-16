@@ -29,7 +29,8 @@ public class RhythmButtonController : MonoBehaviour
 
         if (noteObject != null)
         {
-            noteObject.NoteHited(noteName);
+            noteObject.NoteHited();
+            RhythmEvents.NoteHit(noteName);
             noteObject = null;
         }
     }
@@ -50,6 +51,11 @@ public class RhythmButtonController : MonoBehaviour
     public void NoteExited()
     {
         noteObject = null;
+    }
+
+    public string GetNoteName()
+    {
+        return noteName;
     }
 
     private bool IsPointerOverUIObject()

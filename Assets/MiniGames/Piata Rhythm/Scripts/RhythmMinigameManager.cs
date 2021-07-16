@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class RhythmMinigameManager : MonoBehaviour
 {
@@ -13,15 +14,22 @@ public class RhythmMinigameManager : MonoBehaviour
     public Sprite cropSeed;
     public Sprite cropWater;
 
+    [Header("Pontuação")]
+    public int totalNotes;
+    public SpriteRenderer[] basketSpriteRenderers;
+    public Sprite fruitBasket;
+
     private int currentCrop = 0;
+    private int currentHitNotes = 0;
 
     public static RhythmMinigameManager singleton;
 
     // Start is called before the first frame update
     void Start()
     {
-        singleton = this;   
-        foreach(SpriteRenderer sr in cropSpriteRenderers)
+        singleton = this;
+        RhythmEvents.OnNoteHit += singleton.NoteHited;
+        foreach (SpriteRenderer sr in cropSpriteRenderers)
         {
             int randomValue = Random.Range(0, 2);
             if(randomValue == 0)
@@ -35,20 +43,18 @@ public class RhythmMinigameManager : MonoBehaviour
         }
     }
 
+    void OnDisable()
+    {
+        RhythmEvents.OnNoteHit -= singleton.NoteHited;
+    }
+
     private void Update()
     {
-        if (!startMinigame)
+        if (startMinigame)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (!audioSource.isPlaying)
             {
-                startMinigame = true;
-                beatScroller.minigameStarted = true;
-
-                audioSource.Play();
             }
-        }
-        else
-        {
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 startMinigame = false;
@@ -59,10 +65,18 @@ public class RhythmMinigameManager : MonoBehaviour
         }
     }
 
+    public void StartMinigame()
+    {
+        startMinigame = true;
+        beatScroller.minigameStarted = true;
+
+        audioSource.Play();
+    }
+
     public void NoteHited(string noteName)
     {
-        RhythmEvents.NoteHit(noteName);
         UpdateCropSpriteRenderer(noteName);
+        UpdateScore();
     }
 
     public void NoteMissed()
@@ -92,4 +106,42 @@ public class RhythmMinigameManager : MonoBehaviour
             currentCrop++;
         }
     }
+
+    private void UpdateScore()
+    {
+        currentHitNotes++;
+        float percentageHit = currentHitNotes * 100f / totalNotes ;
+
+        //Atualiza a sprite da cesta de acordo com a porcentagem de acerto
+        //Acerto acima de 95%
+        if (percentageHit >= 95f)
+        {
+            basketSpriteRenderers[4].sprite = fruitBasket;
+            return;
+        }
+
+        if(percentageHit >= 75f && percentageHit < 95f)
+        {
+            basketSpriteRenderers[3].sprite = fruitBasket;
+            return;
+        }
+
+        if (percentageHit >= 55f && percentageHit < 75f)
+        {
+            basketSpriteRenderers[2].sprite = fruitBasket;
+            return;
+        }
+
+        if (percentageHit >= 35f && percentageHit < 55f)
+        {
+            basketSpriteRenderers[1].sprite = fruitBasket;
+            return;
+        }
+
+        if (percentageHit >= 15f && percentageHit < 35f)
+        {
+            basketSpriteRenderers[0].sprite = fruitBasket;
+            return;
+        }
+    } 
 }
