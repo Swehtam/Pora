@@ -19,8 +19,13 @@ public class RhythmMinigameManager : MonoBehaviour
     public SpriteRenderer[] basketSpriteRenderers;
     public Sprite fruitBasket;
 
+    [Header("Notas Perdidas")]
+    public SpriteRenderer[] boardSpriteRenderers;
+    public Sprite redCrossBoard;
+
     private int currentCrop = 0;
     private int currentHitNotes = 0;
+    private int currentMissedNotesInRow = 0;
 
     public static RhythmMinigameManager singleton;
 
@@ -48,39 +53,51 @@ public class RhythmMinigameManager : MonoBehaviour
         RhythmEvents.OnNoteHit -= singleton.NoteHited;
     }
 
-    private void Update()
-    {
-        if (startMinigame)
-        {
-            if (!audioSource.isPlaying)
-            {
-            }
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                startMinigame = false;
-                beatScroller.minigameStarted = false;
-
-                audioSource.Pause();
-            }
-        }
-    }
-
     public void StartMinigame()
     {
-        startMinigame = true;
         beatScroller.minigameStarted = true;
 
         audioSource.Play();
     }
 
+    public void PauseMinigame()
+    {
+        beatScroller.minigameStarted = false;
+
+        audioSource.Pause();
+    }
+
+    public void LostMinigame()
+    {
+        beatScroller.minigameStarted = false;
+        beatScroller.minigameLost = true;
+
+        audioSource.Pause();
+    }
+
     public void NoteHited(string noteName)
     {
+        ResetBoards();
         UpdateCropSpriteRenderer(noteName);
         UpdateScore();
     }
 
     public void NoteMissed()
     {
+        //Atualiza a sprite
+        if (currentMissedNotesInRow < 3)
+        {
+            boardSpriteRenderers[currentMissedNotesInRow].sprite = redCrossBoard;
+        }
+
+        //Aumenta a quantidade de erros seguidos
+        currentMissedNotesInRow++;
+
+        //Se for igual a 3 ou maior então diz q o player perdeu
+        if (currentMissedNotesInRow >= 3)
+        {
+            LostMinigame();
+        }
     }
 
     public void UpdateCropSpriteRenderer(string noteName)
@@ -104,6 +121,17 @@ public class RhythmMinigameManager : MonoBehaviour
         else
         {
             currentCrop++;
+        }
+    }
+
+    private void ResetBoards()
+    {
+        //Diz que o jogador não tem mais erros
+        currentMissedNotesInRow = 0;
+
+        foreach (SpriteRenderer sr in boardSpriteRenderers)
+        {
+            sr.sprite = null;
         }
     }
 

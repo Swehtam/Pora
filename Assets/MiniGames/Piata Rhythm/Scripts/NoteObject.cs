@@ -25,7 +25,7 @@ public class NoteObject : MonoBehaviour
 
         if (other.CompareTag("RhythmButton"))
         {
-            other.gameObject.GetComponent<RhythmButtonController>().NoteExited();
+            other.gameObject.GetComponent<RhythmButtonController>().NoteExited(this);
             RhythmMinigameManager.singleton.NoteMissed();
         }
     }

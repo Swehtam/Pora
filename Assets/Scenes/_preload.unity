@@ -2213,6 +2213,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1642841672799741732, guid: 3dbe59b4261a85a4cac85842076edfb2,
+        type: 3}
+      propertyPath: m_Text
+      value: Continuar
+      objectReference: {fileID: 0}
     - target: {fileID: 3154509114802882047, guid: 3dbe59b4261a85a4cac85842076edfb2,
         type: 3}
       propertyPath: m_text
@@ -2463,12 +2468,12 @@ PrefabInstance:
     - target: {fileID: 7293721902438542745, guid: 3dbe59b4261a85a4cac85842076edfb2,
         type: 3}
       propertyPath: defaultVariables.Array.data[2].value
-      value: True
+      value: False
       objectReference: {fileID: 0}
     - target: {fileID: 7293721902438542745, guid: 3dbe59b4261a85a4cac85842076edfb2,
         type: 3}
       propertyPath: defaultVariables.Array.data[3].value
-      value: True
+      value: False
       objectReference: {fileID: 0}
     - target: {fileID: 7293721902438542745, guid: 3dbe59b4261a85a4cac85842076edfb2,
         type: 3}
@@ -3868,7 +3873,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e07be8ec8d6ab44bb0c2075cf691301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTesting: 1
+  isTesting: 0
   testingNodesNames:
   - Potira.PrimeiroDia
   - Potira.PrimeiroDia2

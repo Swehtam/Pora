@@ -48,9 +48,10 @@ public class RhythmButtonController : MonoBehaviour
         noteObject = note;
     }
 
-    public void NoteExited()
+    public void NoteExited(NoteObject note)
     {
-        noteObject = null;
+        if(noteObject == note)
+            noteObject = null;
     }
 
     public string GetNoteName()
