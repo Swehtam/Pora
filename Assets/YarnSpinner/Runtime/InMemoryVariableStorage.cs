@@ -202,6 +202,7 @@ namespace Yarn.Unity {
         /// </summary>
         public override void Clear ()
         {
+            print("limpou");
             variables.Clear ();
         }
 

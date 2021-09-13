@@ -116,7 +116,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
+        y: 0
         width: 64
         height: 64
       alignment: 0
@@ -137,7 +137,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 64
+        y: 0
         width: 64
         height: 64
       alignment: 0
@@ -149,27 +149,6 @@ TextureImporter:
       bones: []
       spriteID: 3726a81bf2ef71950800000000000000
       internalID: 6419879274635485811
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pora_Crianca_Frente_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 798ca7b7f5bb5a590800000000000000
-      internalID: -7663513172133099369
       vertices: []
       indices: 
       edges: []

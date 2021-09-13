@@ -7,10 +7,11 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         PlayerSettings playerSettings = InstancesManager.singleton.GetPlayerSettingsInstance();
+        int day = InstancesManager.singleton.GetDayManager().GetDay();
         //Mudar para carregar a tela de menu, quando tiver uma
-        if(InstancesManager.singleton.GetDayManager().GetDay() == 1)
+        if (day == 0)
         {
-            InstancesManager.singleton.GetLevelLoaderInstance().LoadNextLevel(playerSettings.playerStartMap, 2);
+            InstancesManager.singleton.GetLevelLoaderInstance().MainMenuTransition(playerSettings.playerStartMap, day.ToString());
             return;
         }
         InstancesManager.singleton.GetLevelLoaderInstance().LoadNextLevel(playerSettings.playerStartMap, 2);

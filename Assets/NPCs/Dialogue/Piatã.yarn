@@ -3,11 +3,40 @@ tags:
 colorID: 0
 position: 421,163
 ---
-<<if $isClassTime is true>>
+<<if ($firstDay is true) and ($isClassTime is true)>>
 	[[Piatã.HoraAula]]
 <<endif>>
 
-[[Piatã.Adeus]]
+[[Piatã.Padrao]]
+===
+
+title: Piatã.Padrao
+tags: 
+colorID: 0
+position: 421,163
+---
+<<if $isMorningTime is true>>
+	Piatã: Bom dia Porã.
+<<endif>>
+===
+
+title: Piatã.Fazenda
+tags: 
+colorID: 0
+position: 421,163
+---
+<<if $farmCultiveGiveUp is true>>
+	Piatã: Então você quer desistir. Hm...
+	<<set $farmCultiveGiveUp to false>>
+
+<<elseif $farmCultiveFinish is true>>
+	Piatã: Muito bem Porã, eu sabia que você nasceu para isso.
+	<<set $farmCultiveFinish to false>>
+
+<<else>>
+	Piatã: Ótimo, você chegou. Vamos começar.
+	<<changeScene _loadLevel PiataMinigame 1 EntradaMinigame>>
+<<endif>>
 ===
 
 title: Piatã.HoraAula

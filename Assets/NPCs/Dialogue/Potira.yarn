@@ -3,13 +3,32 @@ tags:
 colorID: 0
 position: 421,163
 ---
-<<if not visited("Potira.PrimeiroDia")>>
+<<if ($firstDay is true) and (not visited("Potira.PrimeiroDia"))>>
 	[[Potira.PrimeiroDia]]
 <<endif>>
 
 <<if ($firstDay is true) and ($classDone is true)>>
 	[[Potira.PrimeiroDiaDepoisAula]]
 <<endif>>
+
+[[Potira.Padrao]]
+===
+
+title: Potira.Padrao
+tags: 
+colorID: 0
+position: 421,163
+---
+<<if $isMorningTime is true>>
+	Potira: Bom dia Porã, tenha um ótimo dia.
+<<elseif $isAfternoonTime is true>>
+	Potira: Tenho que cuidar das flores hoje de tarde.
+	Potira: Eles estão lindas.
+<<elseif $isNightTime is true>>
+	Potira: *Boceja*
+	Potira: Que dia longo, estou cansada.
+<<endif>>
+
 [[Potira.Adeus]]
 ===
 
@@ -129,6 +148,8 @@ position: 500,163
 		Potira: Aconteceu mais alguma coisa hoje?
 		Porã: Não...
 		<<set $lies to ($lies + 1)>>
+		Potira: Entendo, mas espero que você não esteja escondendo nada de mim, viu?
+		Porã: ...
 		
 	-> Eu sabia que ia ser igual ao ano passado.
 		Potira: Como assim, Porã?
@@ -177,8 +198,43 @@ position: 500,163
 	Porã: Mãe, isso faz muito tempo... Acir não vem aqui tem anos.
 	Potira: Ah mas isso não significa que vocês deixaram de ser amigos.
 	Potira: Acir é um ótimo exemplo de Onça-pintada, vai te fazer muito bem vocês andarem juntos. Igual quando vocês eram crianças.
-	Porã: Quando éramos crianças, tudo era mais suave.. Acir mudou, está distante…
-	Potira: … *Potira não tem o que comentar.*
-
+	Porã: Quando éramos crianças, tudo era mais fácil.. Acir mudou, está distante…
+	Potira: … 
+	Potira: *Potira não tem o que comentar.*
+	Porã: Queria que fosse igual a antigamente...
+	<<setDayShift _app 1>>
+	<<flashbackScene _loadLevel FlashBackCume1 SaidaFlashBackCume1 1>>
 <<endif>>
+===
+
+title: Potira.PrimeiroDiaDepoisAula2
+tags: 
+colorID: 0
+position: 500,163
+---
+Potira: Porã?
+<<wait 1>>
+Potira: Meu xodó?
+<<wait 1>>
+Potira: Acorda!
+
+Porã: *Porã leva um susto com o grito da mãe*
+Porã: Oi, mãe. O que foi?
+
+Potira: Parecia que você estava em transe, eu tava falando com você e você não me respondia.
+
+Porã: Ah, desculpa. Eu tava...
+Porã: Pensando demais...
+Porã: Mas o que você estava falando mesmo?
+
+Potira: Hahaha, você sempre foi assim né?
+Potira: Eu te perguntei sobre a Moara, vocês se encontraram?
+
+Porã: Como você sabe o nome de Moara?
+
+Potira: Eita que você anda dormindo acordado mesmo ein?
+Potira: Eu falei que ia passar na casa dos novos moradores hoje de manhã.
+
+<<startQuest NPCs/Potira/Quest-PrimeiroDia 8>>
+<<placeDone Potira-PrimeiroDia>>
 ===

@@ -19,11 +19,14 @@ public class LevelLoader : MonoBehaviour
     [SerializeField] private float sleepTransitionTime = 5f;
     [SerializeField] private float narrativeTransitionTime = 23f;
     [SerializeField] private SleepEffectController sleepEffectController;
+    [SerializeField] private FlashBackEffectController flashBackEffectController;
 
     private static int transitionValue = 0;
     private PlayerController player;
     private bool isLevelLoading = false;
     private bool isFirstLoad = true;
+    private int flashbackTextID = -1;
+    private int sleepTextID = -1;
 
     void OnEnable()
     {
@@ -72,11 +75,12 @@ public class LevelLoader : MonoBehaviour
                 break;
             case 2:
                 sleepTransition.SetTrigger("Start");
-                sleepEffectController.AutoSetText();
+                sleepEffectController.SetTextByID(sleepTextID);
                 yield return new WaitForSeconds(sleepTransitionTime);
                 break;
             case 3:
                 flashbackTransition.SetTrigger("Start");
+                flashBackEffectController.SetTextByID(flashbackTextID);
                 yield return new WaitForSeconds(sleepTransitionTime);
                 break;
             case 4:
@@ -142,8 +146,10 @@ public class LevelLoader : MonoBehaviour
         }
 
         panelTransition.SetTrigger("End");
-        //Reseta para 0 para usar a transição padrão
+        //Reseta as variaveis usadas
         transitionValue = 0;
+        flashbackTextID = -1;
+        sleepTextID = -1;
         isLevelLoading = false;
     }
 
@@ -163,6 +169,25 @@ public class LevelLoader : MonoBehaviour
         simpleFade.SetTrigger("End");
         isLevelLoading = false;
     }
+
+    /// <summary>
+    /// Metodo a ser chamado pelo main menu quando for carregar a primeira cena dentro do jogo
+    /// A transição sera sempre a Sleep
+    /// </summary>
+    /// <param name="sceneName"></param>
+    /// <param name="stringTextID"></param>
+    public void MainMenuTransition(string sceneName, string stringTextID)
+    {
+        if (int.TryParse(stringTextID, out var textID) == false)
+        {
+
+            Debug.LogErrorFormat($"<<changeScene>> failed to parse int value {stringTextID}");
+        }
+
+        sleepTextID = textID;
+        LoadNextLevel(sceneName, 2);
+    }
+
     [YarnCommand("changeScene")]
     public void ChangeScene(string sceneName, string transitionType, string playerLoadPoint)
     {
@@ -186,5 +211,45 @@ public class LevelLoader : MonoBehaviour
     public void StartBlackScreen()
     {
         StartCoroutine(BlackScreen());
+    }
+
+    [YarnCommand("flashbackScene")]
+    public void LoadFlashback(string sceneName, string playerLoadPoint, string stringTextID)
+    {
+        if (player == null)
+        {
+            player = InstancesManager.singleton.GetPlayerInstance().GetComponent<PlayerController>();
+        }
+
+        if (int.TryParse(stringTextID, out var textID) == false)
+        {
+
+            Debug.LogErrorFormat($"<<changeScene>> failed to parse int value {stringTextID}");
+        }
+
+        //Muda a posição onde o player vai spawnar e carrega nova cena
+        player.loadPointName = playerLoadPoint;
+        flashbackTextID = textID;
+        LoadNextLevel(sceneName, 3);
+    }
+
+    [YarnCommand("sleepTransition")]
+    public void SleepTransition(string sceneName, string playerLoadPoint, string stringTextID)
+    {
+        if (player == null)
+        {
+            player = InstancesManager.singleton.GetPlayerInstance().GetComponent<PlayerController>();
+        }
+
+        if (int.TryParse(stringTextID, out var textID) == false)
+        {
+
+            Debug.LogErrorFormat($"<<changeScene>> failed to parse int value {stringTextID}");
+        }
+
+        //Muda a posição onde o player vai spawnar e carrega nova cena
+        player.loadPointName = playerLoadPoint;
+        sleepTextID = textID;
+        LoadNextLevel(sceneName, 2);
     }
 }

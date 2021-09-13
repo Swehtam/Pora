@@ -15,10 +15,16 @@ public class DayManager : MonoBehaviour
     //Se for 0 é manhã, se for 1 é tarde e se for 2 é noite.
     private int gameDayShift = 0;
 
+    private InMemoryVariableStorage memoryVariables;
+
     private void Start()
     {
         LoadDay();
-        InstancesManager.singleton.GetInMemoryVariableStorage().SetValue("$day", gameDay);
+        memoryVariables = InstancesManager.singleton.GetInMemoryVariableStorage();
+        print("atualizou o dia");
+        memoryVariables.SetValue("$day", gameDay);
+        //Atualiza qual a variavel do horario do dia
+        UpdateDayShitVariable();
     }
 
     //Metodo para pegar o dia do jogo
@@ -61,7 +67,25 @@ public class DayManager : MonoBehaviour
         if(gameDayShift < 2)
         {
             gameDayShift++;
+            //Atualiza qual a variavel do horario do dia
+            UpdateDayShitVariable();
         }
+    }
+
+    //Metodo para mudar o turno do dia
+    [YarnCommand("setDayShift")]
+    public void UpdateDayShift(string stringDayShift)
+    {
+        print("Mudou o turno do dia para: " + stringDayShift);
+        if (int.TryParse(stringDayShift, out var dayShift) == false)
+        {
+
+            Debug.LogErrorFormat($"<<setDayShift>> failed to parse int value {stringDayShift}");
+        }
+
+        gameDayShift = dayShift;
+        //Atualiza qual a variavel do horario do dia
+        UpdateDayShitVariable();
     }
 
     //Metodo para atualizar o dia salvo ao fechar o jogo
@@ -72,6 +96,32 @@ public class DayManager : MonoBehaviour
         {
             gameDay = testDay;
             gameDayShift = testDayShift;
+        }
+    }
+
+    private void UpdateDayShitVariable()
+    {
+        //Seta tudo como falso e muda de acordo com o horario do dia
+        memoryVariables.SetValue("$isMorningTime", false);
+        memoryVariables.SetValue("$isAfternoonTime", false);
+        memoryVariables.SetValue("$isNightTime", false);
+
+        if (gameDayShift == 0)
+        {
+            memoryVariables.SetValue("$isMorningTime", true);
+            return;
+        }
+
+        if(gameDayShift == 1)
+        {
+            memoryVariables.SetValue("$isAfternoonTime", true);
+            return;
+        }
+
+        if(gameDayShift == 2)
+        {
+            memoryVariables.SetValue("$isNightTime", true);
+            return;
         }
     }
 }

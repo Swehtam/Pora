@@ -572,7 +572,7 @@ namespace Yarn.Unity {
         {
             if (portraitsDict.ContainsKey(portraitName) == false)
             {
-                Debug.LogError("O sprite '" + portraitImage + "' não existe.");
+                Debug.LogError("O sprite '" + portraitName + "' não existe.");
                 return;
             }
             portraitImage.sprite = portraitsDict[portraitName];

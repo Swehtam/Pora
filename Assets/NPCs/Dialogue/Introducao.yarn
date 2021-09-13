@@ -159,7 +159,8 @@ position: 700,150
 	<<set $introductionGraveyard to false>>
 	<<set $introductionSquare to false>>
 	<<placeDone Introducao-Cemiterio>>
-	<<changeScene _loadLevel FlashBackEscola1 3 SaidaFlashBackEscola1>>
+	<<setDayShift _app 0>>
+	<<flashbackScene _loadLevel FlashBackEscola1 SaidaFlashBackEscola1 0>>
 <<endif>>
 ===
 
@@ -193,7 +194,9 @@ colorID: 0
 position: 700,150
 ---
 <<deactivateContainer _dialogue/DialogueRunner>>
-<<wait 2>>
+<<isAngry NPCs/Acir-Criança>>
+<<wait 2.5>>
+
 Porã:PorãCriança: ME DEIXEM EM PAZ!!
 ????:AcirCriança: Só quando você parar de agir assim.
 ????:Bullying3: Você não tem vergonha?

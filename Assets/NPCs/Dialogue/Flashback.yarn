@@ -1,0 +1,194 @@
+title: Flashback.Cume1
+tags: 
+colorID: 0
+position: 421,163
+---
+<<deactivateContainer _dialogue/DialogueRunner>>
+<<kneel NPCs/Acir-Criança>>
+<<kneel NPCs/Porã-Criança>>
+<<lookToSide NPCs/Acir-Criança right>>
+<<lookToSide NPCs/Porã-Criança left>>
+<<wait 2.5>>
+
+Porã:PorãCriança: Olha Acir o que eu achei no caminho para o Cume.
+<<wait 1>>
+<<showToys Objetos/Brinquedos>>
+<<wait 2.5>>
+Acir:AcirCriança: Que legaaal!
+Acir:AcirCriança: Mas o que são esses animais?
+Porã:PorãCriança: Hmmm… Se eu não me engano, lembro de ver isso em algum livro.
+Porã:PorãCriança: Eu acho que esse daqui é uma Capivara e aquele ali é um Cervo-do-pantanal.
+Acir:AcirCriança: Oooh! Eu gostei deles, eu quero ser o Cervo-do-pantanal.
+Porã:PorãCriança: Então eu vou ser a Capivara! Haha.
+Acir:AcirCriança: Já sei o que vamos fazer! Vamos salvar nossa vila do ataque dos malvadões com nossos novos bonecos.
+Porã:PorãCriança: *Porã esboça um sorriso de orelha a orelha*
+Porã:PorãCriança: Incrível! Eu gostei, vamos lá Capitão Cervo!
+Acir:AcirCriança: *Os olhos de Acir brilham ao ouvir o nome Capitão Cervo*
+Acir:AcirCriança: Então me ajude Super Capivara! Não vou conseguir sem você.
+Porã:PorãCriança: Hahaha!
+Acir:AcirCriança: Hahaha!
+<<wait 0.5>>
+<i> Eu e Acir passamos a tarde toda brincando com nossos bonecos.</i>
+<i> Mas algumas horas depois aquilo tudo acabou... pra sempre.</i>
+<<setDayShift _app 2>>
+<<flashbackScene _loadLevel FlashBackCume1 SaidaFlashBackCume2 2>>
+===
+
+title: Flashback.Cume2
+tags: 
+colorID: 0
+position: 421,163
+---
+<<deactivateContainer _dialogue/DialogueRunner>>
+<<kneel NPCs/Acir-Criança>>
+<<kneel NPCs/Porã-Criança>>
+<<lookToSide NPCs/Acir-Criança right>>
+<<lookToSide NPCs/Porã-Criança left>>
+<<wait 2.5>>
+
+Acir:AcirCriança: Haha! Muito bem Super Capivara você conseguiu salvar a vila!
+
+Porã:PorãCriança: Sim! Graças a sua ajuda Capitão Cervo!
+<<deactivateContainer _dialogue/DialogueRunner>>
+
+<<showNPC SceneManager Jurema 0>>
+<<wait 0.1>>
+<<moveTo NPCs/Jurema 1 1.5>>
+<<wait 2.5>>
+Jurema: *Jurema fica chocada ao ver os dois brincando*
+<<moveTo NPCs/Jurema 2 1.5>>
+<<wait 1.5>>
+<<lookToSide NPCs/Jurema right>>
+<<wait 0.5>>
+Jurema: Acir!! O que você está fazendo??
+
+<<lookToSide NPCs/Acir-Criança left>>
+Acir:AcirCriança: Ah! Oi mamãe, estou brincando com Porã.
+Acir:AcirCriança: Porã encontrou esses brinquedos novos, são muito legais haha.
+
+Porã:PorãCriança: Oi professora Jure-
+
+Jurema: Solte isso ai agora e vamos para casa!!
+
+Porã:PorãCriança: *Porã fica chocado*
+
+Acir:AcirCriança: *Acir fica chocado e acena com a cabeça*
+
+<<standUp NPCs/Acir-Criança>>
+<<wait 1>>
+<<moveTo NPCs/Acir-Criança 0 1.5>>
+<<wait 1.5>>
+<<lookToSide NPCs/Acir-Criança left>>
+
+Jurema: Quando chegarmos em casa, nós teremos uma conversinha.
+Acir:AcirCriança: Certo, mamãe...
+Acir:AcirCriança: *Acir parece triste*
+<<wait 1>>
+<<lookToSide NPCs/Acir-Criança right>>
+Acir:AcirCriança: Tchau, Porã. Até amanhã.
+
+Porã:PorãCriança: Tchau, Acir e professora Jurema. Até amanhã.
+
+Jurema: ...
+<<wait 1>>
+<<lookToSide NPCs/Acir-Criança down>>
+<<lookToSide NPCs/Jurema down>>
+<<wait 0.5>>
+<<moveTo NPCs/Jurema 0 3>>
+<<moveTo NPCs/Acir-Criança 1 3>>
+<<wait 3.5>>
+<<setDayShift _app 1>>
+<<flashbackScene _loadLevel FlashBackCume1 SaidaFlashBackCume3 3>>
+===
+
+title: Flashback.Cume3
+tags: 
+colorID: 0
+position: 421,163
+---
+<<deactivateContainer _dialogue/DialogueRunner>>
+<<disableNPC NPCs/Acir-Criança>>
+<<lookToSide NPCs/Porã-Criança down>>
+<<wait 2.5>>
+
+Porã:PorãCriança: Acir ta demorando. Acir disse que a gente se veria hoje.
+Porã:PorãCriança: Vou brincar sozinho, enquanto espero.
+<<lookToSide NPCs/Porã-Criança down>>
+<<wait 0.5>>
+<<kneel NPCs/Porã-Criança>>
+<<wait 0.5>>
+Porã:PorãCriança: Espero que Acir não demore.
+<<showCapivara Objetos/Brinquedos>>
+<<wait 1.5>>
+Porã:PorãCriança: Eu sou a Super Capivara, o super-herói amigo de todos.
+<<wait 1>>
+
+<i> Eu fiquei esperando por Acir por horas no dia seguinte. </i>
+<i> Aí eu não aguentei mais esperar e fui até a casa dele. </i>
+<i> Gostaria de nunca ter ido até lá. </i>
+<i> Gostaria de esquecer aquele dia. </i>
+<<flashbackScene _loadLevel FlashBackCasaAcir1 SaidaFlashBackCasaAcir1 4>>
+===
+
+title: Flashback.CasaAcir1
+tags: 
+colorID: 0
+position: 421,163
+---
+<<deactivateContainer _dialogue/DialogueRunner>>
+<<isAngry NPCs/Acir-Criança>>
+<<lookToSide NPCs/Acir-Criança down>>
+<<lookToSide NPCs/Porã-Criança up>>
+<<wait 2.5>>
+
+Porã:PorãCriança: …
+Porã:PorãCriança: O que? Eu acho que escutei errado. Pode repetir Acir?
+
+Acir:AcirCriança: *Acir está com uma cara séria*
+Acir:AcirCriança: Foi isso mesmo que você ouviu Porã.
+Acir:AcirCriança: Eu não vou mais brincar com você, nunca mais!
+
+Porã:PorãCriança: Para Acir. Isso não tem graça.
+Porã:PorãCriança: Você tá brincando comigo né? Hahaha. Muito engraçado.
+Porã:PorãCriança: Então, vamos pro Cume, eu trouxe os bonecos hoje de novo.
+
+Acir:AcirCriança: …
+Acir:AcirCriança: Porã! Eu já falei que eu não posso mais brincar com você!
+Acir:AcirCriança: Eu não estou brincando nem mentindo!
+
+Porã:PorãCriança: …
+Porã:PorãCriança: *Porã fica chocado*
+Porã:PorãCriança: Eu pensei que você ia me ajudar a salvar a vila…
+
+Acir:AcirCriança: *Acir fica sem paciência*
+Acir:AcirCriança: Salvar a vila? Salvar a vila de quem?
+Acir:AcirCriança: Não tem nenhum problema aqui na vila.
+Acir:AcirCriança: A única coisa fora do normal aqui é você.
+
+Porã:PorãCriança: Eu não sou normal? Com assim? Eu não entendi.
+
+Acir:AcirCriança: Você é estranho Porã. Você gosta de brincadeiras estranhas.
+
+Porã:PorãCriança: Mas você estava brincando comigo ontem…
+
+Acir:AcirCriança: *Acir se irrita*
+Acir:AcirCriança: Saia daqui agora! Antes que meus pais o vejam! E nunca mais volte!
+
+Porã:PorãCriança: *Porã começa a chorar*
+<<wait 1>>
+<<lookToSide NPCs/Porã-Criança down>>
+<<wait 1>>
+<<moveTo NPCs/Porã-Criança 0 2>>
+<<wait 2>>
+
+<<isNotAngry NPCs/Acir-Criança>>
+Acir:AcirCriança: *Acir fica triste e deixa uma lágrima escorrer*
+<<wait 1>>
+<<lookToSide NPCs/Acir-Criança up>>
+<<wait 1>>
+<<moveTo NPCs/Acir-Criança 0 1>>
+<<wait 1>>
+<<disableNPC NPCs/Acir-Criança>>
+<<set $isPoraAcirFlashbackDone to true>>
+<<sleepTransition _loadLevel Casa FlashbackPoraAcir 1>>
+===

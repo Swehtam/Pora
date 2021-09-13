@@ -425,7 +425,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "ESCOLA \n\nALGUNS ANOS ATR\xC1S"
+  m_text: "CUME DA VILA\\n\\n6 ANOS ATR\xC1S"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a46c4a9cfd5ebc14d8d0a7e6ef3bbda2, type: 2}
   m_sharedMaterial: {fileID: -165211248852159535, guid: a46c4a9cfd5ebc14d8d0a7e6ef3bbda2,
@@ -778,6 +778,7 @@ MonoBehaviour:
   sleepTransitionTime: 3
   narrativeTransitionTime: 23
   sleepEffectController: {fileID: 1051498531}
+  flashBackEffectController: {fileID: 1610431318}
 --- !u!95 &562823825
 Animator:
   serializedVersion: 3
@@ -2411,6 +2412,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7293721902438542744, guid: 3dbe59b4261a85a4cac85842076edfb2,
         type: 3}
+      propertyPath: charactersPortraits.Array.data[5].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b995ec57060e8e540be13449760724ab,
+        type: 3}
+    - target: {fileID: 7293721902438542744, guid: 3dbe59b4261a85a4cac85842076edfb2,
+        type: 3}
+      propertyPath: charactersPortraits.Array.data[9].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ee7dac8d1562df24eb46079fc3ba3d4a,
+        type: 3}
+    - target: {fileID: 7293721902438542744, guid: 3dbe59b4261a85a4cac85842076edfb2,
+        type: 3}
+      propertyPath: charactersPortraits.Array.data[10].sprite
+      value: 
+      objectReference: {fileID: -1998678408493766277, guid: a7c0b379c51b93c46931d2a167bdf6da,
+        type: 3}
+    - target: {fileID: 7293721902438542744, guid: 3dbe59b4261a85a4cac85842076edfb2,
+        type: 3}
       propertyPath: charactersPortraits.Array.data[12].sprite
       value: 
       objectReference: {fileID: 21300000, guid: 26d33d107f181b740aa70c801fc94bd6,
@@ -2418,7 +2437,7 @@ PrefabInstance:
     - target: {fileID: 7293721902438542745, guid: 3dbe59b4261a85a4cac85842076edfb2,
         type: 3}
       propertyPath: defaultVariables.Array.size
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7293721902438542745, guid: 3dbe59b4261a85a4cac85842076edfb2,
         type: 3}
@@ -2462,6 +2481,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7293721902438542745, guid: 3dbe59b4261a85a4cac85842076edfb2,
         type: 3}
+      propertyPath: defaultVariables.Array.data[0].value
+      value: False
+      objectReference: {fileID: 0}
+    - target: {fileID: 7293721902438542745, guid: 3dbe59b4261a85a4cac85842076edfb2,
+        type: 3}
       propertyPath: defaultVariables.Array.data[1].value
       value: False
       objectReference: {fileID: 0}
@@ -2483,7 +2507,7 @@ PrefabInstance:
     - target: {fileID: 7293721902438542745, guid: 3dbe59b4261a85a4cac85842076edfb2,
         type: 3}
       propertyPath: defaultVariables.Array.data[5].value
-      value: 0
+      value: 7,5
       objectReference: {fileID: 0}
     - target: {fileID: 7293721902438542745, guid: 3dbe59b4261a85a4cac85842076edfb2,
         type: 3}
@@ -2493,7 +2517,7 @@ PrefabInstance:
     - target: {fileID: 7293721902438542745, guid: 3dbe59b4261a85a4cac85842076edfb2,
         type: 3}
       propertyPath: defaultVariables.Array.data[7].value
-      value: True
+      value: False
       objectReference: {fileID: 0}
     - target: {fileID: 8129312654650004427, guid: 3dbe59b4261a85a4cac85842076edfb2,
         type: 3}
@@ -2967,7 +2991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6379c99b20bd0504c87f5bd6744ec196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionText: {fileID: 450034096}
+  flashbackText: {fileID: 450034096}
 --- !u!114 &1610431319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3859,8 +3883,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newQuest: 0
   _quests: {fileID: 1548442165}
-  isTesting: 1
-  testingQuestsID: 0000000001000000020000000300000004000000
+  isTesting: 0
+  testingQuestsID: 00000000010000000200000003000000040000000500000006000000
 --- !u!114 &1900991527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3877,6 +3901,7 @@ MonoBehaviour:
   testingNodesNames:
   - Potira.PrimeiroDia
   - Potira.PrimeiroDia2
+  - Jurema.PrimeiroDia
 --- !u!114 &1900991528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3889,6 +3914,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e027cd8f47a5add4abe32646e497efe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTesting: 0
   playerStartPoint: 
   playerStartMap: 
 --- !u!114 &1900991529
@@ -3925,9 +3951,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff4f86d65e3e1a479640ac3c9fb6028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTesting: 1
+  isTesting: 0
   testDay: 1
-  testDayShift: 0
+  testDayShift: 1
 --- !u!114 &1900991531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3940,7 +3966,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 425d2b9374c05fb449c8db85365e5d08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTesting: 1
+  isTesting: 0
   placesVisited:
   - Introducao.Casa
   - Introducao.Levantar
@@ -3950,6 +3976,9 @@ MonoBehaviour:
   - Introducao.QuartoMoara
   - Introducao.Pracinha
   - Introducao.Cemiterio
+  - Cama.PrimeiroDia
+  - Aula.PrimeiroDia
+  - PrimeiroDia.EventoArmario
 --- !u!114 &1900991532
 MonoBehaviour:
   m_ObjectHideFlags: 0

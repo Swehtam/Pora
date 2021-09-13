@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Yarn.Unity;
+using System;
 
 /// attached to the non-player characters, and stores the name of the Yarn
 /// node that should be run when you talk to them.
@@ -38,6 +39,7 @@ public class YarnNPC : MonoBehaviour
 
     void Update()
     {
+        //Testar se posso mover esse bloco para ficar abaixo do bloco abaixo
         if(animator != null)
         {
             animator.SetBool("IsMoving", isMoving);
@@ -78,20 +80,6 @@ public class YarnNPC : MonoBehaviour
         isMoving = true;
     }
 
-    //Quando o NPC encontrar o Player mostrar o botão para falar
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-            uIManager.ShowTalkButton(this);
-    }
-
-    //Usado para saber se o player saio de perto do NPC
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-            uIManager.HideTalkButton();
-    }
-
     [YarnCommand("lookToSide")]
     public void LookToSide(string side)
     {
@@ -115,5 +103,51 @@ public class YarnNPC : MonoBehaviour
                 Debug.LogErrorFormat($"<<lookToSide>> failed to parse duration {side}");
                 break;
         }
+    }
+
+    [YarnCommand("kneel")]
+    public void Kneel()
+    {
+        animator.SetBool("IsOnKnees", true);
+    }
+
+    [YarnCommand("standUp")]
+    public void StandUp()
+    {
+        animator.SetBool("IsOnKnees", false);
+        //Colocar depois caso precise
+        //animator.SetBool("IsSitting", false);
+    }
+
+    [YarnCommand("isAngry")]
+    public void IsAngry()
+    {
+        animator.SetBool("IsAngry", true);
+    }
+
+    [YarnCommand("isNotAngry")]
+    public void IsNotAngry()
+    {
+        animator.SetBool("IsAngry", false);
+    }
+
+    [YarnCommand("disableNPC")]
+    public void DisableNPC()
+    {
+        gameObject.SetActive(false);
+    }
+
+    //Quando o NPC encontrar o Player mostrar o botão para falar
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+            uIManager.ShowTalkButton(this);
+    }
+
+    //Usado para saber se o player saio de perto do NPC
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+            uIManager.HideTalkButton();
     }
 }

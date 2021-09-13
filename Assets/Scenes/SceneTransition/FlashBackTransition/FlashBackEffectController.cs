@@ -5,33 +5,41 @@ using TMPro;
 
 public class FlashBackEffectController : MonoBehaviour
 {
-    public TMP_Text transitionText;
-    private DayManager dayManager;
-
-    private void Start()
-    {
-        dayManager = InstancesManager.singleton.GetDayManager();
-    }
-
-    /// <summary>
-    /// Metodo que deve ser chamado para transicionar para um scena do passado, ou colocar um texto mais especifico
-    /// </summary>
-    /// <param name="text"></param>
-    public void SetText(string text)
-    {
-        transitionText.text = text;
-    }
+    public TMP_Text flashbackText;
 
     /// <summary>
     /// Metodo para atualizar o texto na tela quando for transicionar de um dia para o outro.
-    /// </summary>
-    public void AutoSetText()
+    /// </summary>s
+    public void SetTextByID(int textID)
     {
-        if (dayManager.GetDay() == 0)
+        if (textID == 0)
         {
-            transitionText.text = "ESCOLA\n\nALGUNS ANOS ATRÁS";
+            flashbackText.text = "6 ANOS ATRÁS\n\nESCOLA - MANHÃ";
             return;
         }
-        transitionText.text = "Dia " + dayManager.GetDay();
+
+        if(textID == 1)
+        {
+            flashbackText.text = "6 ANOS ATRÁS\n\nCUME DA VILA - TARDE";
+            return;
+        }
+
+        if (textID == 2)
+        {
+            flashbackText.text = "ALGUMAS HORAS DEPOIS\n\nNOITE";
+            return;
+        }
+
+        if (textID == 3)
+        {
+            flashbackText.text = "NO DIA SEGUINTE\n\nTARDE";
+            return;
+        }
+
+        if (textID == 4)
+        {
+            flashbackText.text = "ALGUMAS HORAS DEPOIS\n\nCASA DE ACIR - TARDE";
+            return;
+        }
     }
 }

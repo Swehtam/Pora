@@ -14,24 +14,22 @@ public class SleepEffectController : MonoBehaviour
     }
 
     /// <summary>
-    /// Metodo que deve ser chamado para transicionar para um scena do passado, ou colocar um texto mais especifico
-    /// </summary>
-    /// <param name="text"></param>
-    public void SetText(string text)
-    {
-        transitionText.text = text;
-    }
-
-    /// <summary>
     /// Metodo para atualizar o texto na tela quando for transicionar de um dia para o outro.
-    /// </summary>
-    public void AutoSetText()
+    /// </summary>s
+    public void SetTextByID(int textID)
     {
-        if (dayManager.GetDay() == 0)
+        if (textID == 0)
         {
             transitionText.text = "O GRANDE DIA";
             return;
         }
+
+        if(textID == 1)
+        {
+            transitionText.text = "DE VOLTA AO PRESENTE - CASA";
+            return;
+        }
+
         transitionText.text = "Dia " + dayManager.GetDay();
     }
 }

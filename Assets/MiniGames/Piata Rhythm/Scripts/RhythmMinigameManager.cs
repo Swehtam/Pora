@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class RhythmMinigameManager : MonoBehaviour
 {
     public bool startMinigame;
     public BeatScroller beatScroller;
     public AudioSource audioSource;
+    public RhythmUIManager rhythmUIManager;
+    public SwimDodgeTutorialPanel tutorialPanel;
 
     [Header("Plantação")]
     public SpriteRenderer[] cropSpriteRenderers;
@@ -23,9 +24,13 @@ public class RhythmMinigameManager : MonoBehaviour
     public SpriteRenderer[] boardSpriteRenderers;
     public Sprite redCrossBoard;
 
+    private bool minigameStarted = false;
+    private bool isPaused = false;
     private int currentCrop = 0;
     private int currentHitNotes = 0;
     private int currentMissedNotesInRow = 0;
+    private float percentageHit = 0.0f;
+    private int currentRank = 0;
 
     public static RhythmMinigameManager singleton;
 
@@ -48,6 +53,17 @@ public class RhythmMinigameManager : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if (!isPaused)
+        {
+            if (minigameStarted && !audioSource.isPlaying)
+            {
+                FinishMinigame();
+            }
+        }
+    }
+
     void OnDisable()
     {
         RhythmEvents.OnNoteHit -= singleton.NoteHited;
@@ -56,6 +72,7 @@ public class RhythmMinigameManager : MonoBehaviour
     public void StartMinigame()
     {
         beatScroller.minigameStarted = true;
+        minigameStarted = true;
 
         audioSource.Play();
     }
@@ -63,8 +80,18 @@ public class RhythmMinigameManager : MonoBehaviour
     public void PauseMinigame()
     {
         beatScroller.minigameStarted = false;
+        isPaused = true;
 
         audioSource.Pause();
+    }
+
+    public void ResumeMinigame()
+    {
+        //Primeiro tenho que despausar a musica, se não no Update vai achar que acabou o minigame
+        audioSource.UnPause();
+
+        beatScroller.minigameStarted = true;
+        isPaused = false;
     }
 
     public void LostMinigame()
@@ -73,6 +100,15 @@ public class RhythmMinigameManager : MonoBehaviour
         beatScroller.minigameLost = true;
 
         audioSource.Pause();
+        rhythmUIManager.ShowLostPanel();
+    }
+
+    public void FinishMinigame()
+    {
+        beatScroller.minigameStarted = false;
+
+        print(currentRank);
+        rhythmUIManager.ShowFinishPanel(percentageHit, currentRank);
     }
 
     public void NoteHited(string noteName)
@@ -138,37 +174,42 @@ public class RhythmMinigameManager : MonoBehaviour
     private void UpdateScore()
     {
         currentHitNotes++;
-        float percentageHit = currentHitNotes * 100f / totalNotes ;
+        percentageHit = currentHitNotes * 100f / totalNotes ;
 
         //Atualiza a sprite da cesta de acordo com a porcentagem de acerto
         //Acerto acima de 95%
         if (percentageHit >= 95f)
         {
             basketSpriteRenderers[4].sprite = fruitBasket;
+            currentRank = 5;
             return;
         }
 
         if(percentageHit >= 75f && percentageHit < 95f)
         {
             basketSpriteRenderers[3].sprite = fruitBasket;
+            currentRank = 4;
             return;
         }
 
         if (percentageHit >= 55f && percentageHit < 75f)
         {
             basketSpriteRenderers[2].sprite = fruitBasket;
+            currentRank = 3;
             return;
         }
 
         if (percentageHit >= 35f && percentageHit < 55f)
         {
             basketSpriteRenderers[1].sprite = fruitBasket;
+            currentRank = 2;
             return;
         }
 
         if (percentageHit >= 15f && percentageHit < 35f)
         {
             basketSpriteRenderers[0].sprite = fruitBasket;
+            currentRank = 1;
             return;
         }
     } 

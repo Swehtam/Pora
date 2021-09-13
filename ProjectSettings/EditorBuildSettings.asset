@@ -50,4 +50,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PiataMinigame.unity
     guid: 1fe6cf80a74d35d4eba551fa39bc531a
+  - enabled: 1
+    path: Assets/Scenes/FazendaPiata.unity
+    guid: 1a54d3e8e2e331148b5df7bdb46810f8
+  - enabled: 1
+    path: Assets/Scenes/FlashBackCume1.unity
+    guid: ac7d213beae6a4e47898ec285d7dc4cb
+  - enabled: 1
+    path: Assets/Scenes/FlashBackCasaAcir1.unity
+    guid: 22df511facb8b484db62a181b9ef1e97
   m_configObjects: {}

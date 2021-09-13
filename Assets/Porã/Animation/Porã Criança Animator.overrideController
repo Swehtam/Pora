@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: "Por\xE3 Crian\xE7a Animator"
+  m_Controller: {fileID: 9100000, guid: 3085cc28069c2bb4b9358575cd740ae0, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: bb83e0ab6d74386428f3d04f476c1405, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: c99a4dbccb12b7d46a2ad388f7ea9c93, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: fc535eb51ee86a0479fce3fbecf58a39, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e92d959e08640814da0aa4fc3fbfe714, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 15120bf78e46b024f8fda4d9782c350b, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a9e792ab92c6dae42bf7db05bf1a2ea4, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 7b7e7473364b4b943b12096d52fe1aba, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 822457328e8c04440ac610e504c0a699, type: 2}

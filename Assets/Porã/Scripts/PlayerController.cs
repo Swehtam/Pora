@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
         moveInput = new Vector2(0f, 0f);
 
         //Para toda a movimentação se o Player
-        if (dialogueRunner.IsDialogueRunning == true || IsPlayingMinigame)
+        if (dialogueRunner.IsDialogueRunning == true || IsPlayingMinigame || joystick == null)
         {
             //Reseta a animação para não bugar
             anim.SetFloat("MoveX", moveInput.x);

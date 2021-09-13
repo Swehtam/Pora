@@ -8,6 +8,7 @@ using UnityEngine;
  */
 public class PlayerSettings : MonoBehaviour
 {
+    public bool isTesting;
     public string playerStartPoint;
     public string playerStartMap;
     public void Awake()
@@ -16,9 +17,15 @@ public class PlayerSettings : MonoBehaviour
         Application.targetFrameRate = target;
         QualitySettings.vSyncCount = 0;
         //Fazer um sistema para saber qual foi o ultimo exitPoint em q o player foi carregado
-        //playerStartPoint = "Cama";
-        //playerStartMap = "Casa";
-        playerStartPoint = "Entrada Escola Segundo";
-        playerStartMap = "EscolaSegundoAndar";
+        if (isTesting)
+        {
+            playerStartPoint = "Saida da casa";
+            playerStartMap = "VilaLobo";
+        }
+        else
+        {
+            playerStartPoint = "Cama";
+            playerStartMap = "Casa";
+        }
     }
 }
