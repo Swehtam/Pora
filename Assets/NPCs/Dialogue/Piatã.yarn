@@ -7,6 +7,14 @@ position: 421,163
 	[[Piatã.HoraAula]]
 <<endif>>
 
+<<if $piataFarmTalk is true>>
+	[[Piatã.Fazenda]]
+<<endif>>
+
+<<if $farmDone is true>>
+	[[Piatã.DepoisFazenda]]
+<<endif>>
+
 [[Piatã.Padrao]]
 ===
 
@@ -18,9 +26,136 @@ position: 421,163
 <<if $isMorningTime is true>>
 	Piatã: Bom dia Porã.
 <<endif>>
+
+[[Piatã.Adeus]]
 ===
 
 title: Piatã.Fazenda
+tags: 
+colorID: 0
+position: 421,163
+---
+Piatã: *Piatã está ocupado cuidando da horta*
+
+Porã: ...
+Porã: Oi, pai.
+
+Piatã: Ah, Porã você chegou. Pensei que tinha esquecido de mim.
+
+Porã: *Porã fica nervoso*
+Porã: Hehe, nunca...
+
+Piatã: Como foi a aula? Aprendeu muito?
+
+-> *Contar sobre a aula de hoje*
+	Porã: Hoje a gente aprendeu um pouco sobre a nossa fauna.
+
+	Piatã: Ótimo, isso é vai ser muito útil para você. Ainda mais quando você herdar a fazenda de mim.
+
+	Porã: *Mas eu não quero ter que cuidar da fazenda...*
+	Porã: Ah... Como isso vai ser útil?
+	
+	Piatã: Ao estudar sobre as pessoas que mora na vila, você entendará o que cada um aqui come.
+	Piatã: E então, a gente planta para vender para os moradores dessa vila.
+
+	Porã: Ah entendi... 
+	Porã: A gente não estuda só sobre os que moram nessa vila.
+	Porã: A gente estuda sobre todos que moram no pantanal.
+
+	Piatã: Hmm... Talvez não seja tão útil assim...
+	Piatã: Eu duvido que aqueles outros animais venham morar aqui.
+
+	Porã: *Porã fica confuso*
+	Porã: Por que eles não vêm moram aqui?
+
+	Piatã: Você ainda não os conheceu, Porã.
+	Piatã: O pessoal aqui da vila não se dão muito eles.
+
+	Porã: *Porã fica curioso*
+	Porã: Mas por que isso?
+
+	Piatã: Digamos só que eles são <b>estranhos<\b> e não seguem as tradições do pessoal daqui.
+
+	Porã: *Porã fica de cabeça baixa e não fala mais nada*
+	<<wait 1>>
+
+	Piatã: Enfim... Mais alguma coisa sobre a aula de hoje?
+	Porã: Ah sim...
+
+	<<if $biologyDayResults < 7.0>>
+		-> *Mentir sobre sua nota*
+			Eu tirei nota boa, na aula de hoje.
+			Porã: *Porã fica nervoso*
+
+			Piatã: Hmm... Muito bem, estou orgulhoso de você
+			<<set $piataFriendship to ($piataFriendship - 1)>>
+
+		-> Pai, eu tirei {$biologyDayResults}, desculpa...
+			Piatã: Hm... Você sabe que isso não é bom pra você né?
+
+			Porã: Sim eu sei, pai...
+
+			Piatã: Você deve se esforça, muito mais do que os outros.
+			Piatã: Você sabe disso né?
+
+			Porã: Sim eu sei, pai...
+
+			Piatã: Certo... Mais alguma coisa?
+
+			-> *Falar que vai se esforçar sozinho*
+				Porã: Eu vou me esforçar na próxima atividade.
+
+				Piatã: Muito bem então, estou orgulhoso de você.
+				
+				Porã: *Porã fica mais feliz*
+				<<set $piataFriendship to ($piataFriendship + 1)>>
+
+			-> *Não contar mais nada*
+				Porã: Não tenho mais nada pra falar não...
+
+				Piatã: Certo.
+				Piatã: *Piatã fica mais sério*
+
+			Piatã: Obrigado, por ser sincero comigo.
+			<<set $piataFriendship to ($piataFriendship + 1)>>
+
+		-> *Não contar*
+			Porã: Não tenho mais nada pra falar não...
+
+			Piatã: Certo.
+			Piatã: *Piatã fica mais sério*
+
+	<<else>>
+		Porã: Eu tirei nota boa, na aula de hoje.
+		Porã: *Porã esboça um singelo sorriso*
+
+		Piatã: Muito bem, estou orgulhoso de você filhote.
+		<<set $piataFriendship to ($piataFriendship + 1)>>
+	<<endif>>
+
+-> *Não contar sobre a aula*
+	Porã: Ah... foi ok, nada demais.
+
+	Piatã: Hmm... tá certo...
+	<<set $piataFriendship to ($piataFriendship - 1)>>
+
+Piatã: Okay, então vamos começar.
+Piatã: Mas antes lembre-se, toda tarde você pode vir aqui me ajudar com a fazenda.
+Piatã: Ou você pode ir falar com sua mãe para ajudá-la com as flores.
+Piatã: Entendeu?
+
+Porã: Certo.
+
+Piatã: Ótimo, vamos lá. Pegue o saco de sementes e o regador.
+Piatã: Já que você não tem experiência, siga ao meu comando que eu vou lhe dizer o que fazer.
+
+Porã: Okay...
+
+<<set $piataFarmTalk to false>>
+<<changeScene _loadLevel PiataMinigame 1 EntradaMinigame>>
+===
+
+title: Piatã.DepoisFazenda
 tags: 
 colorID: 0
 position: 421,163
@@ -32,10 +167,6 @@ position: 421,163
 <<elseif $farmCultiveFinish is true>>
 	Piatã: Muito bem Porã, eu sabia que você nasceu para isso.
 	<<set $farmCultiveFinish to false>>
-
-<<else>>
-	Piatã: Ótimo, você chegou. Vamos começar.
-	<<changeScene _loadLevel PiataMinigame 1 EntradaMinigame>>
 <<endif>>
 ===
 

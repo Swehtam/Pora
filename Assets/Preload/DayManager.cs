@@ -21,7 +21,6 @@ public class DayManager : MonoBehaviour
     {
         LoadDay();
         memoryVariables = InstancesManager.singleton.GetInMemoryVariableStorage();
-        print("atualizou o dia");
         memoryVariables.SetValue("$day", gameDay);
         //Atualiza qual a variavel do horario do dia
         UpdateDayShitVariable();
@@ -76,7 +75,6 @@ public class DayManager : MonoBehaviour
     [YarnCommand("setDayShift")]
     public void UpdateDayShift(string stringDayShift)
     {
-        print("Mudou o turno do dia para: " + stringDayShift);
         if (int.TryParse(stringDayShift, out var dayShift) == false)
         {
 

@@ -2238,7 +2238,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: ffc68bc2df0d8b646ba37b0601e051ef,
+      objectReference: {fileID: 21300000, guid: c185701ae7330884e81e3800a7d78c43,
         type: 3}
     - target: {fileID: 5826980346695817835, guid: 3dbe59b4261a85a4cac85842076edfb2,
         type: 3}
@@ -2418,6 +2418,12 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 7293721902438542744, guid: 3dbe59b4261a85a4cac85842076edfb2,
         type: 3}
+      propertyPath: charactersPortraits.Array.data[8].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c185701ae7330884e81e3800a7d78c43,
+        type: 3}
+    - target: {fileID: 7293721902438542744, guid: 3dbe59b4261a85a4cac85842076edfb2,
+        type: 3}
       propertyPath: charactersPortraits.Array.data[9].sprite
       value: 
       objectReference: {fileID: 21300000, guid: ee7dac8d1562df24eb46079fc3ba3d4a,
@@ -2432,7 +2438,7 @@ PrefabInstance:
         type: 3}
       propertyPath: charactersPortraits.Array.data[12].sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 26d33d107f181b740aa70c801fc94bd6,
+      objectReference: {fileID: 21300000, guid: 7e47f6120889c5e489818dd9cd870113,
         type: 3}
     - target: {fileID: 7293721902438542745, guid: 3dbe59b4261a85a4cac85842076edfb2,
         type: 3}
@@ -2482,7 +2488,7 @@ PrefabInstance:
     - target: {fileID: 7293721902438542745, guid: 3dbe59b4261a85a4cac85842076edfb2,
         type: 3}
       propertyPath: defaultVariables.Array.data[0].value
-      value: False
+      value: True
       objectReference: {fileID: 0}
     - target: {fileID: 7293721902438542745, guid: 3dbe59b4261a85a4cac85842076edfb2,
         type: 3}
@@ -2502,7 +2508,7 @@ PrefabInstance:
     - target: {fileID: 7293721902438542745, guid: 3dbe59b4261a85a4cac85842076edfb2,
         type: 3}
       propertyPath: defaultVariables.Array.data[4].value
-      value: False
+      value: True
       objectReference: {fileID: 0}
     - target: {fileID: 7293721902438542745, guid: 3dbe59b4261a85a4cac85842076edfb2,
         type: 3}
@@ -3881,7 +3887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55e92aac36ce5a4498fcb3e6bd17952d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newQuest: 0
+  newQuest: 1
   _quests: {fileID: 1548442165}
   isTesting: 0
   testingQuestsID: 00000000010000000200000003000000040000000500000006000000
@@ -3897,7 +3903,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e07be8ec8d6ab44bb0c2075cf691301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTesting: 0
+  isTesting: 1
   testingNodesNames:
   - Potira.PrimeiroDia
   - Potira.PrimeiroDia2
@@ -3914,7 +3920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e027cd8f47a5add4abe32646e497efe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTesting: 0
+  isTesting: 1
   playerStartPoint: 
   playerStartMap: 
 --- !u!114 &1900991529
@@ -3951,7 +3957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff4f86d65e3e1a479640ac3c9fb6028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTesting: 0
+  isTesting: 1
   testDay: 1
   testDayShift: 1
 --- !u!114 &1900991531
@@ -3966,7 +3972,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 425d2b9374c05fb449c8db85365e5d08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTesting: 0
+  isTesting: 1
   placesVisited:
   - Introducao.Casa
   - Introducao.Levantar

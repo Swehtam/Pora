@@ -22,14 +22,13 @@ position: 421,163
 <<if $isMorningTime is true>>
 	Potira: Bom dia Porã, tenha um ótimo dia.
 <<elseif $isAfternoonTime is true>>
-	Potira: Tenho que cuidar das flores hoje de tarde.
-	Potira: Eles estão lindas.
+	Potira: Olha como as flores estão lindas.
+	Potira: Vou começar a arrumá-las para as encomendas.
 <<elseif $isNightTime is true>>
 	Potira: *Boceja*
 	Potira: Que dia longo, estou cansada.
+	Potira: Boa noite, meu xodó.
 <<endif>>
-
-[[Potira.Adeus]]
 ===
 
 title: Potira.Adeus
@@ -147,9 +146,9 @@ position: 500,163
 		Porã: *Porã começa a ficar chateado*
 		Potira: Aconteceu mais alguma coisa hoje?
 		Porã: Não...
-		<<set $lies to ($lies + 1)>>
 		Potira: Entendo, mas espero que você não esteja escondendo nada de mim, viu?
 		Porã: ...
+		<<set $potiraFriendship to ($potiraFriendship - 1)>>
 		
 	-> Eu sabia que ia ser igual ao ano passado.
 		Potira: Como assim, Porã?
@@ -165,9 +164,10 @@ position: 500,163
 				Potira: Muito bem! Estou orgulhosa de você!
 				<<if $biologyDayResults < 7.0>>
 					Porã: *Porã fica nervoso*
-					<<set $lies to ($lies + 1)>>
+					<<set $potiraFriendship to ($potiraFriendship - 1)>>
 				<<else>>
 					Porã: *Porã da um sorriso singelo*
+					<<set $potiraFriendship to ($potiraFriendship + 1)>>
 				<<endif>>
 			-> Não, eu tirei {$biologyDayResults}, desculpa... <<if $biologyDayResults < 7.0>>
 				Potira: Own meu amor! Ta tudo bem, você precisa de ajuda do seu pai?
@@ -176,6 +176,7 @@ position: 500,163
 				Porã: Eu consigo me virar sozinho. Ta tudo bem.
 				Potira: *Potira esboça um sorriso*
 				Potira: Eu confio em você.
+				<<set $potiraFriendship to ($potiraFriendship + 1)>>
 		-> *Não contar sobre a atividade*
 
 	Porã: Mãe...  posso te perguntar uma coisa?
@@ -190,6 +191,7 @@ position: 500,163
 		Porã: *Porã fala o resto tão baixo que a mãe não escuta*
 		Potira: Ham?
 		Porã: Nada não...
+
 	-> Nada não, esquece...
 
 	Potira: E como vai Acir? Vocês estão bem?
@@ -204,6 +206,9 @@ position: 500,163
 	Porã: Queria que fosse igual a antigamente...
 	<<setDayShift _app 1>>
 	<<flashbackScene _loadLevel FlashBackCume1 SaidaFlashBackCume1 1>>
+<<else>>
+	Potira: Seu pai está esperando por você.
+	Potira: Divirta-se, meu xodó.
 <<endif>>
 ===
 
@@ -218,12 +223,14 @@ Potira: Meu xodó?
 <<wait 1>>
 Potira: Acorda!
 
+<<popSymbol Porã exclamation>>
+<<wait 1>>
 Porã: *Porã leva um susto com o grito da mãe*
 Porã: Oi, mãe. O que foi?
 
 Potira: Parecia que você estava em transe, eu tava falando com você e você não me respondia.
 
-Porã: Ah, desculpa. Eu tava...
+Porã: Ah, me desculpa. Eu tava...
 Porã: Pensando demais...
 Porã: Mas o que você estava falando mesmo?
 
@@ -232,9 +239,96 @@ Potira: Eu te perguntei sobre a Moara, vocês se encontraram?
 
 Porã: Como você sabe o nome de Moara?
 
-Potira: Eita que você anda dormindo acordado mesmo ein?
+Potira: Eita que você anda dormindo acordado mesmo ein? Hahaha
 Potira: Eu falei que ia passar na casa dos novos moradores hoje de manhã.
 
-<<startQuest NPCs/Potira/Quest-PrimeiroDia 8>>
+Porã: Ah! É mesmo. E como eles são?
+
+Potira: Primeiro você me responda. Hehe.
+Potira: Você fez amizade com Moara?
+
+Porã: Não, mãe. Eu acabei de conhecer…
+Porã: A gente nem conversou. Pode ser que Moara nem queira mais fazer amizade comigo.
+
+Potira: Por que você diz isso, filhote?
+-> Aconteceu algo na escola hoje, depois da aula…
+	Porã: Quando eu tava indo pro meu armário guardar minha coisas.
+	Porã: Algumas pessoas ficaram falando alto e rindo de mim no corredor.
+	Porã: Ai Moara viu tudo. Acho difícil querer alguma amizade comigo depois disso.
+
+	Potira: *Potira fica sem palavras*
+	Potira: Você não fez nada para que eles ficassem rindo de você?
+
+	Porã: *Porã fica triste*
+	<<wait 1>>
+	Porã: *Porã respira fundo* 
+	Porã: Não, mãe…
+
+	Potira: *Potira nota que falou algo errado*
+	Potira: Não se preocupe meu xodó, um dia isso tudo vai se resolver.
+	Potira: Nem que eu mesma tenho que resolver.
+	Potira: Pode contar comigo. Eu sou sua mãe, estou aqui para isso.
+
+	Porã: *Porã fica menos triste*
+	Porã: Obrigado mãe.
+	<<set $potiraFriendship to ($potiraFriendship + 1)>>
+	<<set $potiraKnowsSchoolLocker to true>>
+	
+-> Nada não, só intuição mesmo…
+	Porã: Nada não, esquece hehe.
+	Porã: *Porã dá uma risadinha de nervoso*
+
+	Potira: Ah, então tá certo.
+
+Potira: Mas não seja pessimista filhote.
+Potira: Ainda é o primeiro dia, tenho certeza que você e Moara ainda serão grandes amigos.
+
+Porã: Espero…
+Porã: *Não quero mais falar disso, vou mudar de assunto*
+Porã: E como foi lá na casa dos novos moradores?
+
+Potira: Ah! Hehe…
+Potira: *Potira fica nervosa*
+Potira: Eles parecem bem… 
+Potira: Animados…
+
+Porã: *Foi a mesma coisa que eu pensei de Moara*
+
+Potira: Mas eles parecem ser pessoas boas, acho que até mesmo bons exemplos para você.
+
+Porã: …
+
+Potira: Amanhã depois da aula você deveria ir na casa deles, conhecê-los.
+
+Porã: Eu não poderia ir agora?
+
+Potira: Não mesmo, lobinho. Você esqueceu que seu pai pediu ajuda na fazenda hoje de tarde?
+
+Porã: Ah, eu tinha esquecido.
+Porã: Vou lá agora me encontrar com ele.
+
+Potira: Está certo, meu xodó. Divirta-se lá, e lembre-se: ele pode parecer grosso, mas ele só quer seu bem.
+Potira: E vai fazer bem para vocês dois, terem momentos juntos, depois daquele dia.
+
+Porã: *Porã começa a ficar nervoso*
+
+Potira: Então tenha paciência com ele, certo?
+
+Porã: Certo…
+Porã: *Eu tenho que ter paciência com todo mundo, mas ninguém tem paciência comigo.*
+
+<<if $potiraKnowsSchoolLocker is true>>
+	Potira: Porã, mais uma coisa.
+
+	Porã: Oi, mãe. O que foi?
+
+	Potira: Não tenha medo de me contar as coisas. Se alguém lhe incomodar de novo, você pode vir me contar.
+
+	Porã: Está certo, obrigado mãe.
+	Porã: *Porã fica feliz*
+<<endif>>
+
+<<set $piataFarmTalk to true>>
+<<startQuest NPCs/Potira/Quest-FazendaPiata 8>>
 <<placeDone Potira-PrimeiroDia>>
 ===

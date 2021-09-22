@@ -7,6 +7,8 @@ public class PlayerDialogueCommands : MonoBehaviour
 {
     [Tooltip("Animator para Porã")]
     public Animator anim;
+    [Tooltip("Sprite Render para ajustar a ordem na cena")]
+    public SpriteRenderer playerSpriteRenderer;
     [Tooltip("Animator para os simbolos em cima da cabeça de Porã")]
     public Animator symbolAnimator;
 
@@ -151,5 +153,19 @@ public class PlayerDialogueCommands : MonoBehaviour
                 Debug.LogErrorFormat($"<<popSymbol>> failed to findo symbol with name: {symbolName}");
                 break;
         }
+    }
+
+    [YarnCommand("transform")]
+    public void TransformPora()
+    {
+        playerSpriteRenderer.sortingLayerName = "PlayerAbove";
+        //anim.SetBool("isTransforming", true);
+    }
+
+    [YarnCommand("transformBack")]
+    public void TransformBackPora()
+    {
+        playerSpriteRenderer.sortingLayerName = "Player";
+        //anim.SetBool("isTransforming", true);
     }
 }

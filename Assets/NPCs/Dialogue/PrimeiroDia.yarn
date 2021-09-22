@@ -60,3 +60,20 @@ Potira: Oi meu amor, já chegou da escola?
 Potira: Venha até aqui conversar um pouco comigo.
 <<placeDone PrimeiroDia-ChegouCasa>>
 ===
+
+title: PrimeiroDia.Teste
+tags: 
+colorID: 0
+position: 421,163
+---
+<<deactivateContainer _dialogue/DialogueRunner>>
+<<darkenTheScene SceneManager>>
+<<transform Porã>>
+<<wait 1>>
+Porã: Consegui!
+<<deactivateContainer _dialogue/DialogueRunner>>
+<<wait 1>>
+<<lightenTheScene SceneManager>>
+<<wait 0.5>>
+<<transformBack Porã>>
+===

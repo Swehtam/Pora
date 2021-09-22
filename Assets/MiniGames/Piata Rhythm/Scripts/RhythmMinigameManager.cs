@@ -26,6 +26,7 @@ public class RhythmMinigameManager : MonoBehaviour
 
     private bool minigameStarted = false;
     private bool isPaused = false;
+    private bool finishedBefore;
     private int currentCrop = 0;
     private int currentHitNotes = 0;
     private int currentMissedNotesInRow = 0;
@@ -34,7 +35,6 @@ public class RhythmMinigameManager : MonoBehaviour
 
     public static RhythmMinigameManager singleton;
 
-    // Start is called before the first frame update
     void Start()
     {
         singleton = this;
@@ -57,9 +57,10 @@ public class RhythmMinigameManager : MonoBehaviour
     {
         if (!isPaused)
         {
-            if (minigameStarted && !audioSource.isPlaying)
+            if (minigameStarted && !audioSource.isPlaying && !finishedBefore)
             {
                 FinishMinigame();
+                finishedBefore = true;
             }
         }
     }
@@ -106,8 +107,6 @@ public class RhythmMinigameManager : MonoBehaviour
     public void FinishMinigame()
     {
         beatScroller.minigameStarted = false;
-
-        print(currentRank);
         rhythmUIManager.ShowFinishPanel(percentageHit, currentRank);
     }
 

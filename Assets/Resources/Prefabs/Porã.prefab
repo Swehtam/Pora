@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 3448075240840461497}
+  playerSpriteRenderer: {fileID: 3448075240840461499}
   symbolAnimator: {fileID: 2768622337061109701}
 --- !u!1 &3448075240840461476
 GameObject:

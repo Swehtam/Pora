@@ -18,4 +18,10 @@ public class FlashbackAnimations : MonoBehaviour
     {
         toysAnimatior.SetTrigger("showCapivara");
     }
+
+    [YarnCommand("displayToys")]
+    public void DisplayToys()
+    {
+        toysAnimatior.SetTrigger("displayToys");
+    }
 }
