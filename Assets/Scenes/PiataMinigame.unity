@@ -10350,7 +10350,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Minigame: Fazendo de Piat\xE3 - Jogo de Ritmo\n\nAjude Por\xE3 na fazenda
-    do seu pai, Piat\xE3. \nSiga suas ordem e tudo dar\xE1 certo!"
+    do seu pai, Piat\xE3. \nSiga suas ordens e tudo dar\xE1 certo!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 82a06de4d147020408a120ade1877f5e, type: 2}
   m_sharedMaterial: {fileID: -165211248852159535, guid: 82a06de4d147020408a120ade1877f5e,
@@ -11440,7 +11440,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2, y: 1}
+    m_SensorSize: {x: 2.0555556, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

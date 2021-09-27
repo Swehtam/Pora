@@ -24,7 +24,16 @@ colorID: 0
 position: 421,163
 ---
 <<if $isMorningTime is true>>
-	Piatã: Bom dia Porã.
+	Piatã: Bom dia.
+	Piatã: Estou indo vender a colheita de ontem.
+<<endif>>
+
+<<if $isAfternoonTime is true>>
+	Piatã: VocÊ vai me ajudar com a fazenda hoje?	
+<<endif>>
+
+<<if $isNightTime is true>>
+	Piatã: Que dia longo, hoje vou dormir igual a uma pedra.
 <<endif>>
 
 [[Piatã.Adeus]]
@@ -50,16 +59,16 @@ Piatã: Como foi a aula? Aprendeu muito?
 -> *Contar sobre a aula de hoje*
 	Porã: Hoje a gente aprendeu um pouco sobre a nossa fauna.
 
-	Piatã: Ótimo, isso é vai ser muito útil para você. Ainda mais quando você herdar a fazenda de mim.
+	Piatã: Ótimo, isso é vai ser muito útil para você me ajudar com a fazenda.
 
 	Porã: *Mas eu não quero ter que cuidar da fazenda...*
 	Porã: Ah... Como isso vai ser útil?
 	
-	Piatã: Ao estudar sobre as pessoas que mora na vila, você entendará o que cada um aqui come.
+	Piatã: Ao estudar sobre os animais que moram na vila, você entendará o que cada um aqui come.
 	Piatã: E então, a gente planta para vender para os moradores dessa vila.
 
 	Porã: Ah entendi... 
-	Porã: A gente não estuda só sobre os que moram nessa vila.
+	Porã: Mas pai, a gente não estuda só sobre os que moram nessa vila.
 	Porã: A gente estuda sobre todos que moram no pantanal.
 
 	Piatã: Hmm... Talvez não seja tão útil assim...
@@ -69,12 +78,12 @@ Piatã: Como foi a aula? Aprendeu muito?
 	Porã: Por que eles não vêm moram aqui?
 
 	Piatã: Você ainda não os conheceu, Porã.
-	Piatã: O pessoal aqui da vila não se dão muito eles.
+	Piatã: O pessoal que mora a mais tempo aqui na vila não se dão muito bem com eles.
 
 	Porã: *Porã fica curioso*
 	Porã: Mas por que isso?
 
-	Piatã: Digamos só que eles são <b>estranhos<\b> e não seguem as tradições do pessoal daqui.
+	Piatã: Digamos só que eles são <b>estranhos</b> e não seguem as tradições do pessoal daqui.
 
 	Porã: *Porã fica de cabeça baixa e não fala mais nada*
 	<<wait 1>>
@@ -84,13 +93,16 @@ Piatã: Como foi a aula? Aprendeu muito?
 
 	<<if $biologyDayResults < 7.0>>
 		-> *Mentir sobre sua nota*
-			Eu tirei nota boa, na aula de hoje.
+			Porã: Eu tirei nota boa, na aula de hoje.
 			Porã: *Porã fica nervoso*
 
+			Piatã: *Piatã fica desconfiado*
 			Piatã: Hmm... Muito bem, estou orgulhoso de você
 			<<set $piataFriendship to ($piataFriendship - 1)>>
 
 		-> Pai, eu tirei {$biologyDayResults}, desculpa...
+			Porã: Desculpa, pai... Eu tirei {$biologyDayResults} na atividade de hoje.
+
 			Piatã: Hm... Você sabe que isso não é bom pra você né?
 
 			Porã: Sim eu sei, pai...
@@ -103,7 +115,7 @@ Piatã: Como foi a aula? Aprendeu muito?
 			Piatã: Certo... Mais alguma coisa?
 
 			-> *Falar que vai se esforçar sozinho*
-				Porã: Eu vou me esforçar na próxima atividade.
+				Porã: Eu vou me esforçar para a próxima atividade.
 
 				Piatã: Muito bem então, estou orgulhoso de você.
 				
@@ -111,7 +123,7 @@ Piatã: Como foi a aula? Aprendeu muito?
 				<<set $piataFriendship to ($piataFriendship + 1)>>
 
 			-> *Não contar mais nada*
-				Porã: Não tenho mais nada pra falar não...
+				Porã: Não, não...
 
 				Piatã: Certo.
 				Piatã: *Piatã fica mais sério*
@@ -136,6 +148,7 @@ Piatã: Como foi a aula? Aprendeu muito?
 -> *Não contar sobre a aula*
 	Porã: Ah... foi ok, nada demais.
 
+	Piatã: *Piatã fica levemente triste*
 	Piatã: Hmm... tá certo...
 	<<set $piataFriendship to ($piataFriendship - 1)>>
 
@@ -161,13 +174,190 @@ colorID: 0
 position: 421,163
 ---
 <<if $farmCultiveGiveUp is true>>
-	Piatã: Então você quer desistir. Hm...
-	<<set $farmCultiveGiveUp to false>>
+	Piatã: *Piatã parece frustrado*
+	Piatã: *Piatã suspira fundo*
+	<<wait 1>>
+	Piatã: O que aconteceu, Porã? Por que desistiu?
+
+	-> *Não consegui lhe acompanhar, pai*
+		Porã: Desculpa, pai. Você foi rápido demais para mim.
+		
+		Piatã: Hm... Entendo, tudo bem.
+		<<wait 0.5>>
+		<<lookToSide NPCs/Piatã left>>
+		<<wait 0.5>>
+		Piatã: Escuta, filhote. Um dia essa fazenda será sua.
+		Piatã: E você preciará aprender a cuidar dela.
+		Piatã: Então, você precisa se esforçar muito para fazer isso funcionar.
+		Piatã: Você me promete que irá se esforçar?
+
+		-> *Ta certo, vou tentar*
+			Porã: *Porã está com olhar triste*
+			Porã: Sim, pai...
+
+			Piatã: Obrigado, Porã.
+			Piatã: Eu tenho certeza que você vai se tornar um incrivel animal um dia.
+			Piatã: E um grande <b>Lobo-Guará</b> para trazer orgulho para nossa família.
+
+			Porã: *Porã fica desconfortável*
+			Porã: Sim...
+			Põrã: *Mas eu não quero isso para mim*
+
+		-> *Por que eu devo cuidar da fazenda?*
+			Porã: Pai... Eu devo mesmo cuidar da fazenda quando ficar mais velho?
+			[[Piatã.MotivoFazenda]]
+
+	-> *Eu acho que cuidar da fazenda não é pra mim*
+		Porã: Desculpa, pai...
+		Porã: Eu acho que isso não é para mim...
+		Porã: Sinto que estou fazendo tudo errado.
+		[[Piatã.PassadoPai]]
 
 <<elseif $farmCultiveFinish is true>>
-	Piatã: Muito bem Porã, eu sabia que você nasceu para isso.
-	<<set $farmCultiveFinish to false>>
+	Piatã: Hm...
+	<<wait 0.5>>
+	<<lookToSide NPCs/Piatã left>>
+	<<wait 0.5>>
+
+	<<if $farmCultiveRank <= 3>>
+		Piatã: Estou orgulhoso de você Porã.
+		Piatã: Porém, você cometeu muitos erros...
+		Piatã: Você precisa praticar mais vezes, se você quiser ficar bom nisso.
+
+		-> *Desculpa, mas eu não quero me esforçar mais*
+			Porã: Desculpa, pai...
+			Porã: Eu não quero ter que me esforçar mais para cuidar da fazenda.
+			Porã: Sinto que isso não é para mim.
+			[[Piatã.PassadoPai]]
+
+		-> *Por que eu tenho que ficar bom em cuidar da fazenda?*
+			Porã: Por que eu tenho que cuidar da fazenda quando ficar mais velho?
+			[[Piatã.MotivoFazenda]]
+
+	<<else>>
+		Piatã: Estou orgulhoso de você Porã.
+		Piatã: Você se saiu muito bem hoje.
+		
+		Porã: *Porã está feliz*
+		Porã: Hehe, obrigado, pai.
+		Porã: Até que não foi dificil.
+
+		Piatã: Se você continuar nesse ritmo, eu tenho certeza que você vai se tornar um incrivel animal um dia.
+		Piatã: E um grande <b>Lobo-Guará</b> para trazer orgulho para nossa família.
+
+		Porã: *Porã fica desconfortável*
+		Porã: Hehe...
+
+		Piatã: Eu tenho certeza que a fazenda estará em boas mãos quando você a herdar de mim.
+
+		Porã: *Porã fica confuso*
+		Porã: Eu... Eu vou herdar de você a fazenda?
+		Porã: *Porã fica preocupado*
+
+		Piatã: *Piatã fica serio*
+		Piatã: Mas é claro.
+		[[Piatã.MotivoFazenda]]
+	<<endif>>
 <<endif>>
+
+[[Piatã.FimFazenda]]
+===
+
+title: Piatã.MotivoFazenda
+tags: 
+colorID: 0
+position: 421,163
+---
+Piatã: *Piatã respira fundo*
+Piatã: Escuta, Porã. Essa fazenda está na nossa família a anos.
+Piatã: Eu herdei do seu avó que herdou do seu bisavó.
+Piatã: E quando você ficar velho o suficiente você irá herdar de mim.
+Piatã: Está no seu sangue de <b>Lobo-Guará</b> cuidar dessa fazenda.
+Piatã: Então você deve tentar se esforçar para isso dar certo.			
+
+Porã: *Meu sangue? Por causa disso eu sou obrigado a cuidar da fazenda?*
+Porã: Entendo...
+Porã: *Mas eu não quero isso para mim*
+
+[[Piatã.FimFazenda]]
+===
+
+title: Piatã.PassadoPai
+tags: 
+colorID: 0
+position: 421,163
+---
+Piãtã: *Piatã respira fundo*
+Piatã: Olha, Porã. Eu sei pelo o que você está passando.
+Piatã: Eu passei pela mesma coisa que você na sua idade.
+
+Porã: *Porã fica atento*
+Porã: Você passou? Serio?
+
+Piatã: Sim. Eu também ficava escondendo isso do seu avô.
+
+Porã: *Porã fica sem palavras*
+
+Piatã: Eu também não gostava de cuidar da fazenda. 
+Piatã: Achava muito chato e queria fazer qualquer outra coisa menos isso.
+Piatã: E você deve ta passando por isso também.
+
+Porã: Ah... sim. É exatamente isso que eu estou passando.
+
+Piatã: Eu sabia, mas não se preocupe filhote. Um dia você vai gostar.
+Piatã: Eu aprendi a gostar. Seu avó ficava o tempo todo insistindo para que eu não desistisse.
+Piatã: E ele conseguiu! Aqui estou eu cuidando da fazenda que ele me deixou.
+
+Porã: Ah sim.. Então é só eu continuar tentando?
+
+Piatã: *Piatã esboça um leve sorriso*
+Piatã: Sim.
+
+-> *O que você gostava quando estava na minha idade?*
+	Porã: Mas pai... O que você gostava de fazer na minha idade?
+
+	Piatã: *Piatã se sente nostalgico*
+	Piatã: Ah, isso faz tanto tempo.
+	Piatã: Na sua idade eu gostava de ficar horas no rio capturando peixes.
+	Piatã: Acho que naquela época eu queria ser um pescador.
+
+	Porã: *Porã fica curioso*
+	Porã: E por que você não virou um pescador?
+
+	Piatã: *Piatã fica sério*
+	Piatã: Não, Porã! Isso não podia acontecer. 
+	Piatã: Seu avô me ensinou que isso não é coisa que um Lobo-Guará deveria fazer.
+
+	Porã: *Porã fica com a cabeça baixa*
+	Porã: Por que?
+
+	Piatã: Porã, é da nossa natureza.
+	Piatã: O nosso papel na vila é a nossa fazenda.
+	Piatã: Eu entendi isso quando fiquei mais velho.
+	Piatã: Você também vai.
+
+	Porã: *Porã fica triste*
+	Porã: Okay...
+
+-> *Não comentar mais nada*
+	Porã: *Porã sorri de nervoso*
+
+[[Piatã.FimFazenda]]
+===
+
+title: Piatã.FimFazenda
+tags: 
+colorID: 0
+position: 421,163
+---
+Piatã: Okay... Eu vou terminar de guardar o resto.
+Piatã: Boa noite filhote, durma bem.
+
+Porã: Boa noite, pai...
+
+<<set $farmDone to false>>
+<<set $farmCultiveGiveUp to false>>
+<<set $farmCultiveFinish to false>>
 ===
 
 title: Piatã.HoraAula

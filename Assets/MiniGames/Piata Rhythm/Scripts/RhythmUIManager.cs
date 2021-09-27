@@ -72,12 +72,15 @@ public class RhythmUIManager : MonoBehaviour
             player.loadPointName = "Saida minigame";
             player.StopPlayingMinigame();
         }
-
-        //Voltar para a fazenda
-        InstancesManager.singleton.GetLevelLoaderInstance().LoadNextLevel("FazendaPiata", 0);
         //Acrescentar uma variavel de dialogo que Porã desistiu da atividade
         InstancesManager.singleton.GetInMemoryVariableStorage().SetValue("$farmDone", true);
         InstancesManager.singleton.GetInMemoryVariableStorage().SetValue("$farmCultiveGiveUp", true);
+        //Atualiza o turno do dia
+        InstancesManager.singleton.GetDayManager().UpdateDayShift();
+        //Aciona o evento de quest que completou o minigame
+        InstancesManager.singleton.GetQuestEvents().PiataFarmCompleted();
+        //Voltar para a fazenda
+        InstancesManager.singleton.GetLevelLoaderInstance().LoadNextLevel("FazendaPiata", 0);
     }
     
     public void RestartMinigame()
@@ -94,13 +97,18 @@ public class RhythmUIManager : MonoBehaviour
             player.loadPointName = "Saida minigame";
             player.StopPlayingMinigame();
         }
-        //Voltar para a fazenda
-        InstancesManager.singleton.GetLevelLoaderInstance().LoadNextLevel("FazendaPiata", 0);
         //Seta a variavel dizendo que ele terminou a atividade
         //E coloca a nota que ele tirou na atividade
         InstancesManager.singleton.GetInMemoryVariableStorage().SetValue("$farmDone", true);
         InstancesManager.singleton.GetInMemoryVariableStorage().SetValue("$farmCultiveFinish", true);
         InstancesManager.singleton.GetInMemoryVariableStorage().SetValue("$farmCultiveRank", rankValue);
+        //Aciona o evento de quest que completou o minigame
+        InstancesManager.singleton.GetQuestEvents().PiataFarmCompleted();
+        //Atualiza o turno do dia
+        InstancesManager.singleton.GetDayManager().UpdateDayShift();
+        //Voltar para a fazenda
+        InstancesManager.singleton.GetLevelLoaderInstance().LoadNextLevel("FazendaPiata", 0);
+        
     }
 
     private void NoteHittable(string noteName)

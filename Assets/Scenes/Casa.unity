@@ -729,7 +729,7 @@ Animator:
   m_GameObject: {fileID: 282713924}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: def2dce72d7a35946bb87a910728b869, type: 2}
+  m_Controller: {fileID: 22100000, guid: a02e839e56b5afb4fa9e161776a3a1e5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -908,7 +908,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1472646417}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &308525133
 MonoBehaviour:
@@ -1047,6 +1047,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7857585835311770440, guid: 9e33539e221c258478632ac46126d5c9,
+        type: 3}
+      propertyPath: m_text
+      value: New Text
+      objectReference: {fileID: 0}
     - target: {fileID: 7857585835502435857, guid: 9e33539e221c258478632ac46126d5c9,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -2001,7 +2006,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1472646417}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &634791371
 GameObject:
@@ -2181,7 +2186,7 @@ MonoBehaviour:
   isActive: 0
   arrayGoalsVariables:
   - goalType: 1
-    description: "Seu pai pediu pela sua ajuda na fazenda da sua fam\xEDlia. \\nObs.:
+    description: "Seu pai pediu pela sua ajuda na fazenda da sua fam\xEDlia.    Obs.:
       Use a saida na cozinha para chegar na fazenda."
     currentAmount: 0
     requiredAmount: 1
@@ -2189,6 +2194,31 @@ MonoBehaviour:
     difficulty: 0
     placeName: 
     npcName: "Piat\xE3"
+  - goalType: 4
+    description: "Ajude seu pai a cuidar da planta\xE7\xE3o em sua fazenda."
+    currentAmount: 0
+    requiredAmount: 1
+    maxDistance: 0
+    difficulty: 0
+    placeName: 
+    npcName: 
+  - goalType: 1
+    description: "Seu pai quer falar com voc\xEA sobre a sua ajuda na fazenda."
+    currentAmount: 0
+    requiredAmount: 1
+    maxDistance: 0
+    difficulty: 0
+    placeName: 
+    npcName: "Piat\xE3"
+  - goalType: 2
+    description: "O dia foi longo. Est\xE1 na hora de ir para cama dormir. V\xE1
+      para o seu quarto"
+    currentAmount: 0
+    requiredAmount: 1
+    maxDistance: 0
+    difficulty: 0
+    placeName: 
+    npcName: 
   completedQuestsID: 
 --- !u!1 &657670226
 GameObject:
@@ -2327,6 +2357,22 @@ MonoBehaviour:
     difficulty: 0
     placeName: Aula.PrimeiroDia
     npcName: 
+  - goalType: 3
+    description: Termine a sua primeira atividade da escola.
+    currentAmount: 0
+    requiredAmount: 1
+    maxDistance: 0
+    difficulty: 0
+    placeName: 
+    npcName: 
+  - goalType: 1
+    description: Converse com a professora Jurema sobre a sua nota na ativade.
+    currentAmount: 0
+    requiredAmount: 1
+    maxDistance: 0
+    difficulty: 0
+    placeName: 
+    npcName: Jurema
   completedQuestsID: 
 --- !u!1 &771961027
 GameObject:
@@ -3122,7 +3168,7 @@ GameObject:
   - component: {fileID: 1231635006}
   - component: {fileID: 1231635005}
   m_Layer: 0
-  m_Name: PrimeiroDia-Teste
+  m_Name: PrimeiroDia-Fim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3136,11 +3182,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1231635003}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.26, y: -1.66, z: 0}
+  m_LocalPosition: {x: 6.2619677, y: -4.1439276, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1472646417}
-  m_RootOrder: 9
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1231635005
 BoxCollider2D:
@@ -3217,7 +3263,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1472646417}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1238934695
 MonoBehaviour:
@@ -3657,11 +3703,12 @@ Transform:
   - {fileID: 389046830}
   - {fileID: 1135253581}
   - {fileID: 1341813885}
+  - {fileID: 1231635004}
   - {fileID: 2063335020}
+  - {fileID: 1996670204}
   - {fileID: 629402626}
   - {fileID: 1238934694}
   - {fileID: 308525132}
-  - {fileID: 1231635004}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4191,6 +4238,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1996670203
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1996670204}
+  - component: {fileID: 1996670205}
+  m_Layer: 0
+  m_Name: Saida da fazenda
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1996670204
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996670203}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 24.261967, y: -7.6439276, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1472646417}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1996670205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996670203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 327b9fa2ca4452a4b8f9edc480e3d239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointName: Saida da fazenda
+  isTesting: 0
 --- !u!1001 &2017266939
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6399,5 +6491,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1472646417}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

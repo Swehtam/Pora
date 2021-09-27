@@ -13,6 +13,12 @@ public class QuestEvents : MonoBehaviour
     public delegate void SwimDodgeEventHandler(int difficulty, int maxDistance);
     public event SwimDodgeEventHandler OnSwimDodgeCompleted;
 
+    public delegate void BiologyClassEventHandler();
+    public event BiologyClassEventHandler OnBiologyClassCompleted;
+
+    public delegate void PiataFarmEventHandler();
+    public event PiataFarmEventHandler OnPiataFarmCompleted;
+
     public delegate void NewQuestEventHandler();
     public event NewQuestEventHandler OnNewQuest;
 
@@ -32,6 +38,16 @@ public class QuestEvents : MonoBehaviour
     public void SwimDodgeCompleted(int difficulty, int maxDistance)
     {
         OnSwimDodgeCompleted?.Invoke(difficulty, maxDistance);
+    }
+
+    public void BiologyClassCompleted()
+    {
+        OnBiologyClassCompleted?.Invoke();
+    }
+
+    public void PiataFarmCompleted()
+    {
+        OnPiataFarmCompleted?.Invoke();
     }
 
     public void GotNewQuest()

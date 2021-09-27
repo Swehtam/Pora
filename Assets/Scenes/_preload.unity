@@ -2443,7 +2443,7 @@ PrefabInstance:
     - target: {fileID: 7293721902438542745, guid: 3dbe59b4261a85a4cac85842076edfb2,
         type: 3}
       propertyPath: defaultVariables.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7293721902438542745, guid: 3dbe59b4261a85a4cac85842076edfb2,
         type: 3}
@@ -2478,11 +2478,21 @@ PrefabInstance:
     - target: {fileID: 7293721902438542745, guid: 3dbe59b4261a85a4cac85842076edfb2,
         type: 3}
       propertyPath: defaultVariables.Array.data[7].name
-      value: firstDayMorning
+      value: piataFarmTalk
       objectReference: {fileID: 0}
     - target: {fileID: 7293721902438542745, guid: 3dbe59b4261a85a4cac85842076edfb2,
         type: 3}
       propertyPath: defaultVariables.Array.data[7].type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7293721902438542745, guid: 3dbe59b4261a85a4cac85842076edfb2,
+        type: 3}
+      propertyPath: defaultVariables.Array.data[8].name
+      value: piataFarmTalk
+      objectReference: {fileID: 0}
+    - target: {fileID: 7293721902438542745, guid: 3dbe59b4261a85a4cac85842076edfb2,
+        type: 3}
+      propertyPath: defaultVariables.Array.data[8].type
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7293721902438542745, guid: 3dbe59b4261a85a4cac85842076edfb2,
@@ -2523,7 +2533,12 @@ PrefabInstance:
     - target: {fileID: 7293721902438542745, guid: 3dbe59b4261a85a4cac85842076edfb2,
         type: 3}
       propertyPath: defaultVariables.Array.data[7].value
-      value: False
+      value: True
+      objectReference: {fileID: 0}
+    - target: {fileID: 7293721902438542745, guid: 3dbe59b4261a85a4cac85842076edfb2,
+        type: 3}
+      propertyPath: defaultVariables.Array.data[8].value
+      value: True
       objectReference: {fileID: 0}
     - target: {fileID: 8129312654650004427, guid: 3dbe59b4261a85a4cac85842076edfb2,
         type: 3}
@@ -3887,9 +3902,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55e92aac36ce5a4498fcb3e6bd17952d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newQuest: 1
+  newQuest: 0
   _quests: {fileID: 1548442165}
-  isTesting: 0
+  isTesting: 1
   testingQuestsID: 00000000010000000200000003000000040000000500000006000000
 --- !u!114 &1900991527
 MonoBehaviour:
@@ -3908,6 +3923,7 @@ MonoBehaviour:
   - Potira.PrimeiroDia
   - Potira.PrimeiroDia2
   - Jurema.PrimeiroDia
+  - Potira.PrimeiroDiaDepoisAula
 --- !u!114 &1900991528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3985,6 +4001,7 @@ MonoBehaviour:
   - Cama.PrimeiroDia
   - Aula.PrimeiroDia
   - PrimeiroDia.EventoArmario
+  - PrimeiroDia.ChegouCasa
 --- !u!114 &1900991532
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -32,6 +32,12 @@ public class ActiveQuest : MonoBehaviour
                     case GoalType.SwimDodgeMinigame:
                         goals.Add(new SwimDodgeMinigameGoal(this, g.difficulty, g.maxDistance, g.description, false, g.currentAmount, g.requiredAmount));
                         break;
+                    case GoalType.BiologyMinigame:
+                        goals.Add(new BiologyClassMinigameGoal(this, g.description, false, g.currentAmount, g.requiredAmount));
+                        break;
+                    case GoalType.PiataFarm:
+                        goals.Add(new PiataFarmMinigameGoal(this, g.description, false, g.currentAmount, g.requiredAmount));
+                        break;
                     case GoalType.GoTo:
                         goals.Add(new GoToGoal(this, g.placeName, g.description, false, g.currentAmount, g.requiredAmount));
                         break;

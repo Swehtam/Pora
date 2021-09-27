@@ -209,6 +209,7 @@ position: 500,163
 <<else>>
 	Potira: Seu pai está esperando por você.
 	Potira: Divirta-se, meu xodó.
+	<<startQuest NPCs/Potira/Quest-FazendaPiata 8>>
 <<endif>>
 ===
 

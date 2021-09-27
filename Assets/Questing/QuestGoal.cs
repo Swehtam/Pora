@@ -70,6 +70,70 @@ public class SwimDodgeMinigameGoal : QuestGoal
     }
 }
 
+public class BiologyClassMinigameGoal : QuestGoal
+{
+    private QuestEvents questEvents;
+
+    public BiologyClassMinigameGoal(ActiveQuest quest, string description, bool completed, int currentAmount, int requiredAmount)
+    {
+        this.Quest = quest;
+        this.Description = description;
+        this.Completed = completed;
+        this.CurrentAmount = currentAmount;
+        this.RequiredAmount = requiredAmount;
+    }
+
+    public override void Init()
+    {
+        base.Init();
+        questEvents = InstancesManager.singleton.GetQuestEvents();
+        questEvents.OnBiologyClassCompleted += BiologyClassCompleted;
+    }
+
+    void BiologyClassCompleted()
+    {
+        this.CurrentAmount++;
+        Evaluate();
+
+        if (Completed)
+        {
+            questEvents.OnBiologyClassCompleted -= BiologyClassCompleted;
+        }
+    }
+}
+
+public class PiataFarmMinigameGoal : QuestGoal
+{
+    private QuestEvents questEvents;
+
+    public PiataFarmMinigameGoal(ActiveQuest quest, string description, bool completed, int currentAmount, int requiredAmount)
+    {
+        this.Quest = quest;
+        this.Description = description;
+        this.Completed = completed;
+        this.CurrentAmount = currentAmount;
+        this.RequiredAmount = requiredAmount;
+    }
+
+    public override void Init()
+    {
+        base.Init();
+        questEvents = InstancesManager.singleton.GetQuestEvents();
+        questEvents.OnPiataFarmCompleted += PiataFarmCompleted;
+    }
+
+    void PiataFarmCompleted()
+{
+        this.CurrentAmount++;
+        Evaluate();
+
+        if (Completed)
+        {
+            questEvents.OnPiataFarmCompleted -= PiataFarmCompleted;
+        }
+    }
+}
+
 public class TalkToGoal : QuestGoal
 {
     public string NPCName { get; set; }
@@ -150,5 +214,7 @@ public enum GoalType
 {
     SwimDodgeMinigame,
     Talking,
-    GoTo
+    GoTo,
+    BiologyMinigame,
+    PiataFarm
 }

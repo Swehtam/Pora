@@ -176,11 +176,11 @@ Acir:AcirCriança: *Acir se irrita*
 Acir:AcirCriança: Saia daqui agora! Antes que meus pais o vejam! E nunca mais volte!
 
 Porã:PorãCriança: *Porã começa a chorar*
-<<wait 1>>
+<<wait 0.5>>
 <<lookToSide NPCs/Porã-Criança down>>
-<<wait 1>>
-<<moveTo NPCs/Porã-Criança 0 2>>
-<<wait 2>>
+<<wait 0.5>>
+<<moveTo NPCs/Porã-Criança 0 3>>
+<<wait 3>>
 
 <<isNotAngry NPCs/Acir-Criança>>
 Acir:AcirCriança: *Acir fica triste e deixa uma lágrima escorrer*

@@ -69,6 +69,8 @@ public class MemoryGameUI : MonoBehaviour
         player.NotSiting();
         player.StopPlayingMinigame();
         player.loadPointName = "Saida Aula";
+        //Aciona o evento de quest que completou o minigame
+        InstancesManager.singleton.GetQuestEvents().BiologyClassCompleted();
         InstancesManager.singleton.GetDayManager().UpdateDayShift();
         InstancesManager.singleton.GetLevelLoaderInstance().LoadNextLevel("EscolaSalaAula", 0);
     }
