@@ -11,7 +11,10 @@ public class YarnPlacesManager : MonoBehaviour
     private void Start()
     {
         //Chamar metodo que atualiza esses boleanos no dicionário
-        UpdatePlaceDialogueDone();
+        if (isTesting)
+        {
+            LoadYarnPlaceDone(placesVisited.ToArray());
+        }
     }
 
     // Chamado por cada um dos YarnPlace para salvar que o local já foi completado e não iniciar mais
@@ -28,14 +31,24 @@ public class YarnPlacesManager : MonoBehaviour
     }
 
     //Pegar no arquivo salvo os lugares que já ocorreu dialogo
-    private void UpdatePlaceDialogueDone()
+    public void LoadYarnPlaceDone(string[] placesDone)
     {
-        if (isTesting)
+        foreach (string placeName in placesDone)
         {
-            foreach (string placeName in placesVisited)
-            {
-                YarnPlaceComplete(placeName);
-            }
+            YarnPlaceComplete(placeName);
         }
+    }
+
+    public string[] SaveYarnPlaceDone()
+    {
+        string[] placesAux = new string[_yarnPlaceDone.Count];
+        int i = 0;
+        foreach (string place in _yarnPlaceDone)
+        {
+            placesAux[i] = place;
+            i++;
+        }
+
+        return placesAux;
     }
 }

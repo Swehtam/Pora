@@ -2542,6 +2542,36 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!1 &898031546
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 898031547}
+  m_Layer: 0
+  m_Name: Quarto-Esquerda
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &898031547
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898031546}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -15.633438, y: -2.065197, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1739347633}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1012563325
 GameObject:
   m_ObjectHideFlags: 0
@@ -2570,7 +2600,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1739347633}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1035631985
 GameObject:
@@ -3168,7 +3198,7 @@ GameObject:
   - component: {fileID: 1231635006}
   - component: {fileID: 1231635005}
   m_Layer: 0
-  m_Name: PrimeiroDia-Fim
+  m_Name: PrimeiroDia-Espelho
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3182,7 +3212,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1231635003}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.2619677, y: -4.1439276, z: 0}
+  m_LocalPosition: {x: 6.2619677, y: -4.3939276, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1472646417}
@@ -3227,13 +3257,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTesting: 0
-  placeName: PrimeiroDia.Teste
-  talkToNode: PrimeiroDia.Teste
+  placeName: PrimeiroDia.Espelho
+  talkToNode: PrimeiroDia.Espelho
   scriptToLoad: {fileID: 2480198943629176163, guid: 3b5bc222fc4fa5740a24d93534ce8a9a,
     type: 3}
-  dayCondition: 0
-  dayShiftCondition: -1
-  arrayDialogueVariables: []
+  dayCondition: 1
+  dayShiftCondition: 2
+  arrayDialogueVariables:
+  - name: $mirrorEvent
+    value: True
+    type: 2
 --- !u!1 &1238934693
 GameObject:
   m_ObjectHideFlags: 0
@@ -3440,7 +3473,11 @@ MonoBehaviour:
   npcs:
   - name: "Piat\xE3"
     gameObject: {fileID: 282713924}
-  poraScenePositions: []
+  poraScenePositions:
+  - {fileID: 898031547}
+  - {fileID: 1786775213}
+  - {fileID: 1012563326}
+  - {fileID: 308525132}
 --- !u!4 &1311842835
 Transform:
   m_ObjectHideFlags: 0
@@ -4068,9 +4105,41 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 898031547}
+  - {fileID: 1786775213}
   - {fileID: 1012563326}
   m_Father: {fileID: 378351997}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1786775212
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1786775213}
+  m_Layer: 0
+  m_Name: Quarto-Direita
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1786775213
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1786775212}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -10.633438, y: -2.065197, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1739347633}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1942942603
 GameObject:

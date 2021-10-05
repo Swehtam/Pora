@@ -625,7 +625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0b559f6db8b6e04da45c7c2db71206d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 6
+  id: 9
   title: Hora de dormir
   description: 
   isCompleted: 0
@@ -637,7 +637,7 @@ MonoBehaviour:
     requiredAmount: 1
     maxDistance: 0
     difficulty: 0
-    placeName: Quarto.Fim
+    placeName: PrimeiroDia.Espelho
     npcName: 
   completedQuestsID: 
 --- !u!1 &534999202

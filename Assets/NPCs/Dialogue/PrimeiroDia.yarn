@@ -10,11 +10,18 @@ position: 421,163
 <<wait 2>>
 <<movePlayerTo Porã 1 3.0>>
 <<wait 3.5>>
+
 Acir: HAHAHAHAHAHA!!
+
 <<popSymbol Porã exclamation>>
 <<wait 2>>
+
 Acir: Eae <b>Roedor</b>, como foram as férias? HAHAHA!
+Acir: Você começou a se comportar como deveria para eu voltar a te chamar de Porã?
+Acir: Ou ainda continua brincando com aqueles brinquedos estranhos? HAHAHA!
+Acir: Ein Roedor?
 <<wait 1>>
+
 <<lookToSide Porã right>>
 <<wait 0.5>>
 Porã: ...
@@ -23,10 +30,13 @@ Porã: ...
 <<wait 1>>
 <<movePlayerTo Porã 0 3.0>>
 <<wait 3.5>>
+
 <<lookToSide Porã left>>
 <<wait 0.5>>
 Porã: *Ótimo, mais alguém para me achar estranho...*
-Moara: …
+
+Moara: ...
+
 <<lookToSide Porã down>>
 <<zoomCamera PlayerCamera 6 1>>
 <<wait 1>>
@@ -41,9 +51,9 @@ position: 421,163
 ---
 <<deactivateContainer _dialogue/DialogueRunner>>
 <<wait 2>>
-Porã: *Oof!*
+Porã: *Oof! Porã solta um profundo suspiro*
 Porã: *Legal voltar pra escola e nada ter mudado.*
-Porã: *...*
+Porã: ...
 Porã: *Só quero voltar pra casa e ficar no meu quarto*
 <<startQuest Entradas-Saidas-Dialogo/PrimeiroDia-FrenteEscola/Quest 7>>
 <<placeDone PrimeiroDia-FrenteEscola>>
@@ -61,19 +71,105 @@ Potira: Venha até aqui conversar um pouco comigo.
 <<placeDone PrimeiroDia-ChegouCasa>>
 ===
 
-title: PrimeiroDia.Teste
+title: PrimeiroDia.Espelho
 tags: 
 colorID: 0
 position: 421,163
 ---
 <<deactivateContainer _dialogue/DialogueRunner>>
+
+Porã: Que dia longo, eu só quero descansar...
+Porã: Deitar na minha cama e esquecer que isso tudo aconteceu...
+Porã: Mas eu não consigo tirar isso tudo da cabeça...
+
+<<movePlayerTo Porã 0 2.2>>
+<<wait 2.3>>
+<<lookToSide Porã right>>
+Porã: O dia começou com minha mãe falando para eu me "comportar" e não me expor no primeiro dia de aula.
+Porã: *Oof! Porã solta um profundo suspiro*
+Porã: Ela fala isso como se eu não quisesse me "comportar"...
+
+<<movePlayerTo Porã 1 2.2>>
+<<wait 2.3>>
+<<lookToSide Porã left>>
+Porã: Em seguida, tive aula de Biologia e a professora Jurema falou sobre me esforçar para me "encaixar".
+Porã: *Porã começa a falar mais baixo*
+Porã: Não é como se eu gostasse de ser deixado de lado...
+
+<<movePlayerTo Porã 0 2.2>>
+<<wait 2.3>>
+<<lookToSide Porã right>>
+Porã: Depois, Acir ficou rindo da minha cara e continua me chamando de Roedor...
+Porã: *Porã fica triste*
+Porã: Qual o problema das coisas que eu gosto de brincar?
+Porã: Eu tentei brincar com outras coisas, mas a culpa não é minha se eu não gosto...
+
+<<movePlayerTo Porã 1 2.2>>
+<<wait 2.3>>
+<<lookToSide Porã left>>
+Porã: Voltei para casa e minha mãe continuou insitindo em dizer que eu sou o "lobinho" dela.
+Porã: Sei que ela não faz por mal... E que ela quer me ajudar...
+Porã: *A voz de Porã começa a falhar*
+Porã: Mas... Eu não sei ser o "lobinho" que ela quer...
+
+<<movePlayerTo Porã 0 2.2>>
+<<wait 2.3>>
+<<lookToSide Porã right>>
+Porã: Depois de ajudar meu pai com a fazenda, ele ficou falando sobre o que "correto" para mim...
+Porã: Ele quer que eu cuide da fazenda, pois o nosso papel com a vila é a nossa fazenda.
+Porã: *Porã começa a chorar*
+Porã: Mas eu não quero isso, eu não gosto de cuidar da fazenda...
+Porã: Eu gosto de nadar no rio... Me sinto leve e livre quando estou na água...
+Porã: Que droga!
+
+<<movePlayerTo Porã 1 2.2>>
+<<wait 2.3>>
+<<lookToSide Porã left>>
+Porã: *Porã continua chorando*
+Porã: Eu não consigo... Entender...
+Porã: <b>Por que eu sou obrigado a mudar quem eu sou e do que eu gosto?</b>
+Porã: Isso não é justo...
+Porã: O que eu fiz para merecer isso?
+Porã: <b>Eu só queria... Que alguém me ajudasse.... Eu não sei o que fazer...</b>
+
+<<movePlayerTo Porã 2 2.2>>
+<<wait 2.3>>
+<<lookToSide Porã up>>
+Porã: *Porã se olha no espelho*
+Porã: Por que eu tive que nascer com esse corpo?
+Porã: Por que eu tive que nascer um Lobo-Guará?
+Porã: *Porã enxuga todas as lágrimas*
+Porã: Quando eu me olho no espelho, eu não consigo me ver...
+Porã: Eu sinto que estou vendo outra pessoa... Mas não eu...
+
+Porã: *Porã fecha os olhos*
+<<lookToSide Porã down>>
+<<setPlayerLayer Porã PlayerAbove>>
 <<darkenTheScene SceneManager>>
+<<wait 1>>
+Porã: *Porã começa a imaginar como ele gostaria de se enxergar, quando ele abrisse os olhos*
 <<transform Porã>>
-<<wait 1>>
-Porã: Consegui!
-<<deactivateContainer _dialogue/DialogueRunner>>
-<<wait 1>>
-<<lightenTheScene SceneManager>>
-<<wait 0.5>>
+<<wait 2>>
+Porã: Tudo seria tão mais fácil se eu tivesse nascido assim...
+Porã: *Porã fica triste*
+Porã: *Oof! Porã solta um suspiro profundo*
 <<transformBack Porã>>
+<<wait 2>>
+Porã: *Abre os olhos e se olha no espelho*
+<<lightenTheScene SceneManager>>
+<<wait 1>>
+<<setPlayerLayer Porã Player>>
+
+Porã: Eu tenho que aceitar... Isso nunca vai mudar...
+Porã: Vou continuar me sentindo errado o resto da minha vida...
+Porã: É melhor eu ir dormir, não aguento mais esse dia...
+<<movePlayerTo Porã 3 2.2>>
+<<wait 2.3>>
+<<lookToSide Porã down>>
+<<set $finalScene to true>>
+<<set $mirrorEvent to false>>
+<<set $firstDay to false>>
+<<set $classDone to false>>
+<<updateDay _app>>
+<<changeScene _loadLevel Casa 2 Cama>>
 ===

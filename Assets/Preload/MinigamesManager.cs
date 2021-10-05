@@ -6,38 +6,36 @@ using System;
 public class MinigamesManager : MonoBehaviour
 {
     //Variaveis para Desvio a Nado
-    private static int distanceMax = 25;
-    private static int swimDodgeDifficulty = 0;
+    private int distanceMax = 25;
+    private int swimDodgeDifficulty = 0;
 
     void Start()
     {
-        LoadMinigamesVariables();
-
-        ChangeSwimDodgeMaxDistance(distanceMax);
+        //LoadMinigamesVariables();        
     }
 
-    public static int GetSwimDodgeMaxDistance()
+    public int GetSwimDodgeMaxDistance()
     {
         return distanceMax;
     }
 
-    public static int GetSwimDodgeDifficulty()
+    public int GetSwimDodgeDifficulty()
     {
         return swimDodgeDifficulty;
     }
 
-    public static void ChangeSwimDodgeMaxDistance(int value)
+    public void ChangeSwimDodgeMaxDistance(int value)
     {
         distanceMax = value;
         InstancesManager.singleton.GetInMemoryVariableStorage().SetValue("$max_distance", value);
     }
 
-    public static void UpdateSwimDodgeMaxDistance()
+    public void UpdateSwimDodgeMaxDistance()
     {
         InstancesManager.singleton.GetInMemoryVariableStorage().SetValue("$max_distance", distanceMax);
     }
 
-    public static void ChangeSwimDodgeDifficulty(int value)
+    public void ChangeSwimDodgeDifficulty(int value)
     {
         swimDodgeDifficulty = value;
     }
@@ -45,8 +43,20 @@ public class MinigamesManager : MonoBehaviour
     /// <summary>
     /// Metodo para atualizar todas as variaveis que foram salvas nos arquivos.
     /// </summary>
-    private void LoadMinigamesVariables()
+    public void LoadMinigamesVariables(MinigamesSave minigamesS)
     {
+        distanceMax = minigamesS.distanceMax;
+        swimDodgeDifficulty = minigamesS.swimDodgeDifficulty;
+        InstancesManager.singleton.GetInMemoryVariableStorage().SetValue("$max_distance", distanceMax);
+    }
 
+    public MinigamesSave SaveMinigamesVariables()
+    {
+        MinigamesSave minigamesS = new MinigamesSave
+        {
+            distanceMax = distanceMax,
+            swimDodgeDifficulty = swimDodgeDifficulty
+        };
+        return minigamesS;
     }
 }

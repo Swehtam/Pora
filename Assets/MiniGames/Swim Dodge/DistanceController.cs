@@ -7,6 +7,7 @@ public class DistanceController : MonoBehaviour
 {
     [SerializeField] private TMP_Text display;
     [SerializeField] private SwimDodgeClassesInterface swimDodgeClassesInterface;
+    private MinigamesManager minigamesManager;
     private float distanceSwimmed = 0f;
     private bool finished = false;
 
@@ -15,6 +16,7 @@ public class DistanceController : MonoBehaviour
 
     private void Start()
     {
+        minigamesManager = InstancesManager.singleton.GetMinigamesManager();
         isFirstHalfCompleted = false;
     }
 
@@ -29,7 +31,7 @@ public class DistanceController : MonoBehaviour
         display.text = Mathf.FloorToInt(distanceSwimmed).ToString() + "m";
 
         //Controla qual a meta que Porã deve chegar
-        if(distanceSwimmed >= MinigamesManager.GetSwimDodgeMaxDistance() && !isFirstHalfCompleted)
+        if(distanceSwimmed >= minigamesManager.GetSwimDodgeMaxDistance() && !isFirstHalfCompleted)
         {
             isFirstHalfCompleted = true;
             SpeedController.speed = 0f;
@@ -45,7 +47,7 @@ public class DistanceController : MonoBehaviour
             SpeedController.speed = 0f;
             //Acionar todos os eventos que dependem do player terminar o minigame de Nado a Desvio
             QuestEvents questEvents = InstancesManager.singleton.GetQuestEvents();
-            questEvents.SwimDodgeCompleted(MinigamesManager.GetSwimDodgeDifficulty(), MinigamesManager.GetSwimDodgeMaxDistance());
+            questEvents.SwimDodgeCompleted(minigamesManager.GetSwimDodgeDifficulty(), minigamesManager.GetSwimDodgeMaxDistance());
             swimDodgeClassesInterface.minigameDialogue.StartFinishingDialogue();
             swimDodgeClassesInterface.obstaclesManager.DisableAllSpawnedObjects();
         }

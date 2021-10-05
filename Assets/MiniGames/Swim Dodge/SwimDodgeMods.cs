@@ -35,17 +35,20 @@ public class SwimDodgeMods : MonoBehaviour
     /// Onde realmente mantem os toggles
     private readonly Dictionary<int, Toggle> distanceToggle = new Dictionary<int, Toggle>();
     private int lastDistanceValue;
+    private MinigamesManager minigamesManager;
 
     private void Start()
     {
+        minigamesManager = InstancesManager.singleton.GetMinigamesManager();
+
         foreach(DistanceToggles distanceTG in distanceTogglesVector)
         {
             distanceToggle.Add(distanceTG.value, distanceTG.toggle);
         }
 
         //Atualiza o Toggle para o ultimo que foi salvo e atualiza nesse painel;
-        lastDistanceValue = MinigamesManager.GetSwimDodgeMaxDistance();
-        distanceToggle[MinigamesManager.GetSwimDodgeMaxDistance()].isOn = true;
+        lastDistanceValue = minigamesManager.GetSwimDodgeMaxDistance();
+        distanceToggle[minigamesManager.GetSwimDodgeMaxDistance()].isOn = true;
     }
     /// <summary>
     /// Metodo para ser chamado pelos botões de dificuldade.
@@ -57,14 +60,14 @@ public class SwimDodgeMods : MonoBehaviour
     /// 2: Dificil;</param>
     public void ChangeDifficulty(int difficulty)
     {
-        MinigamesManager.ChangeSwimDodgeDifficulty(difficulty);
+        minigamesManager.ChangeSwimDodgeDifficulty(difficulty);
     }
 
     public void ChangeMaxDistance(int value)
     {
         if(value != lastDistanceValue)
         {
-            MinigamesManager.ChangeSwimDodgeMaxDistance(value);
+            minigamesManager.ChangeSwimDodgeMaxDistance(value);
             lastDistanceValue = value;
         }
     }

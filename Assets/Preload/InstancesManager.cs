@@ -22,6 +22,8 @@ public class InstancesManager : MonoBehaviour
     [SerializeField] private QuestsManager questsManager;
     [SerializeField] private QuestEvents questEvents;
     [SerializeField] private NPCManager npcManager;
+    [SerializeField] private MinigamesManager minigamesManager;
+    [SerializeField] private SaveSystem saveSystem;
     private GameObject player;
     private UIManager uIManager;
 
@@ -159,5 +161,25 @@ public class InstancesManager : MonoBehaviour
             npcManager = FindObjectOfType<NPCManager>();
 
         return npcManager;
+    }
+
+    //Método responsável por retornar o MinigamesManager do cena atual para quem solicitar
+    //Caso o MinigamesManager não exista no singleton, procure pelo mesmo, salve e retorne (isso ocorre uma vez por jogo)
+    public MinigamesManager GetMinigamesManager()
+    {
+        if (minigamesManager == null)
+            minigamesManager = FindObjectOfType<MinigamesManager>();
+
+        return minigamesManager;
+    }
+
+    //Método responsável por retornar o SaveSystem do cena atual para quem solicitar
+    //Caso o SaveSystem não exista no singleton, procure pelo mesmo, salve e retorne (isso ocorre uma vez por jogo)
+    public SaveSystem GetSaveSystem()
+    {
+        if (saveSystem == null)
+            saveSystem = FindObjectOfType<SaveSystem>();
+
+        return saveSystem;
     }
 }

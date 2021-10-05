@@ -183,13 +183,18 @@ position: 500,163
 	Potira: Claro! O que você quiser!
 	-> Por quê todo mundo insite em me dizer que eu devo ser um <i><b>lobinho</i></b>?
 		Potira: Ué Porã, porque você ainda é uma criança hahaha!
+
 		Porã: Não foi isso que eu quis dizer.
 		Porã: Eu estou perguntando por quê eu devo ser um Lobo-guará?
+
 		Potira: Mas não é obvio? Você nasceu um Lobo-guará igual a eu e seu pai.
 		Potira: É o normal que as pessoas esperem isso de você.
+
 		Porã: Mas e se eu...
 		Porã: *Porã fala o resto tão baixo que a mãe não escuta*
+
 		Potira: Ham?
+
 		Porã: Nada não...
 
 	-> Nada não, esquece...
@@ -306,7 +311,7 @@ Porã: Eu não poderia ir agora?
 Potira: Não mesmo, lobinho. Você esqueceu que seu pai pediu ajuda na fazenda hoje de tarde?
 
 Porã: Ah, eu tinha esquecido.
-Porã: Vou lá agora me encontrar com ele.
+Porã: Então... Eu vou agora me encontrar com ele.
 
 Potira: Está certo, meu xodó. Divirta-se lá, e lembre-se: ele pode parecer grosso, mas ele só quer seu bem.
 Potira: E vai fazer bem para vocês dois, terem momentos juntos, depois daquele dia.
@@ -330,6 +335,6 @@ Porã: *Eu tenho que ter paciência com todo mundo, mas ninguém tem paciência 
 <<endif>>
 
 <<set $piataFarmTalk to true>>
-<<startQuest NPCs/Potira/Quest-FazendaPiata 8>>
+<<startQuest NPCs/Potira/Quest-PorãEspelho 8>>
 <<placeDone Potira-PrimeiroDia>>
 ===

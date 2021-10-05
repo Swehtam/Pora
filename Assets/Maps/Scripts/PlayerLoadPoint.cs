@@ -15,7 +15,7 @@ public class PlayerLoadPoint : MonoBehaviour
 
         PlayerController player = InstancesManager.singleton.GetPlayerInstance().GetComponent<PlayerController>();
 
-        if(player.loadPointName == pointName)
+        if(player != null && player.loadPointName == pointName)
         {
             player.transform.position = transform.position;
         }

@@ -14,6 +14,7 @@ public class LevelLoader : MonoBehaviour
     [SerializeField] private Animator panelTransition;
     [SerializeField] private Animator narrativeTransition;
     [SerializeField] private Animator simpleFade;
+    [SerializeField] private Animator circleTransition;
     [SerializeField] private float transitionTime = 1f;
     [SerializeField] private float fadeTransitionTime = 2f;
     [SerializeField] private float sleepTransitionTime = 5f;
@@ -87,6 +88,10 @@ public class LevelLoader : MonoBehaviour
                 narrativeTransition.SetTrigger("Start");
                 yield return new WaitForSeconds(narrativeTransitionTime);
                 break;
+            case 5:
+                circleTransition.SetTrigger("Start");
+                yield return new WaitForSeconds(sleepTransitionTime);
+                break;
             default:
                 throw new System.NotImplementedException();
         }
@@ -141,6 +146,10 @@ public class LevelLoader : MonoBehaviour
                 //Aqui o tempo de transição é normal
                 yield return new WaitForSeconds(fadeTransitionTime-1f);
                 break;
+            case 5:
+                circleTransition.SetTrigger("End");
+                yield return new WaitForSeconds(sleepTransitionTime-1f);
+                break;
             default:
                 throw new System.NotImplementedException();
         }
@@ -176,16 +185,22 @@ public class LevelLoader : MonoBehaviour
     /// </summary>
     /// <param name="sceneName"></param>
     /// <param name="stringTextID"></param>
-    public void MainMenuTransition(string sceneName, string stringTextID)
+    public void MainMenuTransition(string sceneName, int textID)
     {
-        if (int.TryParse(stringTextID, out var textID) == false)
-        {
-
-            Debug.LogErrorFormat($"<<changeScene>> failed to parse int value {stringTextID}");
-        }
-
         sleepTextID = textID;
         LoadNextLevel(sceneName, 2);
+    }
+
+    [YarnCommand("backToMenu")]
+    public void GoBackToMenu()
+    {
+        //Pega o objeto do player e destroi
+        if (player != null)
+        {
+            GameObject playerObject = InstancesManager.singleton.GetPlayerInstance();
+            Destroy(playerObject);
+        }
+        LoadNextLevel("MainMenu", 5);
     }
 
     [YarnCommand("changeScene")]

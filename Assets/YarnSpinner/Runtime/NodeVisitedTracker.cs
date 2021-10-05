@@ -13,7 +13,10 @@ public class NodeVisitedTracker : MonoBehaviour
 
     private void Start()
     {
-        LoadNodesVisited();
+        if (isTesting)
+        {
+            LoadNodesVisited(testingNodesNames.ToArray());
+        }
     }
 
     public void SetDialogueRunner(Yarn.Unity.DialogueRunner dialogueRun)
@@ -48,14 +51,24 @@ public class NodeVisitedTracker : MonoBehaviour
         Debug.Log($"Starting the execution of node {nodeName} with {tags.Count} tags.");
     }
 
-    private void LoadNodesVisited()
+    public string[] SaveNodesVisited()
     {
-        if (isTesting)
+        string[] nodesAux = new string[_visitedNodes.Count];
+        int i = 0;
+        foreach(string node in _visitedNodes)
         {
-            foreach(string nodeName in testingNodesNames)
-            {
-                NodeComplete(nodeName);
-            }
+            nodesAux[i] = node;
+            i++;
+        }
+
+        return nodesAux;
+    }
+
+    public void LoadNodesVisited(string[] nodesVisted)
+    {
+        foreach(string nodeName in nodesVisted)
+        {
+            NodeComplete(nodeName);
         }
     }
 }

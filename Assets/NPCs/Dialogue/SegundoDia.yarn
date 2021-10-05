@@ -1,0 +1,167 @@
+title: SegundoDia.FrenteCasa
+tags: 
+colorID: 0
+position: 421,163
+---
+<<deactivateContainer _dialogue/DialogueRunner>>
+<<setTarget CMStateDrivenCamera/PlayerCamera SegundoDiaFim>>
+<<lookToSide NPCs/Moara up>>
+<<lookToSide Porã down>>
+
+<<wait 2>>
+<<popSymbol Porã exclamation>>
+<<wait 1.5>>
+Porã: *Moara!?*
+Porã: Moara, o que você está fazendo aqui?
+
+Moara: Bom dia Porã, hihi!
+
+Porã: *Porã fica com vergonha*
+Porã: Bom dia...
+Porã: Por que você está aqui?
+
+Moara: Ah sim! Minha mãe pediu para eu entregar esse presente para sua mãe.
+Moara: É um presente em agradecimento por ela ter visitado nossa casa ontem.
+Moara: Você poderia entregar isso para ela? 
+Moara: Segura!
+
+Porã: *Porã leva um susto quando Moara se aproxima rapidamente*
+Porã: Ah!
+
+*Porã recebe um vaso de planta antigo, mas muito bem conservado, cheio de detalhes ao seu redor e com cor prateada.*
+*O vaso tem tamanho suficiente para caber em duas mãos.*
+
+Porã: Ah, obrigado... Tenho certeza que minha mãe vai adorar.
+
+Moara: Hehehe, a gente comprou isso durante nossa última migração para o sertão.
+
+Porã: Ah... legal.
+Porã: *Que legal! Moara e sua família viajam para outros lugares fora do pantanal. Como deve ser?*
+Porã: *Porã fica nervoso*
+Porã: Então... ta bom. Vou entrega isso para ela.
+Porã: A gente se encontra mais tarde na aula. Tchau.
+<<lookToSide Porã up>>
+<<wait 0.5>>
+
+Moara: ESPERA, PORÃ!!
+
+<<popSymbol Porã exclamation>>
+<<wait 1>>
+<<lookToSide Porã down>>
+Porã: Ah... Oi...
+Porã: *Que susto, não pensei que Moara fosse gritar.*
+
+Moara: *Moara esboça um sorriso.*
+Moara: Por que você não entrega isso depois? Não precisa entregar agora, hahaha.
+Moara: Além disso, a gente vai se atrasar para a aula.
+
+Porã: Ah, certo então.
+*Porã guarda o presente na sua bolsa.*
+Porã: Então... vamos.
+Porã: *Porã parece nervoso.*
+
+<<movePlayerTo Porã 0 2.0>>
+<<moveTo NPCs/Moara 0 1.5>>
+<<wait 2>>
+
+Moara: Acho que vou perguntar agora.
+
+Porã: O que?
+
+Moara: Porã! Sobre ontem no corredor da escola...
+Moara: Como eu devo falar isso?
+
+Porã: *Moara sabe que está falando em voz alta?*
+Porã: *Acho que Moara está procurando uma forma de dizer que eu sou estranho.*
+Porã: Ah, ta tudo bem... Eu já estou acostumado...
+Porã: Acir é assim mesmo haha...
+<<wait 2>>
+Porã: *Moara ficou em silêcio... Acho que Moara deve pensar igual a Acir.*
+
+Moara: NÃO!!
+<<popSymbol Porã exclamation>>
+<<wait 1>>
+Porã: *Porã fica espantado*
+
+Moara: Não ta nada bem, Porã. Um amigo não pode tratar o outro assim.
+
+Porã: Ah... Eu e Acir não somos amigos... Não mais...
+
+Moara: Desculpa, eu falei amigo sem pensar
+Moara: Mesmo assim... <b>Nem Acir, nem nínguem pode fazer você se sentir mal, por ser quem você é ou pelas coisas que você gosta.</b>
+
+Porã: *Porã fica boquiaberto.*
+Porã: *O que ela quis dizer com isso?*
+
+Moara: Ah desculpa. Haha. Eu devo ter te assustado.
+
+Porã: E-eu. M-mas...
+Porã: Eu não entendi muito bem... O que você quis dizer com isso?
+
+Moara: Ah! Eu falei na hora da raiva. Hehe.
+Moara: Mas eu quis dizer que, todo mundo deve se respeitar e não fazer os outros se sentirem mal, por serem quem são.
+Moara: Isso foi o que eu aprendi na minha antiga vila. Hehehe.
+
+Porã: S-Sim...
+<<wait 1>>
+
+Moara: <b>Porã, você quer ajuda?</b>
+
+Porã: *Porã fica espantado*
+Porã: A-ajuda? Com o que? E-eu? Por que?
+
+Moara: *Moara parece triste.*
+Moara: A sua reação de agora mesmo e o que aconteceu na escola ontem me diz que algo está errado.
+Moara: E além disso, da pra ver no seu olhar que algo está lhe deixando triste.
+Moara: Eu não sei o que pode ser. 
+Moara: Mas... Porã, você quer ajuda?
+
+Porã: N-não sei... Como que você vai me ajudar?
+
+Moara: Hehe. Ainda não sei.
+Moara: Mas, eu quero que nós sejamos amigos. Por algum motivo eu gostei de você.
+Moara: *Moara sorri.*
+
+Porã: *Porã ta com os olhos cheios de lágrimas.*
+Porã: Você que eu seja seu amigo?
+
+Moara: Sim!
+
+Porã: *Porã deixa uma lágrima escorrer.*
+Porã: *Porã limpa a lágrima*
+Porã: Eu também quero... isso...
+Porã: Mas por que isso do nada? A gente nem conversou antes nem nada.
+
+Moara: Eu também não sei...
+Moara: Quando a professora Jurema me apresentou pra sala ontem...
+Moara: Eu olhei para todo mundo da sala e, diferente de todo mundo, você foi o único que me mostrou um olhar carinhoso.
+Moara: Ai eu senti... Que a natureza queria que a gente se conhecesse.
+Moara: Por isso eu sentei do seu lado ontem. Haha.
+
+Porã: *Porã se sente mais leve e feliz.*
+Porã: *Talvez Moara não seja um animal ruim.*
+Porã: *Quem sabe eu possa contar meu segredo para Moara um dia*
+Porã: Moara... Eu...
+
+Moara: *Moara olha o relógio*
+Moara: Ai meu deus!!! A gente vai se atrasar vamos Porã.
+<<moveTo NPCs/Moara 1 3>>
+<<wait 3>>
+<<lookToSide NPCs/Moara left>>
+Moara: Vamos, Porã!
+
+Porã: Moara...
+
+Moara: Oi.
+
+Porã: Obrigado.
+
+Moara: *Moara sorri.*
+Moara: Vamos!
+
+<<moveTo NPCs/Moara 2 3>>
+<<movePlayerTo Porã 1 6>>
+<<wait 6>>
+<<gameFinished _app>>
+<<backToMenu _loadLevel>>
+===

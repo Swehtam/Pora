@@ -34,6 +34,7 @@ position: 421,163
 
 <<if $isNightTime is true>>
 	Piatã: Que dia longo, hoje vou dormir igual a uma pedra.
+	<<startQuest NPCs/Piatã/Quest-PorãEspelho 9>>
 <<endif>>
 
 [[Piatã.Adeus]]
@@ -355,9 +356,11 @@ Piatã: Boa noite filhote, durma bem.
 
 Porã: Boa noite, pai...
 
+<<startQuest NPCs/Piatã/Quest-FazendaPiata 9>>
 <<set $farmDone to false>>
 <<set $farmCultiveGiveUp to false>>
 <<set $farmCultiveFinish to false>>
+<<set $mirrorEvent to true>>
 ===
 
 title: Piatã.HoraAula

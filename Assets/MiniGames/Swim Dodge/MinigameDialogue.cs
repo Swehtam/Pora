@@ -9,10 +9,12 @@ public class MinigameDialogue : MonoBehaviour
     public YarnProgram scriptToLoad;
 
     private DialogueRunner dialogueRunner;
+    private MinigamesManager minigamesManager;
     // Start is called before the first frame update
     void Start()
     {
         dialogueRunner = InstancesManager.singleton.GetDialogueRunnerInstance();
+        minigamesManager = InstancesManager.singleton.GetMinigamesManager();
 
         if (scriptToLoad != null)
         {
@@ -25,7 +27,7 @@ public class MinigameDialogue : MonoBehaviour
 
     public void StartFirstDialogue()
     {
-        MinigamesManager.UpdateSwimDodgeMaxDistance();
+        minigamesManager.UpdateSwimDodgeMaxDistance();
         dialogueRunner.StartDialogue("SwimDodgeMinigame.FirstSide");
     }
 

@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FadeTransition_End
+  m_Name: Minigame_End
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -69,8 +69,6 @@ AnimationClip:
       value: {fileID: 21300000, guid: 5880348757609df438681765b5159150, type: 3}
     - time: 0.90909094
       value: {fileID: 21300000, guid: 8a7eeffe735d3bd4f9645fb5ed6f2f22, type: 3}
-    - time: 1
-      value: {fileID: 0}
     attribute: m_Sprite
     path: Image
     classID: 114
@@ -108,13 +106,12 @@ AnimationClip:
     - {fileID: 21300000, guid: ddba5faf78720e248bf0f2628d3d28af, type: 3}
     - {fileID: 21300000, guid: 5880348757609df438681765b5159150, type: 3}
     - {fileID: 21300000, guid: 8a7eeffe735d3bd4f9645fb5ed6f2f22, type: 3}
-    - {fileID: 0}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.0909091
+    m_StopTime: 1
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

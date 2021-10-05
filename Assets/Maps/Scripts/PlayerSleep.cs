@@ -23,7 +23,7 @@ public class PlayerSleep : MonoBehaviour
     //Mostrar o container das opções para dormir e para a movimentação do Player
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.root.gameObject.name == "Porã" && !collision.isTrigger)
+        if (collision.transform.root.gameObject.name == "Porã" && !collision.isTrigger && !InstancesManager.singleton.GetDialogueRunnerInstance().IsDialogueRunning)
         {
             sleepContainer.SetActive(true);
             onContainerShow?.Invoke();

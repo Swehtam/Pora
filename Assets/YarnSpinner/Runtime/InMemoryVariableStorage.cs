@@ -27,7 +27,6 @@ SOFTWARE.
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using Yarn.Unity;
 
 namespace Yarn.Unity {
 
@@ -52,9 +51,10 @@ namespace Yarn.Unity {
     /// </remarks>    
     public class InMemoryVariableStorage : VariableStorageBehaviour, IEnumerable<KeyValuePair<string, Yarn.Value>>
     {
-
         /// Where we actually keeping our variables
         private Dictionary<string, Yarn.Value> variables = new Dictionary<string, Yarn.Value> ();
+
+        public bool isTesting;
 
         /// <summary>
         /// A default value to apply when the object wakes up, or when
@@ -102,7 +102,7 @@ namespace Yarn.Unity {
         /// Reset to our default values when the game starts
         internal void Awake ()
         {
-            ResetToDefaults ();
+            ResetToDefaults();
         }
 
         /// <summary>
@@ -111,6 +111,9 @@ namespace Yarn.Unity {
         /// </summary>
         public override void ResetToDefaults ()
         {
+            if (!isTesting)
+                return;
+
             Clear ();
 
             // For each default variable that's been defined, parse the
@@ -170,6 +173,80 @@ namespace Yarn.Unity {
         {
             // Copy this value into our list
             variables[variableName] = new Yarn.Value(value);
+        }
+
+        public void LoadVariables(DialogueMemoryVariables dialogueMV)
+        {
+            //Adiciona variaveis floats
+            for (int i = 0; i < dialogueMV.floatVarName.Length; i++)
+            {
+                SetValue(dialogueMV.floatVarName[i], dialogueMV.floatVar[i]);
+            }
+
+            //Adiciona variaveis bools
+            for (int i = 0; i < dialogueMV.boolVarName.Length; i++)
+            {
+                SetValue(dialogueMV.boolVarName[i], dialogueMV.boolVar[i]);
+            }
+
+            //Adiciona variaveis strings
+            for (int i = 0; i < dialogueMV.stringVarName.Length; i++)
+            {
+                SetValue(dialogueMV.stringVarName[i], dialogueMV.stringVar[i]);
+            }
+        }
+
+        public DialogueMemoryVariables SaveVariables()
+        {
+            List<string> floatVarNameAux = new List<string>();
+            List<float> floatVarAux = new List<float>();
+
+            List<string> boolVarNameAux = new List<string>();
+            List<bool> boolVarAux = new List<bool>();
+
+            List<string> stringVarNameAux = new List<string>();
+            List<string> stringVarAux = new List<string>();
+
+            foreach (var variable in variables)
+            {
+                switch (variable.Value.type)
+                {
+                    case Yarn.Value.Type.Number:
+                        floatVarNameAux.Add(variable.Key);
+                        floatVarAux.Add(variable.Value.AsNumber);
+                        break;
+
+                    case Yarn.Value.Type.String:
+                        stringVarNameAux.Add(variable.Key);
+                        stringVarAux.Add(variable.Value.AsString);
+                        break;
+
+                    case Yarn.Value.Type.Bool:
+                        boolVarNameAux.Add(variable.Key);
+                        boolVarAux.Add(variable.Value.AsBool);
+                        break;
+
+                    case Yarn.Value.Type.Null:
+                        break;
+                }
+            }
+
+            DialogueMemoryVariables dialogueMV = new DialogueMemoryVariables
+            {
+                //Valores em float
+                floatVarName = floatVarNameAux.ToArray(),
+                floatVar = floatVarAux.ToArray(),
+
+                //Valores em string
+                stringVarName = stringVarNameAux.ToArray(),
+                stringVar = stringVarAux.ToArray(),
+
+                //Valores booleanos
+                boolVarName = boolVarNameAux.ToArray(),
+                boolVar = boolVarAux.ToArray()
+            };
+
+            return dialogueMV;
         }
 
         [YarnCommand("print")]
@@ -258,5 +335,17 @@ namespace Yarn.Unity {
         {
             return ((IEnumerable<KeyValuePair<string, Value>>)variables).GetEnumerator();
         }
+    }
+
+    public class DialogueMemoryVariables
+    {
+        public string[] floatVarName;
+        public float[] floatVar;
+
+        public string[] boolVarName;
+        public bool[] boolVar;
+
+        public string[] stringVarName;
+        public string[] stringVar;
     }
 }

@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
 
     //Componentes de Porã
     private Rigidbody2D myRB;
-    private new Collider2D collider;
+    private Collider2D collider;
 
     //Dialogo
     private DialogueRunner dialogueRunner;

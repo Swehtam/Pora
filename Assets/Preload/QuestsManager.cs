@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class QuestsManager : MonoBehaviour
 {
-    //Variavel usada para realizar animação quandp recebe missão nova
+    //Variavel usada para realizar animação quando recebe missão nova (usado pelo UIManager)
     public bool newQuest = false;
     //GameObject do "_quests" para adicionar componente de ActiveQuest assim que tiver missão nova
     public GameObject _quests;
@@ -21,7 +21,10 @@ public class QuestsManager : MonoBehaviour
     void Start()
     {
         questEvents = InstancesManager.singleton.GetQuestEvents();
-        LoadQuests();
+        if (isTesting)
+        {
+            LoadQuests(testingQuestsID.ToArray());
+        }
     }
 
     /// <summary>
@@ -122,14 +125,24 @@ public class QuestsManager : MonoBehaviour
     /// <summary>
     /// Metodo a ser chamado para carregar todas as quests que foram completadas e ativadas.
     /// </summary>
-    private void LoadQuests()
+    public void LoadQuests(int[] quests)
     {
-        if (isTesting)
+        foreach(int questID in quests)
         {
-            foreach(int questID in testingQuestsID)
-            {
-                completedQuests.Add(questID, true);
-            }
+            completedQuests.Add(questID, true);
         }
     }
+
+    public int[] SaveQuests()
+    {
+        int[] questsAux = new int[completedQuests.Count];
+        int i = 0;
+        foreach (int key in completedQuests.Keys)
+        {
+            questsAux[i] = key;
+            i++;
+        }
+
+        return questsAux;
+    } 
 }

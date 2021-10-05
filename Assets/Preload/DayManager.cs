@@ -19,9 +19,14 @@ public class DayManager : MonoBehaviour
 
     private void Start()
     {
-        LoadDay();
         memoryVariables = InstancesManager.singleton.GetInMemoryVariableStorage();
-        memoryVariables.SetValue("$day", gameDay);
+
+        if (isTesting)
+        {
+            LoadDay(testDay);
+            gameDayShift = testDayShift;
+        }
+        
         //Atualiza qual a variavel do horario do dia
         UpdateDayShitVariable();
     }
@@ -55,6 +60,9 @@ public class DayManager : MonoBehaviour
     {
         gameDay++;
         gameDayShift = 0;
+        memoryVariables.SetValue("$day", gameDay);
+        UpdateDayShitVariable();
+        SaveLoadEvents.SaveGame();
     }
 
     //Metodo para atualizar o turno do dia
@@ -87,14 +95,11 @@ public class DayManager : MonoBehaviour
     }
 
     //Metodo para atualizar o dia salvo ao fechar o jogo
-    public void LoadDay()
+    public void LoadDay(int day)
     {
         //Chamar de algum arquivo ou algo do tipo o dia em que o player salvo a ultima vez e atualizar na variavel de dia
-        if (isTesting)
-        {
-            gameDay = testDay;
-            gameDayShift = testDayShift;
-        }
+        gameDay = day;
+        memoryVariables.SetValue("$day", gameDay);
     }
 
     private void UpdateDayShitVariable()

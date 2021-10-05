@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Moara Controller
+  m_Controller: {fileID: 9100000, guid: 3085cc28069c2bb4b9358575cd740ae0, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: a740caae0e826e54fbc390ec7b06fd75, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a7f51104a11dc244b9ad9fd9e01a0a6e, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 7b7e7473364b4b943b12096d52fe1aba, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 6253e95031a528b4f97e71f03a3145d4, type: 2}

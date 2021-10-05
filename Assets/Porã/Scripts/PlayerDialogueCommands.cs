@@ -155,17 +155,21 @@ public class PlayerDialogueCommands : MonoBehaviour
         }
     }
 
+    [YarnCommand("setPlayerLayer")]
+    public void SetPlayerLayer(string layer)
+    {
+        playerSpriteRenderer.sortingLayerName = layer;
+    }
+
     [YarnCommand("transform")]
     public void TransformPora()
     {
-        playerSpriteRenderer.sortingLayerName = "PlayerAbove";
-        //anim.SetBool("isTransforming", true);
+        anim.SetBool("isTransforming", true);
     }
 
     [YarnCommand("transformBack")]
     public void TransformBackPora()
     {
-        playerSpriteRenderer.sortingLayerName = "Player";
-        //anim.SetBool("isTransforming", true);
+        anim.SetBool("isTransforming", false);
     }
 }

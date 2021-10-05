@@ -1356,6 +1356,7 @@ GameObject:
   m_Component:
   - component: {fileID: 46770415}
   - component: {fileID: 46770418}
+  - component: {fileID: 46770421}
   - component: {fileID: 46770419}
   - component: {fileID: 46770420}
   - component: {fileID: 46770417}
@@ -1375,11 +1376,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 46770414}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.0544147, y: 2.5244942, z: 0}
+  m_LocalPosition: {x: -1.0544147, y: 2.0244942, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 108927790}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &46770416
 MonoBehaviour:
@@ -1455,7 +1456,8 @@ SpriteRenderer:
   m_SortingLayerID: 1441844135
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f6e9c29d02626a7419569204209d6676, type: 3}
+  m_Sprite: {fileID: -1998678408493766277, guid: a7c0b379c51b93c46931d2a167bdf6da,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1483,14 +1485,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1020408, y: 2}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 0.8265306, y: 1.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.75}
   m_EdgeRadius: 0
 --- !u!61 &46770420
 BoxCollider2D:
@@ -1509,15 +1511,34 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1020408, y: 2}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 0.8265306, y: 1.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 2.5}
+  m_Size: {x: 2.5, y: 2.5}
   m_EdgeRadius: 0
+--- !u!95 &46770421
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46770414}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: a16dcd15c5a07ec40ba34d2b6a98321d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &85163182
 GameObject:
   m_ObjectHideFlags: 0
@@ -1590,8 +1611,8 @@ Transform:
   m_LocalPosition: {x: 8.054415, y: -8.524494, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 46770415}
   - {fileID: 1183355613}
+  - {fileID: 46770415}
   - {fileID: 886017642}
   - {fileID: 1265396463}
   - {fileID: 1186715265}
@@ -2202,6 +2223,7 @@ GameObject:
   - component: {fileID: 886017645}
   - component: {fileID: 886017644}
   - component: {fileID: 886017643}
+  - component: {fileID: 886017646}
   m_Layer: 0
   m_Name: Moara
   m_TagString: Untagged
@@ -2301,7 +2323,7 @@ SpriteRenderer:
   m_SortingLayerID: 1441844135
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2c403d9737a9f6947bf3cad8cbe74616, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4818c477be1738f4fbf78f89b38f53f6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2312,6 +2334,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &886017646
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886017641}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 23d87d9691d6163429d6cdc543923e6b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &911787632
 GameObject:
   m_ObjectHideFlags: 0
@@ -3064,7 +3105,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 108927790}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1183355614
 MonoBehaviour:
