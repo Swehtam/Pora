@@ -24,12 +24,18 @@ public class SleepEffectController : MonoBehaviour
             return;
         }
 
-        if(textID == 1)
+        if (textID == 1)
+        {
+            transitionText.text = "ALGUNS DIAS ATRÁS\nDIA 1";
+            return;
+        }
+
+        if (textID == 2)
         {
             transitionText.text = "DE VOLTA AO PRESENTE - CASA";
             return;
         }
 
-        transitionText.text = "Dia " + dayManager.GetDay();
+        transitionText.text = "DIA " + dayManager.GetDay();
     }
 }

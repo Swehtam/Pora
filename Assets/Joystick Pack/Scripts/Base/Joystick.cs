@@ -146,7 +146,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         return Vector2.zero;
     }
 
-    public void ResetJoystick()
+    public virtual void ResetJoystick()
     {
         input = Vector2.zero;
         handle.anchoredPosition = Vector2.zero;

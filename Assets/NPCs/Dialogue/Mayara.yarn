@@ -15,29 +15,53 @@ tags:
 colorID: 0
 position: 658,-153
 ---
-<<if visited ("Introducao.Cume") is true>>
-    <<if visited("Mayara.Introducao") is false>>
-        Porã: Bom dia dona Mayara.
-        Mayara: Minha nossa! Que susto, Porã! De onde é que você saiu criança?
-        Porã: Desculpe, dona Mayara, mas é que eu estava procurando Moara, a senhora tem alguma ideia de onde possa estar? 
-        Mayara: Hmmmm. Faz um tempinho que não vejo Moara, acho que desde o café da manhã.
-        Mayara: Você já olhou lá em cima? Talvez encontre Moara ouvindo música com aqueles fones, como sempre faz. Espero que isso não afete seus ouvidos.
-        Porã: Tá certo, vou olhar. Obrigado, senhora.
-        Mayara: Ora, não precisa me chamar de senhora hehehe.
-        <<set $introductionTalkedToMayara to true>>
-
-    <<elseif visited("Introducao.QuartoMoara") is true>>
-        Porã: Não tem ninguém lá em cima.
-        Mayara: Hmmm, que estranho, não me lembro de ter visto Moara saindo. 
-        Mayara: Você já olhou na *<i>pracinha</i>*? Se não me falha a memória ouvi Moara dizer que tinha que fazer algo por lá.
-        Porã: Ainda não fui lá, mas irei agora. Obrigado senho... Dona Mayara haha.
-        Mayara: Por nada hehe.
-        <<startQuest Mayara/Quest 4>>
+<<if visited("Introducao.Cume") is true>>
+    <<if visited("Introducao.QuartoMoara") is true>>
+        [[Mayara.QuartoMoara]]
+    <<else>>
+        [[Mayara.ProcurarMoara]]
     <<endif>>
-
-    [[Mayara.Adeus]]
 <<else>>
     Mayara: *Mayara está muito focada, nem parece perceber você perto dela.*
+<<endif>>
+===
+
+title: Mayara.ProcurarMoara
+tags: 
+colorID: 0
+position: 888,-153
+---
+<<if visited("Mayara.ProcurarMoara") is false>>
+    Porã: Bom dia dona Mayara.
+    Mayara: Minha nossa! Que susto, Porã! De onde é que você saiu criança?
+    Porã: Desculpe, dona Mayara, mas é que eu estava procurando Moara, a senhora tem alguma ideia de onde possa estar? 
+    Mayara: Hmmmm. Faz um tempinho que não vejo Moara, acho que desde o café da manhã.
+    Mayara: Você já olhou lá em cima? Talvez encontre Moara ouvindo música com aqueles fones, como sempre faz. Espero que isso não afete seus ouvidos.
+    Porã: Tá certo, vou olhar. Obrigado, senhora.
+    Mayara: Ora, não precisa me chamar de senhora hehehe.
+    <<set $introductionTalkedToMayara to true>>
+<<else>>
+    Mayara: Você ja olhou se Moara está lá em cima?
+<<endif>>
+===
+
+title: Mayara.QuartoMoara
+tags: 
+colorID: 0
+position: 888,-153
+---
+<<if visited("Mayara.QuartoMoara") is false>>
+    Porã: Não tem ninguém lá em cima.
+    Mayara: Hmmm, que estranho, não me lembro de ter visto Moara saindo. 
+    Mayara: Você já olhou nos *<i>banquinhos</i>* da praça? Se não me falha a memória ouvi Moara dizer que tinha que fazer algo por lá.
+    Porã: Ainda não fui lá, mas irei agora. Obrigado senho... Dona Mayara haha.
+    Mayara: Por nada hehe.
+    Mayara: *Mayara volta ao seu trabalho.*
+    <<set $introductionSquare to true>>
+    <<startQuest Mayara/Quest 4>>
+<<else>>
+    Mayara: Eu acho que ouvir Moara falando que tinha algo para fazer naqueles banquinhos da praça.
+    Mayara: *Mayara volta ao seu trabalho.*
 <<endif>>
 ===
 

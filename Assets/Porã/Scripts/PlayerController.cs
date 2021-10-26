@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Yarn.Unity;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class PlayerController : MonoBehaviour
 
     //Componentes de Porã
     private Rigidbody2D myRB;
-    private Collider2D collider;
+    private Collider2D playerCollider;
 
     //Dialogo
     private DialogueRunner dialogueRunner;
@@ -33,7 +34,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         myRB = GetComponent<Rigidbody2D>();
-        collider = GetComponent<Collider2D>();
+        playerCollider = GetComponent<Collider2D>();
 
         if (dialogueRunner == null)
             dialogueRunner = InstancesManager.singleton.GetDialogueRunnerInstance();
@@ -58,10 +59,36 @@ public class PlayerController : MonoBehaviour
         }
 
         //Seta o moveInput com relação a horizontal, caso tenha
-        if (joystick.Horizontal >= .2f)
+        //Se o valor absoluto do horizontal for maior do que o valor absoluto do vertical, então anda na horizontal
+        if (Math.Abs(joystick.Horizontal) >= Math.Abs(joystick.Vertical))
+        {
+            if(joystick.Horizontal >= .2f)
+            {
+                moveInput = new Vector2(1f, 0);
+            }
+            else if (joystick.Horizontal <= -.2f)
+            {
+                moveInput = new Vector2(-1f, 0);
+            }
+        }
+        //Se o valor absoluto do vertical for maior do que o valor absoluto do horizontal, então anda na vertical
+        else if (Math.Abs(joystick.Vertical) > Math.Abs(joystick.Horizontal))
+        {
+            if (joystick.Vertical >= .2f)
+            {
+                moveInput = new Vector2(0, 1f);
+            }
+            else if (joystick.Vertical <= -.2f)
+            {
+                moveInput = new Vector2(0, -1f);
+            }
+        }
+
+        /*if (joystick.Horizontal >= .2f)
         {
             moveInput = new Vector2(moveInput.x + 1f, moveInput.y);
-        }else if (joystick.Horizontal <= -.2f)
+        }
+        else if (joystick.Horizontal <= -.2f)
         {
             moveInput = new Vector2(moveInput.x - 1f, moveInput.y);
         }
@@ -74,10 +101,10 @@ public class PlayerController : MonoBehaviour
         else if (joystick.Vertical <= -.2f)
         {
             moveInput = new Vector2(moveInput.x, moveInput.y - 1f);
-        }
+        }*/
 
         //Normaliza para quando andar nas diagonais nao estar muito rapido
-        moveInput.Normalize();
+        //moveInput.Normalize();
         moveInput *= moveSpeed;
 
         if (moveInput.x != 0 || moveInput.y != 0)
@@ -118,7 +145,7 @@ public class PlayerController : MonoBehaviour
     public void SitPlayer()
     {
         //Deixa o collider como trigger para não bater quando for sentar
-        collider.isTrigger = true;
+        playerCollider.isTrigger = true;
         playerSpriteRenderer.sortingOrder = 1;
         //Look Up
         lastMove = new Vector2(0f, 1f);
@@ -132,7 +159,7 @@ public class PlayerController : MonoBehaviour
         //Caso não esteja acontecendo dialogo ou minigame
         //Fazer com q o player não esteja sentado e a ordem do layer volte pra 0
         //Voltar ao normal o collider
-        collider.isTrigger = false;
+        playerCollider.isTrigger = false;
         playerSpriteRenderer.sortingOrder = 0;
         anim.SetBool("isSitting", false);
     }

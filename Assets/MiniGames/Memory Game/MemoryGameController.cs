@@ -53,9 +53,6 @@ public class MemoryGameController : MonoBehaviour
         RemoveUsedIndexes();
 
         memoryGameClassesInterface.memoryGameUI.DisplayPhaseLevel(phaseLevel);
-
-        if (!SwimDodgeTutorialPanel.IsFirstTutorial)
-            memoryGameClassesInterface.timer.StartTimer(150);
     }
 
     public bool TwoTokensUp()

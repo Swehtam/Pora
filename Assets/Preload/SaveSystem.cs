@@ -11,7 +11,7 @@ public class SaveSystem : MonoBehaviour
     public GameSave gameSave;
     public bool fileLoaded;
 
-    void Awake()
+    void Start()
     {
         SaveLoadEvents.OnGameSave += SaveData;
         SaveLoadEvents.OnGameLoad += LoadData;

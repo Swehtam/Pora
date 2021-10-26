@@ -120,26 +120,27 @@ public class YarnPlace : MonoBehaviour
             //Pega a variavel se existir,
             //Se nao existir vai vir null, ou seja tipo diferente, então nao precisa comparar os valores
             Yarn.Value memoryValue = inMemoryVariableStorage.GetValue(va.name);
+            //Se não existir a variavel então retorna que não pode spawnar
+            if(memoryValue == null)
+            {
+                hasConditionsCompleted = false;
+                break;
+            }
+
             if(va.type == memoryValue.type)
             {
                 string stringValue = "";
-                switch (va.type)
+                stringValue = va.type switch
                 {
-                    case Yarn.Value.Type.Bool:
-                        stringValue = memoryValue.AsBool.ToString();
-                        break;
-                    case Yarn.Value.Type.Number:
-                        stringValue = memoryValue.AsNumber.ToString();
-                        break;
-                    case Yarn.Value.Type.String:
-                        stringValue = memoryValue.AsString;
-                        break;
-                    default:
-                        stringValue = "<unknown>";
-                        break;
-                }
+                    Yarn.Value.Type.Bool => memoryValue.AsBool.ToString(),
+                    Yarn.Value.Type.Number => memoryValue.AsNumber.ToString(),
+                    Yarn.Value.Type.String => memoryValue.AsString,
+                    Yarn.Value.Type.Variable => "<unknown>",
+                    Yarn.Value.Type.Null => "<unknown>",
+                    _ => "<unknown>",
+                };
 
-                if(!stringValue.Equals(va.value))
+                if (!stringValue.Equals(va.value))
                 {
                     hasConditionsCompleted = false;
                     break;

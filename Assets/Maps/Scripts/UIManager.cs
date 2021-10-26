@@ -68,7 +68,6 @@ public class UIManager : MonoBehaviour
         {
             dayDisplay.text = "Dia: " + dayManager.GetDay() + ", " + dayManager.GetStringDayShift();
         }
-        
 
         //Se o dialogo estiver rodando, reseta o joystick para o player n sair andando sozinho quando acabar o dialogo
         if (dialogueRunner.IsDialogueRunning) 

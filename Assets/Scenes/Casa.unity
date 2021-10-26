@@ -927,7 +927,7 @@ MonoBehaviour:
   onContainerShow:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 336735711}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: SetActive
         m_Mode: 6
@@ -1047,6 +1047,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1575237771022280627, guid: 9e33539e221c258478632ac46126d5c9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5374037629547559027, guid: 9e33539e221c258478632ac46126d5c9,
+        type: 3}
+      propertyPath: m_text
+      value: "V\xE1 at\xE9 a sala de aula, na escola Rio Divisor, para o primeiro
+        dia de aula. Obs.: A escola fica ao lado do cume da vila e a sala de aula
+        \xE9 a primeira sala a esquerda no segundo andar da escola."
+      objectReference: {fileID: 0}
     - target: {fileID: 7857585835311770440, guid: 9e33539e221c258478632ac46126d5c9,
         type: 3}
       propertyPath: m_text
@@ -1184,12 +1196,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e33539e221c258478632ac46126d5c9, type: 3}
---- !u!1 &336735711 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6166386812829085275, guid: 9e33539e221c258478632ac46126d5c9,
-    type: 3}
-  m_PrefabInstance: {fileID: 336735708}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &339934180
 GameObject:
   m_ObjectHideFlags: 0
@@ -2350,7 +2356,8 @@ MonoBehaviour:
   arrayGoalsVariables:
   - goalType: 2
     description: "V\xE1 at\xE9 a sala de aula, na escola Rio Divisor, para o primeiro
-      dia de aula."
+      dia de aula. Obs.: A escola fica ao lado do cume da vila e a sala de aula \xE9
+      a primeira sala a esquerda no segundo andar da escola."
     currentAmount: 0
     requiredAmount: 1
     maxDistance: 0
@@ -6102,13 +6109,17 @@ CompositeCollider2D:
         Y: -15625293
       - X: 279999712
         Y: -25000000
-      - X: 270000000
-        Y: -25000294
-      - X: 269999712
+      - X: 273749952
+        Y: -25000132
+      - X: 271875008
+        Y: -28125070
+      - X: 271874720
         Y: -35000000
-      - X: 260000000
+      - X: 258124992
         Y: -34999704
-      - X: 259999712
+      - X: 258124960
+        Y: -28124938
+      - X: 256249872
         Y: -25000000
       - X: 250000000
         Y: -24999706
@@ -6122,13 +6133,17 @@ CompositeCollider2D:
         Y: 4999707
       - X: 209999712
         Y: -25000000
-      - X: 160000000
-        Y: -25000294
-      - X: 159999712
+      - X: 163749920
+        Y: -25000132
+      - X: 161875024
+        Y: -28125070
+      - X: 161874720
         Y: -35000000
-      - X: 150000000
+      - X: 148124992
         Y: -34999704
-      - X: 149999712
+      - X: 148124960
+        Y: -28124938
+      - X: 146249856
         Y: -25000000
       - X: 80000000
         Y: -24999706
@@ -6168,20 +6183,24 @@ CompositeCollider2D:
       - {x: 30.999943, y: -1.5625}
       - {x: 28, y: -1.5625587}
       - {x: 27.999943, y: -2.5}
-      - {x: 27, y: -2.500059}
-      - {x: 26.999943, y: -3.5}
-      - {x: 26, y: -3.4999409}
-      - {x: 25.999943, y: -2.5}
+      - {x: 27.374989, y: -2.5000262}
+      - {x: 27.187502, y: -2.812514}
+      - {x: 27.187443, y: -3.5}
+      - {x: 25.8125, y: -3.4999409}
+      - {x: 25.812492, y: -2.8124876}
+      - {x: 25.624973, y: -2.5}
       - {x: 25, y: -2.499941}
       - {x: 24.999943, y: -1.5625}
       - {x: 23, y: -1.5624413}
       - {x: 22.999943, y: 0.5}
       - {x: 21, y: 0.4999414}
       - {x: 20.999943, y: -2.5}
-      - {x: 16, y: -2.500059}
-      - {x: 15.999943, y: -3.5}
-      - {x: 15, y: -3.4999409}
-      - {x: 14.999943, y: -2.5}
+      - {x: 16.374985, y: -2.5000262}
+      - {x: 16.187502, y: -2.812514}
+      - {x: 16.187443, y: -3.5}
+      - {x: 14.812499, y: -3.4999409}
+      - {x: 14.812493, y: -2.8124876}
+      - {x: 14.624971, y: -2.5}
       - {x: 8, y: -2.499941}
       - {x: 7.999941, y: 0.5}
       - {x: 7, y: 0.4999414}

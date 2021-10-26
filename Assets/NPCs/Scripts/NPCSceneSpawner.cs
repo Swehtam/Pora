@@ -143,6 +143,10 @@ public class NPCSceneSpawner : MonoBehaviour
             //Pega a variavel se existir,
             //Se nao existir vai vir null, ou seja tipo diferente, então nao precisa comparar os valores
             Yarn.Value memoryValue = inMemoryVariableStorage.GetValue(ev.name);
+            //Se não existir a variavel então continua
+            if (memoryValue == null)
+                continue;
+
             if (memoryValue.type == Yarn.Value.Type.Bool)
             {
                 string stringValue = memoryValue.AsBool.ToString();
@@ -168,6 +172,10 @@ public class NPCSceneSpawner : MonoBehaviour
             //Pega a variavel se existir,
             //Se nao existir vai vir null, ou seja tipo diferente, então nao precisa comparar os valores
             Yarn.Value memoryValue = inMemoryVariableStorage.GetValue(ds.name);
+            //Se não existir a variavel então continua
+            if (memoryValue == null)
+                continue;
+
             if (memoryValue.type == Yarn.Value.Type.Bool)
             {
                 string stringValue = memoryValue.AsBool.ToString();

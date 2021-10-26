@@ -149,7 +149,7 @@ public class LoadNewScene : MonoBehaviour
                 string stringValue = memoryValue.AsBool.ToString();
                 if (stringValue.Equals("True"))
                 {
-                    //Ativa o NPC, pois tem a chance dele n estar ativo nessa cena e depois o posiciona
+                    //Diz que o player não pode entrar
                     canEnter = false;
                     break;
                 }

@@ -20,9 +20,6 @@ public class MinigameDialogue : MonoBehaviour
         {
             dialogueRunner.Add(scriptToLoad);
         }
-
-        if(!SwimDodgeTutorialPanel.IsFirstTutorial)
-            StartFirstDialogue();
     }
 
     public void StartFirstDialogue()

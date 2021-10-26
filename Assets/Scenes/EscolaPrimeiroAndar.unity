@@ -525,6 +525,90 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!1 &289797818
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 289797819}
+  - component: {fileID: 289797821}
+  - component: {fileID: 289797820}
+  m_Layer: 0
+  m_Name: Entrada Diretor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!224 &289797819
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289797818}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 774617965}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -1.5718513, y: -1.3882904}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &289797820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289797818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ed4e4894efd84549b8d924dfc9bd650, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene: 
+  exitPoint: 
+  isLoadingMiniGame: 0
+  dayShiftCondition: -1
+  scriptToLoad: {fileID: 2480198943629176163, guid: b373e1f2d36e7234a85f0a36b9f174f7,
+    type: 3}
+  notAbleToEnterNode: Escola.Diretor
+  arrayCantEnterVariables:
+  - name: $cantEnterAcirHouse
+--- !u!61 &289797821
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289797818}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.58, y: 0.58}
+    newSize: {x: 2.58, y: 0.58}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 2}
+  m_EdgeRadius: 0
 --- !u!1 &557162284
 GameObject:
   m_ObjectHideFlags: 0
@@ -705,6 +789,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1575237771022280627, guid: 9e33539e221c258478632ac46126d5c9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5827811771312014389, guid: 9e33539e221c258478632ac46126d5c9,
         type: 3}
       propertyPath: m_IsActive
@@ -918,7 +1007,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777779, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -988,6 +1077,9 @@ Transform:
   - {fileID: 573144401}
   - {fileID: 146015952}
   - {fileID: 954573279}
+  - {fileID: 289797819}
+  - {fileID: 1991694667}
+  - {fileID: 1112570214}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1136,7 +1228,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 838980411}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 54.2, y: -46.9, z: 36.935402}
+  m_LocalPosition: {x: 6.2, y: -15.6, z: 36.935402}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1139926031}
@@ -1178,8 +1270,8 @@ MonoBehaviour:
   m_LightType: 4
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 1, g: 0.7803922, b: 0.6, a: 1}
+  m_Intensity: 0.9
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000a7cbf055a5557342
@@ -1413,6 +1505,90 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointName: Saida Escola Biblioteca
   isTesting: 0
+--- !u!1 &1112570213
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1112570214}
+  - component: {fileID: 1112570216}
+  - component: {fileID: 1112570215}
+  m_Layer: 0
+  m_Name: Entrada Patio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!224 &1112570214
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112570213}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 774617965}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 9.428148, y: 4.6117096}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1112570215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112570213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ed4e4894efd84549b8d924dfc9bd650, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene: 
+  exitPoint: 
+  isLoadingMiniGame: 0
+  dayShiftCondition: -1
+  scriptToLoad: {fileID: 2480198943629176163, guid: b373e1f2d36e7234a85f0a36b9f174f7,
+    type: 3}
+  notAbleToEnterNode: Escola.Patio
+  arrayCantEnterVariables:
+  - name: $cantEnterAcirHouse
+--- !u!61 &1112570216
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112570213}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.58, y: 0.58}
+    newSize: {x: 2.58, y: 0.58}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 2}
+  m_EdgeRadius: 0
 --- !u!1 &1139926030
 GameObject:
   m_ObjectHideFlags: 0
@@ -1620,7 +1796,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.20784315, g: 0.25490198, b: 0.28235295, a: 0}
+  m_BackGroundColor: {r: 0.18431373, g: 0.1764706, b: 0.14901961, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1629,10 +1805,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.030743243
+    x: 0.06756757
     y: 0
-    width: 0.31471473
-    height: 0.3638889
+    width: 0.8648649
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -1767,8 +1943,92 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgroundColors:
   - {r: 0.20784314, g: 0.25490198, b: 0.28235295, a: 0}
-  - {r: 0.18431373, g: 0.20784315, b: 0.17254902, a: 0}
-  - {r: 0.10980393, g: 0.13725491, b: 0.227451, a: 0}
+  - {r: 0.18431373, g: 0.1764706, b: 0.14901961, a: 0}
+  - {r: 0.098039225, g: 0.11764707, b: 0.19607845, a: 0}
+--- !u!1 &1991694664
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1991694667}
+  - component: {fileID: 1991694666}
+  - component: {fileID: 1991694665}
+  m_Layer: 0
+  m_Name: Entrada Refeitorio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!114 &1991694665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991694664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ed4e4894efd84549b8d924dfc9bd650, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene: 
+  exitPoint: 
+  isLoadingMiniGame: 0
+  dayShiftCondition: -1
+  scriptToLoad: {fileID: 2480198943629176163, guid: b373e1f2d36e7234a85f0a36b9f174f7,
+    type: 3}
+  notAbleToEnterNode: Escola.Refeitorio
+  arrayCantEnterVariables:
+  - name: $cantEnterAcirHouse
+--- !u!61 &1991694666
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991694664}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.58, y: 0.58}
+    newSize: {x: 2.58, y: 0.58}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 2}
+  m_EdgeRadius: 0
+--- !u!224 &1991694667
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991694664}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 774617965}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -1.5718513, y: 9.61171}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &2060916245
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2198,13 +2458,17 @@ CompositeCollider2D:
         Y: 1874707
       - X: 76874704
         Y: 0
-      - X: 50000000
-        Y: -293
-      - X: 49999704
+      - X: 53749920
+        Y: -130
+      - X: 51875000
+        Y: -3125069
+      - X: 51874704
         Y: -10000000
-      - X: 40000000
+      - X: 38125000
         Y: -9999706
-      - X: 39999708
+      - X: 38124964
+        Y: -3124938
+      - X: 36249848
         Y: 0
       - X: 13125000
         Y: 294
@@ -2226,10 +2490,12 @@ CompositeCollider2D:
       - {x: 8.312441, y: 0.1875}
       - {x: 7.6875, y: 0.18744141}
       - {x: 7.687441, y: 0}
-      - {x: 5, y: -0.000058600002}
-      - {x: 4.999941, y: -1}
-      - {x: 4, y: -0.99994123}
-      - {x: 3.9999416, y: 0}
+      - {x: 5.3749843, y: -0.000026}
+      - {x: 5.1875, y: -0.3125138}
+      - {x: 5.187441, y: -1}
+      - {x: 3.8125, y: -0.99994123}
+      - {x: 3.8124928, y: -0.3124877}
+      - {x: 3.6249697, y: 0}
       - {x: 1.3125, y: 0.0000588}
       - {x: 1.3124415, y: 0.1875}
       - {x: 0.6875, y: 0.18744141}

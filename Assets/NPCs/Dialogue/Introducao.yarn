@@ -10,6 +10,9 @@ Porã: *<i> uaaaaah!</i>* Queria dormir mais 5 minutos.
 Porã: Mas hoje é o grande dia.
 Porã: Espero que dê tudo certo no meu plano.
 Porã: Okay vou levantar!
+<<set $cantEnterAcirHouse to true>>
+<<set $cantEnterMoaraPantry to true>>
+<<set $introductionDay to true>>
 <<startQuest Introducao-Casa/Quest 0>>
 <<placeDone Introducao-Casa>>
 ===
@@ -62,7 +65,7 @@ Porã: Porque você sempre me traz uma sensação de paz e relaxamento.
 Porã: Agora só esperar Moara chegar para colocar nosso plano em ação hehehe.
 <<zoomCamera PlayerCamera 3.0 1.0>>
 <<wait 3>>
-Porã: Hoje o dia foi muito cansativo, é bom ter esse momento para descansar um pouco.
+Porã: O dia passou muito rápido, já está de tarde. Bom... vou tirar esse momento para descansar um pouco.
 Porã: Só espero que Moara chegue logo, porque hoje é o grande dia.
 Porã: Tenho que controlar minha ansiedade, vou esperar mais um pouco...
 <<wait 3>>
@@ -88,6 +91,7 @@ Porã: ...
 Porã: Moara me paga, onde será que esse Tuiuiu se meteu?
 Porã: Não acredito que vou ter que ir atrás daquele passarinho.
 Porã: Deve estar em casa, vou até lá. A casa de Moara tem o telhado vermelho, então vai ser fácil chegar lá.
+<<set $cumeDialogue to true>>
 <<startQuest Introducao-Cume/Quest 3>>
 <<placeDone Introducao-Cume>>
 ===
@@ -97,6 +101,8 @@ tags:
 colorID: 0
 position: 668,150
 ---
+<<deactivateContainer _dialogue/DialogueRunner>>
+<<wait 1.5>>
 Porã: *<i>A porta estava aberta, então acho que não tem problema entrar.</i>*
 Porã: *<i>Dona Mayara parece estar bem animada com o trabalho, mas vindo da mãe de Moara não é de se estranhar.</i>*
 Porã: *<i>Ela deve saber aonde Moara está.</i>*
@@ -111,7 +117,6 @@ position: 700,150
 Porã: *<i>knock knock</i>*... Ninguém responde.
 Porã: *<i>Tenta abrir a porta</i>*... E a porta está trancada.
 Porã: Acho que Moara não está aqui, não escuto nenhum barulho. Vou procurar em outro lugar.
-<<set $introductionSquare to true>>
 <<placeDone Introducao-QuartoMoara>>
 ===
 
@@ -120,7 +125,7 @@ tags:
 colorID: 0
 position: 700,150
 ---
-Porã: Moara não está aqui...
+Porã: Moara também não está aqui...
 ????:CriançaTriste: ME DEIXEM EM PAZ!!
 Porã: *<i>O que foi isso?? Foi Moara??</i>*
 Porã: *<i>Acho que grito veio dali.</i>*
@@ -214,6 +219,7 @@ Acir:AcirCriança: Ninguém vai te ajudar. Todo mundo sabe que isso não é cert
 ????:Bullying3: Você é tão fraco como um roedor.
 Porã:PorãCriança: *Porã começa a chorar no cantinho.*
 <<set $firstDay to true>>
+<<set $introductionDay to false>>
 <<updateDay _app>>
 <<changeScene _loadLevel Casa 4 Cama>>
 ===

@@ -7,7 +7,7 @@ position: 421,163
 	[[Jurema.PrimeiroDia]]
 <<endif>>
 
-[[Jurema.Adeus]]
+[[Jurema.Padrão]]
 ===
 
 title: Jurema.PrimeiroDia
@@ -50,6 +50,21 @@ position: 421,163
 	Porã: Até…
 
 <<else>>
+	[[Jurema.Adeus]]
+<<endif>>
+===
+
+title: Jurema.Padrão
+tags: 
+colorID: 0
+position: 421,163
+---
+<<if $isMorningTime is true>>
+	Jurema: Bom dia Porã, você chegou bem na hora da aula.
+	Jurema: Vá sentar na sua carteira para começarmos a aula.
+<<elseif $isAfternoonTime is true>>
+	Jurema: *Jurema está arrumando os papeis de sua mesa.*
+	Jurema: Espero que tenha aprendido algo com a aula de hoje.
 	[[Jurema.Adeus]]
 <<endif>>
 ===

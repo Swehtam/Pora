@@ -29,7 +29,7 @@ position: 421,163
 <<endif>>
 
 <<if $isAfternoonTime is true>>
-	Piatã: VocÊ vai me ajudar com a fazenda hoje?	
+	Piatã: Você vai me ajudar com a fazenda hoje?	
 <<endif>>
 
 <<if $isNightTime is true>>
@@ -356,7 +356,7 @@ Piatã: Boa noite filhote, durma bem.
 
 Porã: Boa noite, pai...
 
-<<startQuest NPCs/Piatã/Quest-FazendaPiata 9>>
+<<startQuest NPCs/Piatã/Quest-PorãEspelho 9>>
 <<set $farmDone to false>>
 <<set $farmCultiveGiveUp to false>>
 <<set $farmCultiveFinish to false>>

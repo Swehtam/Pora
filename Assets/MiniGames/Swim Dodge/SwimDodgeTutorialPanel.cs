@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class SwimDodgeTutorialPanel : MonoBehaviour
 {
-    public UnityEvent onFirstTimeTutorialDone;
+    public UnityEvent onTutorialDone;
 
     [SerializeField] private List<GameObject> tutorialImages;
     [SerializeField] private GameObject tutorialPanel;
@@ -14,19 +14,14 @@ public class SwimDodgeTutorialPanel : MonoBehaviour
     [SerializeField] private GameObject rightButton;
     [SerializeField] private GameObject playButton;
 
-    [SerializeField] private SwimDodgeClassesInterface swimDodgeClassesInterface;
     private int lastImageOpen = 0;
     
-    public static bool IsFirstTutorial = true;
     public static bool IsTutorialRunning = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (IsFirstTutorial)
-        {
-            StartTutorial();
-        }
+        StartTutorial();
     }
 
     public void StartTutorial()
@@ -50,15 +45,7 @@ public class SwimDodgeTutorialPanel : MonoBehaviour
         playButton.SetActive(false);
         tutorialPanel.SetActive(false);
 
-        //Se for o primeiro tutorial
-        if (IsFirstTutorial)
-        {
-            //Sinaliza que o tutorial acabou
-            IsFirstTutorial = false;
-            onFirstTimeTutorialDone?.Invoke();
-            swimDodgeClassesInterface?.minigameDialogue.StartFirstDialogue();
-        }
-
+        onTutorialDone?.Invoke();
         IsTutorialRunning = false;
     }
 
@@ -69,11 +56,7 @@ public class SwimDodgeTutorialPanel : MonoBehaviour
         {
             rightButton.SetActive(false);
 
-            //Se for o primeiro tutorial então aparece com o botão de jogar
-            if (IsFirstTutorial)
-            {
-                playButton.SetActive(true);
-            }
+            playButton.SetActive(true);
         }
 
         //Sempre que selecionar esse metodo ativa o botão da esquerda

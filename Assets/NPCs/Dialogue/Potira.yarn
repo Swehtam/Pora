@@ -212,9 +212,7 @@ position: 500,163
 	<<setDayShift _app 1>>
 	<<flashbackScene _loadLevel FlashBackCume1 SaidaFlashBackCume1 1>>
 <<else>>
-	Potira: Seu pai está esperando por você.
-	Potira: Divirta-se, meu xodó.
-	<<startQuest NPCs/Potira/Quest-FazendaPiata 8>>
+	[[Potira.Padrao]]
 <<endif>>
 ===
 
@@ -272,7 +270,7 @@ Potira: Por que você diz isso, filhote?
 
 	Potira: *Potira nota que falou algo errado*
 	Potira: Não se preocupe meu xodó, um dia isso tudo vai se resolver.
-	Potira: Nem que eu mesma tenho que resolver.
+	Potira: Nem que eu mesma tenha que resolver.
 	Potira: Pode contar comigo. Eu sou sua mãe, estou aqui para isso.
 
 	Porã: *Porã fica menos triste*
@@ -335,6 +333,6 @@ Porã: *Eu tenho que ter paciência com todo mundo, mas ninguém tem paciência 
 <<endif>>
 
 <<set $piataFarmTalk to true>>
-<<startQuest NPCs/Potira/Quest-PorãEspelho 8>>
+<<startQuest NPCs/Potira/Quest-FazendaPiata 8>>
 <<placeDone Potira-PrimeiroDia>>
 ===

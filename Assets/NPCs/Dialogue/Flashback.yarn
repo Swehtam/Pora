@@ -191,5 +191,5 @@ Acir:AcirCriança: *Acir fica triste e deixa uma lágrima escorrer*
 <<wait 1>>
 <<disableNPC NPCs/Acir-Criança>>
 <<set $isPoraAcirFlashbackDone to true>>
-<<sleepTransition _loadLevel Casa FlashbackPoraAcir 1>>
+<<sleepTransition _loadLevel Casa FlashbackPoraAcir 2>>
 ===

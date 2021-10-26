@@ -7,6 +7,7 @@ using TMPro;
 public class RhythmUIManager : MonoBehaviour
 {
     public Animator piataAnimator;
+    public GameObject pauseButton;
     public GameObject lostPanel;
 
     public Animator timerAnimator;
@@ -27,9 +28,6 @@ public class RhythmUIManager : MonoBehaviour
             player.PlayingMinigame();
 
         RhythmEvents.OnNoteHittable += NoteHittable;
-
-        if (!SwimDodgeTutorialPanel.IsFirstTutorial)
-            StartTimer();
     }
 
     void Update()
@@ -37,6 +35,7 @@ public class RhythmUIManager : MonoBehaviour
         if (timerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Start_Timer") 
             && timerAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
         {
+            pauseButton.SetActive(true);
             RhythmMinigameManager.singleton.StartMinigame();
             timerAnimator.SetTrigger("End");
         }

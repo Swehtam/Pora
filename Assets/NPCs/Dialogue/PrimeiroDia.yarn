@@ -81,6 +81,7 @@ position: 421,163
 Porã: Que dia longo, eu só quero descansar...
 Porã: Deitar na minha cama e esquecer que isso tudo aconteceu...
 Porã: Mas eu não consigo tirar isso tudo da cabeça...
+Porã: *Porã começa a refletir enquanto anda pelo seu quarto*
 
 <<movePlayerTo Porã 0 2.2>>
 <<wait 2.3>>
@@ -107,7 +108,7 @@ Porã: Eu tentei brincar com outras coisas, mas a culpa não é minha se eu não
 <<movePlayerTo Porã 1 2.2>>
 <<wait 2.3>>
 <<lookToSide Porã left>>
-Porã: Voltei para casa e minha mãe continuou insitindo em dizer que eu sou o "lobinho" dela.
+Porã: Voltei para casa e minha mãe continuou insistindo em dizer que eu sou o "lobinho" dela.
 Porã: Sei que ela não faz por mal... E que ela quer me ajudar...
 Porã: *A voz de Porã começa a falhar*
 Porã: Mas... Eu não sei ser o "lobinho" que ela quer...
@@ -149,13 +150,14 @@ Porã: *Porã fecha os olhos*
 <<wait 1>>
 Porã: *Porã começa a imaginar como ele gostaria de se enxergar, quando ele abrisse os olhos*
 <<transform Porã>>
-<<wait 2>>
-Porã: Tudo seria tão mais fácil se eu tivesse nascido assim...
-Porã: *Porã fica triste*
-Porã: *Oof! Porã solta um suspiro profundo*
+<<wait 7>>
+Porã:PorãCapivara: Tudo seria tão mais fácil se eu tivesse nascido assim...
+Porã:PorãCapivara: Sem as orelhas pontudas, o pelo grande e laranja e o focinho longo e fino.
+Porã:PorãCapivara: *Porã fica triste*
+Porã:PorãCapivara: *Oof! Porã solta um suspiro profundo*
 <<transformBack Porã>>
-<<wait 2>>
-Porã: *Abre os olhos e se olha no espelho*
+<<wait 3.5>>
+Porã: *Porã abre os olhos e se olha no espelho*
 <<lightenTheScene SceneManager>>
 <<wait 1>>
 <<setPlayerLayer Porã Player>>
@@ -172,4 +174,5 @@ Porã: É melhor eu ir dormir, não aguento mais esse dia...
 <<set $classDone to false>>
 <<updateDay _app>>
 <<changeScene _loadLevel Casa 2 Cama>>
+<<placeDone PrimeiroDia-Espelho>>
 ===

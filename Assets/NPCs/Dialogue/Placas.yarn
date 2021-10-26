@@ -19,7 +19,7 @@ tags:
 colorID: 0
 position: 370,132
 ---
-<i> Casa da família Piatã e Potira Lobo-Guará.</i>
+<i> Casa da Piatã e Potira Lobo-guará.</i>
 <i> Piatã vende frutas e vegetais para todos da vila.</i>
 <i> Potira vende todos os tipos de flores para as pessoas da vila.</i>
 <i> Sejam bem vindos.</i>
@@ -30,9 +30,20 @@ tags:
 colorID: 0
 position: 370,132
 ---
-<i> Casa da família Mayara e Ubirajara Tuiuiú.</i>
+<i> Casa de Mayara e Ubirajara Tuiuiú.</i>
 <i> Mayara é geografa, responsável por fazer o mapeamento da vila.</i>
 <i> Ubirajara vende peixes para todos da vila.</i>
+<i> Sejam bem vindos.</i>
+===
+
+title: Placas.CasaAcir
+tags: 
+colorID: 0
+position: 370,132
+---
+<i> Casa de Jurema e Moacir Onça-pintada.</i>
+<i> Jurema é professora na Escola Rio Divisor.</i>
+<i> Moacir é o prefeito da Vila Cantinho do Rio.</i>
 <i> Sejam bem vindos.</i>
 ===
 
@@ -52,4 +63,48 @@ position: 370,132
 ---
 <i> Escola Rio Divisor.</i>
 <i> Horários - Qualquer dia de manhã.</i>
+===
+
+title: Fechado
+tags: 
+colorID: 0
+position: 370,132
+---
+<i> A porta está trancanda, você não pode entrar ai. </i>
+===
+
+title: Escola.Diretor
+tags: 
+colorID: 0
+position: 370,132
+---
+<i> Sala do diretor da Escola Rio Divisor. </i>
+<i> A porta está fechada. </i>
+===
+
+title: Escola.Patio
+tags: 
+colorID: 0
+position: 370,132
+---
+<i> Pátio da Escola Rio Divisor. </i>
+<i> A porta está fechada. </i>
+===
+
+title: Escola.Refeitorio
+tags: 
+colorID: 0
+position: 370,132
+---
+<i> Refeitório da Escola Rio Divisor. </i>
+<i> A porta está fechada. </i>
+===
+
+title: Escola.SalaAula
+tags: 
+colorID: 0
+position: 370,132
+---
+<i> Sala de aula de outra turma. </i>
+<i> A porta está fechada. </i>
 ===
